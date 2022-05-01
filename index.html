@@ -519,14 +519,14 @@
     $(function () {
         new DPlayer({
             container: document.getElementById('dplayer'),
-            autoplay: 'false' === 'true',
+            autoplay: 'true' === 'true',
             theme: '#42b983',
             loop: 'false' === 'true',
             lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
             preload: 'auto',
             volume: Number('0.7'),
             video: {
-                url: '',
+                url: '/medias/%E6%B2%BB%E6%84%88%E7%B3%BB%E7%9F%AD%E7%89%87.mp4',
                 pic: '',
                 thumbnails: ''
             }
@@ -695,7 +695,7 @@
     
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
+                   server="kugou"
                    type="playlist"
                    id="503838841"
                    fixed='true'
