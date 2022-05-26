@@ -1792,7 +1792,7 @@ thead {
 }
 
 .other-skills .sub-title {
-    font-size: 1.5rem;
+    font-size: 2rem; /* 1.5rem; */
 }
 
 .other-skills .tag-chips {
