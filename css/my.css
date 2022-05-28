@@ -1,10 +1,11 @@
 /* Here is your custom css styles. */
 
 @font-face {
-    font-family: 'AaGaoBaiQiQiu';
-    src: url('../fonts/AaGaoBaiQiQiu.ttf');
+    font-family: "Aa漫语手写体";
+    src: url("../fonts/Aa漫语手写体.ttf") format("truetype");
 }
 
 body {
-    font-family: 'AaGaoBaiQiQiu';
+    font-family: "Aa漫语手写体" !important;
+    font-weight: bold;
 }
