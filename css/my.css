@@ -1,10 +1,10 @@
 /* Here is your custom css styles. */
 
 @font-face {
-    font-family: 'Aa告白气球体';
-    src: url('../fonts/Aa告白气球体.ttf');
+    font-family: 'AaGaoBaiQiQiu';
+    src: url('../fonts/AaGaoBaiQiQiu.ttf');
 }
 
 body {
-    font-family: 'Aa告白气球体';
+    font-family: 'AaGaoBaiQiQiu';
 }
