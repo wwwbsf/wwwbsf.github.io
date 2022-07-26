@@ -399,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    296
+                    565
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -449,6 +449,20 @@
 <li>有状态组件(StatefulWidget)，界面会发生变化，例如Scrollable、Animatable等。</li>
 </ul>
 </li>
+<li>重写Widget的build方法构建：<code>@protected Widget build(BuildContext context);</code>。<ul>
+<li>构建组件即创建一个Widget，返回值也是一个Widget对象，都属于Widget的实例。</li>
+<li>BuildContext即构建Widget上下文获取数据，每一个BuildContext对应一个Widget。<ul>
+<li>Theme.of(context)：获取主题。</li>
+<li>Navigator.push(context, route)：压栈。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>状态(State)是一个组件的UI数据模型，是组件渲染时的数据依据。<ul>
+<li>Flutter程序的运行可看成一个巨大的状态机，用户的操作、请求API和系统事件的触发都是触发点。</li>
+<li>触发点通过调用setState方法推动状态机进行响应，实现不同的状态渲染UI，让UI与数据保持一致。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -467,6 +481,18 @@
   <span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-1-环境搭建"><a href="#1-1-环境搭建" class="headerlink" title="1-1 环境搭建"></a>1-1 环境搭建</h2><ul>
+<li>环境搭建<ul>
+<li>虚拟机下Windows7企业版(Win7-Enterprise-SP1-x64-DVD-CN)。</li>
+<li>Flutter依赖的命令行工具Git for Windows：<a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.37.1.windows.1/Git-2.37.1-64-bit.exe">Git-2.37.1-64-bit.exe</a>。</li>
+<li>Flutter SDK：<a target="_blank" rel="noopener" href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.0.5-stable.zip">Flutter-Windows-3.0.5-Stable.zip</a>。<ul>
+<li>解压到指定位置，找到文件夹中的flutter_console.bat文件，双击运行。</li>
+<li>注意不要将Flutter SDK安装到高权限的路径下，例如C盘的Program Files。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
@@ -1067,7 +1093,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">296</span>&nbsp;字
+                class="white-color">565</span>&nbsp;字
             
             
             
