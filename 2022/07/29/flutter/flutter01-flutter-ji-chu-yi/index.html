@@ -399,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    860
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -509,18 +509,38 @@
 <li>Dart插件：提供代码分析(输入代码时进行验证、代码补全等)。</li>
 </ul>
 </li>
-<li>安装Visual Studio：<a target="_blank" rel="noopener" href="https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&amp;channel=Release&amp;version=VS2022&amp;source=VSLandingPage&amp;includeRecommended=true&amp;cid=2030:343f40c4-6440-4648-9437-873b3702c495">VisualStudioSetup.exe</a>。</li>
-<li>可能需要提前安装.Net Framework 4.6或更高版本：<a target="_blank" rel="noopener" href="https://download.microsoft.com/download/1/4/A/14A6C422-0D3C-4811-A31F-5EF91A83C368/NDP46-KB3045560-Web.exe">NDP46-KB3045560-Web.exe</a>。</li>
 </ul>
 </li>
-<li>命令模式下输入<code>flutter doctor</code>进行查看。<ul>
-<li></li>
-<li></li>
+<li>文件夹下鼠标右键选<code>Git Bash Here</code>，命令窗口模式输入<code>flutter doctor</code>进行查看。<ul>
+<li>Android SDK缺少命令行工具，需要设置环境变量指定对应的路径。</li>
+<li>变量Path中添加：变量值<code>;C:\Program\Android\SDK</code>。</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+<pre class="line-numbers language-git"><code class="language-git">$ flutter doctor
+Flutter assets will be downloaded from https://storage.flutter-io.cn/. Make sure you trust this source!
+Doctor summary (to see all details, run flutter doctor -v):
+[√] Flutter (Channel stable, 3.0.5, on Microsoft Windows [版本 6.1.7601], locale zh-CN)
+[!] Android toolchain - develop for Android devices (Android SDK version 33.0.0)
+    X cmdline-tools component is missing
+      Run `path/to/sdkmanager --install <span class="token string">"cmdline-tools;latest"</span>`
+      See https://developer.android.com/studio/command-line for more details.
+    X Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/docs/get-started/install/windows#android-setup for more details.
+[√] Chrome - develop for the web
+[X] Visual Studio - develop for Windows
+    X Visual Studio not installed; this is necessary for Windows development.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the <span class="token string">"Desktop development with C++"</span> workload, including all of its default components
+[√] Android Studio (version 2021.2)
+[√] Connected device (2 available)
+[√] HTTP Host Availability
+
+! Doctor found issues in 2 categories.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1087,8 +1107,8 @@
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="2748492595"
+                   type="artist"
+                   id="1094010"
                    fixed='true'
                    autoplay='true'
                    theme='#42b983'
@@ -1121,7 +1141,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">860</span>&nbsp;字
+                class="white-color">1.1k</span>&nbsp;字
             
             
             
