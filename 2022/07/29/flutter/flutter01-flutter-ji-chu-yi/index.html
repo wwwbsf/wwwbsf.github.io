@@ -399,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -483,22 +483,22 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-1-环境搭建"><a href="#1-1-环境搭建" class="headerlink" title="1-1 环境搭建"></a>1-1 环境搭建</h2><ul>
 <li>环境搭建<ul>
-<li>虚拟机下Win7企业版(Win7-Enterprise-SP1-x64-DVD)、Chrome。</li>
-<li>Flutter依赖的命令行工具Git for Windows：<a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.37.1.windows.1/Git-2.37.1-64-bit.exe">Git-2.37.1-64-bit.exe</a>。</li>
+<li>虚拟机下Win10企业版(<a href="ed2k://|file|cn_windows_10_business_editions_version_1909_x64_dvd_0ca83907.iso|5275090944|9BCD5FA6C8009E4D0260E4B23008BD47|/">Win10-1909-Business-Editions-DVD-x64</a>)、Chrome。</li>
+<li>下载并安装Flutter依赖的命令行工具Git for Windows：<a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.37.1.windows.1/Git-2.37.1-64-bit.exe">Git-2.37.1-64-bit.exe</a>。</li>
 <li>Flutter SDK：<a target="_blank" rel="noopener" href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.0.5-stable.zip">Flutter-Windows-3.0.5-Stable.zip</a>。<ul>
 <li>解压到指定位置，找到文件夹中的flutter_console.bat文件，双击运行。</li>
 <li>注意不要将Flutter SDK安装到高权限路径下，例如C盘的Program Files。</li>
 </ul>
 </li>
-<li>添加环境变量：开始—&gt;控制面板—&gt;系统—&gt;高级系统设置—&gt;环境变量。<ul>
+<li>添加环境变量：搜索控制面板—&gt;用户账户—&gt;更改我的环境变量—&gt;环境变量。<ul>
 <li>新建变量名<code>PUB_HOSTED_URL</code>：变量值<code>https://pub.flutter-io.cn/</code>。</li>
 <li>新建变量名<code>FLUTTER_STORAGE_BASE_URL</code>：变量值<code>https://storage.flutter-io.cn/</code>。</li>
-<li>变量Path中添加：变量值<code>;C:\Program\Flutter\bin</code>(即Flutter SDK安装路径的bin目录)。</li>
+<li>变量Path中添加：变量值<code>C:\Program\Flutter\bin</code>(即Flutter SDK安装路径的bin目录)。</li>
 </ul>
 </li>
 <li>编辑器安装与设置<ul>
 <li>安装Android Studio：<a target="_blank" rel="noopener" href="https://redirector.gvt1.com/edgedl/android/studio/install/2021.2.1.15/android-studio-2021.2.1.15-windows.exe">Android-Studio-2021.2.1.15-Windows.exe</a>，需要梯子。</li>
-<li>添加环境变量<code>ANDROID_SDK_HOME</code>：变量值<code>.;C:\Program\Avd</code>(模拟器存放位置)。</li>
+<li>添加环境变量<code>ANDROID_SDK_HOME</code>：变量值<code>C:\Program\Avd</code>(模拟器存放的位置)。</li>
 <li>设置Android模拟器：虚拟机貌似无法启动模拟器，建议将环境搭建在主机上进行。<ul>
 <li>启动Android Studio—&gt;More Actions—&gt;Virtual Device Manager—&gt;Create device。</li>
 <li>选设备Phone·Pixel—&gt;Next—&gt;选镜像R—&gt;Download—&gt;Next—&gt;验证配置信息—&gt;Finish。</li>
@@ -512,8 +512,14 @@
 </ul>
 </li>
 <li>文件夹下鼠标右键选<code>Git Bash Here</code>，命令窗口模式输入<code>flutter doctor</code>进行查看。<ul>
-<li><code>cmdline-tools component is missing</code>：Android Studio缺少cmdline-tools工具，需要下载安装。<ul>
-<li>启动Android Studio，。</li>
+<li><code>cmdline-tools component is missing</code>：Android Studio缺少cmdline-tools工具。<ul>
+<li>启动Android Studio—&gt;More Actions—&gt;SDK Manager—&gt;SDK Tools。</li>
+<li>勾选Android SDK Command-line Tools (latest)—&gt;Apply—&gt;Finish—&gt;OK。</li>
+</ul>
+</li>
+<li><code>Android license status unknown.</code>：需要添加Android license。<ul>
+<li>鼠标右键选<code>Git Bash Here</code>，在命令窗口下执行<code>flutter doctor --android-licenses</code>。</li>
+<li>在提示是否接受许可时，输入<code>y</code>进行回车确认，最后重新输入<code>flutter doctor</code>进行查看。</li>
 </ul>
 </li>
 </ul>
@@ -524,7 +530,7 @@
 <pre class="line-numbers language-git"><code class="language-git">$ flutter doctor
 Flutter assets will be downloaded from https://storage.flutter-io.cn/. Make sure you trust this source!
 Doctor summary (to see all details, run flutter doctor -v):
-[√] Flutter (Channel stable, 3.0.5, on Microsoft Windows [版本 6.1.7601], locale zh-CN)
+[√] Flutter (Channel stable, 3.0.5, on Microsoft Windows [版本 10.0.18363.418], locale zh-CN)
 [!] Android toolchain - develop for Android devices (Android SDK version 33.0.0)
     X cmdline-tools component is missing
       Run `path/to/sdkmanager --install <span class="token string">"cmdline-tools;latest"</span>`
@@ -1143,7 +1149,7 @@ Doctor summary (to see all details, run flutter doctor -v):
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1k</span>&nbsp;字
+                class="white-color">1.1k</span>&nbsp;字
             
             
             
