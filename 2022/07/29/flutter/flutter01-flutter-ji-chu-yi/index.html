@@ -399,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -497,6 +497,12 @@
 </ul>
 </li>
 <li>编辑器安装与设置<ul>
+<li>安装Visual Studio：<a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Professional&amp;channel=Release&amp;version=VS2022&amp;source=VSLandingPage&amp;cid=2030&amp;passive=false">VisualStudioSetup.exe</a>，使用C++的桌面工具。<ul>
+<li>勾选<code>用于Windows的C++ CMake工具</code>。</li>
+<li>勾选<code>Windows 10 SDK(10.0.19041.0)</code>。</li>
+<li>勾选<code>MSVC v143-VS 2022 C++ x64/86生成工具(最新)</code>。</li>
+</ul>
+</li>
 <li>安装Android Studio：<a target="_blank" rel="noopener" href="https://redirector.gvt1.com/edgedl/android/studio/install/2021.2.1.15/android-studio-2021.2.1.15-windows.exe">Android-Studio-2021.2.1.15-Windows.exe</a>，需要梯子。</li>
 <li>添加环境变量<code>ANDROID_SDK_HOME</code>：变量值<code>C:\Program\Avd</code>(模拟器存放的位置)。</li>
 <li>设置Android模拟器：虚拟机貌似无法启动模拟器，建议将环境搭建在主机上进行。<ul>
@@ -518,7 +524,7 @@
 </ul>
 </li>
 <li><code>Android license status unknown.</code>：需要添加Android license。<ul>
-<li>鼠标右键选<code>Git Bash Here</code>，在命令窗口下执行<code>flutter doctor --android-licenses</code>。</li>
+<li>搜索<code>cmd</code>，以管理员身份运行，命令窗口下执行<code>flutter doctor --android-licenses</code>。</li>
 <li>在提示是否接受许可时，输入<code>y</code>进行回车确认，最后重新输入<code>flutter doctor</code>进行查看。</li>
 </ul>
 </li>
@@ -539,16 +545,37 @@ Doctor summary (to see all details, run flutter doctor -v):
       Run `flutter doctor --android-licenses` to accept the SDK licenses.
       See https://flutter.dev/docs/get-started/install/windows#android-setup for more details.
 [√] Chrome - develop for the web
-[X] Visual Studio - develop for Windows
-    X Visual Studio not installed; this is necessary for Windows development.
-      Download at https://visualstudio.microsoft.com/downloads/.
-      Please install the <span class="token string">"Desktop development with C++"</span> workload, including all of its default components
+[√] Visual Studio - develop for Windows (Visual Studio Community 2022 17.3.0)
 [√] Android Studio (version 2021.2)
 [√] Connected device (2 available)
 [√] HTTP Host Availability
 
-! Doctor found issues in 2 categories.
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+! Doctor found issues in 1 categories.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-2-第一个程序"><a href="#1-2-第一个程序" class="headerlink" title="1-2 第一个程序"></a>1-2 第一个程序</h2><ul>
+<li>第一个程序<ul>
+<li>启动Android Studio—&gt;New Flutter Project—&gt;Flutter—&gt;…(Flutter SDK的安装路径)—&gt;OK—&gt;Next。</li>
+<li>将Project Name命名为<code>my_first_app</code>—&gt;Finish—&gt;等待几分钟，自动创建工程—&gt;No Device Selected。</li>
+<li>Open Android Emulator: Pixel API 30(启动之前设置的Android模拟器)—&gt;cmd下执行<code>flutter doctor</code>。<ul>
+<li><code>! Device 127.0.0.1:5554 is offline.</code></li>
+<li><code>! Device emulator-5554 is not authorized.</code></li>
+<li><code>You might need to check your device for an authorization dialog.</code></li>
+<li>说明Android Studio未正常连接到模拟器设备，点击Android Studio任务栏右侧的Device Manager。</li>
+<li>Create device—&gt;Phone·Pixel—&gt;Next—&gt;选镜像x86 Images的R(Google APIs而非Google Play)。</li>
+<li>Download—&gt;Next—&gt;验证配置信息—&gt;Finish—&gt;重新选择Open Android Emulator: Pixel API 30。</li>
+</ul>
+</li>
+<li>点击Run’main.dart’时，底部显示<code>Running Gradle task 'assembleDebug'...</code>。<ul>
+<li>这是因为Gradle的Maven仓库在国外，需要使用国内例如阿里云的镜像地址，或借助梯子访问。</li>
+<li>官网下载<a target="_blank" rel="noopener" href="https://downloads.gradle-dn.com/distributions/gradle-7.5-bin.zip">Gradle-7.5-bin.zip</a>，解压到指定位置，回到Android Studio中，点File—&gt;Settings。</li>
+<li>Settings弹窗左侧选择Gradle—&gt;将Gradle User Home改为指定的Gradle路径—&gt;Apply—&gt;OK。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>
+</code></pre>
 
                 
             </div>
@@ -1149,7 +1176,7 @@ Doctor summary (to see all details, run flutter doctor -v):
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.1k</span>&nbsp;字
+                class="white-color">1.4k</span>&nbsp;字
             
             
             
