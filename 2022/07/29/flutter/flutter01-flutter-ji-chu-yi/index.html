@@ -565,10 +565,9 @@ Doctor summary (to see all details, run flutter doctor -v):
 <li>Download—&gt;Next—&gt;验证配置信息—&gt;Finish—&gt;重新选择Open Android Emulator: Pixel API 30。</li>
 </ul>
 </li>
-<li>点击Run’main.dart’时，底部显示<code>Running Gradle task 'assembleDebug'...</code>。<ul>
-<li>这是因为Gradle的Maven仓库在国外，需要使用国内例如阿里云的镜像地址，或借助梯子访问。</li>
-<li>官网下载<a target="_blank" rel="noopener" href="https://downloads.gradle-dn.com/distributions/gradle-7.5-bin.zip">Gradle-7.5-bin.zip</a>，解压到指定位置，回到Android Studio中，点File—&gt;Settings。</li>
-<li>Settings弹窗左侧选择Gradle—&gt;将Gradle User Home改为指定的Gradle路径—&gt;Apply—&gt;OK。</li>
+<li>点击<code>Run'main.dart'</code>时，底部显示<code>Running Gradle task 'assembleDebug'...</code>。<ul>
+<li>这是因为Gradle的Maven仓库在国外，需使用国内例如阿里云的镜像地址进行替换，或借助梯子访问。</li>
+<li>可通过修改flutter.gradle、build.gradle和resolve_dependencies.gradle文件内容替换地址，<a target="_blank" rel="noopener" href="https://blog.csdn.net/shiyangkai/article/details/124632441">具体操作</a>。</li>
 </ul>
 </li>
 </ul>
