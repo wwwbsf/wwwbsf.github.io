@@ -919,58 +919,54 @@ Doctor summary (to see all details, run flutter doctor -v):
     <span class="token keyword">final</span> appName <span class="token operator">=</span> <span class="token string">'自定义主题'</span><span class="token punctuation">;</span>
 
     <span class="token keyword">return</span> <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
-      title<span class="token punctuation">:</span> appName<span class="token punctuation">,</span> 
+      title<span class="token punctuation">:</span> appName<span class="token punctuation">,</span>
       <span class="token comment" spellcheck="true">// 主题配置</span>
       theme<span class="token punctuation">:</span> <span class="token function">ThemeData</span><span class="token punctuation">(</span>
         <span class="token comment" spellcheck="true">// 应用程序整体主题的亮度</span>
-        brightness<span class="token punctuation">:</span> Brightness<span class="token punctuation">.</span>light<span class="token punctuation">,</span> 
+        brightness<span class="token punctuation">:</span> Brightness<span class="token punctuation">.</span>light<span class="token punctuation">,</span>
         <span class="token comment" spellcheck="true">// App主要部分的背景色</span>
-        primaryColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>lightGreen<span class="token punctuation">[</span><span class="token number">600</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+        primaryColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>lightGreen<span class="token punctuation">[</span><span class="token number">600</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token comment" spellcheck="true">// 前景色(文本、按钮等)</span>
-        accentColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>orange<span class="token punctuation">[</span><span class="token number">600</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
-      <span class="token punctuation">)</span><span class="token punctuation">,</span> 
-      home<span class="token punctuation">:</span> <span class="token function">MyHomePage</span><span class="token punctuation">(</span>
-        title<span class="token punctuation">:</span> appName<span class="token punctuation">,</span> 
-      <span class="token punctuation">)</span><span class="token punctuation">,</span> 
-    <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        accentColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>orange<span class="token punctuation">[</span><span class="token number">600</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">MyHomePage</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 标题</span>
   <span class="token keyword">final</span> String title<span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 接收title值key为widget的唯一标识</span>
-  <span class="token function">MyHomePage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key key<span class="token punctuation">,</span> <span class="token metadata symbol">@required</span> <span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 接收title值Key为widget的唯一标识</span>
+  <span class="token function">MyHomePage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>required Key key<span class="token punctuation">,</span> required <span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token metadata symbol">@override</span>
   Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
       appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
-        title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">,</span> 
-      <span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
       body<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>
         child<span class="token punctuation">:</span> <span class="token function">Container</span><span class="token punctuation">(</span>
           <span class="token comment" spellcheck="true">// 获取主题的accentColor</span>
-          color<span class="token punctuation">:</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>accentColor<span class="token punctuation">,</span> 
+          color<span class="token punctuation">:</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>accentColor<span class="token punctuation">,</span>
           child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
-            <span class="token string">'带有背景颜色的文本组件'</span><span class="token punctuation">,</span> 
+            <span class="token string">'带有背景色的文本组件'</span><span class="token punctuation">,</span>
             <span class="token comment" spellcheck="true">// 获取主题的文本样式</span>
-            style<span class="token punctuation">:</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>textTheme<span class="token punctuation">.</span>title<span class="token punctuation">,</span> 
-          <span class="token punctuation">)</span><span class="token punctuation">,</span> 
-        <span class="token punctuation">)</span><span class="token punctuation">,</span> 
-      <span class="token punctuation">)</span><span class="token punctuation">,</span> 
+            style<span class="token punctuation">:</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>textTheme<span class="token punctuation">.</span>titleSmall<span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
       floatingActionButton<span class="token punctuation">:</span> <span class="token function">Theme</span><span class="token punctuation">(</span>
         <span class="token comment" spellcheck="true">// 使用copyWith的方式获取accentColor</span>
-        data<span class="token punctuation">:</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">copyWith</span><span class="token punctuation">(</span>accentColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>grey<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        data<span class="token punctuation">:</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">copyWith</span><span class="token punctuation">(</span>accentColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>grey<span class="token punctuation">)</span><span class="token punctuation">,</span>
         child<span class="token punctuation">:</span> <span class="token function">FloatingActionButton</span><span class="token punctuation">(</span>
-          onPressed<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> 
-          child<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>computer<span class="token punctuation">)</span><span class="token punctuation">,</span> 
-        <span class="token punctuation">)</span><span class="token punctuation">,</span> 
-      <span class="token punctuation">)</span><span class="token punctuation">,</span> 
-    <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+          onPressed<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+          child<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>computer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
