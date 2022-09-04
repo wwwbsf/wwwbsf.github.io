@@ -399,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    8 分
                 </div>
                 
 
@@ -431,8 +431,8 @@
 
 
 
-<h1 id="1-概念与常用库"><a href="#1-概念与常用库" class="headerlink" title="1 概念与常用库"></a>1 概念与常用库</h1><ul>
-<li>概念与常用库<ul>
+<h1 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h1><ul>
+<li>概念<ul>
 <li>Dart程序有统一的程序入口，即<code>main()</code>函数入口，与Java、C或C++语言相似。</li>
 <li>一切皆对象，所有对象都是类的实例，所有对象都继承自内置的Object类，类似于Java语言。</li>
 <li>Dart语言是弱数据类型，指定类型非必须，指定数据类型和编译时的常量，可提高运行速度。</li>
@@ -451,7 +451,7 @@
 <li>continue、if、finally、import、catch、final、var、part、with、sync*、set、implements。</li>
 </ul>
 </li>
-<li>Dart语言常用库<ul>
+<li>常用库<ul>
 <li><code>dart:svg</code>：事件和动画的矢量图象支持。</li>
 <li><code>dart.html</code>：网页开发用到的库，使用频率高。</li>
 <li><code>dart:math</code>：数字常量及函数，提供随机数算法。</li>
@@ -480,15 +480,47 @@
 <span class="token comment" spellcheck="true">/* 注释方法二 */</span>
 <span class="token comment" spellcheck="true">///注释方法三</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="2-变量与数据类型"><a href="#2-变量与数据类型" class="headerlink" title="2 变量与数据类型"></a>2 变量与数据类型</h1><ul>
-<li>变量与数据类型<ul>
+<h1 id="2-变量"><a href="#2-变量" class="headerlink" title="2 变量"></a>2 变量</h1><ul>
+<li>变量<ul>
 <li>变量：声明使用var关键字，如果没有将变量初始化，则默认值为null。</li>
 <li>常量与固定值<ul>
 <li>若定义的变量不会变化，使用final或const关键字指明。</li>
 <li>final的值只能被设定一次，const则是一个编译时常量。</li>
 </ul>
 </li>
-<li>基本数据类型<ul>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 变量声明使用var关键字</span>
+  <span class="token keyword">var</span> name1 <span class="token operator">=</span> <span class="token string">'刘一'</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>name1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 变量未初始化，默认值为null</span>
+  <span class="token comment" spellcheck="true">// int name2;</span>
+  <span class="token comment" spellcheck="true">// assert(name2 == null);</span>
+  <span class="token comment" spellcheck="true">// 生产环境中assert()函数会被忽略不被调用，开发过程中则会在非true条件下抛出异常</span>
+
+  <span class="token comment" spellcheck="true">// final定义常量，值只能设定一次，否则引发错误</span>
+  <span class="token keyword">final</span> name3 <span class="token operator">=</span> <span class="token string">'陈二'</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>name3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 将引发一个错误</span>
+  <span class="token comment" spellcheck="true">// name3 = '张三';</span>
+
+  <span class="token comment" spellcheck="true">// 通过对const类型做四则运算，将得到一个const类型的值</span>
+  <span class="token keyword">const</span> pi <span class="token operator">=</span> <span class="token number">3.1415926</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> area <span class="token operator">=</span> pi <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>area<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 通过const创建常量值，即const[]本身是构造函数</span>
+  <span class="token keyword">final</span> stars <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>stars<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> buttons <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>buttons<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3 数据类型"></a>3 数据类型</h1><ul>
+<li>数据类型<ul>
 <li>Number类型<ul>
 <li>int整型和double浮点型，都是num类型的子类，int类型不能包含小数点。</li>
 <li>num类型包含<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>以及位移操作<code>&gt;&gt;</code>，常用方法有abs、ceil和floor。</li>
@@ -501,44 +533,22 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 变量声明使用var关键字</span>
-  <span class="token keyword">var</span> name1 <span class="token operator">=</span> <span class="token string">'刘一'</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>name1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 变量未初始化，默认值为null</span>
-  <span class="token comment" spellcheck="true">// int name2;</span>
-  <span class="token comment" spellcheck="true">// assert(name2 == null);</span>
-  <span class="token comment" spellcheck="true">// 生产环境中assert()函数会被忽略不被调用，开发过程中则会在非true条件下抛出异常</span>
-
-  <span class="token comment" spellcheck="true">// final定义常量，值只能设定一次，否则引发错误</span>
-  <span class="token keyword">final</span> name3 <span class="token operator">=</span> <span class="token string">'陈二'</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>name3<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 将引发一个错误</span>
-  <span class="token comment" spellcheck="true">// name3 = '张三';</span>
-  <span class="token comment" spellcheck="true">// 通过对const类型做四则运算，将得到一个const类型的值</span>
-  <span class="token keyword">const</span> pi <span class="token operator">=</span> <span class="token number">3.1415926</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> area <span class="token operator">=</span> pi <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>area<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 通过const创建常量值，即const[]本身是构造函数</span>
-  <span class="token keyword">final</span> stars <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>stars<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> buttons <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>buttons<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
   <span class="token comment" spellcheck="true">// 数字类型</span>
   int num <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// 字符串类型</span>
   String str1 <span class="token operator">=</span> <span class="token string">'Hello~'</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// 字符串类型可以使用+操作</span>
   <span class="token keyword">var</span> str2 <span class="token operator">=</span> <span class="token string">'Hi~'</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> str3 <span class="token operator">=</span> <span class="token string">'Flutter.'</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> str4 <span class="token operator">=</span> str2 <span class="token operator">+</span> str3<span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str4<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"$str2$str3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// 单引号、双引号或三个引号定义</span>
   <span class="token keyword">var</span> str5 <span class="token operator">=</span> <span class="token string">'这是单引号定义'</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> str6 <span class="token operator">=</span> <span class="token string">"这是双引号定义"</span><span class="token punctuation">;</span>
@@ -554,21 +564,26 @@
   <span class="token function">print</span><span class="token punctuation">(</span>str6<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str7<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// Boolean类型</span>
   <span class="token keyword">var</span> bool <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>bool<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"啊对对对~你是对的！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
+
   <span class="token comment" spellcheck="true">// List类型(集合，或称为数组)</span>
   <span class="token keyword">var</span> list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// List对象的第一个元素索引是0，最后一个元素索引是list.length-1</span>
   <span class="token keyword">var</span> list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>list2<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>list2<span class="token punctuation">[</span>list2<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// 使用filled构造List类型</span>
   <span class="token keyword">var</span> list3 <span class="token operator">=</span> List<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">filled</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>list3<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// Map对象</span>
   <span class="token keyword">var</span> week1 <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">'Monday'</span><span class="token punctuation">:</span> <span class="token string">'星期一'</span><span class="token punctuation">,</span>
@@ -580,6 +595,7 @@
     <span class="token string">'Sunday'</span><span class="token punctuation">:</span> <span class="token string">'星期日'</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>week1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// 也可以使用构造函数Map()创建Map对象</span>
   <span class="token keyword">var</span> week2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   week2<span class="token punctuation">[</span><span class="token string">'Monday'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'星期一'</span><span class="token punctuation">;</span>
@@ -589,24 +605,144 @@
   week2<span class="token punctuation">[</span><span class="token string">'Friday'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'星期五'</span><span class="token punctuation">;</span>
   week2<span class="token punctuation">[</span><span class="token string">'Saturday'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'星期六'</span><span class="token punctuation">;</span>
   week2<span class="token punctuation">[</span><span class="token string">'Sunday'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'星期日'</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>week2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// 添加新的键值对</span>
   week2<span class="token punctuation">[</span><span class="token string">'0'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'星期几'</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>week2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
   <span class="token comment" spellcheck="true">// 检查key是否在Map对象中，条件为真时终止程序</span>
   <span class="token keyword">assert</span><span class="token punctuation">(</span>week2<span class="token punctuation">[</span><span class="token string">'Monday'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>week2<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="3-函数与运算符"><a href="#3-函数与运算符" class="headerlink" title="3 函数与运算符"></a>3 函数与运算符</h1><ul>
-<li>函数与运算符<ul>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4 运算符"></a>4 运算符</h1><ul>
+<li>运算符<ul>
+<li>算术运算符<ul>
+<li><code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>、<code>~/</code>(返回一个整数值的除法)、<code>-expr</code>(一元减号，也叫负号)。</li>
+<li>还支持前缀递增<code>++var</code>、前缀递减<code>--var</code>、后缀递增<code>var++</code>、后缀递减<code>var--</code>运算符。</li>
+</ul>
+</li>
+<li>关系运算符：<code>==</code>、<code>!=</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>。</li>
+<li>类型测试操作符：<code>as</code>(类型转换)、<code>is</code>(对象是相应类型时返回true)、<code>is!</code>(对象不是相应类型时返回true)。</li>
+<li>赋值运算符<ul>
+<li>使用<code>=</code>运算符赋值，当变量为null时使用<code>??=</code>运算符赋值。</li>
+<li>复合赋值运算符：<code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code>、<code>~/=</code>、<code>&lt;&lt;=</code>、<code>&gt;&gt;=</code>、<code>&amp;=</code>、<code>^=</code>、<code>|=</code>。</li>
+</ul>
+</li>
+<li>逻辑运算符：<code>!expr</code>(反转表达式)、<code>||</code>(逻辑或)、<code>&amp;&amp;</code>(逻辑与)。</li>
+<li>位运算符：<code>&amp;</code>(与)、<code>|</code>(或)、<code>^</code>(异或)、<code>~expr</code>(一元位补码)、<code>&lt;&lt;</code>(左移)、<code>&gt;&gt;</code>(右移)。</li>
+<li>条件表达式<ul>
+<li><code>expr1 ?? expr2</code>：如果expr1为非空，返回其值，否则计算并返回expr2的值。</li>
+<li><code>condition ? expr1 : expr2</code>：如果条件为真，返回expr1，否则返回expr2(也叫三元表达式)。</li>
+</ul>
+</li>
+<li>级联操作：使用两个点<code>..</code>表示，可对同一对象执行一系列操作。<ul>
+<li>类似于JavaScript中Promise的then处理，目的是简化代码。</li>
+<li>严格来说级联的双点符号并非运算符，只是Dart语法的一部分。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 算术运算符</span>
+  <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">*</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>c <span class="token operator">/</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>c <span class="token operator">%</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>c <span class="token operator">~/</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">var</span> x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> y1<span class="token punctuation">,</span> y2<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 在x1获得值前自增a</span>
+  x1 <span class="token operator">=</span> <span class="token operator">++</span>a<span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"$a --- $x1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 在y1获得值后自增a</span>
+  y1 <span class="token operator">=</span> a<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"$a --- $y1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 在x2获得值前自减a</span>
+  x2 <span class="token operator">=</span> <span class="token operator">--</span>a<span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"$a --- $x2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 在y2获得值后自减a</span>
+  y2 <span class="token operator">=</span> a<span class="token operator">--</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"$a --- $y2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 关系运算符</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">!=</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">&lt;</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">>=</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">&lt;=</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 类型测试操作符</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">is</span> int<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'a是int类型.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// 赋值运算符</span>
+  <span class="token comment" spellcheck="true">// 赋值给value</span>
+  <span class="token keyword">var</span> value <span class="token operator">=</span> a<span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 如果z为空，则将值分配给z，否则z保持不变</span>
+  <span class="token keyword">var</span> z<span class="token punctuation">;</span>
+  z <span class="token operator">?</span><span class="token operator">?</span><span class="token operator">=</span> value<span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 逻辑运算符</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">||</span> b <span class="token operator">==</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"逻辑运算符操作."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// 位运算符</span>
+  <span class="token keyword">final</span> values <span class="token operator">=</span> <span class="token number">0x22</span><span class="token punctuation">;</span>
+  <span class="token keyword">final</span> bitmask <span class="token operator">=</span> <span class="token number">0x0f</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token operator">~</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>values <span class="token operator">&amp;</span> bitmask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>values <span class="token operator">&amp;</span> <span class="token operator">~</span>bitmask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>values <span class="token operator">|</span> bitmask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>values <span class="token operator">^</span> bitmask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>values <span class="token operator">&lt;&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>values <span class="token operator">>></span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 条件表达式</span>
+  <span class="token keyword">var</span> v <span class="token operator">=</span> a <span class="token operator">></span> <span class="token number">1</span> <span class="token operator">?</span> b <span class="token punctuation">:</span> c<span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  String <span class="token function">playerName</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> name <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">'Lucy'</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>playerName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 级联操作</span>
+  <span class="token comment" spellcheck="true">/*
+  // 调用querySelector，获取一个id为btnOK的按钮对象
+  querySelector('#btnOK')
+    // 设置它的文本为'确定'
+    ..text = '确定'
+    // 给这个按钮添加'ButtonOKStyle'样式
+    ..classes.add('ButtonOKStyle')
+    // 监听单击事件，事件弹出一个显示'确定'的警告
+    ..onClick.listen(((event) => window.alert('确定'));
+  // 操作如下
+  var button = querySelector('#btnOk');
+  button.text = '确定';
+  button.classes.add('ButtonOKStyle');
+  button.onClick.listen((event) => window.alert('确定'));
+  */</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="5-函数"><a href="#5-函数" class="headerlink" title="5 函数"></a>5 函数</h1><ul>
+<li>函数<ul>
 <li>Dart属于面向对象语言，函数属于Function对象，可像参数一样传递给其他函数，便于做回调处理。</li>
-<li>可选参数：将参数使用中括号括起来，用来表明是可选位置参数。</li>
+<li>可选参数：将参数使用中括号<code>[]</code>括起来，用来表明是可选位置参数。</li>
 </ul>
 </li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart">
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h1 id="4-流程控制语句"><a href="#4-流程控制语句" class="headerlink" title="4 流程控制语句"></a>4 流程控制语句</h1><h1 id="5-异常处理"><a href="#5-异常处理" class="headerlink" title="5 异常处理"></a>5 异常处理</h1><h1 id="6-面向对象"><a href="#6-面向对象" class="headerlink" title="6 面向对象"></a>6 面向对象</h1><h1 id="7-泛型与库的使用"><a href="#7-泛型与库的使用" class="headerlink" title="7 泛型与库的使用"></a>7 泛型与库的使用</h1><h1 id="8-异步支持"><a href="#8-异步支持" class="headerlink" title="8 异步支持"></a>8 异步支持</h1><h1 id="9-元数据"><a href="#9-元数据" class="headerlink" title="9 元数据"></a>9 元数据</h1>
+<h1 id="6-流程控制语句"><a href="#6-流程控制语句" class="headerlink" title="6 流程控制语句"></a>6 流程控制语句</h1><h1 id="7-异常处理"><a href="#7-异常处理" class="headerlink" title="7 异常处理"></a>7 异常处理</h1><h1 id="8-面向对象"><a href="#8-面向对象" class="headerlink" title="8 面向对象"></a>8 面向对象</h1><h1 id="9-泛型与库的使用"><a href="#9-泛型与库的使用" class="headerlink" title="9 泛型与库的使用"></a>9 泛型与库的使用</h1><h1 id="10-异步支持"><a href="#10-异步支持" class="headerlink" title="10 异步支持"></a>10 异步支持</h1><h1 id="11-元数据"><a href="#11-元数据" class="headerlink" title="11 元数据"></a>11 元数据</h1>
                 
             </div>
             <hr/>
@@ -833,28 +969,269 @@
     
 
     
-    <div class="livere-card card" data-aos="fade-up">
-    <!-- 来必力City版安装代码 -->
-    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NjQxOC8zMjg4MQ==">
-        <script type="text/javascript">
-            (function (d, s) {
-                let j, e = d.getElementsByTagName(s)[0];
-                if (typeof LivereTower === 'function') {
-                    return;
-                }
 
-                j = d.createElement(s);
-                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                j.async = true;
-
-                e.parentNode.insertBefore(j, e);
-            })(document, 'script');
-        </script>
-        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
-    </div>
-    <!-- City版安装代码已完成 -->
-</div>
     
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'RlyHMjA63e2nWotmqJ1d2IxM-gzGzoHsz',
+        appKey: 'rjpATIF3XNMquAP84eQIRc4R',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '人生没有彩排，每天都是现场直播！'
+    });
+</script>
 
     
 
@@ -1205,7 +1582,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.6k</span>&nbsp;字
+                class="white-color">5.2k</span>&nbsp;字
             
             
             
