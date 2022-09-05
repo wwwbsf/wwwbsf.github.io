@@ -399,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -468,57 +468,75 @@
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 入口方法</span>
 <span class="token comment" spellcheck="true">// main() {</span>
-<span class="token comment" spellcheck="true">//   print('你好，Dart！');</span>
+<span class="token comment" spellcheck="true">//   print('Hello, Dart!');</span>
 <span class="token comment" spellcheck="true">// }</span>
 
 <span class="token comment" spellcheck="true">// 表示main方法没有返回值</span>
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'你好，Dart！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 打印</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Hello, Dart!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 注释方法一</span>
 <span class="token comment" spellcheck="true">/* 注释方法二 */</span>
 <span class="token comment" spellcheck="true">///注释方法三</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="2-变量"><a href="#2-变量" class="headerlink" title="2 变量"></a>2 变量</h1><ul>
 <li>变量<ul>
-<li>变量：声明使用var关键字，如果没有将变量初始化，则默认值为null。</li>
-<li>常量与固定值<ul>
-<li>若定义的变量不会变化，使用final或const关键字指明。</li>
-<li>final的值只能被设定一次，const则是一个编译时常量。</li>
+<li>Dart是脚本类语言，可以不预先定义变量类型，它会自动推导类型。</li>
+<li>可以使用var关键字来声明变量，也可以通过类型关键字来定义变量。</li>
+<li>变量命名规则<ul>
+<li>变量名必须由数字、字母、下划线<code>_</code>和美元符<code>$</code>组成。</li>
+<li>标识符开头不能是数字，标识符不能是保留字和关键字。</li>
+<li>变量名区分大小写，尽量见名知义，变量名用名词，方法名用动词。</li>
+</ul>
+</li>
+<li>常量<ul>
+<li>若定义的变量不会变化，使用final或const关键字定义。</li>
+<li>final是惰性初始化，即在运行时第一次使用前才初始化。</li>
+<li>final的值只能被设定一次，是一个运行时常量，const则是一个编译时常量。</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 变量声明使用var关键字</span>
-  <span class="token keyword">var</span> name1 <span class="token operator">=</span> <span class="token string">'刘一'</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>name1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 定义变量使用var关键字</span>
+  <span class="token keyword">var</span> str1 <span class="token operator">=</span> <span class="token string">'Hello, Dart!'</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> num1 <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>num1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// 变量未初始化，默认值为null</span>
-  <span class="token comment" spellcheck="true">// int name2;</span>
-  <span class="token comment" spellcheck="true">// assert(name2 == null);</span>
-  <span class="token comment" spellcheck="true">// 生产环境中assert()函数会被忽略不被调用，开发过程中则会在非true条件下抛出异常</span>
+  <span class="token comment" spellcheck="true">// 通过类型关键字定义变量</span>
+  String str2 <span class="token operator">=</span> <span class="token string">'Hello, Dart!'</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  int num2 <span class="token operator">=</span> <span class="token number">12345</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>num2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// final定义常量，值只能设定一次，否则引发错误</span>
-  <span class="token keyword">final</span> name3 <span class="token operator">=</span> <span class="token string">'陈二'</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>name3<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 将引发一个错误</span>
-  <span class="token comment" spellcheck="true">// name3 = '张三';</span>
+  <span class="token comment" spellcheck="true">// 变量可以改变值</span>
+  str2 <span class="token operator">=</span> <span class="token string">'Hello, Golang!'</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// 通过对const类型做四则运算，将得到一个const类型的值</span>
-  <span class="token keyword">const</span> pi <span class="token operator">=</span> <span class="token number">3.1415926</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> area <span class="token operator">=</span> pi <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>area<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 常量不可以改变值</span>
+  <span class="token comment" spellcheck="true">// const关键字定义常量</span>
+  <span class="token keyword">const</span> PI1 <span class="token operator">=</span> <span class="token number">3.1415</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 改变值将报错</span>
+  <span class="token comment" spellcheck="true">// PI = 3.14159267;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>PI1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// 通过const创建常量值，即const[]本身是构造函数</span>
-  <span class="token keyword">final</span> stars <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>stars<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> buttons <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span>buttons<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// final关键字定义常量</span>
+  <span class="token keyword">final</span> PI2 <span class="token operator">=</span> <span class="token number">3.14159</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// PI2 = 3.141592535;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>PI2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// final是运行时常量</span>
+  <span class="token keyword">final</span> time1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DateTime<span class="token punctuation">.</span>now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>time1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// const是编译时常量</span>
+  <span class="token comment" spellcheck="true">// const time2 = new DateTime.now();</span>
+  <span class="token comment" spellcheck="true">// print(time2);</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3 数据类型"></a>3 数据类型</h1><ul>
 <li>数据类型<ul>
 <li>Number类型<ul>
@@ -737,11 +755,39 @@
 <li>函数<ul>
 <li>Dart属于面向对象语言，函数属于Function对象，可像参数一样传递给其他函数，便于做回调处理。</li>
 <li>可选参数：将参数使用中括号<code>[]</code>括起来，用来表明是可选位置参数。</li>
+<li>参数默认值<ul>
+<li>如果为参数指定了默认值，不传入值时，函数会使用该默认值。</li>
+<li>如果传入了值，则使用传入的值取代默认值，默认值通常为null。</li>
+</ul>
+</li>
+<li>返回值特点：所有函数都有返回值，如果没有指定函数的返回值，则默认为null。</li>
 </ul>
 </li>
 </ul>
-<pre class="line-numbers language-dart"><code class="language-dart">
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 获取用户信息</span>
+  String <span class="token function">getUserInfo1</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> String sex<span class="token punctuation">,</span> <span class="token punctuation">[</span>String<span class="token operator">?</span> from<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> info <span class="token operator">=</span> <span class="token string">'$name的性别是$sex.'</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>from <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      info <span class="token operator">=</span> <span class="token string">'$info来自$from.'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> info<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token function">getUserInfo1</span><span class="token punctuation">(</span><span class="token string">'刘一'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 获取用户信息，使用等号来设置默认值参数</span>
+  String <span class="token function">getUserInfo2</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> String sex<span class="token punctuation">,</span> <span class="token punctuation">[</span>String<span class="token operator">?</span> from <span class="token operator">=</span> <span class="token string">'中国'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> info <span class="token operator">=</span> <span class="token string">'$name的性别是$sex.'</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>from <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      info <span class="token operator">=</span> <span class="token string">'$info来自$from.'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> info<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token function">getUserInfo2</span><span class="token punctuation">(</span><span class="token string">'陈二'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="6-流程控制语句"><a href="#6-流程控制语句" class="headerlink" title="6 流程控制语句"></a>6 流程控制语句</h1><h1 id="7-异常处理"><a href="#7-异常处理" class="headerlink" title="7 异常处理"></a>7 异常处理</h1><h1 id="8-面向对象"><a href="#8-面向对象" class="headerlink" title="8 面向对象"></a>8 面向对象</h1><h1 id="9-泛型与库的使用"><a href="#9-泛型与库的使用" class="headerlink" title="9 泛型与库的使用"></a>9 泛型与库的使用</h1><h1 id="10-异步支持"><a href="#10-异步支持" class="headerlink" title="10 异步支持"></a>10 异步支持</h1><h1 id="11-元数据"><a href="#11-元数据" class="headerlink" title="11 元数据"></a>11 元数据</h1>
                 
             </div>
@@ -1229,7 +1275,7 @@
         avatar: 'mm',
         pageSize: '10',
         lang: 'zh-cn',
-        placeholder: '人生没有彩排，每天都是现场直播！'
+        placeholder: '人生没有彩排，每一天都是现场直播！'
     });
 </script>
 
@@ -1582,7 +1628,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.2k</span>&nbsp;字
+                class="white-color">5.5k</span>&nbsp;字
             
             
             
