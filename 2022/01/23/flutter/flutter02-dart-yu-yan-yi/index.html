@@ -361,12 +361,24 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Flutter/">
-                                <span class="chip bg-color">Flutter</span>
+                            <a href="/tags/Number/">
+                                <span class="chip bg-color">Number</span>
                             </a>
                         
-                            <a href="/tags/Widget/">
-                                <span class="chip bg-color">Widget</span>
+                            <a href="/tags/String/">
+                                <span class="chip bg-color">String</span>
+                            </a>
+                        
+                            <a href="/tags/Boolean/">
+                                <span class="chip bg-color">Boolean</span>
+                            </a>
+                        
+                            <a href="/tags/List/">
+                                <span class="chip bg-color">List</span>
+                            </a>
+                        
+                            <a href="/tags/Map/">
+                                <span class="chip bg-color">Map</span>
                             </a>
                         
                     </div>
@@ -399,14 +411,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    16 分
                 </div>
                 
 
@@ -786,6 +798,70 @@
   <span class="token function">print</span><span class="token punctuation">(</span>list8<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>常用属性：length(长度)、reversed(翻转)、isEmpty(为空)、isNotEmpty(不为空)。</li>
+<li>常用方法<ul>
+<li>add(增加)、addAll(拼接数组)、remove(删除)、removeAt(删除)、fillRange(修改)。</li>
+<li>indexOf：查找，若查找不到则返回-1。</li>
+<li>insert(index, value)：指定位置插入。</li>
+<li>insertAll(index, list)：指定位置插入List。</li>
+<li>join()：List转换成字符串。</li>
+<li>split()：字符串转换成List。</li>
+<li>toList()：其他类型转换成List。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 常见属性</span>
+  <span class="token keyword">var</span> l1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Banana'</span><span class="token punctuation">,</span> <span class="token string">'Apple'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  l1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'Watermelon'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>isEmpty<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>isNotEmpty<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 翻转后再转换成List</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>reversed<span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 常用方法</span>
+  List l2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Banana'</span><span class="token punctuation">,</span> <span class="token string">'Apple'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  l2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'Watermelon'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l2<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'Grape'</span><span class="token punctuation">,</span> <span class="token string">'Peach'</span><span class="token punctuation">,</span> <span class="token string">'Cantaloupe'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l2<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'Apple'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l2<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'Watermelon'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l2<span class="token punctuation">.</span><span class="token function">removeAt</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 将位置(1-2]之间的数据改为Pitaya</span>
+  l2<span class="token punctuation">.</span><span class="token function">fillRange</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'Pitaya'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l2<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'Apple'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l2<span class="token punctuation">.</span><span class="token function">insertAll</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Pear'</span><span class="token punctuation">,</span> <span class="token string">'Nishiume'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> str <span class="token operator">=</span> l2<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> l3 <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>l3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>Set<ul>
+<li>最主要的功能就是去除数组中存在的重复内容。</li>
+<li>无顺序且不能重复的集合，不能通过索引获取值。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 给数组去重</span>
+  <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'Banana'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'Apple'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  s<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'Apple'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-5-Map"><a href="#3-5-Map" class="headerlink" title="3-5 Map"></a>3-5 Map</h2><ul>
 <li>Map<ul>
 <li>将key和value关联在一起，也就是键值对，且key必须是唯一的。</li>
@@ -814,8 +890,32 @@
   <span class="token function">print</span><span class="token punctuation">(</span>person2<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>常用属性：keys(获取key值)、values(获取value值)、isEmpty、isNotEmpty。</li>
+<li>常用方法：remove()、addAll()(映射拼接)、containsValue(查看映射内的值)。</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 常用属性</span>
+  Map person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Lily'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">26</span><span class="token punctuation">,</span> <span class="token string">'sex'</span><span class="token punctuation">:</span> <span class="token string">'female'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>keys<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>isEmpty<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>isNotEmpty<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 常用方法</span>
+  person<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'work'</span><span class="token punctuation">:</span> <span class="token string">'Development Engineer'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  person<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'sex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">containsValue</span><span class="token punctuation">(</span><span class="token string">'Lily'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4 运算符"></a>4 运算符</h1><ul>
-<li>运算符</li>
+<li>运算符<ul>
+<li>算术运算符、关系运算符、赋值运算符、逻辑运算符。</li>
+<li>类型判定运算符、位运算符、条件表达式、级联运算符。</li>
+</ul>
+</li>
 </ul>
 <h2 id="4-1-算术运算符"><a href="#4-1-算术运算符" class="headerlink" title="4-1 算术运算符"></a>4-1 算术运算符</h2><ul>
 <li>算术运算符<ul>
@@ -990,7 +1090,7 @@
 <h2 id="4-7-条件表达式"><a href="#4-7-条件表达式" class="headerlink" title="4-7 条件表达式"></a>4-7 条件表达式</h2><ul>
 <li>条件表达式<ul>
 <li><code>condition ? expr1 : expr2</code>：条件为真返回expr1，否则返回expr2(三元表达式)。</li>
-<li><code>expr1 ?? expr2</code>：如果expr1为非空，返回expr1的值，否则计算并返回expr2的值。</li>
+<li><code>expr1 ?? expr2</code>：如果expr1为非空，返回expr1的值，否则计算并且返回expr2的值。</li>
 </ul>
 </li>
 </ul>
@@ -1056,10 +1156,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h1 id="5-流程控制语句"><a href="#5-流程控制语句" class="headerlink" title="5 流程控制语句"></a>5 流程控制语句</h1><ul>
 <li>流程控制语句<ul>
-<li>if…else…语句、switch…case语句、try…catch语句。</li>
-<li>循环语句：for循环、while循环、do…while循环。</li>
-<li>break用来跳出循环，continue用来跳出本次循环。</li>
-<li>assert用来判断、throw。</li>
+<li>if…else…语句、switch…case语句、for循环、while循环、do…while循环。</li>
+<li>第一次循环条件不成立的情况，while循环不执行，do…while循环执行一次。</li>
+<li>break用于跳出循环，如果有多层循环，则只能跳出一层循环，continue用来跳出本次循环。</li>
 </ul>
 </li>
 </ul>
@@ -1070,6 +1169,16 @@
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'今天是星期一!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'今天天气真好呀！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// switch...case语句</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>today<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'Monday'</span><span class="token punctuation">:</span>
+      <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'今天是星期一！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+      <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'今天天气真好呀！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token comment" spellcheck="true">// for循环</span>
@@ -1093,8 +1202,86 @@
     y<span class="token operator">++</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>y <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'总和：$sum'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// break跳出循环</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// continue跳出本次循环</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">continue</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>循环语句<ul>
+<li>forEach：循环遍历List。</li>
+<li>map：用于修改集合中的数据。</li>
+<li>where：返回满足条件的数据。</li>
+<li>any：只要集合中有满足条件的数据就返回true。</li>
+<li>every：集合中的每个数据都满足条件才返回true，否则返回false。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  List mylist1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token string">'Banana'</span><span class="token punctuation">,</span> <span class="token string">'Watermelon'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> mylist1<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>mylist1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> item <span class="token keyword">in</span> mylist1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// forEach</span>
+  mylist1<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'$value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// map</span>
+  <span class="token keyword">var</span> doubleList <span class="token operator">=</span> mylist1<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> value <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>doubleList<span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// where</span>
+  List mylist2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> newList <span class="token operator">=</span> mylist2<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> value <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>newList<span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// any</span>
+  <span class="token keyword">var</span> anyList <span class="token operator">=</span> mylist2<span class="token punctuation">.</span><span class="token function">any</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> value <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>anyList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// every</span>
+  <span class="token keyword">var</span> everyList <span class="token operator">=</span> mylist2<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> value <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>everyList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 循环方法同样适用于set</span>
+  <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  s<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">333</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  s<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 循环方法同样适用于map</span>
+  <span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Lily'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span> <span class="token number">26</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  person<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'$key---$value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1159,12 +1346,24 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Flutter/">
-                                    <span class="chip bg-color">Flutter</span>
+                                <a href="/tags/Number/">
+                                    <span class="chip bg-color">Number</span>
                                 </a>
                             
-                                <a href="/tags/Widget/">
-                                    <span class="chip bg-color">Widget</span>
+                                <a href="/tags/String/">
+                                    <span class="chip bg-color">String</span>
+                                </a>
+                            
+                                <a href="/tags/Boolean/">
+                                    <span class="chip bg-color">Boolean</span>
+                                </a>
+                            
+                                <a href="/tags/List/">
+                                    <span class="chip bg-color">List</span>
+                                </a>
+                            
+                                <a href="/tags/Map/">
+                                    <span class="chip bg-color">Map</span>
                                 </a>
                             
                         </div>
@@ -1613,7 +1812,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Dart诞生于2011年10月10日，是一种“结构化的Web编程”语言，应用于Web、服务器、移动应用等领域的开发。
+                            Dart是谷歌开发的编程语言，被ECMA认定为标准，最新版本是Dart2，是高效、简洁、已通过实战检验的语言。
                         
                     </div>
                     <div class="publish-info">
@@ -1933,7 +2132,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.6k</span>&nbsp;字
+                class="white-color">7.3k</span>&nbsp;字
             
             
             
