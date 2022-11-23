@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    17 分
                 </div>
                 
 
@@ -459,11 +459,24 @@
   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Annotation method.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="1-1-关键字"><a href="#1-1-关键字" class="headerlink" title="1-1 关键字"></a>1-1 关键字</h2><img src="http://www.plantuml.com/plantuml/svg/LL8zRnGn4EtlLsnz1JgGw5FnF-RiENQ4rrxPizdR3eea29eK8L6AI5HKa2X2Gf4GuiTmboF_8ZFZYmJDFdi-tfjvteF2aBcZw3lePyL1m6RnxEN-zFp5Oj6CvBcTpPljqVU7i-ljjulPVDuyN9vkt__OtVxS_BxQVRgiqNa38n3_UVjk8WnUwpPt7pPt7-_FJ_xjbheoHITrBNaKI54-fKsZWcIiyt_YKZ0hyp8Zl15qKBJJumg6e0aNf4QGssmyd0SjYAWNbo9JjC0XP6Ci8x5hZQaY1cF4DMFqohI26bbHXA2PE7HwJLbvXn2USc6I4qMZpSX3jdM67hNmC94NaFX-iB6bW7McmZOmsTnPMMGedSKdPTGmhTICxV7HxjVr_UUJlpV7kwzVgYNBmXcSKhn6So39RWIHgo-OCwgodo9qv6mXnybaSDqdixC7WrT3T4pr6HYOd2aasG3OrYscG94n2ykJJxaQmrEF8YYdGCiCfa3TNW5qYuxM56iqO8UHo-n0NDx_Tuy0">
-
-
-
-<h2 id="1-2-常用库"><a href="#1-2-常用库" class="headerlink" title="1-2 常用库"></a>1-2 常用库</h2><ul>
+<ul>
+<li>关键字<ul>
+<li>限制类保留字：await、yield。</li>
+<li>上下文关键字：async、hide、on、show、sync。</li>
+<li>保留字<ul>
+<li>assert、break、case、default、class、throw、true、new、continue、var。</li>
+<li>switch、catch、else、extends、false、final、enum、for、null、finally、if。</li>
+<li>return、super、void、rethrow、while、const、this、try、with、do、is、in。</li>
+</ul>
+</li>
+<li>内置标识符<ul>
+<li>abstract、get、covariant、deferred、dynamic、factory、export、mixin、as、Function。</li>
+<li>operator、set、interface、external、typedef、library、import、static、part、implements。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>常用库<ul>
 <li><code>dart:svg</code>：事件和动画的矢量图象支持。</li>
 <li><code>dart.html</code>：网页开发用到的库，使用频率高。</li>
 <li><code>dart:math</code>：数字常量及函数，提供随机数算法。</li>
@@ -474,9 +487,17 @@
 <li><code>dart:core</code>：Dart语言内建的类型、对象以及Dart语言核心的功能，使用频率高。</li>
 <li>使用任何库之前都需要加上import语句，官方提供的pub工具可以安装丰富的<a target="_blank" rel="noopener" href="https://pub.dev/">第三方库</a>。</li>
 </ul>
+</li>
+</ul>
 <h1 id="2-变量"><a href="#2-变量" class="headerlink" title="2 变量"></a>2 变量</h1><ul>
 <li>Dart是脚本类语言，可以不预先定义变量类型，它会自动推导类型。</li>
 <li>可以使用var关键字来声明变量，也可以通过类型关键字来定义变量。</li>
+<li>变量命名规则<ul>
+<li>变量名必须由数字、字母、下划线<code>_</code>和美元符<code>$</code>组成。</li>
+<li>标识符开头不能是数字，标识符不能是保留字和关键字。</li>
+<li>变量名区分大小写，尽量见名知义，变量名用名词，方法名用动词。</li>
+</ul>
+</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 定义变量使用var关键字</span>
@@ -492,25 +513,22 @@
   <span class="token function">print</span><span class="token punctuation">(</span>num2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-1-变量命名规则"><a href="#2-1-变量命名规则" class="headerlink" title="2-1 变量命名规则"></a>2-1 变量命名规则</h2><ul>
-<li>变量名必须由数字、字母、下划线<code>_</code>和美元符<code>$</code>组成。</li>
-<li>标识符开头不能是数字，标识符不能是保留字和关键字。</li>
-<li>变量名区分大小写，尽量见名知义，变量名用名词，方法名用动词。</li>
-</ul>
-<h2 id="2-2-常量-变量不变"><a href="#2-2-常量-变量不变" class="headerlink" title="2-2 常量(变量不变)"></a>2-2 常量(变量不变)</h2><ul>
+<ul>
+<li>常量<ul>
 <li>若定义的变量不会变化，使用final或const关键字定义。</li>
 <li>final是惰性初始化，即在运行时第一次使用前才初始化。</li>
+</ul>
+</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   String str <span class="token operator">=</span> <span class="token string">'Hello, Dart!'</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 变量可以改变值</span>
-  str <span class="token operator">=</span> <span class="token string">'Hi, Dart!'</span><span class="token punctuation">;</span>
+  str <span class="token operator">=</span> <span class="token string">'Aha!'</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">// 常量不可以改变值</span>
   <span class="token comment" spellcheck="true">// const关键字定义常量</span>
   <span class="token keyword">const</span> PI1 <span class="token operator">=</span> <span class="token number">3.1415925</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 改变值将报错</span>
+  <span class="token comment" spellcheck="true">// 常量不可以改变值，改变值将报错</span>
   <span class="token comment" spellcheck="true">// PI1 = 3.14159267;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>PI1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -519,7 +537,7 @@
   <span class="token comment" spellcheck="true">// PI2 = 3.141592535;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>PI2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>final的值只能被设定一次，是一个运行时常量，const则是一个编译时常量。</li>
 </ul>
@@ -533,10 +551,22 @@
   <span class="token comment" spellcheck="true">// print(time2);</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3 数据类型"></a>3 数据类型</h1><img src="http://www.plantuml.com/plantuml/svg/TLBDJi904Bxp53rM4WrYl1jZFAa7VnwWIADDe10eCTwGFqb09QIA0MCWeX8ZK1JDqc9y67UwSE8LdBLIZOcttVb-PhxPNOfhKamBAsemB4KzyLqf90k-kSNlqxpVvnCEbA2sx_4AzhbXdtHOpuBhWiVh5O0GfhTODVC7y0eRYN10ZebOXtPbPZAiAgg6jpxYCr0k1YE9G4WMxPSEImruxIEP-j9jQJ55tHDHn1xlA7dYKgSsPIn78Y5PKaKWQJ1qZWUmCaNNb3ZlOp0hmw4LJ4P9sxxiGhuoQhIWEnZr6fDX4PhtqAmYaPeckpVee429wN3SKMHD7DToKCh_Si8Ycb6IfEG1icdMhuFEhp1ufKItAtKmpt0VZcxgj2v5UIB84kuqrZkG7E8ah4OW-uniToeEbOiSFUjIwvPtiYpwTkuircKwlW8b9_y_m6P2bUFO3GEnfkdk4oCWUsTxTNR1puONh7xaG6xemt0W4lhHNRLuSDOgO2xKmerXNvwYm-Yzn3fSQESlxFhng9lxDbcIyHyvV-aJ">
-
-
-
+<h1 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3 数据类型"></a>3 数据类型</h1><ul>
+<li>常用的数据类型<ul>
+<li>Number(数字)：int(整型)和double(浮点型)。</li>
+<li>String(字符串)：String。</li>
+<li>Boolean(布尔)：bool。</li>
+<li>List(数组)：Dart中是列表对象，大多数人称之为列表。</li>
+<li>Set(集合)：Dart中Set是一个元素唯一并且无序的集合。</li>
+<li>Map(字典)：键值对相关的对象，键和值可以是任何类型的对象。</li>
+</ul>
+</li>
+<li>不常用的数据类型<ul>
+<li>Runes：表示字符串中的UTF-32编码字符。</li>
+<li>Symbol：表示在Dart程序中声明的运算符或标识符。</li>
+</ul>
+</li>
+</ul>
 <h2 id="3-1-Number-数字"><a href="#3-1-Number-数字" class="headerlink" title="3-1 Number(数字)"></a>3-1 Number(数字)</h2><ul>
 <li>int整型和double浮点型，都是Number类型的子类，int类型不能包含小数点。</li>
 <li>包含<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>以及位移操作等，常用的方法有abs、ceil和floor。</li>
@@ -566,6 +596,7 @@
   <span class="token keyword">var</span> str2 <span class="token operator">=</span> <span class="token string">"This is string."</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   String str3 <span class="token operator">=</span> <span class="token string">'This is String.'</span><span class="token punctuation">;</span>
   String str4 <span class="token operator">=</span> <span class="token string">"This is String."</span><span class="token punctuation">;</span>
@@ -584,7 +615,7 @@
   <span class="token function">print</span><span class="token punctuation">(</span>str5<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str6<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>通过两种方式进行字符串的拼接：使用<code>$</code>符号，或<code>+</code>符号进行操作。</li>
 </ul>
@@ -1753,7 +1784,7 @@
         notify: 'false' === 'true',
         verify: 'false' === 'true',
         visitor: 'true' === 'true',
-        avatar: 'mm',
+        avatar: 'monsterid',
         pageSize: '10',
         lang: 'zh-cn',
         placeholder: '人生没有彩排，每一天都是现场直播！'
@@ -1930,6 +1961,8 @@
 
 <!-- 代码块收缩 -->
 
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
 
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
@@ -2103,7 +2136,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.7k</span>&nbsp;字
+                class="white-color">10.6k</span>&nbsp;字
             
             
             
