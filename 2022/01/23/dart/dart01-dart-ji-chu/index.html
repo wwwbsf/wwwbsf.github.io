@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    25 分
+                    26 分
                 </div>
                 
 
@@ -432,13 +432,13 @@
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 入口方法</span>
 <span class="token comment" spellcheck="true">// main() {</span>
-<span class="token comment" spellcheck="true">//   print('Entrance method.');</span>
+<span class="token comment" spellcheck="true">//   print("入口方法");</span>
 <span class="token comment" spellcheck="true">// }</span>
 
 <span class="token comment" spellcheck="true">// 表示main方法没有返回值</span>
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 打印信息</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Entrance method.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"入口方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
@@ -456,7 +456,7 @@
 <span class="token comment" spellcheck="true">/* 注释方法二 */</span>
 <span class="token comment" spellcheck="true">///注释方法三</span>
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Annotation method.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"注释方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-1-关键字"><a href="#1-1-关键字" class="headerlink" title="1-1 关键字"></a>1-1 关键字</h2><ul>
@@ -477,14 +477,14 @@
 <h2 id="1-2-Dart中的库"><a href="#1-2-Dart中的库" class="headerlink" title="1-2 Dart中的库"></a>1-2 Dart中的库</h2><ul>
 <li>自定义的库：<code>import 'lib/xxx.dart';</code>。</li>
 <li>系统内置库：<code>import 'dart:convert';</code>。<ul>
-<li><code>dart:svg</code>：事件和动画的矢量图象支持。</li>
-<li><code>dart:html</code>：网页开发用到的库，使用频率高。</li>
+<li><code>dart:svg</code>：事件和动画的矢量图支持。</li>
+<li><code>dart:html</code>：网页开发使用到的库，使用频率高。</li>
 <li><code>dart:math</code>：数字常量及函数，提供随机数算法。</li>
 <li><code>dart:io</code>：文件读写I/O相关操作的库，使用频率高。</li>
 <li><code>dart:async</code>：异步编程支持，提供Future和Stream类。</li>
+<li><code>dart:convert</code>：不同类型之间的字符编码、解码支持。</li>
 <li><code>dart:collection</code>：对<code>dart:core</code>提供更多的集合支持。</li>
-<li><code>dart:convert</code>：不同类型(Json、UTF-8)间的字符编码、解码支持。</li>
-<li><code>dart:core</code>：Dart语言内建的类型、对象以及Dart语言核心的功能，使用频率高。</li>
+<li><code>dart:core</code>：内建类型、对象以及核心功能，使用频率高。</li>
 </ul>
 </li>
 <li>Pub包管理系统中的第三方库：<a target="_blank" rel="noopener" href="https://pub.dev/">https://pub.dev/</a>。</li>
@@ -492,8 +492,8 @@
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'dart:math'</span><span class="token punctuation">;</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"最小值："</span> <span class="token operator">+</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"最大值："</span> <span class="token operator">+</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-实现请求数据"><a href="#1-实现请求数据" class="headerlink" title="(1) 实现请求数据"></a>(1) 实现请求数据</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'dart:io'</span><span class="token punctuation">;</span>
@@ -530,45 +530,48 @@
 
 <span class="token comment" spellcheck="true">// 异步方法</span>
 <span class="token function">testAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token string">'Hello async.'</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token string">'异步方法'</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-导入第三方库"><a href="#3-导入第三方库" class="headerlink" title="(3) 导入第三方库"></a>(3) 导入第三方库</h3><ul>
 <li>项目根目录下新建一个<code>pubspec.yaml</code>文件，在文件中配置名称、描述、依赖等信息。</li>
 <li>命令窗口进入<code>pubspec.yaml</code>文件路径下，输入<code>dart pub get</code>回车获取包下载到本地。</li>
+</ul>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># pubspec.yaml</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> xxx
+<span class="token key atrule">description</span><span class="token punctuation">:</span> pubtest
+
+<span class="token key atrule">environment</span><span class="token punctuation">:</span>
+  <span class="token key atrule">sdk</span><span class="token punctuation">:</span> <span class="token string">'>=2.10.0 &lt;3.0.0'</span>
+
+<span class="token key atrule">dependencies</span><span class="token punctuation">:</span>
+  <span class="token key atrule">http</span><span class="token punctuation">:</span> ^0.13.5
+  <span class="token key atrule">date_format</span><span class="token punctuation">:</span> ^2.0.7
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
 <li>项目中引入库需使用import命令，例如：<code>import 'package:http/http.dart' as http;</code>。</li>
 </ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token string">"""
-# pubspec.yaml
-
-name: xxx
-description: pubtest
-environment:
-  sdk: '>=2.10.0 &lt;3.0.0'
-dependencies:
-  http: ^0.13.5
-  date_format: ^2.0.7
-"""</span>
-
-<span class="token comment" spellcheck="true">/************************************************************************/</span>
-<span class="token keyword">import</span> <span class="token string">'dart:convert'</span> <span class="token operator">as</span> convert<span class="token punctuation">;</span>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'dart:convert'</span> <span class="token operator">as</span> convert<span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token string">'package:http/http.dart'</span> <span class="token operator">as</span> http<span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token string">'package:date_format/date_format.dart'</span><span class="token punctuation">;</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
   <span class="token keyword">var</span> url <span class="token operator">=</span> Uri<span class="token punctuation">.</span><span class="token function">https</span><span class="token punctuation">(</span><span class="token string">'news-at.zhihu.com'</span><span class="token punctuation">,</span> <span class="token string">'/api/3/stories/latest'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// Await the http get response, then decode the json-formatted response.</span>
+  <span class="token comment" spellcheck="true">// 等待HTTP响应，然后对Json格式的响应进行解码</span>
   <span class="token keyword">var</span> response <span class="token operator">=</span> <span class="token keyword">await</span> http<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>statusCode <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">var</span> jsonResponse <span class="token operator">=</span> convert<span class="token punctuation">.</span><span class="token function">jsonDecode</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">print</span><span class="token punctuation">(</span>jsonResponse<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Request failed with status: ${response.statusCode}.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'请求失败，状态为：${response.statusCode}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
   <span class="token function">print</span><span class="token punctuation">(</span><span class="token function">formatDate</span><span class="token punctuation">(</span><span class="token function">DateTime</span><span class="token punctuation">(</span><span class="token number">2022</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>yyyy<span class="token punctuation">,</span> <span class="token string">'-'</span><span class="token punctuation">,</span> mm<span class="token punctuation">,</span> <span class="token string">'-'</span><span class="token punctuation">,</span> dd<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-库的冲突问题"><a href="#4-库的冲突问题" class="headerlink" title="(4) 库的冲突问题"></a>(4) 库的冲突问题</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// lib/Person1.dart</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-库的冲突问题"><a href="#4-库的冲突问题" class="headerlink" title="(4) 库的冲突问题"></a>(4) 库的冲突问题</h3><ul>
+<li><code>lib/Person1.dart</code>文件内容如下。</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// lib/Person1.dart</span>
 <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   String name<span class="token punctuation">;</span>
   int age<span class="token punctuation">;</span>
@@ -584,9 +587,11 @@ dependencies:
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Person1: ${this.name}---${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/************************************************************************/</span>
-<span class="token comment" spellcheck="true">// lib/Person2.dart</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><code>lib/Person2.dart</code>文件内容如下。</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// lib/Person2.dart</span>
 <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   String name<span class="token punctuation">;</span>
   int age<span class="token punctuation">;</span>
@@ -602,22 +607,23 @@ dependencies:
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Person2: ${this.name}---${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/************************************************************************/</span>
-<span class="token comment" spellcheck="true">// Person1.dart和Person2.dart中都有Person类(重名)，重命名其中一个库</span>
-<span class="token keyword">import</span> <span class="token string">'lib/Person1.dart'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><code>Person1.dart</code>和<code>Person2.dart</code>中都有Person类(重名)，重命名其中一个库。</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'lib/Person1.dart'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token string">'lib/Person2.dart'</span> <span class="token operator">as</span> lib<span class="token punctuation">;</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Person p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'Mary'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Person p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   p1<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  lib<span class="token punctuation">.</span>Person p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">lib<span class="token punctuation">.</span>Person</span><span class="token punctuation">(</span><span class="token string">'Isla'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  lib<span class="token punctuation">.</span>Person p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">lib<span class="token punctuation">.</span>Person</span><span class="token punctuation">(</span><span class="token string">'李四'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   p2<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="5-引入部分功能"><a href="#5-引入部分功能" class="headerlink" title="(5) 引入部分功能"></a>(5) 引入部分功能</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// MyMath.dart</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-引入部分功能"><a href="#5-引入部分功能" class="headerlink" title="(5) 引入部分功能"></a>(5) 引入部分功能</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// lib/MyMath.dart</span>
 <span class="token keyword">void</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Mila'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">void</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -625,11 +631,13 @@ dependencies:
 <span class="token punctuation">}</span>
 
 <span class="token keyword">void</span> <span class="token function">getSex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Female'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">/************************************************************************/</span>
-<span class="token comment" spellcheck="true">// 隐藏不需要的部分，使用hide关键字</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>使用hide关键字隐藏库中不需要的部分，show关键字仅导入库中需要的部分。</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 隐藏不需要的部分，使用hide关键字</span>
 <span class="token keyword">import</span> <span class="token string">'lib/MyMath.dart'</span> hide getAge<span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 只导入需要的部分，使用show关键字</span>
 <span class="token keyword">import</span> <span class="token string">'lib/MyMath.dart'</span> show getName<span class="token punctuation">;</span>
@@ -639,18 +647,19 @@ dependencies:
   <span class="token comment" spellcheck="true">// 已隐藏，会报错</span>
   <span class="token comment" spellcheck="true">// getAge();</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="6-延迟加载-懒加载"><a href="#6-延迟加载-懒加载" class="headerlink" title="(6) 延迟加载(懒加载)"></a>(6) 延迟加载(懒加载)</h3><ul>
 <li>懒加载：可以在需要时再进行加载，最大好处即减少APP的启动时间，使用时用<code>loadLibrary()</code>方法加载。</li>
 <li>使用<code>deferred as</code>关键字来指定，例如：<code>import 'package:deferred/hello.dart' deferred as hello;</code>。</li>
 </ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:deferred/hello.dart'</span> <span class="token keyword">deferred</span> <span class="token operator">as</span> hello<span class="token punctuation">;</span>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 好像没这个库，引入会报错</span>
+<span class="token keyword">import</span> <span class="token string">'package:deferred/hello.dart'</span> <span class="token keyword">deferred</span> <span class="token operator">as</span> hello<span class="token punctuation">;</span>
 
 <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
   <span class="token keyword">await</span> hello<span class="token punctuation">.</span><span class="token function">loadLibrary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   hello<span class="token punctuation">.</span><span class="token function">printGreeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-3-变量与常量"><a href="#1-3-变量与常量" class="headerlink" title="1-3 变量与常量"></a>1-3 变量与常量</h2><ul>
 <li>Dart是脚本类语言，可以不预先定义变量类型，它会自动推导类型。</li>
 <li>可以使用var关键字来声明变量，也可以通过类型关键字来定义变量。</li>
@@ -662,20 +671,19 @@ dependencies:
 </li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 使用var关键字定义变量</span>
-  <span class="token keyword">var</span> str1 <span class="token operator">=</span> <span class="token string">'Var keyword.'</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> str1 <span class="token operator">=</span> <span class="token string">'var关键字'</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> num1 <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Using the var keyword: $num1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"var关键字：$num1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment" spellcheck="true">// 通过类型关键字定义变量</span>
-  String str2 <span class="token operator">=</span> <span class="token string">'Type keyword.'</span><span class="token punctuation">;</span>
+  String str2 <span class="token operator">=</span> <span class="token string">'类型关键字'</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span><span class="token punctuation">;</span>
   int num2 <span class="token operator">=</span> <span class="token number">12345</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"By the type keyword: $num2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"类型关键字：$num2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>常量<ul>
 <li>若定义的变量不会变化，使用final或const关键字定义。</li>
@@ -684,21 +692,21 @@ dependencies:
 </li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  String str <span class="token operator">=</span> <span class="token string">'Hello, Dart!'</span><span class="token punctuation">;</span>
+  String str <span class="token operator">=</span> <span class="token string">'变量值1'</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 变量可以改变值</span>
-  str <span class="token operator">=</span> <span class="token string">'Aha!'</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Variable: $str"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  str <span class="token operator">=</span> <span class="token string">'变量值2'</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"变量：$str"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment" spellcheck="true">// const关键字定义常量</span>
   <span class="token keyword">const</span> PI1 <span class="token operator">=</span> <span class="token number">3.1415925</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 常量不可以改变值，改变值将报错</span>
   <span class="token comment" spellcheck="true">// PI1 = 3.14159267;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Const keyword: $PI1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"const关键字：$PI1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment" spellcheck="true">// final关键字定义常量</span>
   <span class="token keyword">final</span> PI2 <span class="token operator">=</span> <span class="token number">3.1415925</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// PI2 = 3.141592535;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Final keyword: $PI2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"final关键字：$PI2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
@@ -717,8 +725,8 @@ dependencies:
 <h1 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2 运算符"></a>2 运算符</h1><table>
 <thead>
 <tr>
-<th align="center"><img style="width:150px;"><div style="text-align:center">类型</div><br></th>
-<th align="center"><img style="width:950px;"><div style="text-align:center">运算符</div><br></th>
+<th align="center"><img style="width:200px;"><div style="text-align:center">类型</div><br></th>
+<th align="center"><img style="width:900px;"><div style="text-align:center">运算符</div><br></th>
 </tr>
 </thead>
 <tbody><tr>
@@ -1733,6 +1741,12 @@ dependencies:
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">'Self-executing method 2.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="6-面向对象"><a href="#6-面向对象" class="headerlink" title="6 面向对象"></a>6 面向对象</h1><ul>
+<li>面向对象编程OOP的三个基本特征</li>
+<li>封装：把客观事物封装成抽象的类，并把自己的部分属性和方法提供给其他对象。</li>
+<li>继承：可使用现有类的功能，并在无需重新编写原来类的情况下对功能进行扩展。</li>
+<li>多态：允许将子类类型的指针赋值给父类类型的指针，同一个函数调用会有不同的执行效果。</li>
+</ul>
 
                 
             </div>
@@ -2235,31 +2249,31 @@ dependencies:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/23/ubuntu/ubuntu01-shou-dong-an-zhuang-ssh-fu-wu/">
+                <a href="/2022/02/16/dart/dart02-dart-yu-yan-er/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="手动安装SSH服务">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Dart语言(二)">
                         
-                        <span class="card-title">手动安装SSH服务</span>
+                        <span class="card-title">Dart语言(二)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装SSH时，国外源无法访问，更换常用的国内源仍然无果，由于地区特殊，可能网络做了类似于运营商的缓存劫持限制。
+                            Dart是谷歌开发的编程语言，被ECMA认定为标准，最新版本是Dart2，是高效、简洁、已通过实战检验的语言。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-16
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Ubuntu/" class="post-category">
-                                    Ubuntu
+                            <a href="/categories/Dart/" class="post-category">
+                                    Dart
                                 </a>
                             
                             
@@ -2269,12 +2283,8 @@ dependencies:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Ubuntu/">
-                        <span class="chip bg-color">Ubuntu</span>
-                    </a>
-                    
-                    <a href="/tags/SSH/">
-                        <span class="chip bg-color">SSH</span>
+                    <a href="/tags/Dart/">
+                        <span class="chip bg-color">Dart</span>
                     </a>
                     
                 </div>
@@ -2348,7 +2358,7 @@ dependencies:
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('300')) {
+        if (('' + selection).length < Number.parseInt('3000')) {
             return;
         }
 
@@ -2569,7 +2579,7 @@ dependencies:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">13.5k</span>&nbsp;字
             
             
             
