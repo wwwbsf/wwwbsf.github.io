@@ -395,7 +395,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.7k
+                    9.8k
                 </div>
                 
 
@@ -2117,7 +2117,7 @@
 <span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'Jude'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -2143,7 +2143,7 @@
 <span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'Jude'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'Female'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2170,7 +2170,7 @@
 <span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'Jude'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'Female'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2184,7 +2184,7 @@
   <span class="token punctuation">}</span>
 
   <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name} at work."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}在工作"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2198,18 +2198,18 @@
   <span class="token comment" spellcheck="true">// 覆写父类的方法，不加@override也可，建议加上</span>
   <span class="token metadata symbol">@override</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Name: ${this.name}---Age: ${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"姓名: ${this.name}---年龄: ${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token metadata symbol">@override</span>
   <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}'s work writing code."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}的日常工作任务是写代码"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 实例化子类</span>
-  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'Nico'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2223,7 +2223,7 @@
   <span class="token punctuation">}</span>
 
   <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name} at work."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}在工作"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2231,53 +2231,52 @@
   <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 子类中扩展方法</span>
   <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"run"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"程序执行中"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 子类调用父类方法</span>
     <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token metadata symbol">@override</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Name: ${this.name}---Age: ${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"姓名: ${this.name}---年龄: ${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 实例化子类</span>
-  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'Nico'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-3-抽象类"><a href="#6-3-抽象类" class="headerlink" title="6-3 抽象类"></a>6-3 抽象类</h2><ul>
-<li>抽象类主要用于定义标准，子类可以继承抽象类，也可以实现抽象类接口。<ul>
-<li>抽象类通过abstract关键词定义。</li>
-<li>没有方法体的方法称为抽象方法，抽象方法不能用abstract关键词来声明。</li>
-<li>如果子类继承抽象类必须实现里面的抽象方法。</li>
-<li>如果把抽象类当做接口实现，必须先实现抽象类里面定义的所有属性和方法。</li>
+<h2 id="6-3-抽象类与泛型"><a href="#6-3-抽象类与泛型" class="headerlink" title="6-3 抽象类与泛型"></a>6-3 抽象类与泛型</h2><ul>
+<li>抽象类主要用于定义标准，通过abstract关键词定义，子类可以继承抽象类，也可以实现抽象类接口。<ul>
 <li>抽象类不能被实例化，只有继承它的子类可以。</li>
+<li>如果子类继承抽象类，必须实现里面的抽象方法。</li>
+<li>没有方法体的方法称为抽象方法，不能用abstract关键词来声明。</li>
+<li>如果把抽象类当做接口实现，必须先实现抽象类里面定义的所有属性和方法。</li>
 </ul>
 </li>
 <li>extends抽象类和implements的区别<ul>
-<li>如果要复用抽象类里面的方法，并且要用抽象方法约束子类，用extends继承抽象类。</li>
 <li>如果只是把抽象类当做标准，就用implements实现抽象类。</li>
+<li>如果要复用抽象类里面的方法，并且要用抽象方法约束子类，用extends继承抽象类。</li>
 </ul>
 </li>
-<li>案例：定义一个Animal类，要求它的子类必须包含eat方法。</li>
 </ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 定义一个Animal类，要求它的子类必须包含eat方法</span>
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 抽象方法</span>
   <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 非抽象方法</span>
   <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"一个抽象类中的普通方法。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"一个抽象类中的普通方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
   <span class="token metadata symbol">@override</span>
   <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小狗在吃骨头。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小狗在吃骨头"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2289,7 +2288,7 @@
   <span class="token comment" spellcheck="true">// 抽象类没法直接被实例化，只有继承它的子类才能被实例化</span>
   <span class="token comment" spellcheck="true">// var a = new Animal();</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-多态"><a href="#1-多态" class="headerlink" title="(1) 多态"></a>(1) 多态</h3><ul>
 <li>多态就是父类定义一个方法不去实现，让继承它的子类去实现，每个子类有不同的表现。</li>
 </ul>
@@ -2301,14 +2300,14 @@
 <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
   <span class="token metadata symbol">@override</span>
   <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小狗在吃骨头。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小狗在吃骨头"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
   <span class="token metadata symbol">@override</span>
   <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小猫在吃老鼠。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小猫在吃老鼠"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2331,22 +2330,22 @@
 <span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
   <span class="token metadata symbol">@override</span>
   <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小狗在吃骨头。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小狗在吃骨头"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"run"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"程序正在执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
   <span class="token metadata symbol">@override</span>
   <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小猫在吃老鼠。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"小猫在吃老鼠"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"run"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"程序正在执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2359,20 +2358,14 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-接口"><a href="#2-接口" class="headerlink" title="(2) 接口"></a>(2) 接口</h3><ul>
-<li><p>Dart的接口没有interface关键字定义接口，而是普通类或抽象类都可以作为接口被实现。</p>
-</li>
-<li><p>同样使用implements关键字进行实现。</p>
-</li>
-<li><p>Dart的接口有点奇怪，如果实现的类是普通类，会将普通类和抽象类中属性的方法全部覆写一遍。</p>
-</li>
-<li><p>因为抽象类可以定义抽象方法，普通类不可以，所以要实现类似于Java接口的方式，一般都会使用抽象类。</p>
-</li>
-<li><p>建议使用抽象类定义接口。</p>
-</li>
-<li><p>定义一个DB库，支持MySQL、MSSQL、MongoDB，三个类中都有同样的方法。</p>
-</li>
+<li>Dart的接口没有interface关键字定义，而是普通类或抽象类都可作为接口，使用implements关键字进行实现。<ul>
+<li>如果实现接口的类是普通类，会将普通类和抽象类中属性的方法全部覆写一遍。</li>
+<li>抽象类可定义抽象方法，普通类不可，要实现类似于Java接口的方式，一般都会使用抽象类。</li>
 </ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 接口，即约定或叫规范</span>
+</li>
+<li>建议使用抽象类定义接口。</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 接口，即约定或叫规范，定义一个DB库，支持MySQL、MSSQL、MongoDB，三个类中都有同样的方法</span>
 <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">DB</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 数据库的链接地址</span>
   late String uri<span class="token punctuation">;</span>
@@ -2408,7 +2401,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>抽类：lib目录新建一个MySQL.dart文件和一个DB.dart文件。</li>
+<li>抽类步骤一：lib目录新建一个DB.dart文件。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 接口，即约定或叫规范，DB.dart文件</span>
 <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">DB</span> <span class="token punctuation">{</span>
@@ -2418,9 +2411,11 @@
   <span class="token function">edit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//////////////////////////////////////////</span>
-<span class="token keyword">import</span> <span class="token string">'DB.dart'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>抽类步骤二：lib目录新建一个MySQL.dart文件，引入DB.dart文件。</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'DB.dart'</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// MySQL.dart文件</span>
 <span class="token keyword">class</span> <span class="token class-name">MySQL</span> <span class="token keyword">implements</span> <span class="token class-name">DB</span> <span class="token punctuation">{</span>
@@ -2443,17 +2438,19 @@
     <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//////////////////////////////////////////</span>
-<span class="token keyword">import</span> <span class="token string">'lib/MySQL.dart'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>抽类步骤三：创建一个Test.dart文件，用于引入MySQL.dart文件。</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'lib/MySQL.dart'</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// Test.dart文件</span>
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   MySQL mysql <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MySQL</span><span class="token punctuation">(</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   mysql<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'123456789'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-implements实现多个接口"><a href="#3-implements实现多个接口" class="headerlink" title="(3) implements实现多个接口"></a>(3) implements实现多个接口</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 一个类实现多个接口</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-多接口"><a href="#3-多接口" class="headerlink" title="(3) 多接口"></a>(3) 多接口</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 一个类实现多个接口</span>
 <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
   late String name<span class="token punctuation">;</span>
   <span class="token function">printA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2469,12 +2466,12 @@
 
   <span class="token metadata symbol">@override</span>
   <span class="token function">printA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'PrintA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'打印A'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token metadata symbol">@override</span>
   <span class="token function">printB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"PrintB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"打印B"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2485,16 +2482,12 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-mixins"><a href="#4-mixins" class="headerlink" title="(4) mixins"></a>(4) mixins</h3><ul>
-<li>mixins即混入，指在类中混入其他功能。</li>
-<li>在Dart中可以使用mixins实现类似多继承的功能。</li>
-<li>mixins使用的条件，随着Dart版本一直在变，这里用的是Dart2.x中使用mixins的条件。<ul>
-<li>一个类可以mixins多个mixins类。</li>
-<li>mixins绝不是继承，也不是接口，而是一种全新的特性。</li>
-</ul>
-</li>
+<li>mixins即混入，指在类中混入其他功能，在Dart中可以使用mixins实现类似多继承的功能。</li>
+<li>使用的条件伴随着Dart版本的变化一直在改变，这里用的是Dart2.x中使用mixins的条件。</li>
+<li>一个类可以mixins多个mixins类，mixins绝不是继承，也不是接口，而是一种全新的特性。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
-  String info <span class="token operator">=</span> <span class="token string">'This is A.'</span><span class="token punctuation">;</span>
+  String info <span class="token operator">=</span> <span class="token string">'这是A'</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
@@ -2520,12 +2513,12 @@
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'这是一个Person类。'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'这是一个Person类'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-  String info <span class="token operator">=</span> <span class="token string">'This is A.'</span><span class="token punctuation">;</span>
+  String info <span class="token operator">=</span> <span class="token string">'这是A'</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
@@ -2546,7 +2539,7 @@
 <li>作为mixins的类不能有构造函数。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
-  String info <span class="token operator">=</span> <span class="token string">'This is A.'</span><span class="token punctuation">;</span>
+  String info <span class="token operator">=</span> <span class="token string">'这是A'</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
@@ -2570,7 +2563,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>继承与mixins一起写的方法</li>
+<li>继承与mixins一起写的方法。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   String name<span class="token punctuation">;</span>
@@ -2582,7 +2575,7 @@
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
-  String info <span class="token operator">=</span> <span class="token string">'This is A.'</span><span class="token punctuation">;</span>
+  String info <span class="token operator">=</span> <span class="token string">'这是A'</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
@@ -2602,12 +2595,12 @@
 <span class="token punctuation">}</span>
 
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token string">'Lucy'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   c<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>注意</li>
+<li>注意with A, B或with B, A的顺序，打印出来的内容不一样，后面替换前面。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   String name<span class="token punctuation">;</span>
@@ -2619,18 +2612,18 @@
 
   <span class="token comment" spellcheck="true">// 继承与mixins中有同样的方法，with A, B或with B, A的顺序同下</span>
   <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Person Run'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'Person类执行中'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
-  String info <span class="token operator">=</span> <span class="token string">'This is A.'</span><span class="token punctuation">;</span>
+  String info <span class="token operator">=</span> <span class="token string">'这是A'</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'A Run'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'A执行中'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2640,7 +2633,7 @@
   <span class="token punctuation">}</span>
 
   <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'B Run'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'B执行中'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2650,7 +2643,7 @@
 <span class="token punctuation">}</span>
 
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token string">'Lucy'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   c<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -2660,7 +2653,7 @@
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// ignore_for_file: unnecessary_type_check</span>
 
 <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
-  String info <span class="token operator">=</span> <span class="token string">'This is A.'</span><span class="token punctuation">;</span>
+  String info <span class="token operator">=</span> <span class="token string">'这是A'</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
@@ -2684,7 +2677,7 @@
   <span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">is</span> Object<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-4-泛型方法"><a href="#6-4-泛型方法" class="headerlink" title="6-4 泛型方法"></a>6-4 泛型方法</h2><ul>
+<h3 id="5-泛型方法"><a href="#5-泛型方法" class="headerlink" title="(5) 泛型方法"></a>(5) 泛型方法</h3><ul>
 <li>泛型即解决类、接口、方法的复用性，以及对不特定数据类型的支持(类型校验)。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 只能返回String类型的数据</span>
@@ -2720,12 +2713,12 @@ getData6<span class="token operator">&lt;</span>T<span class="token operator">><
   <span class="token function">print</span><span class="token punctuation">(</span><span class="token function">getData5</span><span class="token punctuation">(</span><span class="token string">'15'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   getData5<span class="token operator">&lt;</span>int<span class="token operator">></span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  getData5<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">'Hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  getData5<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   getData6<span class="token operator">&lt;</span>int<span class="token operator">></span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  getData6<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">'Hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  getData6<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">'李四'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-泛型类"><a href="#1-泛型类" class="headerlink" title="(1) 泛型类"></a>(1) 泛型类</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">MyList1</span> <span class="token punctuation">{</span>
+<h3 id="6-泛型类定义"><a href="#6-泛型类定义" class="headerlink" title="(6) 泛型类定义"></a>(6) 泛型类定义</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">MyList1</span> <span class="token punctuation">{</span>
   List list <span class="token operator">=</span> <span class="token operator">&lt;</span>int<span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span>int value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2751,36 +2744,33 @@ getData6<span class="token operator">&lt;</span>T<span class="token operator">><
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 创建固定长度的List，这里使用到了泛型</span>
   List l1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">.</span><span class="token function">filled</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  l1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Lily'</span><span class="token punctuation">;</span>
-  l1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Mary'</span><span class="token punctuation">;</span>
+  l1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">;</span>
+  l1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'李四'</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment" spellcheck="true">// new关键词可以省略</span>
   MyList1 l2 <span class="token operator">=</span> <span class="token function">MyList1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  l2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1235</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  l2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">5321</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">321</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>l2<span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   MyList2 l3 <span class="token operator">=</span> <span class="token function">MyList2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  l3<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1235</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  l3<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'Lucy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l3<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">125</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l3<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'王五'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>l3<span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   MyList2 l4 <span class="token operator">=</span> MyList2<span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  l4<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'Mike'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l4<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'赵六'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 传int会报错</span>
-  l4<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'1235'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  l4<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'135'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>l4<span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-泛型接口"><a href="#2-泛型接口" class="headerlink" title="(2) 泛型接口"></a>(2) 泛型接口</h3><ul>
-<li>实现数据缓存的功能：有文件缓存和内存缓存两种。<ul>
-<li>内存缓存和文件缓存按照接口约束实现。</li>
+<h3 id="7-泛型接口定义"><a href="#7-泛型接口定义" class="headerlink" title="(7) 泛型接口定义"></a>(7) 泛型接口定义</h3><ul>
+<li>实现数据缓存的功能有文件缓存和内存缓存两种，内存缓存和文件缓存按照接口约束实现。</li>
 <li>定义一个泛型接口<ul>
-<li>约束实现它的子类必须有<code>getByKey(Key)</code>和<code>setByKey(key, value)</code>。</li>
-<li>要求setByKey的value类型和实例化子类时指定的类型一致。</li>
-</ul>
-</li>
+<li>约束实现子类必须有<code>getByKey(Key)</code>和<code>setByKey(key, value)</code>。</li>
+<li>要求setByKey的value类型和实例化子类时指定的类型需保持一致。</li>
 </ul>
 </li>
 </ul>
@@ -2800,7 +2790,7 @@ getData6<span class="token operator">&lt;</span>T<span class="token operator">><
 
   <span class="token metadata symbol">@override</span>
   <span class="token keyword">void</span> <span class="token function">setByKey</span><span class="token punctuation">(</span>String key<span class="token punctuation">,</span> T value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'我是文件缓存，把key=${key} value=${value}的数据写入到了文件中。'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'我是文件缓存，把key=${key} value=${value}的数据写入到了文件中'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2812,7 +2802,7 @@ getData6<span class="token operator">&lt;</span>T<span class="token operator">><
 
   <span class="token metadata symbol">@override</span>
   <span class="token keyword">void</span> <span class="token function">setByKey</span><span class="token punctuation">(</span>String key<span class="token punctuation">,</span> T value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'我是内存缓存，把key=${key} value=${value}的数据写入到了内存中。'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'我是内存缓存，把key=${key} value=${value}的数据写入到了内存中'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2820,7 +2810,7 @@ getData6<span class="token operator">&lt;</span>T<span class="token operator">><
   MemoryCache m1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MemoryCache</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   m1<span class="token punctuation">.</span><span class="token function">setByKey</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span> <span class="token string">'首页数据'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   MemoryCache m2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MemoryCache</span><span class="token operator">&lt;</span>Map<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  m2<span class="token punctuation">.</span><span class="token function">setByKey</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Lily'</span><span class="token punctuation">,</span> <span class="token string">'work'</span><span class="token punctuation">:</span> <span class="token string">'Engineer'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  m2<span class="token punctuation">.</span><span class="token function">setByKey</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'姓名'</span><span class="token punctuation">:</span> <span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token string">'工作'</span><span class="token punctuation">:</span> <span class="token string">'程序员'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -3659,7 +3649,7 @@ getData6<span class="token operator">&lt;</span>T<span class="token operator">><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.6k</span>&nbsp;字
+                class="white-color">13.7k</span>&nbsp;字
             
             
             
