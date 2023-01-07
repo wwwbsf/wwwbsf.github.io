@@ -399,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    677
+                    674
                 </div>
                 
 
@@ -432,11 +432,8 @@
 
 
 <h1 id="1-Zlib"><a href="#1-Zlib" class="headerlink" title="1 Zlib"></a>1 Zlib</h1><ul>
-<li>Zlib<ul>
 <li>提供了数据压缩用的函式库(源码包)，由Jean-loup Gailly与Mark Adler开发。</li>
 <li>使用DEFLATE算法，最初是为了Libpng函式库所写，官网：<a target="_blank" rel="noopener" href="https://zlib.net/">https://zlib.net/</a>。</li>
-</ul>
-</li>
 </ul>
 <pre class="line-numbers language-terminal"><code class="language-terminal">$ sudo tar zxvf zlib-xxx.tar.gz               # 解压zlib-xxx.tar.gz
 $ cd zlib-xxx/                                # 进入解压的zlib-xxx目录中
@@ -446,7 +443,6 @@ $ sudo make install                           # 安装zlib
 $ sudo ./configure && make && make install    # 命令可以连起来用
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="2-OpenSSL"><a href="#2-OpenSSL" class="headerlink" title="2 OpenSSL"></a>2 OpenSSL</h1><ul>
-<li>OpenSSL<ul>
 <li>一个安全套接字层密码库，囊括主要的密码算法、常用密钥、证书封装管理功能及实现SSL协议。</li>
 <li>主要分成了SSL协议库、应用程序、密码算法库三个功能部分，官网：<a target="_blank" rel="noopener" href="http://www.openssl.org/">http://www.openssl.org/</a>。</li>
 <li><code>--prefix</code>：配置安装目录。<ul>
@@ -457,21 +453,16 @@ $ sudo ./configure && make && make install    # 命令可以连起来用
 </li>
 <li><code>--openssldir</code>：配置文件目录。</li>
 </ul>
-</li>
-</ul>
-<pre class="line-numbers language-terminal"><code class="language-terminal">$ sudo tar zxvf openssl-xxx.tar.gz        # 解压openssl-xxx.tar.gz
-$ cd openssl-xxx/                         # 进入解压的openssl-xxx目录中
+<pre class="line-numbers language-terminal"><code class="language-terminal">$ sudo tar zxvf openssl-xxx.tar.gz            # 解压openssl-xxx.tar.gz
+$ cd openssl-xxx/                             # 进入解压的openssl-xxx目录中
 $ ./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
-$ make                                    # 编译环境
-$ sudo make install                       # 安装openssl
-$ openssl version                         # 验证openssl是否安装成功
+$ make                                        # 编译环境
+$ sudo make install                           # 安装openssl
+$ openssl version                             # 验证openssl是否安装成功
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-OpenSSH"><a href="#3-OpenSSH" class="headerlink" title="3 OpenSSH"></a>3 OpenSSH</h1><ul>
-<li>OpenSSH<ul>
 <li>SSH，Secure Shell协议的免费开源实现，对传输的数据进行加密从而提高数据的安全性。</li>
 <li>提供了服务端后台程序和客户端工具，用来加密数据，官网：<a target="_blank" rel="noopener" href="http://www.openssh.com/">http://www.openssh.com/</a>。</li>
-</ul>
-</li>
 </ul>
 <pre class="line-numbers language-terminal"><code class="language-terminal">$ sudo tar zxvf openssh-xxx.tar.gz   # 解压openssh-xxx.tar.gz
 $ cd openssh-xxx/                    # 进入解压的openssh-xxx目录中
