@@ -1509,7 +1509,7 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="5-函数说明"><a href="#5-函数说明" class="headerlink" title="5 函数说明"></a>5 函数说明</h1><ul>
 <li>函数即方法，内置的方法，例如：<code>print()</code>。</li>
-<li>自定义方法，格式：<code>返回类型 方法名称 (参数1, 参数2, ...) { }</code>。</li>
+<li>自定义方法，格式：<code>返回类型 方法名称(参数1, 参数2, ...) { }</code>。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 全局作用域</span>
 <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1529,7 +1529,7 @@
 
   <span class="token comment" spellcheck="true">// 全局作用域</span>
   int <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> myNum <span class="token operator">=</span> <span class="token number">12345789</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> myNum <span class="token operator">=</span> <span class="token number">123456789</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> myNum<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
@@ -1545,23 +1545,23 @@
   <span class="token comment" spellcheck="true">// 定义一个方法，求1到这个数的所有数之和</span>
   int <span class="token function">sumNum</span><span class="token punctuation">(</span>int n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       sum <span class="token operator">+=</span> i<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
-  <span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token function">sumNum</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token function">sumNum</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment" spellcheck="true">// 定义一个方法，然后打印用户信息</span>
   <span class="token comment" spellcheck="true">// 形参</span>
   String <span class="token function">printUserInfo</span><span class="token punctuation">(</span>String username<span class="token punctuation">,</span> int age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token string">'Name: $username---Age: $age'</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token string">'姓名：$username --- 年龄：$age'</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token comment" spellcheck="true">// 实参</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token function">printUserInfo</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token function">printUserInfo</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-可选参数"><a href="#1-可选参数" class="headerlink" title="(1) 可选参数"></a>(1) 可选参数</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
