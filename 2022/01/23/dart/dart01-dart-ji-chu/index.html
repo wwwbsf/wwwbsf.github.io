@@ -1881,7 +1881,7 @@
   p<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-私有属性"><a href="#4-私有属性" class="headerlink" title="(4) 私有属性"></a>(4) 私有属性</h3><ul>
+<h3 id="1-私有属性"><a href="#1-私有属性" class="headerlink" title="(1) 私有属性"></a>(1) 私有属性</h3><ul>
 <li>Dart中没有public、private protected等访问修饰符，但可使用<code>_</code>将属性和方法私有化。</li>
 <li>自定义私有属性，或自定义私有方法时，必须将其单独抽类到一个文件中，这样才有效果。</li>
 <li>例如：Animal类，定义name为私有属性，将创建的Animal类放在/lib/AnimalProperties.dart中。</li>
@@ -1920,7 +1920,7 @@
   <span class="token function">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="5-私有方法"><a href="#5-私有方法" class="headerlink" title="(5) 私有方法"></a>(5) 私有方法</h3><ul>
+<h3 id="2-私有方法"><a href="#2-私有方法" class="headerlink" title="(2) 私有方法"></a>(2) 私有方法</h3><ul>
 <li>例如：Animal类，定义run()为私有方法，将创建的Animal类放在/lib/AnimalMethods.dart中。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
@@ -1947,12 +1947,12 @@
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'./lib/AnimalMethods.dart'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Animal a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">"小狗"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Animal a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">'小狗'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 间接地调用私有方法</span>
   a<span class="token punctuation">.</span><span class="token function">execRun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="6-getter与setter"><a href="#6-getter与setter" class="headerlink" title="(6) getter与setter"></a>(6) getter与setter</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Rect</span> <span class="token punctuation">{</span>
+<h3 id="3-getter与setter"><a href="#3-getter与setter" class="headerlink" title="(3) getter与setter"></a>(3) getter与setter</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Rect</span> <span class="token punctuation">{</span>
   num height<span class="token punctuation">;</span>
   num width<span class="token punctuation">;</span>
 
@@ -1968,15 +1968,15 @@
 <span class="token punctuation">}</span>
 
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Rect r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rect</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Rect r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rect</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 通过访问属性来访问area</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"面积：${r.area}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'面积：${r.area}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   r<span class="token punctuation">.</span>areaHeight <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"面积：${r.area}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'面积：${r.area}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="7-类的初始化列表"><a href="#7-类的初始化列表" class="headerlink" title="(7) 类的初始化列表"></a>(7) 类的初始化列表</h3><ul>
+<h3 id="4-类的初始化列表"><a href="#4-类的初始化列表" class="headerlink" title="(4) 类的初始化列表"></a>(4) 类的初始化列表</h3><ul>
 <li>可以在构造函数体运行之前初始化实例变量。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Rect</span> <span class="token punctuation">{</span>
@@ -1984,10 +1984,8 @@
   int width<span class="token punctuation">;</span>
 
   <span class="token comment" spellcheck="true">// 初始化实例变量</span>
-  <span class="token function">Rect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-      <span class="token punctuation">:</span> height <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span>
-        width <span class="token operator">=</span> <span class="token number">10</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"长：${this.height}\n宽：${this.width}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">Rect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> height <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">,</span> width <span class="token operator">=</span> <span class="token number">10</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'长为：${this.height}\n宽为：${this.width}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1997,10 +1995,10 @@
 
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   Rect r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"面积：${r.getArea()}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'面积：${r.getArea()}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="8-类中的静态成员"><a href="#8-类中的静态成员" class="headerlink" title="(8) 类中的静态成员"></a>(8) 类中的静态成员</h3><ul>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-类中的静态成员"><a href="#5-类中的静态成员" class="headerlink" title="(5) 类中的静态成员"></a>(5) 类中的静态成员</h3><ul>
 <li>使用static关键字来实现类级别的变量和函数。</li>
 <li>静态属性与静态方法直接通过类名访问，而非类的实例访问。</li>
 </ul>
@@ -2020,22 +2018,22 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>非静态方法可访问静态成员、非静态成员，以及静态方法。</li>
-<li>静态方法可访问静态成员和静态方法，不能访问非静态成员和非静态方法。</li>
+<li>非静态方法可以访问静态成员、非静态成员，以及静态方法。</li>
+<li>静态方法可以访问静态成员和静态方法，不能访问非静态成员和非静态方法。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   <span class="token keyword">static</span> String name <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">;</span>
-  int age <span class="token operator">=</span> <span class="token number">35</span><span class="token punctuation">;</span>
+  int age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
 
   <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 访问静态属性</span>
-    <span class="token function">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 访问非静态属性</span>
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 访问静态属性</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 调用静态方法</span>
     <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
@@ -2067,13 +2065,13 @@
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   String name <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">;</span>
-  num age <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span>
+  num age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}---${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name} --- ${this.age}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// 可访问Person中共有的属性和方法</span>
+<span class="token comment" spellcheck="true">// 可以访问Person中共有的属性和方法</span>
 <span class="token keyword">class</span> <span class="token class-name">Web</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2088,17 +2086,17 @@
   num age<span class="token punctuation">;</span>
   <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}---${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name} --- ${this.age}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Web</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// super表示实例化子类时，将传过来的name和age参数赋值给父类Person</span>
-  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -2107,24 +2105,24 @@
   num age<span class="token punctuation">;</span>
   <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}---${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name} --- ${this.age}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Web</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 定义子类自己的属性</span>
-  String<span class="token operator">?</span> sex<span class="token punctuation">;</span>
-  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">,</span> String sex<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  String sex<span class="token punctuation">;</span>
+  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">,</span> String sex<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
   <span class="token comment" spellcheck="true">// 定义子类自己的方法</span>
   <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}---${this.age}---${this.sex}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name} --- ${this.age} --- ${this.sex}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2136,22 +2134,22 @@
   <span class="token comment" spellcheck="true">// 命名构造函数</span>
   Person<span class="token punctuation">.</span><span class="token function">construct</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}---${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name} --- ${this.age}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Web</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-  String<span class="token operator">?</span> sex<span class="token punctuation">;</span>
-  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">,</span> String sex<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">construct</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  String sex<span class="token punctuation">;</span>
+  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">,</span> String sex<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">construct</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>sex <span class="token operator">=</span> sex<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
   <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}---${this.age}---${this.sex}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name} --- ${this.age} --- ${this.sex}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Web w <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Web</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   w<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2161,30 +2159,30 @@
   num age<span class="token punctuation">;</span>
   <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}---${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name} --- ${this.age}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}在工作"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name}在工作'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Web</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 子类中扩展方法</span>
   <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"run"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'run'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
-  <span class="token comment" spellcheck="true">// 覆写父类的方法，不加@override也可，建议加上</span>
+  <span class="token comment" spellcheck="true">// 覆写父类的方法，不加@override也可以，建议加上</span>
   <span class="token metadata symbol">@override</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"姓名: ${this.name}---年龄: ${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'姓名：${this.name} --- 年龄：${this.age}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token metadata symbol">@override</span>
   <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}的日常工作任务是写代码"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name}的日常工作任务是写代码'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -2200,26 +2198,26 @@
   num age<span class="token punctuation">;</span>
   <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}---${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name} --- ${this.age}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-
+  
   <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"${this.name}在工作"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'${this.name}在工作'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Web</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">Web</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> num age<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 子类中扩展方法</span>
   <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"程序执行中"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'程序执行中'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 子类调用父类方法</span>
     <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token metadata symbol">@override</span>
   <span class="token keyword">void</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"姓名: ${this.name}---年龄: ${this.age}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'姓名：${this.name} --- 年龄：${this.age}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
