@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="手动安装SSH服务, bsf">
+    <meta name="keywords" content="Docker Desktop, bsf">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>手动安装SSH服务 | bsf</title>
+    <title>Docker Desktop | bsf</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,12 +240,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">手动安装SSH服务</h1>
+                    <h1 class="description center-align post-title">Docker Desktop</h1>
                 </div>
             </div>
         </div>
@@ -361,12 +361,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Ubuntu/">
-                                <span class="chip bg-color">Ubuntu</span>
+                            <a href="/tags/Windows/">
+                                <span class="chip bg-color">Windows</span>
                             </a>
                         
-                            <a href="/tags/SSH/">
-                                <span class="chip bg-color">SSH</span>
+                            <a href="/tags/Docker/">
+                                <span class="chip bg-color">Docker</span>
                             </a>
                         
                     </div>
@@ -377,8 +377,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Ubuntu/" class="post-category">
-                                Ubuntu
+                            <a href="/categories/Docker/" class="post-category">
+                                Docker
                             </a>
                         
                     </div>
@@ -390,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-23
+                    2022-05-17
                 </div>
                 
 
@@ -399,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    674
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -426,63 +426,243 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>安装SSH时国外源无法访问，更换国内源仍然无果，可能地区特殊，网络做了类似于运营商的缓存劫持限制。</p>
+                <p>Docker是在Linux下的一种容器，支持类似于沙盒环境下的环境搭建、软件安装、软件使用、程序编码等操作。</p>
 <span id="more"></span>
 
 
 
-<h1 id="1-Zlib"><a href="#1-Zlib" class="headerlink" title="1 Zlib"></a>1 Zlib</h1><ul>
-<li>提供了数据压缩用的函式库(源码包)，由Jean-loup Gailly与Mark Adler开发。</li>
-<li>使用DEFLATE算法，最初是为了Libpng函式库所写，官网：<a target="_blank" rel="noopener" href="https://zlib.net/">https://zlib.net/</a>。</li>
-</ul>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf zlib-xxx.tar.gz               <span class="token comment" spellcheck="true"># 解压zlib-xxx.tar.gz</span>
-$ <span class="token function">cd</span> zlib-xxx/                                <span class="token comment" spellcheck="true"># 进入解压的zlib-xxx目录中</span>
-$ ./configure                                 <span class="token comment" spellcheck="true"># 执行配置脚本文件</span>
-$ <span class="token function">make</span>                                        <span class="token comment" spellcheck="true"># 编译环境</span>
-$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                           <span class="token comment" spellcheck="true"># 安装zlib</span>
-$ <span class="token function">sudo</span> ./configure <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>    <span class="token comment" spellcheck="true"># 命令可以连起来用</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="2-OpenSSL"><a href="#2-OpenSSL" class="headerlink" title="2 OpenSSL"></a>2 OpenSSL</h1><ul>
-<li>一个安全套接字层密码库，囊括主要的密码算法、常用密钥、证书封装管理功能及实现SSL协议。</li>
-<li>主要分成了SSL协议库、应用程序、密码算法库三个功能部分，官网：<a target="_blank" rel="noopener" href="http://www.openssl.org/">http://www.openssl.org/</a>。</li>
-<li><code>--prefix</code>：配置安装目录。<ul>
-<li>不配置安装后，可执行文件默认放在/usr/local/bin，库文件放在/usr/local/lib。</li>
-<li>配置文件默认放在/usr/local/etc，其他资源文件放在/usr/local/share，比较乱。</li>
-<li>配置安装后，所有的资源文件都会被放在指定目录中，不会被分散到其他地方。</li>
+<h1 id="1-简单介绍"><a href="#1-简单介绍" class="headerlink" title="1 简单介绍"></a>1 简单介绍</h1><ul>
+<li>镜像Image：类似于虚拟机里的镜像（<code>.ISO</code>)，只读模板，独立的文件系统，可用来创建新的容器。</li>
+<li>容器Container<ul>
+<li>是由Docker镜像创建的运行实例，类似于VM虚拟机，支持启动、停止、删除等操作。</li>
+<li>每个容器间相互隔离，容器中可运行特定应用，包含特定应用代码及所需的依赖文件。</li>
 </ul>
 </li>
-<li><code>--openssldir</code>：配置文件目录。</li>
+<li>仓库Repository：镜像商店，用于传播镜像的地方。<ul>
+<li>官方仓库：<a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com/</a>。</li>
+<li>国内仓库：<a target="_blank" rel="noopener" href="https://hub.daocloud.io/">https://hub.daocloud.io/</a>。</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf openssl-xxx.tar.gz            <span class="token comment" spellcheck="true"># 解压openssl-xxx.tar.gz</span>
-$ <span class="token function">cd</span> openssl-xxx/                             <span class="token comment" spellcheck="true"># 进入解压的openssl-xxx目录中</span>
-$ ./config --prefix<span class="token operator">=</span>/usr/local/openssl --openssldir<span class="token operator">=</span>/usr/local/openssl
-$ <span class="token function">make</span>                                        <span class="token comment" spellcheck="true"># 编译环境</span>
-$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                           <span class="token comment" spellcheck="true"># 安装openssl</span>
-$ openssl version                             <span class="token comment" spellcheck="true"># 验证openssl是否安装成功</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="3-OpenSSH"><a href="#3-OpenSSH" class="headerlink" title="3 OpenSSH"></a>3 OpenSSH</h1><ul>
-<li>SSH，Secure Shell协议的免费开源实现，对传输的数据进行加密从而提高数据的安全性。</li>
-<li>提供了服务端后台程序和客户端工具，用来加密数据，官网：<a target="_blank" rel="noopener" href="http://www.openssh.com/">http://www.openssh.com/</a>。</li>
+</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf openssh-xxx.tar.gz   <span class="token comment" spellcheck="true"># 解压openssh-xxx.tar.gz</span>
-$ <span class="token function">cd</span> openssh-xxx/                    <span class="token comment" spellcheck="true"># 进入解压的openssh-xxx目录中</span>
-$ ./configure                        <span class="token comment" spellcheck="true"># 执行配置脚本文件</span>
-$ <span class="token function">make</span>                               <span class="token comment" spellcheck="true"># 编译环境</span>
-$ <span class="token function">sudo</span> gedit /etc/passwd             <span class="token comment" spellcheck="true"># 添加内容，该文件用于用户登录时校验口令</span>
-
-<span class="token comment" spellcheck="true"># 不添加SSH可能启动不了，报错提示：Privilege separation user sshd does not exist</span>
-<span class="token comment" spellcheck="true"># 添加内容：sshd:x:74:74:Provilege-separated SSH:/var/empty/sshd:/sbin/nologin</span>
-<span class="token comment" spellcheck="true"># 添加信息：注册名:口令Pwd:用户标识号UID:组标识号GID:用户名:用户主目录:命令解释程序</span>
-
-$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                  <span class="token comment" spellcheck="true"># 安装openssh</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="4-启动服务"><a href="#4-启动服务" class="headerlink" title="4 启动服务"></a>4 启动服务</h1><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> /usr/local/sbin/sshd          <span class="token comment" spellcheck="true"># 启动ssh-server</span>
-$ <span class="token function">netstat</span> –tnlp <span class="token operator">|</span> <span class="token function">grep</span> :22           <span class="token comment" spellcheck="true"># 查看并监听22端口，ssh服务默认开启22端口</span>
-$ <span class="token function">ssh</span> localhost                      <span class="token comment" spellcheck="true"># 尝试从本机通过ssh登录，成功登录说明安装成功</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h1 id="5-配置开机启动"><a href="#5-配置开机启动" class="headerlink" title="5 配置开机启动"></a>5 配置开机启动</h1><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> gedit /etc/rc.local           <span class="token comment" spellcheck="true"># 需另起一个Terminal，否则报错</span>
-<span class="token comment" spellcheck="true"># sudo /usr/local/sbin/sshd          # 将该命令写入rc.local文件当中</span>
+<h2 id="1-1-安装"><a href="#1-1-安装" class="headerlink" title="1-1 安装"></a>1-1 安装</h2><ul>
+<li>傻瓜式安装后，重启电脑：<a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/windows-install/">Docker Desktop for Windows</a>。</li>
+<li>双击桌面的“Docker Desktop”图标，启动Docker Desktop。</li>
+<li>若弹窗提示“Docker Desktop requires a newer WSL kernel version”。</li>
+<li>那么以管理员身份打开PowerShell，输入命令<code>wsl --update</code>升级WSL。</li>
+</ul>
+<h2 id="1-2-换源"><a href="#1-2-换源" class="headerlink" title="1-2 换源"></a>1-2 换源</h2><ul>
+<li>国内从DockerHub拉取镜像有时网速很慢，可配置镜像加速器加速，很多云服务商都提供了国内加速器服务。</li>
+<li>Docker Desktop界面&gt;Settings&gt;Docker Engine&gt;在<code>builder</code>前增加如下内容&gt;点击<code>Apply &amp; restart</code>按钮。</li>
+</ul>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"registry-mirrors"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"http://hub-mirror.c.163.com"</span><span class="token punctuation">,</span>
+    <span class="token string">"https://docker.mirrors.ustc.edu.cn"</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token property">"insecure-registries"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token property">"debug"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token property">"experimental"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-3-验证"><a href="#1-3-验证" class="headerlink" title="1-3 验证"></a>1-3 验证</h2><ul>
+<li>命令窗口输入<code>docker run hello-world</code>，查看docker是否会从官方仓库中拉取hello-world镜像到本地。</li>
+<li>并自动将其实例化成容器，成功则说明镜像加速器配置正确，Docker Desktop的Containers中显示该镜像。</li>
+</ul>
+<h1 id="2-镜像操作"><a href="#2-镜像操作" class="headerlink" title="2 镜像操作"></a>2 镜像操作</h1><ul>
+<li>以下基础操作均支持在PowerShell命令窗口中进行。</li>
+</ul>
+<h2 id="2-1-查看镜像"><a href="#2-1-查看镜像" class="headerlink" title="2-1 查看镜像"></a>2-1 查看镜像</h2><table>
+<thead>
+<tr>
+<th align="center"><center>REPOSITORY</center></th>
+<th align="center"><center>TAG</center></th>
+<th align="center"><center>IMAGE ID</center></th>
+<th align="center"><center>CREATED</center></th>
+<th align="center"><center>SIZE</center></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><center>镜像所在的仓库名称</center></td>
+<td align="center"><center>镜像标签</center></td>
+<td align="center"><center>镜像ID</center></td>
+<td align="center"><center>镜像的创建日期(不是获取该镜像的日期)</center></td>
+<td align="center"><center>镜像大小</center></td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker images                               <span class="token comment" spellcheck="true"># 查看当前所有的镜像(docker images)</span>
+docker image <span class="token function">ls</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="2-2-拉取镜像"><a href="#2-2-拉取镜像" class="headerlink" title="2-2 拉取镜像"></a>2-2 拉取镜像</h2><ul>
+<li>官方默认仓库名为library，<code>docker pull &lt;image-name&gt;</code>命令相当于<code>docker pull library/&lt;image-name&gt;</code>。</li>
+</ul>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker image pull &lt;image<span class="token operator">-</span>name>                                  <span class="token comment" spellcheck="true"># 拉取官方镜像(docker pull)</span>
+docker pull &lt;image<span class="token operator">-</span>name>
+docker pull ubuntu
+docker pull ubuntu:16<span class="token punctuation">.</span>04
+
+docker pull &lt;depository<span class="token operator">-</span>name><span class="token operator">/</span>&lt;image<span class="token operator">-</span>name>                      <span class="token comment" spellcheck="true"># 拉取个人镜像</span>
+docker pull xxx<span class="token operator">/</span>flask
+
+docker pull &lt;3th<span class="token operator">-</span>depository<span class="token operator">-</span>url><span class="token operator">/</span>&lt;depository<span class="token operator">-</span>name><span class="token operator">/</span>&lt;image<span class="token operator">-</span>name> <span class="token comment" spellcheck="true"># 拉取第三方仓库</span>
+docker pull hub<span class="token punctuation">.</span>c<span class="token punctuation">.</span>163<span class="token punctuation">.</span>com<span class="token operator">/</span>library<span class="token operator">/</span>mysql:latest                  <span class="token comment" spellcheck="true"># 默认仓库名为library</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-3-删除镜像"><a href="#2-3-删除镜像" class="headerlink" title="2-3 删除镜像"></a>2-3 删除镜像</h2><ul>
+<li>删除镜像的前提是没有使用这个镜像的容器，若已使用，需要先删除该镜像下的所有容器。</li>
+</ul>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker image <span class="token function">rm</span> &lt;image<span class="token operator">-</span>name<span class="token punctuation">|</span>image<span class="token operator">-</span>id>                   <span class="token comment" spellcheck="true"># 删除镜像(docker rmi)</span>
+docker rmi &lt;image<span class="token operator">-</span>name<span class="token punctuation">|</span>image<span class="token operator">-</span>id>
+docker image <span class="token function">rm</span> ubuntu
+docker rmi 9e64176cd8a2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-4-创建容器"><a href="#2-4-创建容器" class="headerlink" title="2-4 创建容器"></a>2-4 创建容器</h2><table>
+<thead>
+<tr>
+<th align="center"><img style="width:200px;"><div style="text-align:center;font-size:20px;">run可选参数</div><br></th>
+<th align="left"><img style="width:900px;"><div style="text-align:center;font-size:20px;">作用</div><br></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><center><code>-i</code></center></td>
+<td align="left">以交互模式运行容器</td>
+</tr>
+<tr>
+<td align="center"><center><code>-d</code></center></td>
+<td align="left">创建一个守护式容器在后台运行(此创建方式不会自动登录容器)</td>
+</tr>
+<tr>
+<td align="center"><center><code>-t</code></center></td>
+<td align="left">容器启动后进入其命令行，即创建后立马分配一个伪终端</td>
+</tr>
+<tr>
+<td align="center"><center><code>-v</code></center></td>
+<td align="left">目录映射，即宿主机目录做修改，然后共享到容器中</td>
+</tr>
+<tr>
+<td align="center"><center><code>-p</code></center></td>
+<td align="left">端口映射，即宿主机端口映射容器中端口，例如：<code>-p 8080:80</code>，将容器的80端口映射到宿主机的8080端口</td>
+</tr>
+<tr>
+<td align="center"><center><code>--name</code></center></td>
+<td align="left">为创建的容器命名，默认随机命名，不支持中文命名</td>
+</tr>
+<tr>
+<td align="center"><center><code>--network=host</code></center></td>
+<td align="left">将宿主机的网络环境映射到容器中，使容器的网络与宿主机相同，此命令会让容器和宿主机共享一个网络空间</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker run <span class="token punctuation">[</span><span class="token operator">-</span>i<span class="token punctuation">|</span><span class="token operator">-</span>d<span class="token punctuation">|</span><span class="token operator">-</span>t<span class="token punctuation">|</span><span class="token operator">-</span>v<span class="token punctuation">|</span><span class="token operator">-</span>p<span class="token punctuation">|</span><span class="token operator">--</span>name<span class="token punctuation">|</span><span class="token operator">--</span>network=host<span class="token punctuation">]</span> &lt;image<span class="token operator">-</span>name> <span class="token namespace">[command]</span>  <span class="token comment" spellcheck="true"># 创建容器(docker run)</span>
+docker run <span class="token operator">-</span>idt <span class="token operator">--</span>name=kali<span class="token operator">-</span>test kalilinux<span class="token operator">/</span>kali<span class="token operator">-</span>rolling                   <span class="token comment" spellcheck="true"># 启动linux的一个发行版kali系统</span>
+docker run <span class="token operator">-</span>i <span class="token operator">-</span>d <span class="token operator">-</span>t <span class="token operator">--</span>name=kali<span class="token operator">-</span>test kalilinux<span class="token operator">/</span>kali<span class="token operator">-</span>rolling
+docker run <span class="token operator">-</span>dp 8080:80 <span class="token operator">--</span>name docker<span class="token operator">-</span>test docker<span class="token operator">/</span>getting<span class="token operator">-</span>started          <span class="token comment" spellcheck="true"># 启动网站，本地http://localhost:8080/查看</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="3-交互式容器"><a href="#3-交互式容器" class="headerlink" title="3 交互式容器"></a>3 交互式容器</h1><ul>
+<li>创建容器时使用的命令都加入了<code>-d</code>参数，让容器在后台运行，接下来介绍与正运行的容器进行交互的操作。</li>
+</ul>
+<h2 id="3-1-查看容器"><a href="#3-1-查看容器" class="headerlink" title="3-1 查看容器"></a>3-1 查看容器</h2><table>
+<thead>
+<tr>
+<th align="center"><center>CONTAINER ID</center></th>
+<th align="center"><center>IMAGE</center></th>
+<th align="center"><center>COMMAND</center></th>
+<th align="center"><center>CREATED</center></th>
+<th align="center"><center>STATUS</center></th>
+<th align="center"><center>PORTS</center></th>
+<th align="center"><center>NAMES</center></th>
+<th align="center"><center>SIZE</center></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><center>镜像ID</center></td>
+<td align="center"><center>创建容器的镜像名称</center></td>
+<td align="center"><center>默认启动命令</center></td>
+<td align="center"><center>创建容器的日期</center></td>
+<td align="center"><center>当前的状态</center></td>
+<td align="center"><center>映射端口</center></td>
+<td align="center"><center>容器名称</center></td>
+<td align="center"><center>容器大小</center></td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker <span class="token function">ps</span>                                   <span class="token comment" spellcheck="true"># 查看当前所有正在运行的容器(docker ps)</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>a                                <span class="token comment" spellcheck="true"># 查看当前所有的容器</span>
+
+docker <span class="token function">ps</span> <span class="token operator">-</span>f name=&lt;NAMES>                   <span class="token comment" spellcheck="true"># 使用name过滤器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>f id=&lt;CONTAINER ID>              <span class="token comment" spellcheck="true"># 使用id过滤器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>f STATUS=exited                  <span class="token comment" spellcheck="true"># 所有停止的容器过滤</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>f STATUS=running                 <span class="token comment" spellcheck="true"># 所有正在运行的容器过滤</span>
+
+docker <span class="token function">ps</span> <span class="token operator">-</span>n &lt;n>                            <span class="token comment" spellcheck="true"># 显示n个上次创建的容器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>n 2                              <span class="token comment" spellcheck="true"># 显示2个上次创建的容器</span>
+
+docker <span class="token function">ps</span> <span class="token operator">-</span>l                                <span class="token comment" spellcheck="true"># 显示最新创建的容器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>q                                <span class="token comment" spellcheck="true"># 仅显示CONTAINER ID</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>s                                <span class="token comment" spellcheck="true"># 显示容器大小</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-2-启动容器"><a href="#3-2-启动容器" class="headerlink" title="3-2 启动容器"></a>3-2 启动容器</h2><ul>
+<li>如果成功启动容器，会返回容器ID。</li>
+</ul>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker <span class="token function">start</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>              <span class="token comment" spellcheck="true"># 启动容器</span>
+docker container <span class="token function">start</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="3-3-关闭容器"><a href="#3-3-关闭容器" class="headerlink" title="3-3 关闭容器"></a>3-3 关闭容器</h2><ul>
+<li>如果成功关闭容器，会返回容器ID。</li>
+</ul>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker stop &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>               <span class="token comment" spellcheck="true"># 关闭容器</span>
+docker container stop &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
+
+docker <span class="token function">kill</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>               <span class="token comment" spellcheck="true"># 强制关闭容器</span>
+docker container <span class="token function">kill</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-4-删除容器"><a href="#3-4-删除容器" class="headerlink" title="3-4 删除容器"></a>3-4 删除容器</h2><ul>
+<li>删除容器需要确保该容器已经停止，正在运行的容器无法直接删除。</li>
+</ul>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker <span class="token function">rm</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>                 <span class="token comment" spellcheck="true"># 删除容器</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="3-5-后台容器"><a href="#3-5-后台容器" class="headerlink" title="3-5 后台容器"></a>3-5 后台容器</h2><ul>
+<li>需要先确保操作的容器是开启状态的，以先前启动的linux发行版kali系统为例。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><img style="width:200px;"><div style="text-align:center;font-size:20px;">exec可选参数</div><br></th>
+<th align="left"><img style="width:900px;"><div style="text-align:center;font-size:20px;">作用</div><br></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><center><code>-i</code></center></td>
+<td align="left">以交互模式运行容器</td>
+</tr>
+<tr>
+<td align="center"><center><code>-d</code></center></td>
+<td align="left">创建一个守护式容器在后台运行(此创建方式不会自动登录容器)</td>
+</tr>
+<tr>
+<td align="center"><center><code>-t</code></center></td>
+<td align="left">容器启动后进入其命令行，即创建后立马分配一个伪终端</td>
+</tr>
+<tr>
+<td align="center"><center><code>-e</code></center></td>
+<td align="left">设置环境变量</td>
+</tr>
+<tr>
+<td align="center"><center><code>-u</code></center></td>
+<td align="left">设置用户名和UID</td>
+</tr>
+<tr>
+<td align="center"><center><code>-w</code></center></td>
+<td align="left">设置容器内的工作目录</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker exec <span class="token operator">-</span>it &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id> &lt;command>
+docker exec <span class="token operator">-</span>it kali<span class="token operator">-</span>test whoami                        <span class="token comment" spellcheck="true"># 查看kali-test容器的有效用户名</span>
+docker exec <span class="token operator">-</span>it kali<span class="token operator">-</span>test <span class="token operator">/</span>bin<span class="token operator">/</span>bash                     <span class="token comment" spellcheck="true"># 根据Linux特性启动bash命令行</span>
+docker attach &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
+docker attach kali<span class="token operator">-</span>test                                 <span class="token comment" spellcheck="true"># 附着到正在运行的容器上</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-6-镜像制作"><a href="#3-6-镜像制作" class="headerlink" title="3-6 镜像制作"></a>3-6 镜像制作</h2><ul>
+<li>打包备份的文件会自动存放在当前命令行的路径下，如果想让保存的文件可以打开，则加<code>.tar</code>后缀。</li>
+</ul>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker commit &lt;container<span class="token operator">-</span>name> &lt;image<span class="token operator">-</span>name>             <span class="token comment" spellcheck="true"># 将容器制作成镜像</span>
+docker save <span class="token operator">-</span>o &lt;file<span class="token operator">-</span>name> &lt;image<span class="token operator">-</span>name>                 <span class="token comment" spellcheck="true"># 镜像打包备份</span>
+docker load <span class="token operator">-</span>i &lt;file<span class="token operator">-</span>path><span class="token operator">/</span>&lt;backup<span class="token operator">-</span>file>                <span class="token comment" spellcheck="true"># 镜像解压即可直接使用环境</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -509,7 +689,7 @@ $ <span class="token function">ssh</span> localhost                      <span c
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wwwbsf.github.io/2022/11/23/ubuntu/ubuntu01-shou-dong-an-zhuang-ssh-fu-wu/">https://wwwbsf.github.io/2022/11/23/ubuntu/ubuntu01-shou-dong-an-zhuang-ssh-fu-wu/</a>
+                    <a href="https://wwwbsf.github.io/2022/05/17/docker/docker01-docker-desktop/">https://wwwbsf.github.io/2022/05/17/docker/docker01-docker-desktop/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -547,12 +727,12 @@ $ <span class="token function">ssh</span> localhost                      <span c
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Ubuntu/">
-                                    <span class="chip bg-color">Ubuntu</span>
+                                <a href="/tags/Windows/">
+                                    <span class="chip bg-color">Windows</span>
                                 </a>
                             
-                                <a href="/tags/SSH/">
-                                    <span class="chip bg-color">SSH</span>
+                                <a href="/tags/Docker/">
+                                    <span class="chip bg-color">Docker</span>
                                 </a>
                             
                         </div>
@@ -985,10 +1165,9 @@ $ <span class="token function">ssh</span> localhost                      <span c
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2022/11/23/ubuntu/ubuntu01-shou-dong-an-zhuang-ssh-fu-wu/">
                     <div class="card-image">
@@ -1006,9 +1185,9 @@ $ <span class="token function">ssh</span> localhost                      <span c
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1021,7 +1200,6 @@ $ <span class="token function">ssh</span> localhost                      <span c
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1044,31 +1222,31 @@ $ <span class="token function">ssh</span> localhost                      <span c
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/17/docker/docker01-docker-desktop/">
+                <a href="/2022/03/05/flutter/flutter01-flutter-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Docker Desktop">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Flutter基础">
                         
-                        <span class="card-title">Docker Desktop</span>
+                        <span class="card-title">Flutter基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Docker是在Linux下的一种容器，支持类似于沙盒环境下的环境搭建、软件安装、软件使用、程序编码等操作。
+                            Flutter横跨Android、iOS、MacOS、Windows、Linux等多个系统，还可以打包成Web程序运行在浏览器上。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Docker/" class="post-category">
-                                    Docker
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
                                 </a>
                             
                             
@@ -1078,12 +1256,12 @@ $ <span class="token function">ssh</span> localhost                      <span c
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Windows/">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/Flutter/">
+                        <span class="chip bg-color">Flutter</span>
                     </a>
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
+                    <a href="/tags/Widget/">
+                        <span class="chip bg-color">Widget</span>
                     </a>
                     
                 </div>
