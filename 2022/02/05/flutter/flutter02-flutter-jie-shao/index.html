@@ -395,7 +395,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3k
                 </div>
                 
 
@@ -429,16 +429,16 @@
 
 <h1 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1 环境搭建"></a>1 环境搭建</h1><ul>
 <li>虚拟机下Win10企业版(<a href="ed2k://|file|cn_windows_10_business_editions_version_1909_x64_dvd_0ca83907.iso|5275090944|9BCD5FA6C8009E4D0260E4B23008BD47|/">Win10-1909-Business-Editions-DVD-x64</a>)、Chrome。</li>
-<li>下载并安装Flutter依赖的命令行工具Git for Windows：<a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.37.1.windows.1/Git-2.37.1-64-bit.exe">Git-2.37.1-64-bit.exe</a>。</li>
-<li>Flutter SDK：<a target="_blank" rel="noopener" href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.0.5-stable.zip">Flutter-Windows-3.0.5-Stable.zip</a>。<ul>
+<li>下载安装Flutter依赖的命令行工具Git For Windows：<a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.37.1.windows.1/Git-2.37.1-64-bit.exe">Git-2.37.1-64-bit.exe</a>。</li>
+<li>Flutter SDK下载：<a target="_blank" rel="noopener" href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.0.5-stable.zip">Flutter-Windows-3.0.5-Stable.zip</a>。<ul>
 <li>解压到指定位置，找到文件夹中的flutter_console.bat文件，双击运行。</li>
-<li>注意不要将Flutter SDK安装到高权限路径下，例如C盘的Program Files。</li>
+<li>注意：不要将Flutter SDK安装到高权限路径下，例如C盘路径(系统盘)。</li>
 </ul>
 </li>
-<li>添加环境变量：搜索控制面板—&gt;用户账户—&gt;更改我的环境变量—&gt;环境变量。<ul>
+<li>添加环境变量：控制面板—&gt;用户账户—&gt;更改我的环境变量—&gt;环境变量。<ul>
 <li>新建变量名<code>PUB_HOSTED_URL</code>：变量值<code>https://pub.flutter-io.cn/</code>。</li>
 <li>新建变量名<code>FLUTTER_STORAGE_BASE_URL</code>：变量值<code>https://storage.flutter-io.cn/</code>。</li>
-<li>变量Path中添加：变量值<code>C:\Program\Flutter\bin</code>(即Flutter SDK安装路径的bin目录)。</li>
+<li>变量Path中添加：变量值<code>C:\Program\Flutter\bin</code>(Flutter SDK安装路径的bin目录)。</li>
 </ul>
 </li>
 </ul>
@@ -449,16 +449,18 @@
 <li>勾选<code>MSVC v143-VS 2022 C++ x64/86生成工具(最新)</code>。</li>
 </ul>
 </li>
-<li>安装Android Studio：<a target="_blank" rel="noopener" href="https://redirector.gvt1.com/edgedl/android/studio/install/2021.2.1.15/android-studio-2021.2.1.15-windows.exe">Android-Studio-2021.2.1.15-Windows.exe</a>，需要梯子。</li>
-<li>添加环境变量<code>ANDROID_SDK_HOME</code>：变量值<code>C:\Program\Avd</code>(模拟器存放的位置)。</li>
-<li>设置Android模拟器：虚拟机貌似无法启动模拟器，建议将环境搭建在主机上操作。<ul>
+<li>安装Android Studio：<a target="_blank" rel="noopener" href="https://redirector.gvt1.com/edgedl/android/studio/install/2021.2.1.15/android-studio-2021.2.1.15-windows.exe">Android-Studio-2021.2.1.15-Windows.exe</a>，可能需要使用梯子。<ul>
+<li>添加环境变量<code>ANDROID_SDK_HOME</code>：变量值<code>C:\Program\Avd</code> (即模拟器存放的位置)。</li>
+<li>设置Android模拟器：虚拟机貌似无法启动模拟器，建议将环境搭建在Pc主机上操作。<ul>
 <li>Android Studio—&gt;More Actions—&gt;Virtual Device Manager—&gt;Create device。</li>
-<li>Phone·Pixel—&gt;Next—&gt;镜像·R—&gt;Download—&gt;Next—&gt;验证配置—&gt;Finish。</li>
+<li>Phone·Pixel—&gt;Next—&gt;镜像 R—&gt;Download—&gt;Next—&gt;验证配置—&gt;Finish。</li>
 </ul>
 </li>
 <li>安装插件：Android Studio—&gt;Plugins—&gt;Marketplace—&gt;搜Flutter和Dart—&gt;Install。<ul>
 <li>Flutter插件：支持Flutter开发工作流(运行、调试、热重载等)。</li>
 <li>Dart插件：提供代码分析(输入代码时进行验证、代码补全等)。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -501,14 +503,15 @@ Doctor summary <span class="token punctuation">(</span>to see all details<span c
 </ul>
 </li>
 <li>想要在该项目上运行程序：File—&gt;Open—&gt;定位到该项目目录的Android目录—&gt;选中—&gt;OK—&gt;将其打开。</li>
-<li>Sync project with Gradle Files下载：在项目打开Android目录时便自动下载(位于Android Studio的File栏里)。</li>
-<li>No Device Selected：找不到运行设备。<ul>
-<li>准备一台Android手机<ul>
+<li>Sync project with Gradle Files下载：在项目打开Android目录时便自动下载(位于Android Studio-&gt;File中)。</li>
+<li>No Device Selected：找不到运行设备，两种调试方式(命令窗口下<code>flutter devices</code>可检测当前可用设备)。<ul>
+<li>Android真机调试<ul>
 <li>手机使用USB数据线连接电脑，开启调试模式，Android Studio安装与手机对应的SDK版本。</li>
 <li>Android Studio—&gt;Tools—&gt;SDK Manager—&gt;SDK Platforms—&gt;勾选对应版本SDK—&gt;OK。</li>
 <li>当No Device Selected变为对应手机型号名称时，Run—&gt;Run‘app’即可在手机中运行程序。</li>
 </ul>
 </li>
+<li>模拟器调试：Android Studio—&gt;Tools—&gt;Device Manager—&gt;启动之前已设置的Android模拟器。</li>
 </ul>
 </li>
 </ul>
