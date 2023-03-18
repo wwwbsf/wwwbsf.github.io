@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter基础, bsf">
+    <meta name="keywords" content="Flutter介绍, bsf">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>Flutter基础 | bsf</title>
+    <title>Flutter介绍 | bsf</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,12 +240,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter基础</h1>
+                    <h1 class="description center-align post-title">Flutter介绍</h1>
                 </div>
             </div>
         </div>
@@ -361,10 +361,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Flutter/">
-                                <span class="chip bg-color">Flutter</span>
-                            </a>
-                        
                             <a href="/tags/Widget/">
                                 <span class="chip bg-color">Widget</span>
                             </a>
@@ -390,7 +386,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-05
+                    2022-02-05
                 </div>
                 
 
@@ -399,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    12 分
                 </div>
                 
 
@@ -431,58 +427,7 @@
 
 
 
-<h1 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h1><ul>
-<li>概念<ul>
-<li>Flutter的核心概念：组件、构建、状态、框架等。</li>
-<li>组件(Widget)<ul>
-<li>指Flutter应用程序用户界面的基本构建块，定义如下。<ul>
-<li>一种动画处理，例如缓动。</li>
-<li>一种布局，例如填充或滚动。</li>
-<li>一个文本样式，例如字体或颜色。</li>
-<li>一个手势处理，GestureDetector。</li>
-<li>一个界面组件，例如按钮或输入框。</li>
-</ul>
-</li>
-<li>通过属性改变组件的状态以及回调方法的处理，通过方法提供了组件的一些功能扩展。</li>
-<li>组件嵌套的组合方式带来的最大好处即解耦，最基础的组件类是Widget，其他皆继承。<ul>
-<li>无状态组件(StatelessWidget)，界面不发生变化，例如Text、AssetImage等。</li>
-<li>有状态组件(StatefulWidget)，界面会发生变化，例如Scrollable、Animatable等。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>重写Widget的build构建方法：<code>@protected Widget build(BuildContext context);</code>。<ul>
-<li>构建组件即创建一个Widget，返回值也是一个Widget对象，都属于Widget的实例。</li>
-<li>BuildContext即构建Widget上下文获取数据，每一个BuildContext对应一个Widget。<ul>
-<li>Theme.of(context)：获取主题。</li>
-<li>Navigator.push(context, route)：压栈。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>状态(State)是一个组件的UI数据模型，是组件渲染时的数据依据。<ul>
-<li>Flutter程序的运行可看成一个巨大的状态机，用户的操作、请求API和系统事件的触发都是触发点。</li>
-<li>触发点通过调用setState方法推动状态机进行响应，实现不同的状态渲染UI，让UI与数据保持一致。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 组件嵌套：界面中添加一个居中组件Center</span>
-<span class="token keyword">return</span> <span class="token function">Center</span><span class="token punctuation">(</span>
-  <span class="token comment" spellcheck="true">// 居中组件里嵌套一个容器组件Container</span>
-  child<span class="token punctuation">:</span> <span class="token function">Container</span><span class="token punctuation">(</span>
-    <span class="token comment" spellcheck="true">// 容器组件里嵌套一个装饰器BoxDecoration</span>
-    decoration<span class="token punctuation">:</span> <span class="token function">BoxDecoration</span><span class="token punctuation">(</span>
-    <span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">// 容器组件里嵌套一个文本组件Text</span>
-    child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
-    <span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="2-环境搭建"><a href="#2-环境搭建" class="headerlink" title="2 环境搭建"></a>2 环境搭建</h1><ul>
-<li>环境搭建<ul>
+<h1 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1 环境搭建"></a>1 环境搭建</h1><ul>
 <li>虚拟机下Win10企业版(<a href="ed2k://|file|cn_windows_10_business_editions_version_1909_x64_dvd_0ca83907.iso|5275090944|9BCD5FA6C8009E4D0260E4B23008BD47|/">Win10-1909-Business-Editions-DVD-x64</a>)、Chrome。</li>
 <li>下载并安装Flutter依赖的命令行工具Git for Windows：<a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.37.1.windows.1/Git-2.37.1-64-bit.exe">Git-2.37.1-64-bit.exe</a>。</li>
 <li>Flutter SDK：<a target="_blank" rel="noopener" href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.0.5-stable.zip">Flutter-Windows-3.0.5-Stable.zip</a>。<ul>
@@ -496,7 +441,8 @@
 <li>变量Path中添加：变量值<code>C:\Program\Flutter\bin</code>(即Flutter SDK安装路径的bin目录)。</li>
 </ul>
 </li>
-<li>编辑器安装与设置<ul>
+</ul>
+<h2 id="1-1-编辑器的安装"><a href="#1-1-编辑器的安装" class="headerlink" title="1-1 编辑器的安装"></a>1-1 编辑器的安装</h2><ul>
 <li>安装Visual Studio：<a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Professional&amp;channel=Release&amp;version=VS2022&amp;source=VSLandingPage&amp;cid=2030&amp;passive=false">VisualStudioSetup.exe</a>，使用C++的桌面工具。<ul>
 <li>勾选<code>用于Windows的C++ CMake工具</code>。</li>
 <li>勾选<code>Windows 10 SDK(10.0.19041.0)</code>。</li>
@@ -505,57 +451,68 @@
 </li>
 <li>安装Android Studio：<a target="_blank" rel="noopener" href="https://redirector.gvt1.com/edgedl/android/studio/install/2021.2.1.15/android-studio-2021.2.1.15-windows.exe">Android-Studio-2021.2.1.15-Windows.exe</a>，需要梯子。</li>
 <li>添加环境变量<code>ANDROID_SDK_HOME</code>：变量值<code>C:\Program\Avd</code>(模拟器存放的位置)。</li>
-<li>设置Android模拟器：虚拟机貌似无法启动模拟器，建议将环境搭建在主机上进行。<ul>
-<li>启动Android Studio—&gt;More Actions—&gt;Virtual Device Manager—&gt;Create device。</li>
-<li>选设备Phone·Pixel—&gt;Next—&gt;选镜像R—&gt;Download—&gt;Next—&gt;验证配置信息—&gt;Finish。</li>
+<li>设置Android模拟器：虚拟机貌似无法启动模拟器，建议将环境搭建在主机上操作。<ul>
+<li>Android Studio—&gt;More Actions—&gt;Virtual Device Manager—&gt;Create device。</li>
+<li>Phone·Pixel—&gt;Next—&gt;镜像·R—&gt;Download—&gt;Next—&gt;验证配置—&gt;Finish。</li>
 </ul>
 </li>
-<li>安装插件：Android Studio启动界面—&gt;Plugins—&gt;Marketplace—&gt;搜索Flutter和Dart—&gt;Install。<ul>
+<li>安装插件：Android Studio—&gt;Plugins—&gt;Marketplace—&gt;搜Flutter和Dart—&gt;Install。<ul>
 <li>Flutter插件：支持Flutter开发工作流(运行、调试、热重载等)。</li>
 <li>Dart插件：提供代码分析(输入代码时进行验证、代码补全等)。</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>文件夹下鼠标右键选择<code>Git Bash Here</code>，命令窗口模式输入<code>flutter doctor</code>进行查看。<ul>
+<h2 id="1-2-flutter-doctor"><a href="#1-2-flutter-doctor" class="headerlink" title="1-2 flutter doctor"></a>1-2 flutter doctor</h2><ul>
+<li>文件夹下鼠标右键<code>Git Bash Here</code>，命令窗口模式输入<code>flutter doctor</code>进行查看。</li>
 <li><code>cmdline-tools component is missing</code>：Android Studio缺少cmdline-tools工具。<ul>
 <li>启动Android Studio—&gt;More Actions—&gt;SDK Manager—&gt;SDK Tools。</li>
-<li>勾选Android SDK Command-line Tools (latest)—&gt;Apply—&gt;Finish—&gt;OK。</li>
+<li>Android SDK Command-line Tools (latest)—&gt;Apply—&gt;Finish—&gt;OK。</li>
 </ul>
 </li>
-<li><code>Android license status unknown.</code>：需要添加Android license。<ul>
+<li><code>Android license status unknown.</code>：说明该环境需要添加Android license。<ul>
 <li>搜索<code>cmd</code>，以管理员身份运行，命令窗口下执行<code>flutter doctor --android-licenses</code>。</li>
 <li>在提示是否接受许可时，输入<code>y</code>进行回车确认，最后重新输入<code>flutter doctor</code>进行查看。</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-git"><code class="language-git">$ flutter doctor
-Flutter assets will be downloaded from https://storage.flutter-io.cn/. Make sure you trust this source!
-Doctor summary (to see all details, run flutter doctor -v):
-[√] Flutter (Channel stable, 3.0.5, on Microsoft Windows [版本 10.0.18363.418], locale zh-CN)
-[!] Android toolchain - develop for Android devices (Android SDK version 33.0.0)
-    X cmdline-tools component is missing
-      Run `path/to/sdkmanager --install <span class="token string">"cmdline-tools;latest"</span>`
-      See https://developer.android.com/studio/command-line for more details.
-    X Android license status unknown.
-      Run `flutter doctor --android-licenses` to accept the SDK licenses.
-      See https://flutter.dev/docs/get-started/install/windows#android-setup for more details.
-[√] Chrome - develop for the web
-[√] Visual Studio - develop for Windows (Visual Studio Community 2022 17.3.0)
-[√] Android Studio (version 2021.2)
-[√] Connected device (2 available)
-[√] HTTP Host Availability
+<pre class="line-numbers language-powershell"><code class="language-powershell">$ flutter doctor
+Flutter assets will be downloaded <span class="token keyword">from</span> https:<span class="token operator">/</span><span class="token operator">/</span>storage<span class="token punctuation">.</span>flutter<span class="token operator">-</span>io<span class="token punctuation">.</span>cn<span class="token operator">/</span><span class="token punctuation">.</span> Make sure you trust this source<span class="token operator">!</span>
+Doctor summary <span class="token punctuation">(</span>to see all details<span class="token punctuation">,</span> run flutter doctor <span class="token operator">-</span>v<span class="token punctuation">)</span>:
+<span class="token punctuation">[</span>√<span class="token punctuation">]</span> Flutter <span class="token punctuation">(</span>Channel stable<span class="token punctuation">,</span> 3<span class="token punctuation">.</span>0<span class="token punctuation">.</span>5<span class="token punctuation">,</span> on Microsoft Windows <span class="token punctuation">[</span>版本 10<span class="token punctuation">.</span>0<span class="token punctuation">.</span>18363<span class="token punctuation">.</span>418<span class="token punctuation">]</span><span class="token punctuation">,</span> locale zh<span class="token operator">-</span>CN<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token operator">!</span><span class="token punctuation">]</span> Android toolchain <span class="token operator">-</span> develop <span class="token keyword">for</span> Android devices <span class="token punctuation">(</span>Android SDK version 33<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">)</span>
+    X cmdline<span class="token operator">-</span>tools component is missing
+      Run `path<span class="token operator">/</span>to<span class="token operator">/</span>sdkmanager <span class="token operator">--</span>install <span class="token string">"cmdline-tools;latest"</span>`
+      See https:<span class="token operator">/</span><span class="token operator">/</span>developer<span class="token punctuation">.</span>android<span class="token punctuation">.</span>com<span class="token operator">/</span>studio<span class="token operator">/</span>command<span class="token operator">-</span>line <span class="token keyword">for</span> more details<span class="token punctuation">.</span>
+    X Android license status unknown<span class="token punctuation">.</span>
+      Run `flutter doctor <span class="token operator">--</span>android<span class="token operator">-</span>licenses` to accept the SDK licenses<span class="token punctuation">.</span>
+      See https:<span class="token operator">/</span><span class="token operator">/</span>flutter<span class="token punctuation">.</span>dev<span class="token operator">/</span>docs<span class="token operator">/</span>get<span class="token operator">-</span>started<span class="token operator">/</span>install<span class="token operator">/</span>windows<span class="token comment" spellcheck="true">#android-setup for more details.</span>
+<span class="token punctuation">[</span>√<span class="token punctuation">]</span> Chrome <span class="token operator">-</span> develop <span class="token keyword">for</span> the web
+<span class="token punctuation">[</span>√<span class="token punctuation">]</span> Visual Studio <span class="token operator">-</span> develop <span class="token keyword">for</span> Windows <span class="token punctuation">(</span>Visual Studio Community 2022 17<span class="token punctuation">.</span>3<span class="token punctuation">.</span>0<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>√<span class="token punctuation">]</span> Android Studio <span class="token punctuation">(</span>version 2021<span class="token punctuation">.</span>2<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>√<span class="token punctuation">]</span> Connected device <span class="token punctuation">(</span>2 available<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>√<span class="token punctuation">]</span> HTTP Host Availability
 
-! Doctor found issues in 1 categories.
+<span class="token operator">!</span> Doctor found issues in 1 categories<span class="token punctuation">.</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="3-Flutter基础"><a href="#3-Flutter基础" class="headerlink" title="3 Flutter基础"></a>3 Flutter基础</h1><ul>
-<li>Flutter基础<ul>
-<li>启动Android Studio—&gt;New Flutter Project—&gt;Flutter—&gt;…(Flutter SDK的安装路径)—&gt;OK—&gt;Next。</li>
-<li>将Project Name命名为<code>my_first_app</code>—&gt;Finish—&gt;等待几分钟，自动创建工程—&gt;No Device Selected。</li>
+<h1 id="2-创建项目"><a href="#2-创建项目" class="headerlink" title="2 创建项目"></a>2 创建项目</h1><ul>
+<li>创建项目<ul>
+<li>启动Android Studio—&gt;New Flutter Project—&gt;Flutter—&gt;Flutter SDK path即Flutter SDK的安装路径。</li>
+<li>Next—&gt;Project Name为<code>flutter01</code>(Organization包名)—&gt;Finish—&gt;Create—&gt;等待打开创建的项目。</li>
+</ul>
+</li>
+<li>想要在该项目上运行程序：File—&gt;Open—&gt;定位到该项目目录的Android目录—&gt;选中—&gt;OK—&gt;将其打开。</li>
+<li>Sync project with Gradle Files下载：在项目打开Android目录时便自动下载(位于Android Studio的File栏里)。</li>
+<li>No Device Selected：找不到运行设备。<ul>
+<li>准备一台Android手机<ul>
+<li>手机使用USB数据线连接电脑，开启调试模式，Android Studio安装与手机对应的SDK版本。</li>
+<li>Android Studio—&gt;Tools—&gt;SDK Manager—&gt;SDK Platforms—&gt;勾选对应版本SDK—&gt;OK。</li>
+<li>当No Device Selected变为对应手机型号名称时，Run—&gt;Run‘app’即可在手机中运行程序。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li>Open Android Emulator: Pixel API 30(启动之前设置的Android模拟器)—&gt;cmd下执行<code>flutter doctor</code>。<ul>
 <li><code>! Device 127.0.0.1:5554 is offline.</code></li>
 <li><code>! Device emulator-5554 is not authorized.</code></li>
@@ -572,8 +529,6 @@ Doctor summary (to see all details, run flutter doctor -v):
 </li>
 <li>点击Debug按钮，启动官方示例程序，在模拟器中点击<code>+</code>按钮可自动加1(基于Material Design的应用程序)。</li>
 <li>清空项目中main.dart文件的内容，输入以下代码，重新运行此程序，这样第一个Flutter程序就运行出来了。</li>
-</ul>
-</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
 
@@ -625,7 +580,7 @@ Doctor summary (to see all details, run flutter doctor -v):
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h1 id="4-Flutter主题"><a href="#4-Flutter主题" class="headerlink" title="4 Flutter主题"></a>4 Flutter主题</h1><ul>
+<h1 id="3-Flutter主题"><a href="#3-Flutter主题" class="headerlink" title="3 Flutter主题"></a>3 Flutter主题</h1><ul>
 <li>Flutter主题<ul>
 <li>为在整个应用中使用同一套颜色和字体样式，可以使用主题这一方式。</li>
 <li>可以使用全局主题，或使用Theme定义应用程序局部的颜色和字体样式。</li>
@@ -633,7 +588,7 @@ Doctor summary (to see all details, run flutter doctor -v):
 </ul>
 </li>
 </ul>
-<h2 id="4-1-创建主题"><a href="#4-1-创建主题" class="headerlink" title="4-1 创建主题"></a>4-1 创建主题</h2><ul>
+<h2 id="3-1-创建主题"><a href="#3-1-创建主题" class="headerlink" title="3-1 创建主题"></a>3-1 创建主题</h2><ul>
 <li>创建主题<ul>
 <li>将ThemeData提供给MaterialApp构造函数，在整个应用程序中共享包含颜色和字体样式的主题。</li>
 <li>如果没有提供主题，Flutter就会自动创建一个默认主题，ThemeData的主要属性和描述如下所示。<table>
@@ -859,7 +814,7 @@ Doctor summary (to see all details, run flutter doctor -v):
   <span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-2-局部主题"><a href="#4-2-局部主题" class="headerlink" title="4-2 局部主题"></a>4-2 局部主题</h2><ul>
+<h2 id="3-2-局部主题"><a href="#3-2-局部主题" class="headerlink" title="3-2 局部主题"></a>3-2 局部主题</h2><ul>
 <li>局部主题<ul>
 <li>要在应用程序的某一部分使用特殊的颜色，需覆盖全局主题。</li>
 <li>通过创建特有的主题数据，或通过扩展父主题的方法来实现。</li>
@@ -888,7 +843,7 @@ Doctor summary (to see all details, run flutter doctor -v):
   <span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-3-使用主题"><a href="#4-3-使用主题" class="headerlink" title="4-3 使用主题"></a>4-3 使用主题</h2><ul>
+<h2 id="3-3-使用主题"><a href="#3-3-使用主题" class="headerlink" title="3-3 使用主题"></a>3-3 使用主题</h2><ul>
 <li>使用主题<ul>
 <li>通过<code>Theme.of(context)</code>函数来获取主题，方法是查找最近主题，如果找不到就会找整个应用的主题。</li>
 <li>以下是一个完整的示例代码，将应用的主题颜色定义为绿色，在界面中间加了一个带有背景色的文本。<ul>
@@ -993,7 +948,7 @@ Doctor summary (to see all details, run flutter doctor -v):
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wwwbsf.github.io/2022/03/05/flutter/flutter01-flutter-ji-chu/">https://wwwbsf.github.io/2022/03/05/flutter/flutter01-flutter-ji-chu/</a>
+                    <a href="https://wwwbsf.github.io/2022/02/05/flutter/flutter02-flutter-jie-shao/">https://wwwbsf.github.io/2022/02/05/flutter/flutter02-flutter-jie-shao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1030,10 +985,6 @@ Doctor summary (to see all details, run flutter doctor -v):
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Flutter/">
-                                    <span class="chip bg-color">Flutter</span>
-                                </a>
                             
                                 <a href="/tags/Widget/">
                                     <span class="chip bg-color">Widget</span>
@@ -1526,7 +1477,7 @@ Doctor summary (to see all details, run flutter doctor -v):
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/08/dart/dart01-dart-ji-chu/">
+                <a href="/2022/01/08/flutter/flutter01-dart-ji-chu/">
                     <div class="card-image">
                         
                         
@@ -1549,8 +1500,8 @@ Doctor summary (to see all details, run flutter doctor -v):
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Dart/" class="post-category">
-                                    Dart
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
                                 </a>
                             
                             
@@ -1749,7 +1700,7 @@ Doctor summary (to see all details, run flutter doctor -v):
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.5k</span>&nbsp;字
+                class="white-color">15.2k</span>&nbsp;字
             
             
             
