@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    13 分
                 </div>
                 
 
@@ -792,23 +792,34 @@ Doctor summary <span class="token punctuation">(</span>to see all details<span c
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-3-图片组件"><a href="#4-3-图片组件" class="headerlink" title="4-3 图片组件"></a>4-3 图片组件</h2><ul>
-<li>Image.asset：加载本地图片。</li>
-<li>Image.network：加载远程图片。</li>
+<li>Image.network：加载远程图片。<ul>
+<li>alignment(图片对齐方式)、fit(依父容器控制图片的拉伸)、repeat(横纵或整个画布平铺)。</li>
+<li>color和colorBlendMode(图片的背景颜色，通常两者配合使用，即图片颜色与背景色混合)。</li>
+<li>width(图片宽度，结合ClipOval才能看到效果)、height(高度，结合ClipOval才能看到效果)。</li>
 </ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+</li>
+<li>Image.asset：加载本地图片。</li>
+</ul>
+<h3 id="1-加载远程图片"><a href="#1-加载远程图片" class="headerlink" title="(1) 加载远程图片"></a>(1) 加载远程图片</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
     home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
-      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'图片组件'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'加载远程图片'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck="true">// body: const MyApp(),</span>
+      body<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+        children<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token punctuation">[</span>
+          <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                          <span class="token comment" spellcheck="true">// 设置两容器间距</span>
+          <span class="token function">MyCircle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">/*
-http://gg.gg/13jn9e
-http://gg.gg/13jnaa
+图片地址：http://gg.gg/13jnaa、http://gg.gg/13kuon、http://gg.gg/13kuow
 */</span>
 
 <span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
@@ -818,17 +829,52 @@ http://gg.gg/13jnaa
   Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">Center</span><span class="token punctuation">(</span>
       child<span class="token punctuation">:</span> <span class="token function">Container</span><span class="token punctuation">(</span>
+        margin<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">fromLTRB</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         height<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
-        width<span class="token punctuation">:</span> <span class="token number">210</span><span class="token punctuation">,</span>
+        width<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
         decoration<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">BoxDecoration</span><span class="token punctuation">(</span>
           color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>yellow<span class="token punctuation">,</span>
         <span class="token punctuation">)</span><span class="token punctuation">,</span>
-        child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span><span class="token string">'http://gg.gg/13jn9e'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span>
+          <span class="token string">'http://gg.gg/13jnaa'</span><span class="token punctuation">,</span>
+          <span class="token comment" spellcheck="true">// alignment: Alignment.centerLeft,           // 图片向左居中</span>
+          <span class="token comment" spellcheck="true">// scale: 2,                                  // 图片缩小一倍</span>
+          <span class="token comment" spellcheck="true">// fit: BoxFit.fill,                          // 图片充满容器，可能会压缩变形</span>
+          fit<span class="token punctuation">:</span> BoxFit<span class="token punctuation">.</span>cover<span class="token punctuation">,</span>                            <span class="token comment" spellcheck="true">// 图片充满容器，自动裁剪成容器大小</span>
+          <span class="token comment" spellcheck="true">// fit: BoxFit.fitWidth,                      // 宽度裁剪</span>
+          <span class="token comment" spellcheck="true">// fit: BoxFit.fitHeight,                     // 高度裁剪</span>
+          <span class="token comment" spellcheck="true">// repeat: ImageRepeat.repeatX,               // X轴平铺</span>
+          <span class="token comment" spellcheck="true">// repeat: ImageRepeat.repeatY,               // Y轴平铺</span>
+          <span class="token comment" spellcheck="true">// repeat: ImageRepeat.repeat,                // X和Y轴都平铺</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
       <span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span class="token keyword">class</span> <span class="token class-name">MyCircle</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>                <span class="token comment" spellcheck="true">// 实现椭圆图片</span>
+  <span class="token keyword">const</span> <span class="token function">MyCircle</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Container</span><span class="token punctuation">(</span>
+      height<span class="token punctuation">:</span> <span class="token number">288</span><span class="token punctuation">,</span>
+      width<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+      decoration<span class="token punctuation">:</span> <span class="token function">BoxDecoration</span><span class="token punctuation">(</span>
+        color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>yellow<span class="token punctuation">,</span>
+        borderRadius<span class="token punctuation">:</span> BorderRadius<span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        image<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">DecorationImage</span><span class="token punctuation">(</span>                   <span class="token comment" spellcheck="true">// 背景图片</span>
+          image<span class="token punctuation">:</span> <span class="token function">NetworkImage</span><span class="token punctuation">(</span><span class="token string">'http://gg.gg/13kuon'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          fit<span class="token punctuation">:</span> BoxFit<span class="token punctuation">.</span>cover<span class="token punctuation">,</span>
+          <span class="token comment" spellcheck="true">// fit: BoxFit.fill,                          // 图片会变形</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-ClipOval圆角"><a href="#2-ClipOval圆角" class="headerlink" title="(2) ClipOval圆角"></a>(2) ClipOval圆角</h3><pre class="line-numbers language-dart"><code class="language-dart">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -1607,7 +1653,7 @@ http://gg.gg/13jnaa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.9k</span>&nbsp;字
+                class="white-color">15.2k</span>&nbsp;字
             
             
             
