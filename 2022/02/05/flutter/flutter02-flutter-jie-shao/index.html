@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    16 分
                 </div>
                 
 
@@ -954,7 +954,86 @@ Doctor summary <span class="token punctuation">(</span>to see all details<span c
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-4-图标组件"><a href="#4-4-图标组件" class="headerlink" title="4-4 图标组件"></a>4-4 图标组件</h2><ul>
+<li>官方Icons图标(需要梯子才能访问)：<a target="_blank" rel="noopener" href="https://fonts.google.com/icons">https://fonts.google.com/icons</a>。</li>
+<li>自定义图标：<a target="_blank" rel="noopener" href="https://www.iconfont.cn/">阿里巴巴矢量图标库</a>，需要注册账号。<ul>
+<li>下载自定义图标所对应的<code>.ttf</code>文件，将其复制粘贴到项目根目录的新建文件夹fonts中。</li>
+<li>例：在“阿里巴巴矢量图标库”中搜索想要的图标，加入购物车，购物车页点下载代码。</li>
+<li>解压下载的压缩包，复制其中的<code>.ttf</code>文件粘贴到fonts中，并修改pubspec.yaml配置文件。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># 例如：flutter01(项目名)目录结构如下</span>
+<span class="token comment" spellcheck="true"># - fonts/</span>
+<span class="token comment" spellcheck="true">#   - iconfont.ttf</span>
+<span class="token comment" spellcheck="true"># - lib/</span>
+<span class="token comment" spellcheck="true">#   - icon.dart</span>
+<span class="token comment" spellcheck="true">#   - main.dart</span>
+<span class="token comment" spellcheck="true"># - pubspec.yaml</span>
 
+<span class="token comment" spellcheck="true"># 修改pubspec.yaml配置文件内容，family可依据需求自定义字体，并在lib目录中新建icon.dart文件</span>
+<span class="token key atrule">fonts</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">family</span><span class="token punctuation">:</span> Schyler
+    <span class="token key atrule">fonts</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/iconfont.ttf
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-main-dart"><a href="#1-main-dart" class="headerlink" title="(1) main.dart"></a>(1) main.dart</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'./icon.dart'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+    home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'图标组件'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+      children<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token punctuation">[</span>
+        <span class="token function">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>home<span class="token punctuation">,</span> size<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>red<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 官方图标</span>
+        <span class="token function">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>shop<span class="token punctuation">,</span> size<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>deepPurple<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Icon</span><span class="token punctuation">(</span>icon<span class="token punctuation">.</span>book<span class="token punctuation">,</span> size<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>lightBlueAccent<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Icon</span><span class="token punctuation">(</span>icon<span class="token punctuation">.</span>wechat<span class="token punctuation">,</span> size<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>green<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Icon</span><span class="token punctuation">(</span>icon<span class="token punctuation">.</span>cart<span class="token punctuation">,</span> size<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>cyan<span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 自定义图标</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-icon-dart"><a href="#2-icon-dart" class="headerlink" title="(2) icon.dart"></a>(2) icon.dart</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">icon</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">const</span> IconData book <span class="token operator">=</span> <span class="token function">IconData</span><span class="token punctuation">(</span>
+    <span class="token number">0X3447</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// code对应编码，解压的json文件中对应图标的unicode值</span>
+    <span class="token comment" spellcheck="true">// pubspec.yaml配置文件中，family依据需求自定义的字体</span>
+    fontFamily<span class="token punctuation">:</span> <span class="token string">'Schyler'</span><span class="token punctuation">,</span>
+    matchTextDirection<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> <span class="token keyword">const</span> IconData wechat <span class="token operator">=</span> <span class="token function">IconData</span><span class="token punctuation">(</span>
+      <span class="token number">0Xe637</span><span class="token punctuation">,</span>
+      fontFamily<span class="token punctuation">:</span> <span class="token string">'Schyler'</span><span class="token punctuation">,</span>
+      matchTextDirection<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> <span class="token keyword">const</span> IconData cart <span class="token operator">=</span> <span class="token function">IconData</span><span class="token punctuation">(</span>
+      <span class="token number">0Xf0179</span><span class="token punctuation">,</span>
+      fontFamily<span class="token punctuation">:</span> <span class="token string">'Schyler'</span><span class="token punctuation">,</span>
+      matchTextDirection<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-5-列表组件"><a href="#4-5-列表组件" class="headerlink" title="4-5 列表组件"></a>4-5 列表组件</h2>
                 
             </div>
             <hr/>
@@ -1732,7 +1811,7 @@ Doctor summary <span class="token punctuation">(</span>to see all details<span c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.4k</span>&nbsp;字
+                class="white-color">15.8k</span>&nbsp;字
             
             
             
