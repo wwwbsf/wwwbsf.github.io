@@ -395,7 +395,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    4.6k
                 </div>
                 
 
@@ -1241,7 +1241,7 @@ Doctor summary <span class="token punctuation">(</span>to see all details<span c
     <span class="token keyword">return</span> <span class="token function">SizedBox</span><span class="token punctuation">(</span>
       height<span class="token punctuation">:</span> <span class="token number">150</span><span class="token punctuation">,</span>                                      <span class="token comment" spellcheck="true">// 与ListView同层可自定义列表高度</span>
       child<span class="token punctuation">:</span> <span class="token function">ListView</span><span class="token punctuation">(</span>
-        scrollDirection<span class="token punctuation">:</span> Axis<span class="token punctuation">.</span>horizontal<span class="token punctuation">,</span><span class="token comment" spellcheck="true">// 水平列表</span>
+        scrollDirection<span class="token punctuation">:</span> Axis<span class="token punctuation">.</span>horizontal<span class="token punctuation">,</span>               <span class="token comment" spellcheck="true">// 水平列表</span>
         padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">></span><span class="token punctuation">[</span>
           <span class="token function">Container</span><span class="token punctuation">(</span>
@@ -1316,7 +1316,39 @@ Doctor summary <span class="token punctuation">(</span>to see all details<span c
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-动态列表"><a href="#3-动态列表" class="headerlink" title="(3) 动态列表"></a>(3) 动态列表</h3><pre class="line-numbers language-dart"><code class="language-dart">
+<h3 id="3-动态列表"><a href="#3-动态列表" class="headerlink" title="(3) 动态列表"></a>(3) 动态列表</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span>
+    <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+      home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+        appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'动态列表'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  List<span class="token operator">&lt;</span>Widget<span class="token operator">></span> <span class="token function">_initListData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                        <span class="token comment" spellcheck="true">// 自定义方法</span>
+    List<span class="token operator">&lt;</span>Widget<span class="token operator">></span> list<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">7</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'自定义方法---$i'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">ListView</span><span class="token punctuation">(</span>
+      children<span class="token punctuation">:</span> <span class="token function">_initListData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                        <span class="token comment" spellcheck="true">// 调用自定义方法</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="✧-图文动态"><a href="#✧-图文动态" class="headerlink" title="✧ 图文动态"></a>✧ 图文动态</h4><pre class="line-numbers language-dart"><code class="language-dart">
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
@@ -2096,7 +2128,7 @@ Doctor summary <span class="token punctuation">(</span>to see all details<span c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.8k</span>&nbsp;字
+                class="white-color">16.9k</span>&nbsp;字
             
             
             
