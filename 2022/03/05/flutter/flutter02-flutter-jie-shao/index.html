@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.4k
+                    8.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    41 分
+                    42 分
                 </div>
                 
 
@@ -2414,9 +2414,72 @@ List listData<span class="token operator">=</span><span class="token punctuation
 <h2 id="5-6-卡片组件"><a href="#5-6-卡片组件" class="headerlink" title="5-6 卡片组件"></a>5-6 卡片组件</h2><ul>
 <li>Card是卡片组件块，内容由大多数类型组件构成，具有圆角和阴影，看起来更具立体感。</li>
 <li>margin(外边距)、elevation(阴影值的深度)、color(背景颜色)、shadowColor(阴影颜色)。</li>
-<li>child(子组件)、clipBehavior</li>
+<li>child(子组件)、Shape(Card的阴影效果，默认为圆角长方形边)、clipBehavior(内容溢出的剪切方式)。<ul>
+<li>Clip.none(不剪切)、Clip.harEdge(剪切但不抗锯齿)、Clip.antiAlias(剪切并抗锯齿)。</li>
+<li>Clip.antiAliasWithSaveLayer：带有抗锯齿的剪切，并在剪切之后立即保存saveLayer。</li>
 </ul>
-<pre class="line-numbers language-dart"><code class="language-dart">
+</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+    home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'卡片组件'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">ListView</span><span class="token punctuation">(</span>
+      children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token function">Card</span><span class="token punctuation">(</span>
+          shape<span class="token punctuation">:</span> <span class="token function">RoundedRectangleBorder</span><span class="token punctuation">(</span>                <span class="token comment" spellcheck="true">// 卡片的阴影效果</span>
+            borderRadius<span class="token punctuation">:</span> BorderRadius<span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          elevation<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>                                <span class="token comment" spellcheck="true">// 卡片阴影值的深度</span>
+          margin<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>             <span class="token comment" spellcheck="true">// 边距</span>
+          child<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+            children<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token punctuation">[</span>
+              <span class="token function">ListTile</span><span class="token punctuation">(</span>
+                title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"Luxury"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                subtitle<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"高级软件工程师"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token function">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                                <span class="token comment" spellcheck="true">// 分割线</span>
+              <span class="token function">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"电话：18856666110"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token function">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"地址：福建省厦门市思明区"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// const SizedBox(height: 10),                  // 两卡片之间的距离</span>
+        <span class="token function">Card</span><span class="token punctuation">(</span>
+          elevation<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>                                <span class="token comment" spellcheck="true">// 卡片阴影</span>
+          color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>greenAccent<span class="token punctuation">,</span>                    <span class="token comment" spellcheck="true">// 背景颜色</span>
+          child<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+            children<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token punctuation">[</span>
+              <span class="token function">ListTile</span><span class="token punctuation">(</span>
+                title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"Aurora"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                subtitle<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"高级开发工程师"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token function">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                                <span class="token comment" spellcheck="true">// 分割线</span>
+              <span class="token function">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"电话：18856666120"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token function">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"地址：福建省厦门市湖里区"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-圆形图片"><a href="#1-圆形图片" class="headerlink" title="(1) 圆形图片"></a>(1) 圆形图片</h3><pre class="line-numbers language-dart"><code class="language-dart">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2-通讯录卡片"><a href="#2-通讯录卡片" class="headerlink" title="(2) 通讯录卡片"></a>(2) 通讯录卡片</h3><pre class="line-numbers language-dart"><code class="language-dart">
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
@@ -3196,7 +3259,7 @@ List listData<span class="token operator">=</span><span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">20.7k</span>&nbsp;字
+                class="white-color">21k</span>&nbsp;字
             
             
             
