@@ -435,12 +435,12 @@
 <li>提供了数据压缩用的函式库(源码包)，由Jean-loup Gailly与Mark Adler开发。</li>
 <li>使用DEFLATE算法，最初是为了Libpng函式库所写，官网：<a target="_blank" rel="noopener" href="https://zlib.net/">https://zlib.net/</a>。</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf zlib-xxx.tar.gz               <span class="token comment" spellcheck="true"># 解压zlib-xxx.tar.gz</span>
-$ <span class="token function">cd</span> zlib-xxx/                                <span class="token comment" spellcheck="true"># 进入解压的zlib-xxx目录中</span>
-$ ./configure                                 <span class="token comment" spellcheck="true"># 执行配置脚本文件</span>
-$ <span class="token function">make</span>                                        <span class="token comment" spellcheck="true"># 编译环境</span>
-$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                           <span class="token comment" spellcheck="true"># 安装zlib</span>
-$ <span class="token function">sudo</span> ./configure <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>    <span class="token comment" spellcheck="true"># 命令可以连起来用</span>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf zlib-xxx.tar.gz             <span class="token comment" spellcheck="true"># 解压zlib-xxx.tar.gz</span>
+$ <span class="token function">cd</span> zlib-xxx/                              <span class="token comment" spellcheck="true"># 进入解压的zlib-xxx目录中</span>
+$ ./configure                               <span class="token comment" spellcheck="true"># 执行配置脚本文件</span>
+$ <span class="token function">make</span>                                      <span class="token comment" spellcheck="true"># 编译环境</span>
+$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                         <span class="token comment" spellcheck="true"># 安装zlib</span>
+$ <span class="token function">sudo</span> ./configure <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>  <span class="token comment" spellcheck="true"># 命令可以连起来用</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="2-OpenSSL"><a href="#2-OpenSSL" class="headerlink" title="2 OpenSSL"></a>2 OpenSSL</h1><ul>
 <li>一个安全套接字层密码库，囊括主要的密码算法、常用密钥、证书封装管理功能及实现SSL协议。</li>
@@ -453,35 +453,35 @@ $ <span class="token function">sudo</span> ./configure <span class="token operat
 </li>
 <li><code>--openssldir</code>：配置文件目录。</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf openssl-xxx.tar.gz            <span class="token comment" spellcheck="true"># 解压openssl-xxx.tar.gz</span>
-$ <span class="token function">cd</span> openssl-xxx/                             <span class="token comment" spellcheck="true"># 进入解压的openssl-xxx目录中</span>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf openssl-xxx.tar.gz          <span class="token comment" spellcheck="true"># 解压openssl-xxx.tar.gz</span>
+$ <span class="token function">cd</span> openssl-xxx/                           <span class="token comment" spellcheck="true"># 进入解压的openssl-xxx目录中</span>
 $ ./config --prefix<span class="token operator">=</span>/usr/local/openssl --openssldir<span class="token operator">=</span>/usr/local/openssl
-$ <span class="token function">make</span>                                        <span class="token comment" spellcheck="true"># 编译环境</span>
-$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                           <span class="token comment" spellcheck="true"># 安装openssl</span>
-$ openssl version                             <span class="token comment" spellcheck="true"># 验证openssl是否安装成功</span>
+$ <span class="token function">make</span>                                      <span class="token comment" spellcheck="true"># 编译环境</span>
+$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                         <span class="token comment" spellcheck="true"># 安装openssl</span>
+$ openssl version                           <span class="token comment" spellcheck="true"># 验证openssl是否安装成功</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-OpenSSH"><a href="#3-OpenSSH" class="headerlink" title="3 OpenSSH"></a>3 OpenSSH</h1><ul>
 <li>SSH，Secure Shell协议的免费开源实现，对传输的数据进行加密从而提高数据的安全性。</li>
 <li>提供了服务端后台程序和客户端工具，用来加密数据，官网：<a target="_blank" rel="noopener" href="http://www.openssh.com/">http://www.openssh.com/</a>。</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf openssh-xxx.tar.gz   <span class="token comment" spellcheck="true"># 解压openssh-xxx.tar.gz</span>
-$ <span class="token function">cd</span> openssh-xxx/                    <span class="token comment" spellcheck="true"># 进入解压的openssh-xxx目录中</span>
-$ ./configure                        <span class="token comment" spellcheck="true"># 执行配置脚本文件</span>
-$ <span class="token function">make</span>                               <span class="token comment" spellcheck="true"># 编译环境</span>
-$ <span class="token function">sudo</span> gedit /etc/passwd             <span class="token comment" spellcheck="true"># 添加内容，该文件用于用户登录时校验口令</span>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf openssh-xxx.tar.gz          <span class="token comment" spellcheck="true"># 解压openssh-xxx.tar.gz</span>
+$ <span class="token function">cd</span> openssh-xxx/                           <span class="token comment" spellcheck="true"># 进入解压的openssh-xxx目录中</span>
+$ ./configure                               <span class="token comment" spellcheck="true"># 执行配置脚本文件</span>
+$ <span class="token function">make</span>                                      <span class="token comment" spellcheck="true"># 编译环境</span>
+$ <span class="token function">sudo</span> gedit /etc/passwd                    <span class="token comment" spellcheck="true"># 添加内容，该文件用于用户登录时校验口令</span>
 
 <span class="token comment" spellcheck="true"># 不添加SSH可能启动不了，报错提示：Privilege separation user sshd does not exist</span>
 <span class="token comment" spellcheck="true"># 添加内容：sshd:x:74:74:Provilege-separated SSH:/var/empty/sshd:/sbin/nologin</span>
 <span class="token comment" spellcheck="true"># 添加信息：注册名:口令Pwd:用户标识号UID:组标识号GID:用户名:用户主目录:命令解释程序</span>
 
-$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                  <span class="token comment" spellcheck="true"># 安装openssh</span>
+$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>                         <span class="token comment" spellcheck="true"># 安装openssh</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="4-启动服务"><a href="#4-启动服务" class="headerlink" title="4 启动服务"></a>4 启动服务</h1><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> /usr/local/sbin/sshd          <span class="token comment" spellcheck="true"># 启动ssh-server</span>
-$ <span class="token function">netstat</span> –tnlp <span class="token operator">|</span> <span class="token function">grep</span> :22           <span class="token comment" spellcheck="true"># 查看并监听22端口，ssh服务默认开启22端口</span>
-$ <span class="token function">ssh</span> localhost                      <span class="token comment" spellcheck="true"># 尝试从本机通过ssh登录，成功登录说明安装成功</span>
+<h1 id="4-启动服务"><a href="#4-启动服务" class="headerlink" title="4 启动服务"></a>4 启动服务</h1><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> /usr/local/sbin/sshd                 <span class="token comment" spellcheck="true"># 启动ssh-server</span>
+$ <span class="token function">netstat</span> –tnlp <span class="token operator">|</span> <span class="token function">grep</span> :22                  <span class="token comment" spellcheck="true"># 查看并监听22端口，ssh服务默认开启22端口</span>
+$ <span class="token function">ssh</span> localhost                             <span class="token comment" spellcheck="true"># 尝试从本机通过ssh登录，成功登录说明安装成功</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h1 id="5-配置开机启动"><a href="#5-配置开机启动" class="headerlink" title="5 配置开机启动"></a>5 配置开机启动</h1><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> gedit /etc/rc.local           <span class="token comment" spellcheck="true"># 需另起一个Terminal，否则报错</span>
-<span class="token comment" spellcheck="true"># sudo /usr/local/sbin/sshd          # 将该命令写入rc.local文件当中</span>
+<h1 id="5-配置开机启动"><a href="#5-配置开机启动" class="headerlink" title="5 配置开机启动"></a>5 配置开机启动</h1><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> gedit /etc/rc.local                  <span class="token comment" spellcheck="true"># 需另起一个Terminal，否则报错</span>
+<span class="token comment" spellcheck="true"># sudo /usr/local/sbin/sshd                 # 将该命令写入rc.local文件当中</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 

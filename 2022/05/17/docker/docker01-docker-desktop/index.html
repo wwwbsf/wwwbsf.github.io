@@ -487,31 +487,38 @@
 <td align="center"><center>镜像大小</center></td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker images                               <span class="token comment" spellcheck="true"># 查看当前所有的镜像(docker images)</span>
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 查看当前所有的镜像(docker images)</span>
+docker images
 docker image <span class="token function">ls</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-2-拉取镜像"><a href="#2-2-拉取镜像" class="headerlink" title="2-2 拉取镜像"></a>2-2 拉取镜像</h2><ul>
 <li>官方默认仓库名为library，<code>docker pull &lt;image-name&gt;</code>命令相当于<code>docker pull library/&lt;image-name&gt;</code>。</li>
 </ul>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker image pull &lt;image<span class="token operator">-</span>name>                                  <span class="token comment" spellcheck="true"># 拉取官方镜像(docker pull)</span>
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 拉取官方镜像(docker pull)</span>
+docker image pull &lt;image<span class="token operator">-</span>name>
 docker pull &lt;image<span class="token operator">-</span>name>
 docker pull ubuntu
 docker pull ubuntu:16<span class="token punctuation">.</span>04
 
-docker pull &lt;depository<span class="token operator">-</span>name><span class="token operator">/</span>&lt;image<span class="token operator">-</span>name>                      <span class="token comment" spellcheck="true"># 拉取个人镜像</span>
+<span class="token comment" spellcheck="true"># 拉取个人镜像</span>
+docker pull &lt;depository<span class="token operator">-</span>name><span class="token operator">/</span>&lt;image<span class="token operator">-</span>name>
 docker pull xxx<span class="token operator">/</span>flask
 
-docker pull &lt;3th<span class="token operator">-</span>depository<span class="token operator">-</span>url><span class="token operator">/</span>&lt;depository<span class="token operator">-</span>name><span class="token operator">/</span>&lt;image<span class="token operator">-</span>name> <span class="token comment" spellcheck="true"># 拉取第三方仓库</span>
-docker pull hub<span class="token punctuation">.</span>c<span class="token punctuation">.</span>163<span class="token punctuation">.</span>com<span class="token operator">/</span>library<span class="token operator">/</span>mysql:latest                  <span class="token comment" spellcheck="true"># 默认仓库名为library</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 拉取第三方仓库</span>
+docker pull &lt;3th<span class="token operator">-</span>depository<span class="token operator">-</span>url><span class="token operator">/</span>&lt;depository<span class="token operator">-</span>name><span class="token operator">/</span>&lt;image<span class="token operator">-</span>name>
+
+<span class="token comment" spellcheck="true"># 默认仓库名为library</span>
+docker pull hub<span class="token punctuation">.</span>c<span class="token punctuation">.</span>163<span class="token punctuation">.</span>com<span class="token operator">/</span>library<span class="token operator">/</span>mysql:latest  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-3-删除镜像"><a href="#2-3-删除镜像" class="headerlink" title="2-3 删除镜像"></a>2-3 删除镜像</h2><ul>
 <li>删除镜像的前提是没有使用这个镜像的容器，若已使用，需要先删除该镜像下的所有容器。</li>
 </ul>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker image <span class="token function">rm</span> &lt;image<span class="token operator">-</span>name<span class="token punctuation">|</span>image<span class="token operator">-</span>id>                   <span class="token comment" spellcheck="true"># 删除镜像(docker rmi)</span>
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 删除镜像(docker rmi)</span>
+docker image <span class="token function">rm</span> &lt;image<span class="token operator">-</span>name<span class="token punctuation">|</span>image<span class="token operator">-</span>id>
 docker rmi &lt;image<span class="token operator">-</span>name<span class="token punctuation">|</span>image<span class="token operator">-</span>id>
 docker image <span class="token function">rm</span> ubuntu
 docker rmi 9e64176cd8a2
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-4-创建容器"><a href="#2-4-创建容器" class="headerlink" title="2-4 创建容器"></a>2-4 创建容器</h2><table>
 <thead>
 <tr>
@@ -548,11 +555,16 @@ docker rmi 9e64176cd8a2
 <td align="left">将宿主机的网络环境映射到容器中，使容器的网络与宿主机相同，此命令会让容器和宿主机共享一个网络空间。</td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker run <span class="token punctuation">[</span><span class="token operator">-</span>i<span class="token punctuation">|</span><span class="token operator">-</span>d<span class="token punctuation">|</span><span class="token operator">-</span>t<span class="token punctuation">|</span><span class="token operator">-</span>v<span class="token punctuation">|</span><span class="token operator">-</span>p<span class="token punctuation">|</span><span class="token operator">--</span>name<span class="token punctuation">|</span><span class="token operator">--</span>network=host<span class="token punctuation">]</span> &lt;image<span class="token operator">-</span>name> <span class="token namespace">[command]</span>  <span class="token comment" spellcheck="true"># 创建容器(docker run)</span>
-docker run <span class="token operator">-</span>idt <span class="token operator">--</span>name=kali<span class="token operator">-</span>test kalilinux<span class="token operator">/</span>kali<span class="token operator">-</span>rolling                   <span class="token comment" spellcheck="true"># 启动linux的一个发行版kali系统</span>
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 创建容器(docker run)</span>
+docker run <span class="token punctuation">[</span><span class="token operator">-</span>i<span class="token punctuation">|</span><span class="token operator">-</span>d<span class="token punctuation">|</span><span class="token operator">-</span>t<span class="token punctuation">|</span><span class="token operator">-</span>v<span class="token punctuation">|</span><span class="token operator">-</span>p<span class="token punctuation">|</span><span class="token operator">--</span>name<span class="token punctuation">|</span><span class="token operator">--</span>network=host<span class="token punctuation">]</span> &lt;image<span class="token operator">-</span>name> <span class="token namespace">[command]</span>
+
+<span class="token comment" spellcheck="true"># 启动linux的一个发行版kali系统</span>
+docker run <span class="token operator">-</span>idt <span class="token operator">--</span>name=kali<span class="token operator">-</span>test kalilinux<span class="token operator">/</span>kali<span class="token operator">-</span>rolling
 docker run <span class="token operator">-</span>i <span class="token operator">-</span>d <span class="token operator">-</span>t <span class="token operator">--</span>name=kali<span class="token operator">-</span>test kalilinux<span class="token operator">/</span>kali<span class="token operator">-</span>rolling
-docker run <span class="token operator">-</span>dp 8080:80 <span class="token operator">--</span>name docker<span class="token operator">-</span>test docker<span class="token operator">/</span>getting<span class="token operator">-</span>started          <span class="token comment" spellcheck="true"># 启动网站，本地http://localhost:8080/查看</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span class="token comment" spellcheck="true"># 启动网站，本地http://localhost:8080/查看</span>
+docker run <span class="token operator">-</span>dp 8080:80 <span class="token operator">--</span>name docker<span class="token operator">-</span>test docker<span class="token operator">/</span>getting<span class="token operator">-</span>started
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-交互式容器"><a href="#3-交互式容器" class="headerlink" title="3 交互式容器"></a>3 交互式容器</h1><ul>
 <li>创建容器时使用的命令都加入了<code>-d</code>参数，让容器在后台运行，接下来介绍与正运行的容器进行交互的操作。</li>
 </ul>
@@ -580,41 +592,45 @@ docker run <span class="token operator">-</span>dp 8080:80 <span class="token op
 <td align="center"><center>容器大小</center></td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker <span class="token function">ps</span>                                   <span class="token comment" spellcheck="true"># 查看当前所有正在运行的容器(docker ps)</span>
-docker <span class="token function">ps</span> <span class="token operator">-</span>a                                <span class="token comment" spellcheck="true"># 查看当前所有的容器</span>
+<pre class="line-numbers language-powershell"><code class="language-powershell">docker <span class="token function">ps</span>                       <span class="token comment" spellcheck="true"># 查看当前所有正在运行的容器(docker ps)</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>a                    <span class="token comment" spellcheck="true"># 查看当前所有的容器</span>
 
-docker <span class="token function">ps</span> <span class="token operator">-</span>f name=&lt;NAMES>                   <span class="token comment" spellcheck="true"># 使用name过滤器</span>
-docker <span class="token function">ps</span> <span class="token operator">-</span>f id=&lt;CONTAINER ID>              <span class="token comment" spellcheck="true"># 使用id过滤器</span>
-docker <span class="token function">ps</span> <span class="token operator">-</span>f STATUS=exited                  <span class="token comment" spellcheck="true"># 所有停止的容器过滤</span>
-docker <span class="token function">ps</span> <span class="token operator">-</span>f STATUS=running                 <span class="token comment" spellcheck="true"># 所有正在运行的容器过滤</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>f name=&lt;NAMES>       <span class="token comment" spellcheck="true"># 使用name过滤器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>f id=&lt;CONTAINER ID>  <span class="token comment" spellcheck="true"># 使用id过滤器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>f STATUS=exited      <span class="token comment" spellcheck="true"># 所有停止的容器过滤</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>f STATUS=running     <span class="token comment" spellcheck="true"># 所有正在运行的容器过滤</span>
 
-docker <span class="token function">ps</span> <span class="token operator">-</span>n &lt;n>                            <span class="token comment" spellcheck="true"># 显示n个上次创建的容器</span>
-docker <span class="token function">ps</span> <span class="token operator">-</span>n 2                              <span class="token comment" spellcheck="true"># 显示2个上次创建的容器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>n &lt;n>                <span class="token comment" spellcheck="true"># 显示n个上次创建的容器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>n 2                  <span class="token comment" spellcheck="true"># 显示2个上次创建的容器</span>
 
-docker <span class="token function">ps</span> <span class="token operator">-</span>l                                <span class="token comment" spellcheck="true"># 显示最新创建的容器</span>
-docker <span class="token function">ps</span> <span class="token operator">-</span>q                                <span class="token comment" spellcheck="true"># 仅显示CONTAINER ID</span>
-docker <span class="token function">ps</span> <span class="token operator">-</span>s                                <span class="token comment" spellcheck="true"># 显示容器大小</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>l                    <span class="token comment" spellcheck="true"># 显示最新创建的容器</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>q                    <span class="token comment" spellcheck="true"># 仅显示CONTAINER ID</span>
+docker <span class="token function">ps</span> <span class="token operator">-</span>s                    <span class="token comment" spellcheck="true"># 显示容器大小</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-2-启动容器"><a href="#3-2-启动容器" class="headerlink" title="3-2 启动容器"></a>3-2 启动容器</h2><ul>
 <li>如果成功启动容器，会返回容器ID。</li>
 </ul>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker <span class="token function">start</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>              <span class="token comment" spellcheck="true"># 启动容器</span>
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 启动容器</span>
+docker <span class="token function">start</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
 docker container <span class="token function">start</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-3-关闭容器"><a href="#3-3-关闭容器" class="headerlink" title="3-3 关闭容器"></a>3-3 关闭容器</h2><ul>
 <li>如果成功关闭容器，会返回容器ID。</li>
 </ul>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker stop &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>               <span class="token comment" spellcheck="true"># 关闭容器</span>
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 关闭容器</span>
+docker stop &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
 docker container stop &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
 
-docker <span class="token function">kill</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>               <span class="token comment" spellcheck="true"># 强制关闭容器</span>
+<span class="token comment" spellcheck="true"># 强制关闭容器</span>
+docker <span class="token function">kill</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
 docker container <span class="token function">kill</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-4-删除容器"><a href="#3-4-删除容器" class="headerlink" title="3-4 删除容器"></a>3-4 删除容器</h2><ul>
 <li>删除容器需要确保该容器已经停止，正在运行的容器无法直接删除。</li>
 </ul>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker <span class="token function">rm</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>                 <span class="token comment" spellcheck="true"># 删除容器</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 删除容器</span>
+docker <span class="token function">rm</span> &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="3-5-后台容器"><a href="#3-5-后台容器" class="headerlink" title="3-5 后台容器"></a>3-5 后台容器</h2><ul>
 <li>需要先确保操作的容器是开启状态的，以先前启动的linux发行版kali系统为例。</li>
 </ul>
@@ -651,18 +667,27 @@ docker container <span class="token function">kill</span> &lt;container<span cla
 </tr>
 </tbody></table>
 <pre class="line-numbers language-powershell"><code class="language-powershell">docker exec <span class="token operator">-</span>it &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id> &lt;command>
-docker exec <span class="token operator">-</span>it kali<span class="token operator">-</span>test whoami                        <span class="token comment" spellcheck="true"># 查看kali-test容器的有效用户名</span>
-docker exec <span class="token operator">-</span>it kali<span class="token operator">-</span>test <span class="token operator">/</span>bin<span class="token operator">/</span>bash                     <span class="token comment" spellcheck="true"># 根据Linux特性启动bash命令行</span>
+
+<span class="token comment" spellcheck="true"># 查看kali-test容器的有效用户名</span>
+docker exec <span class="token operator">-</span>it kali<span class="token operator">-</span>test whoami
+
+<span class="token comment" spellcheck="true"># 根据Linux特性启动bash命令行</span>
+docker exec <span class="token operator">-</span>it kali<span class="token operator">-</span>test <span class="token operator">/</span>bin<span class="token operator">/</span>bash
 docker attach &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id>
-docker attach kali<span class="token operator">-</span>test                                 <span class="token comment" spellcheck="true"># 附着到正在运行的容器上</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span class="token comment" spellcheck="true"># 附着到正在运行的容器上</span>
+docker attach kali<span class="token operator">-</span>test                                                   
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-6-镜像制作"><a href="#3-6-镜像制作" class="headerlink" title="3-6 镜像制作"></a>3-6 镜像制作</h2><ul>
 <li>打包备份的文件会自动存放在当前命令行的路径下，如果想让保存的文件可以打开，则加<code>.tar</code>后缀。</li>
 </ul>
-<pre class="line-numbers language-powershell"><code class="language-powershell">docker commit &lt;container<span class="token operator">-</span>name> &lt;image<span class="token operator">-</span>name>             <span class="token comment" spellcheck="true"># 将容器制作成镜像</span>
-docker save <span class="token operator">-</span>o &lt;file<span class="token operator">-</span>name> &lt;image<span class="token operator">-</span>name>                 <span class="token comment" spellcheck="true"># 镜像打包备份</span>
-docker load <span class="token operator">-</span>i &lt;file<span class="token operator">-</span>path><span class="token operator">/</span>&lt;backup<span class="token operator">-</span>file>                <span class="token comment" spellcheck="true"># 镜像解压即可直接使用环境</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 将容器制作成镜像</span>
+docker commit &lt;container<span class="token operator">-</span>name> &lt;image<span class="token operator">-</span>name>
+<span class="token comment" spellcheck="true"># 镜像打包备份</span>
+docker save <span class="token operator">-</span>o &lt;file<span class="token operator">-</span>name> &lt;image<span class="token operator">-</span>name>
+<span class="token comment" spellcheck="true"># 镜像解压即可直接使用环境</span>
+docker load <span class="token operator">-</span>i &lt;file<span class="token operator">-</span>path><span class="token operator">/</span>&lt;backup<span class="token operator">-</span>file>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
