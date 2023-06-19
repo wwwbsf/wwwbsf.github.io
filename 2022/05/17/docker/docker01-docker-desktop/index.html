@@ -399,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -469,24 +469,10 @@
 <h1 id="2-镜像操作"><a href="#2-镜像操作" class="headerlink" title="2 镜像操作"></a>2 镜像操作</h1><ul>
 <li>以下基础操作均支持在PowerShell命令窗口中进行。</li>
 </ul>
-<h2 id="2-1-查看镜像"><a href="#2-1-查看镜像" class="headerlink" title="2-1 查看镜像"></a>2-1 查看镜像</h2><table>
-<thead>
-<tr>
-<th align="center"><center>REPOSITORY</center></th>
-<th align="center"><center>TAG</center></th>
-<th align="center"><center>IMAGE ID</center></th>
-<th align="center"><center>CREATED</center></th>
-<th align="center"><center>SIZE</center></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><center>镜像所在的仓库名称</center></td>
-<td align="center"><center>镜像标签</center></td>
-<td align="center"><center>镜像ID</center></td>
-<td align="center"><center>镜像的创建日期(不是获取该镜像的日期)</center></td>
-<td align="center"><center>镜像大小</center></td>
-</tr>
-</tbody></table>
+<h2 id="2-1-查看镜像"><a href="#2-1-查看镜像" class="headerlink" title="2-1 查看镜像"></a>2-1 查看镜像</h2><ul>
+<li>REPOSITORY(镜像所在仓库的名称)、TAG(镜像标签)、IMAGE ID(镜像ID)。</li>
+<li>CREATED(镜像的创建日期，而并不是获取该镜像的日期)、SIZE(镜像大小)。</li>
+</ul>
 <pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 查看当前所有的镜像(docker images)</span>
 docker images
 docker image <span class="token function">ls</span>
@@ -519,42 +505,26 @@ docker rmi &lt;image<span class="token operator">-</span>name<span class="token 
 docker image <span class="token function">rm</span> ubuntu
 docker rmi 9e64176cd8a2
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-4-创建容器"><a href="#2-4-创建容器" class="headerlink" title="2-4 创建容器"></a>2-4 创建容器</h2><table>
-<thead>
-<tr>
-<th align="center"><img style="width:200px;"><div style="text-align:center;font-size:20px;">run可选参数</div><br></th>
-<th align="left"><img style="width:900px;"><div style="text-align:center;font-size:20px;">作用</div><br></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><center><code>-i</code></center></td>
-<td align="left">以交互模式运行容器。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-d</code></center></td>
-<td align="left">创建一个守护式容器在后台运行(此创建方式不会自动登录容器)。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-t</code></center></td>
-<td align="left">容器启动后进入其命令行，即创建后立马分配一个伪终端。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-v</code></center></td>
-<td align="left">目录映射，即宿主机目录做修改，然后共享到容器中。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-p</code></center></td>
-<td align="left">端口映射，即宿主机端口映射容器中端口，例如：<code>-p 8080:80</code>，将容器的80端口映射到宿主机的8080端口。</td>
-</tr>
-<tr>
-<td align="center"><center><code>--name</code></center></td>
-<td align="left">为创建的容器命名，默认随机命名，不支持中文命名。</td>
-</tr>
-<tr>
-<td align="center"><center><code>--network=host</code></center></td>
-<td align="left">将宿主机的网络环境映射到容器中，使容器的网络与宿主机相同，此命令会让容器和宿主机共享一个网络空间。</td>
-</tr>
-</tbody></table>
+<h2 id="2-4-创建容器"><a href="#2-4-创建容器" class="headerlink" title="2-4 创建容器"></a>2-4 创建容器</h2><ul>
+<li>run可选参数及作用<ul>
+<li><code>-i</code>：以交互模式运行容器。</li>
+<li><code>-d</code>：创建一个守护式容器在后台运行，该方式不会自动登录容器。</li>
+<li><code>-t</code>：容器启动后进入命令行模式，即创建后立马分配一个伪终端。</li>
+<li><code>-v</code>：目录映射，即宿主机目录做修改，然后共享到容器中。</li>
+<li><code>-p</code><ul>
+<li>端口映射，即将容器中的端口号映射到宿主机的端口号中。</li>
+<li>例<code>-p 8080:80</code>将容器的80端口映射到宿主机的8080端口。</li>
+</ul>
+</li>
+<li><code>--name</code>：为创建的容器命名，默认随机命名，不支持中文命名。</li>
+<li><code>--network=host</code><ul>
+<li>将宿主机的网络环境映射到容器中，使得容器的网络与宿主机相同。</li>
+<li>适用于需要容器与宿主机共享网络资源的场景(环境相同存在风险)。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <pre class="line-numbers language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 创建容器(docker run)</span>
 docker run <span class="token punctuation">[</span><span class="token operator">-</span>i<span class="token punctuation">|</span><span class="token operator">-</span>d<span class="token punctuation">|</span><span class="token operator">-</span>t<span class="token punctuation">|</span><span class="token operator">-</span>v<span class="token punctuation">|</span><span class="token operator">-</span>p<span class="token punctuation">|</span><span class="token operator">--</span>name<span class="token punctuation">|</span><span class="token operator">--</span>network=host<span class="token punctuation">]</span> &lt;image<span class="token operator">-</span>name> <span class="token namespace">[command]</span>
 
@@ -568,30 +538,11 @@ docker run <span class="token operator">-</span>dp 8080:80 <span class="token op
 <h1 id="3-交互式容器"><a href="#3-交互式容器" class="headerlink" title="3 交互式容器"></a>3 交互式容器</h1><ul>
 <li>创建容器时使用的命令都加入了<code>-d</code>参数，让容器在后台运行，接下来介绍与正运行的容器进行交互的操作。</li>
 </ul>
-<h2 id="3-1-查看容器"><a href="#3-1-查看容器" class="headerlink" title="3-1 查看容器"></a>3-1 查看容器</h2><table>
-<thead>
-<tr>
-<th align="center"><center>CONTAINER ID</center></th>
-<th align="center"><center>IMAGE</center></th>
-<th align="center"><center>COMMAND</center></th>
-<th align="center"><center>CREATED</center></th>
-<th align="center"><center>STATUS</center></th>
-<th align="center"><center>PORTS</center></th>
-<th align="center"><center>NAMES</center></th>
-<th align="center"><center>SIZE</center></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><center>镜像ID</center></td>
-<td align="center"><center>创建容器的镜像名称</center></td>
-<td align="center"><center>默认启动命令</center></td>
-<td align="center"><center>创建容器的日期</center></td>
-<td align="center"><center>当前的状态</center></td>
-<td align="center"><center>映射端口</center></td>
-<td align="center"><center>容器名称</center></td>
-<td align="center"><center>容器大小</center></td>
-</tr>
-</tbody></table>
+<h2 id="3-1-查看容器"><a href="#3-1-查看容器" class="headerlink" title="3-1 查看容器"></a>3-1 查看容器</h2><ul>
+<li>CONTAINER ID(镜像ID)、IMAGE(镜像名)、COMMAND(默认启动命令)。</li>
+<li>CREATED(创建容器的日期)、STATUS(当前的状态)、PORTS(映射端口)。</li>
+<li>NAMES(容器名称)、SIZE(容器大小)。</li>
+</ul>
 <pre class="line-numbers language-powershell"><code class="language-powershell">docker <span class="token function">ps</span>                       <span class="token comment" spellcheck="true"># 查看当前所有正在运行的容器(docker ps)</span>
 docker <span class="token function">ps</span> <span class="token operator">-</span>a                    <span class="token comment" spellcheck="true"># 查看当前所有的容器</span>
 
@@ -633,39 +584,16 @@ docker <span class="token function">rm</span> &lt;container<span class="token op
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="3-5-后台容器"><a href="#3-5-后台容器" class="headerlink" title="3-5 后台容器"></a>3-5 后台容器</h2><ul>
 <li>需要先确保操作的容器是开启状态的，以先前启动的linux发行版kali系统为例。</li>
+<li>exec可选参数及作用<ul>
+<li><code>-i</code>：以交互模式运行容器。</li>
+<li><code>-d</code>：创建一个守护式容器在后台运行，该方式不会自动登录容器。</li>
+<li><code>-t</code>：容器启动后进入命令行模式，即创建后立马分配一个伪终端。</li>
+<li><code>-e</code>：设置环境变量。</li>
+<li><code>-u</code>：设置用户名和UID。</li>
+<li><code>-w</code>：设置容器内的工作目录。</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th align="center"><img style="width:200px;"><div style="text-align:center;font-size:20px;">exec可选参数</div><br></th>
-<th align="left"><img style="width:900px;"><div style="text-align:center;font-size:20px;">作用</div><br></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><center><code>-i</code></center></td>
-<td align="left">以交互模式运行容器。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-d</code></center></td>
-<td align="left">创建一个守护式容器在后台运行(此创建方式不会自动登录容器)。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-t</code></center></td>
-<td align="left">容器启动后进入其命令行，即创建后立马分配一个伪终端。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-e</code></center></td>
-<td align="left">设置环境变量。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-u</code></center></td>
-<td align="left">设置用户名和UID。</td>
-</tr>
-<tr>
-<td align="center"><center><code>-w</code></center></td>
-<td align="left">设置容器内的工作目录。</td>
-</tr>
-</tbody></table>
+</li>
+</ul>
 <pre class="line-numbers language-powershell"><code class="language-powershell">docker exec <span class="token operator">-</span>it &lt;container<span class="token operator">-</span>name<span class="token punctuation">|</span>container<span class="token operator">-</span>id> &lt;command>
 
 <span class="token comment" spellcheck="true"># 查看kali-test容器的有效用户名</span>

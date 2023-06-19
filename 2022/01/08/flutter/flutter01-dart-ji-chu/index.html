@@ -718,48 +718,17 @@
   <span class="token comment" spellcheck="true">// print(time2);</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2 运算符"></a>2 运算符</h1><table>
-<thead>
-<tr>
-<th align="center"><img style="width:200px;"><div style="text-align:center;font-size:20px;">类型</div><br></th>
-<th align="center"><img style="width:900px;"><div style="text-align:center;font-size:20px;">运算符</div><br></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><div style="text-align:center">位运算符</div></td>
-<td align="center"><code>&amp;</code>、<code>|</code>、<code>^</code>、<code>~expr</code>、<code>&lt;&lt;</code>、<code>&gt;&gt;</code></td>
-</tr>
-<tr>
-<td align="center"><div style="text-align:center">算术运算符</div></td>
-<td align="center"><code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>、<code>~/</code>、<code>-expr</code></td>
-</tr>
-<tr>
-<td align="center"><div style="text-align:center">关系运算符</div></td>
-<td align="center"><code>==</code>、<code>!=</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code></td>
-</tr>
-<tr>
-<td align="center"><div style="text-align:center">赋值运算符</div></td>
-<td align="center"><code>??=</code>、<code>=</code>、<code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code>、<code>~/=</code>、<code>&lt;&lt;=</code>、<code>&gt;&gt;=</code>、<code>&amp;=</code>、<code>^=</code>、<code>|=</code></td>
-</tr>
-<tr>
-<td align="center"><div style="text-align:center">逻辑运算符</div></td>
-<td align="center"><code>!expr</code>、<code>||</code>、<code>&amp;&amp;</code></td>
-</tr>
-<tr>
-<td align="center"><div style="text-align:center">级联运算符</div></td>
-<td align="center"><code>..</code></td>
-</tr>
-<tr>
-<td align="center"><div style="text-align:center">条件表达式</div></td>
-<td align="center"><code>condition ? expr1 : expr2</code>、<code>expr1 ?? expr2</code></td>
-</tr>
-<tr>
-<td align="center"><div style="text-align:center">类型判定运算符</div></td>
-<td align="center"><code>is</code>、<code>is!</code>、<code>as</code></td>
-</tr>
-</tbody></table>
+<h1 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2 运算符"></a>2 运算符</h1><ul>
+<li>位运算符：<code>&amp;</code>(与)、<code>|</code>(或)、<code>^</code>(异或)、<code>~expr</code>(一元位补码)、<code>&lt;&lt;</code>(左移)、<code>&gt;&gt;</code>(右移)。</li>
+<li>算术运算符：<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>、<code>~/</code>(返回一整数值的除法)、<code>-expr</code>(一元减号即负号)。</li>
+<li>关系运算符：<code>==</code>(等)、<code>!=</code>(不等)、<code>&gt;</code>(大于)、<code>&lt;</code>(小于)、<code>&gt;=</code>(大于等于)、<code>&lt;=</code>(小于等于)。</li>
+<li>赋值运算符：<code>=</code>、<code>??=</code>、<code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code>、<code>~/=</code>、<code>&lt;&lt;=</code>、<code>&gt;&gt;=</code>、<code>&amp;=</code>、<code>^=</code>、<code>|=</code>。</li>
+<li>逻辑运算符：<code>!expr</code>(反转表达式)、<code>||</code>(逻辑或)、<code>&amp;&amp;</code>(逻辑与)，只两个值。</li>
+<li>级联运算符：<code>..</code>(可对同一对象执行系列操作，严格说级联符号并非运算符)。</li>
+<li>条件表达式：<code>condition ? expr1 : expr2</code>(三元表达式)、<code>expr1 ?? expr2</code>。</li>
+<li>类型判定运算符：<code>is</code>(相应类型)、<code>is!</code>(非相应类型)、<code>as</code>(转换为指定类型)。</li>
+</ul>
 <h2 id="2-1-位运算符"><a href="#2-1-位运算符" class="headerlink" title="2-1 位运算符"></a>2-1 位运算符</h2><ul>
-<li><code>&amp;</code>(与)、<code>|</code>(或)、<code>^</code>(异或)、<code>~expr</code>(一元位补码)、<code>&lt;&lt;</code>(左移)、<code>&gt;&gt;</code>(右移)。</li>
 <li><code>^</code>(异或)：两个输入相同时为0，不同为1。</li>
 <li>都是通过操作位的移动来达到运算的目的。</li>
 </ul>
@@ -776,10 +745,7 @@
   <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">(</span>v <span class="token operator">&amp;</span><span class="token operator">~</span> b<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toRadixString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 与非&amp;~，转为2进制</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-2-算术运算符"><a href="#2-2-算术运算符" class="headerlink" title="2-2 算术运算符"></a>2-2 算术运算符</h2><ul>
-<li><code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>、<code>~/</code>(返回一个整数值的除法)、<code>-expr</code>(一元减号，也叫负号)。</li>
-</ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h2 id="2-2-算术运算符"><a href="#2-2-算术运算符" class="headerlink" title="2-2 算术运算符"></a>2-2 算术运算符</h2><pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 算术运算符</span>
   <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
@@ -816,7 +782,6 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-3-关系运算符"><a href="#2-3-关系运算符" class="headerlink" title="2-3 关系运算符"></a>2-3 关系运算符</h2><ul>
-<li><code>==</code>、<code>!=</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>。</li>
 <li>测试两个对象是否表示相同的事务，使用<code>==</code>运算符。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -876,10 +841,7 @@
   <span class="token function">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-5-逻辑运算符"><a href="#2-5-逻辑运算符" class="headerlink" title="2-5 逻辑运算符"></a>2-5 逻辑运算符</h2><ul>
-<li><code>!expr</code>(反转表达式)、<code>||</code>(逻辑或)、<code>&amp;&amp;</code>(逻辑与)。</li>
-</ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h2 id="2-5-逻辑运算符"><a href="#2-5-逻辑运算符" class="headerlink" title="2-5 逻辑运算符"></a>2-5 逻辑运算符</h2><pre class="line-numbers language-dart"><code class="language-dart"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 逻辑运算符</span>
   bool flag1 <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
   <span class="token function">print</span><span class="token punctuation">(</span><span class="token operator">!</span>flag1<span class="token punctuation">)</span><span class="token punctuation">;</span>
