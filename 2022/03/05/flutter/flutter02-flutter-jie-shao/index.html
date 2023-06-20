@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.7k
+                    8.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    42 分
+                    43 分
                 </div>
                 
 
@@ -2477,9 +2477,80 @@ List listData<span class="token operator">=</span><span class="token punctuation
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-圆形图片"><a href="#1-圆形图片" class="headerlink" title="(1) 圆形图片"></a>(1) 圆形图片</h3><pre class="line-numbers language-dart"><code class="language-dart">
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="2-通讯录卡片"><a href="#2-通讯录卡片" class="headerlink" title="(2) 通讯录卡片"></a>(2) 通讯录卡片</h3><pre class="line-numbers language-dart"><code class="language-dart">
+<h3 id="1-圆形图片"><a href="#1-圆形图片" class="headerlink" title="(1) 圆形图片"></a>(1) 圆形图片</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+    home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'圆形图片'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">ListView</span><span class="token punctuation">(</span>
+      children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token function">Card</span><span class="token punctuation">(</span>
+          shape<span class="token punctuation">:</span> <span class="token function">RoundedRectangleBorder</span><span class="token punctuation">(</span>
+            borderRadius<span class="token punctuation">:</span> BorderRadius<span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          elevation<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+          margin<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          child<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+            children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+              <span class="token function">AspectRatio</span><span class="token punctuation">(</span>
+                aspectRatio<span class="token punctuation">:</span> <span class="token number">16</span><span class="token operator">/</span><span class="token number">9</span><span class="token punctuation">,</span>
+                child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span><span class="token string">"http://www.m58.link/yWnmo"</span><span class="token punctuation">,</span> fit<span class="token punctuation">:</span> BoxFit<span class="token punctuation">.</span>cover<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token function">ListTile</span><span class="token punctuation">(</span>
+                leading<span class="token punctuation">:</span> <span class="token function">ClipOval</span><span class="token punctuation">(</span>                      <span class="token comment" spellcheck="true">// ClipOval实现圆形图片</span>
+                  child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span>
+                    <span class="token string">"http://www.m58.link/yWnmo"</span><span class="token punctuation">,</span>
+                    fit<span class="token punctuation">:</span> BoxFit<span class="token punctuation">.</span>cover<span class="token punctuation">,</span>
+                    height<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+                    width<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+                  <span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span><span class="token punctuation">,</span>
+                title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"桃夭"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                subtitle<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"桃之夭夭，灼灼其华。"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Card</span><span class="token punctuation">(</span>
+          shape<span class="token punctuation">:</span> <span class="token function">RoundedRectangleBorder</span><span class="token punctuation">(</span>
+            borderRadius<span class="token punctuation">:</span> BorderRadius<span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          elevation<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+          margin<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          child<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+            children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+              <span class="token function">AspectRatio</span><span class="token punctuation">(</span>
+                aspectRatio<span class="token punctuation">:</span> <span class="token number">16</span><span class="token operator">/</span><span class="token number">9</span><span class="token punctuation">,</span>
+                child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span><span class="token string">"http://www.m58.link/abMGM"</span><span class="token punctuation">,</span> fit<span class="token punctuation">:</span> BoxFit<span class="token punctuation">.</span>cover<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token keyword">const</span> <span class="token function">ListTile</span><span class="token punctuation">(</span>
+                leading<span class="token punctuation">:</span> <span class="token function">CircleAvatar</span><span class="token punctuation">(</span>                  <span class="token comment" spellcheck="true">// CircleAvatar实现圆形图片</span>
+                  radius<span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span>                           <span class="token comment" spellcheck="true">// 设置头像半径</span>
+                  backgroundImage<span class="token punctuation">:</span> <span class="token function">NetworkImage</span><span class="token punctuation">(</span><span class="token string">"http://www.m58.link/abMGM"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span><span class="token punctuation">,</span>
+                title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"蒹葭"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                subtitle<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"蒹葭苍苍，白露为霜。"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-循环遍历"><a href="#2-循环遍历" class="headerlink" title="(2) 循环遍历"></a>(2) 循环遍历</h3><pre class="line-numbers language-dart"><code class="language-dart">
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
@@ -3259,7 +3330,7 @@ List listData<span class="token operator">=</span><span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21k</span>&nbsp;字
+                class="white-color">21.2k</span>&nbsp;字
             
             
             
