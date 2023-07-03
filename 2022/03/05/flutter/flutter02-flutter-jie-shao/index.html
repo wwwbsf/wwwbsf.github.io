@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.9k
+                    9.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    43 分
+                    44 分
                 </div>
                 
 
@@ -2419,6 +2419,7 @@ List listData<span class="token operator">=</span><span class="token punctuation
 <li>Clip.antiAliasWithSaveLayer：带有抗锯齿的剪切，并在剪切之后立即保存saveLayer。</li>
 </ul>
 </li>
+<li>AspectRatio(宽高比，最终可能不会根据这个值布局，具体看综合因素，只是一个参考值)。</li>
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
 
@@ -2550,8 +2551,73 @@ List listData<span class="token operator">=</span><span class="token punctuation
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-循环遍历"><a href="#2-循环遍历" class="headerlink" title="(2) 循环遍历"></a>(2) 循环遍历</h3><pre class="line-numbers language-dart"><code class="language-dart">
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2-循环遍历"><a href="#2-循环遍历" class="headerlink" title="(2) 循环遍历"></a>(2) 循环遍历</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'./res/mydata.dart'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+    home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'循环遍历'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  List<span class="token operator">&lt;</span>Widget<span class="token operator">></span> <span class="token function">_initCardData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> tempList <span class="token operator">=</span> listData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">Card</span><span class="token punctuation">(</span>
+        shape<span class="token punctuation">:</span> <span class="token function">RoundedRectangleBorder</span><span class="token punctuation">(</span>
+          borderRadius<span class="token punctuation">:</span> BorderRadius<span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        elevation<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+        margin<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        child<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token function">AspectRatio</span><span class="token punctuation">(</span>
+              aspectRatio<span class="token punctuation">:</span> <span class="token number">16</span><span class="token operator">/</span><span class="token number">9</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span>value<span class="token punctuation">[</span><span class="token string">'imageUrl'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fit<span class="token punctuation">:</span> BoxFit<span class="token punctuation">.</span>cover<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">ListTile</span><span class="token punctuation">(</span>
+              leading<span class="token punctuation">:</span> <span class="token function">ClipOval</span><span class="token punctuation">(</span>                        <span class="token comment" spellcheck="true">// ClipOval实现圆形图片</span>
+                child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span>
+                  value<span class="token punctuation">[</span><span class="token string">'imageUrl'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  fit<span class="token punctuation">:</span> BoxFit<span class="token punctuation">.</span>cover<span class="token punctuation">,</span>
+                  height<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+                  width<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>value<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              subtitle<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>value<span class="token punctuation">[</span><span class="token string">'author'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> tempList<span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">ListView</span><span class="token punctuation">(</span>
+      children<span class="token punctuation">:</span> <span class="token function">_initCardData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                        <span class="token comment" spellcheck="true">// 调用方法</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-7-按钮组件"><a href="#5-7-按钮组件" class="headerlink" title="5-7 按钮组件"></a>5-7 按钮组件</h2><ul>
+<li>onPressed(必填参，按下按钮时触发回调，接收一个方法，传null表禁用，显示相关样式)。</li>
+<li>child(子组件)、style(通过ButtonStyle进行装饰，ButtonStyle里面的常用参数，如下所示)。<ul>
+<li>ElevatedButton：凸起按钮，默认带有阴影和灰色背景，按下后阴影变大。</li>
+<li>TextButton：文本按钮，默认背景透明并且不带阴影，按下后会有背景色。</li>
+<li>OutlinedButton：默认带边框，不带阴影且背景透明，按下后边框颜色变亮同时出现背景和阴影。</li>
+<li>IconButton：是一个可点击的Icon图标，不包含文字，默认是没有背景的，点击后将会出现背景。</li>
+<li>带图标的按钮：ElevatedButton、TextButton、OutlinedButton都有一个icon构造函数，可带图标。</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
@@ -3330,7 +3396,7 @@ List listData<span class="token operator">=</span><span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.2k</span>&nbsp;字
+                class="white-color">21.6k</span>&nbsp;字
             
             
             
