@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.8k
+                    10.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    48 分
+                    50 分
                 </div>
                 
 
@@ -2883,7 +2883,87 @@ List listData<span class="token operator">=</span><span class="token punctuation
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-8-Wrap组件"><a href="#5-8-Wrap组件" class="headerlink" title="5-8 Wrap组件"></a>5-8 Wrap组件</h2>
+<h2 id="5-8-Wrap组件"><a href="#5-8-Wrap组件" class="headerlink" title="5-8 Wrap组件"></a>5-8 Wrap组件</h2><ul>
+<li>该组件可以实现流布局，单行的Wrap和Row表现几乎一致，单列的Wrap和Column也表现几乎一致。</li>
+<li>Row与Column都是单行单列，Wrap则突破限制，mainAxis上空间不足时，向crossAxis上扩展显示。</li>
+<li>属性说明<ul>
+<li>direction(主轴的方向，默认水平)、spacing(主轴方向上的间距)。</li>
+<li>alignment(主轴的对齐方式)、textDirection(文本方向)、runSpacing(run的间距)。</li>
+<li>verticalDirection(定义了children的摆放顺序，默认是down，详见Flex相关属性)。</li>
+<li>runAlignment(run的对齐方式，run可理解为新的行或列，水平方向布局可理解为新的一行)。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+    home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'Wrap组件'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// return Button("第1集", onPressed: (){});</span>
+    <span class="token keyword">return</span> <span class="token function">Padding</span><span class="token punctuation">(</span>
+      padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token function">Wrap</span><span class="token punctuation">(</span>
+        <span class="token comment" spellcheck="true">// alignment: WrapAlignment.center,             // 居中显示</span>
+        spacing<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>                                     <span class="token comment" spellcheck="true">// x轴上的间距数(水平间距)</span>
+        runSpacing<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>                                 <span class="token comment" spellcheck="true">// y轴上的间距数(垂直间距)</span>
+        <span class="token comment" spellcheck="true">// direction: Axis.vertical,                    // 垂直方向排列</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第1集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第2集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第3集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第4集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第5集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第6集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第7集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第8集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第9集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第10集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第11集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第12集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第13集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第14集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第15集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第16集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第17集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"第18集"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Button</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>                  <span class="token comment" spellcheck="true">// 自定义按钮组件</span>
+  String text<span class="token punctuation">;</span>                                          <span class="token comment" spellcheck="true">// 按钮的文字</span>
+  <span class="token keyword">void</span> <span class="token function">Function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">?</span> onPressed<span class="token punctuation">;</span>                           <span class="token comment" spellcheck="true">// 方法</span>
+  <span class="token function">Button</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">,</span> required <span class="token keyword">this</span><span class="token punctuation">.</span>onPressed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">ElevatedButton</span><span class="token punctuation">(</span>
+      style<span class="token punctuation">:</span> <span class="token function">ButtonStyle</span><span class="token punctuation">(</span>
+        backgroundColor<span class="token punctuation">:</span> MaterialStateProperty<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>
+          <span class="token keyword">const</span> Color<span class="token punctuation">.</span><span class="token function">fromRGBO</span><span class="token punctuation">(</span><span class="token number">244</span><span class="token punctuation">,</span> <span class="token number">244</span><span class="token punctuation">,</span> <span class="token number">244</span><span class="token punctuation">,</span> <span class="token number">244</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        foregroundColor<span class="token punctuation">:</span> MaterialStateProperty<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span>black45<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      onPressed<span class="token punctuation">:</span> onPressed<span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -3661,7 +3741,7 @@ List listData<span class="token operator">=</span><span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">22.2k</span>&nbsp;字
+                class="white-color">22.6k</span>&nbsp;字
             
             
             
