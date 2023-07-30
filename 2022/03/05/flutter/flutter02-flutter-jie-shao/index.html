@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.2k
+                    10.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    50 分
+                    51 分
                 </div>
                 
 
@@ -2894,12 +2894,12 @@ List listData<span class="token operator">=</span><span class="token punctuation
 </ul>
 </li>
 </ul>
-<pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+<h3 id="1-Wrap组件使用"><a href="#1-Wrap组件使用" class="headerlink" title="(1) Wrap组件使用"></a>(1) Wrap组件使用</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
     home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
-      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'Wrap组件'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'Wrap组件使用'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2963,6 +2963,104 @@ List listData<span class="token operator">=</span><span class="token punctuation
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-搜索页面布局"><a href="#2-搜索页面布局" class="headerlink" title="(2) 搜索页面布局"></a>(2) 搜索页面布局</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+    home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'搜索页面布局'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">ListView</span><span class="token punctuation">(</span>
+      padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token function">Row</span><span class="token punctuation">(</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"热搜"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>textTheme<span class="token punctuation">.</span>titleLarge<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">const</span> <span class="token function">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Wrap</span><span class="token punctuation">(</span>
+          spacing<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+          runSpacing<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"女装"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"笔记本"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"玩具"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"文学"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"时尚"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"扭扭棒"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"健身"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Button</span><span class="token punctuation">(</span><span class="token string">"台式机"</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">const</span> <span class="token function">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Row</span><span class="token punctuation">(</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"历史记录"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>textTheme<span class="token punctuation">.</span>titleLarge<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">const</span> <span class="token function">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">Column</span><span class="token punctuation">(</span>
+          children<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token punctuation">[</span>
+            <span class="token function">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"女装"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"手机"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">ListTile</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"电脑"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Divider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">const</span> <span class="token function">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// OutlinedButton.icon(                         // 自适应</span>
+        <span class="token comment" spellcheck="true">//   onPressed: (){},</span>
+        <span class="token comment" spellcheck="true">//   icon: const Icon(Icons.delete),</span>
+        <span class="token comment" spellcheck="true">//   label: const Text("清空历史记录"),</span>
+        <span class="token comment" spellcheck="true">// ),</span>
+        <span class="token function">Padding</span><span class="token punctuation">(</span>
+          padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          child<span class="token punctuation">:</span> OutlinedButton<span class="token punctuation">.</span><span class="token function">icon</span><span class="token punctuation">(</span>
+            style<span class="token punctuation">:</span> <span class="token function">ButtonStyle</span><span class="token punctuation">(</span>
+              foregroundColor<span class="token punctuation">:</span> MaterialStateProperty<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span>black45<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            icon<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>delete<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            label<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"清空历史记录"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Button</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>                  <span class="token comment" spellcheck="true">// 自定义按钮组件</span>
+  String text<span class="token punctuation">;</span>                                          <span class="token comment" spellcheck="true">// 按钮的文字</span>
+  <span class="token keyword">void</span> <span class="token function">Function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">?</span> onPressed<span class="token punctuation">;</span>                           <span class="token comment" spellcheck="true">// 方法</span>
+  <span class="token function">Button</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token punctuation">{</span>Key<span class="token operator">?</span> key<span class="token punctuation">,</span> required <span class="token keyword">this</span><span class="token punctuation">.</span>onPressed<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">ElevatedButton</span><span class="token punctuation">(</span>
+      style<span class="token punctuation">:</span> <span class="token function">ButtonStyle</span><span class="token punctuation">(</span>
+        backgroundColor<span class="token punctuation">:</span> MaterialStateProperty<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>
+          <span class="token keyword">const</span> Color<span class="token punctuation">.</span><span class="token function">fromRGBO</span><span class="token punctuation">(</span><span class="token number">244</span><span class="token punctuation">,</span> <span class="token number">244</span><span class="token punctuation">,</span> <span class="token number">244</span><span class="token punctuation">,</span> <span class="token number">244</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        foregroundColor<span class="token punctuation">:</span> MaterialStateProperty<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>Colors<span class="token punctuation">.</span>black45<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      onPressed<span class="token punctuation">:</span> onPressed<span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -3741,7 +3839,7 @@ List listData<span class="token operator">=</span><span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">22.6k</span>&nbsp;字
+                class="white-color">22.8k</span>&nbsp;字
             
             
             
