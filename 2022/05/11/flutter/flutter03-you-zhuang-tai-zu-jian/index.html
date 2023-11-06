@@ -395,7 +395,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    3.7k
                 </div>
                 
 
@@ -1398,7 +1398,28 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="6-底部结合TabBar"><a href="#6-底部结合TabBar" class="headerlink" title="6 底部结合TabBar"></a>6 底部结合TabBar</h1>
+<h1 id="6-底部与顶部结合"><a href="#6-底部与顶部结合" class="headerlink" title="6 底部与顶部结合"></a>6 底部与顶部结合</h1><ul>
+<li>PreferredSize可以改变AppBar高度，AutomaticKeepAliveClientMixin可以快速实现页面缓存功能。</li>
+<li>但是通过混入的方式实现不是很优雅，所以有必要对AutomaticKeepAliveClientMixin混入进行封装。</li>
+</ul>
+<h2 id="6-1"><a href="#6-1" class="headerlink" title="6-1"></a>6-1</h2><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># 例如：myflutter(项目名)目录结构如下，只更改main.dart、tabs.dart、home.dart的内容，其余不变</span>
+<span class="token comment" spellcheck="true"># - pages/</span>
+<span class="token comment" spellcheck="true">#   - tabs/</span>
+<span class="token comment" spellcheck="true">#     - user.dart</span>
+<span class="token comment" spellcheck="true">#     - home.dart</span>
+<span class="token comment" spellcheck="true">#     - setting.dart</span>
+<span class="token comment" spellcheck="true">#     - message.dart</span>
+<span class="token comment" spellcheck="true">#     - category.dart</span>
+<span class="token comment" spellcheck="true">#   - tabs.dart</span>
+<span class="token comment" spellcheck="true"># - main.dart</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-main-dart-1"><a href="#1-main-dart-1" class="headerlink" title="(1) main.dart"></a>(1) main.dart</h3><pre class="line-numbers language-dart"><code class="language-dart">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2-tabs-dart-1"><a href="#2-tabs-dart-1" class="headerlink" title="(2) tabs.dart"></a>(2) tabs.dart</h3><pre class="line-numbers language-dart"><code class="language-dart">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-home-dart"><a href="#3-home-dart" class="headerlink" title="(3) home.dart"></a>(3) home.dart</h3><pre class="line-numbers language-dart"><code class="language-dart">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="6-2-自定义缓存的组件"><a href="#6-2-自定义缓存的组件" class="headerlink" title="6-2 自定义缓存的组件"></a>6-2 自定义缓存的组件</h2><h2 id="6-3-获取选项卡索引值"><a href="#6-3-获取选项卡索引值" class="headerlink" title="6-3 获取选项卡索引值"></a>6-3 获取选项卡索引值</h2>
                 
             </div>
             <hr/>
@@ -2176,7 +2197,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">26.4k</span>&nbsp;字
+                class="white-color">26.5k</span>&nbsp;字
             
             
             
