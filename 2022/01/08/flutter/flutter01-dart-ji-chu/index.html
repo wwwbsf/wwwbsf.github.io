@@ -432,13 +432,13 @@
 </ul>
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 入口方法</span>
 <span class="token comment" spellcheck="true">// main() {</span>
-<span class="token comment" spellcheck="true">//   print('入口方法');</span>
+<span class="token comment" spellcheck="true">//   print("入口方法");</span>
 <span class="token comment" spellcheck="true">// }</span>
 
 <span class="token comment" spellcheck="true">// 表示main方法没有返回值</span>
 <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 打印信息</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'入口方法'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"入口方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
@@ -456,7 +456,7 @@
 <span class="token comment" spellcheck="true">/* 注释方法二 */</span>
 <span class="token comment" spellcheck="true">///注释方法三</span>
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'注释方法'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"注释方法"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-1-关键字"><a href="#1-1-关键字" class="headerlink" title="1-1 关键字"></a>1-1 关键字</h2><ul>
@@ -492,8 +492,8 @@
 <pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'dart:math'</span><span class="token punctuation">;</span>
 
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'最小值：'</span> <span class="token operator">+</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'最大值：'</span> <span class="token operator">+</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"最小值："</span> <span class="token operator">+</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"最大值："</span> <span class="token operator">+</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-实现请求数据"><a href="#1-实现请求数据" class="headerlink" title="(1) 实现请求数据"></a>(1) 实现请求数据</h3><pre class="line-numbers language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'dart:io'</span><span class="token punctuation">;</span>
@@ -509,7 +509,7 @@
   <span class="token comment" spellcheck="true">// 创建HTTPClient对象</span>
   <span class="token keyword">var</span> httpClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 创建URI对象</span>
-  <span class="token keyword">var</span> uri <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Uri<span class="token punctuation">.</span>http</span><span class="token punctuation">(</span><span class="token string">'news-at.zhihu.com'</span><span class="token punctuation">,</span> <span class="token string">'/api/3/stories/latest'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> uri <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Uri<span class="token punctuation">.</span>http</span><span class="token punctuation">(</span><span class="token string">"news-at.zhihu.com"</span><span class="token punctuation">,</span> <span class="token string">"/api/3/stories/latest"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 发起请求，等待响应</span>
   <span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token keyword">await</span> httpClient<span class="token punctuation">.</span><span class="token function">getUrl</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 关闭请求，等待响应</span>
