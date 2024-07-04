@@ -458,7 +458,7 @@ article .card:hover .card-image img {
 }
 
 header .side-nav {
-    width: 240px;
+    width: 270px;
     z-index: 999;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 10px 0 rgba(0, 0, 0, 0.12);
 }
@@ -509,7 +509,8 @@ header .button-collapse i {
 
 header .side-nav .mobile-head {
     padding: 0 15px;
-    background-color: #000;
+    /* background-color: #000; */
+    background-color: #0c812b;
 }
 
 header .side-nav .mobile-head img {
@@ -541,7 +542,7 @@ header .side-nav .mobile-head .logo-desc {
 
 header .side-nav .menu-list li {
     padding: 0;
-    margin-left: -15px;
+    margin-left: -5px;
 }
 
 header .side-nav .menu-list a {
