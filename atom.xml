@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>bsf</title>
+  
+  <subtitle>浮生若梦</subtitle>
+  <link href="https://wwwbsf.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://wwwbsf.github.io/"/>
+  <updated>2024-07-04T01:46:33.252Z</updated>
+  <id>https://wwwbsf.github.io/</id>
+  
+  <author>
+    <name>bsf</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向对象</title>
+    <link href="https://wwwbsf.github.io/posts/dart@06.html"/>
+    <id>https://wwwbsf.github.io/posts/dart@06.html</id>
+    <published>2024-03-03T14:50:50.000Z</published>
+    <updated>2024-07-04T01:46:33.252Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Dart" scheme="https://wwwbsf.github.io/categories/Dart/"/>
+    
+    
+    <category term="类" scheme="https://wwwbsf.github.io/tags/%E7%B1%BB/"/>
+    
+    <category term="对象" scheme="https://wwwbsf.github.io/tags/%E5%AF%B9%E8%B1%A1/"/>
+    
+    <category term="继承" scheme="https://wwwbsf.github.io/tags/%E7%BB%A7%E6%89%BF/"/>
+    
+    <category term="多态" scheme="https://wwwbsf.github.io/tags/%E5%A4%9A%E6%80%81/"/>
+    
+    <category term="封装" scheme="https://wwwbsf.github.io/tags/%E5%B0%81%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>函数说明</title>
+    <link href="https://wwwbsf.github.io/posts/dart@05.html"/>
+    <id>https://wwwbsf.github.io/posts/dart@05.html</id>
+    <published>2024-02-23T12:25:30.000Z</published>
+    <updated>2024-07-04T01:23:02.752Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Dart" scheme="https://wwwbsf.github.io/categories/Dart/"/>
+    
+    
+    <category term="定义" scheme="https://wwwbsf.github.io/tags/%E5%AE%9A%E4%B9%89/"/>
+    
+    <category term="参数" scheme="https://wwwbsf.github.io/tags/%E5%8F%82%E6%95%B0/"/>
+    
+    <category term="匿名" scheme="https://wwwbsf.github.io/tags/%E5%8C%BF%E5%90%8D/"/>
+    
+    <category term="闭包" scheme="https://wwwbsf.github.io/tags/%E9%97%AD%E5%8C%85/"/>
+    
+    <category term="高阶" scheme="https://wwwbsf.github.io/tags/%E9%AB%98%E9%98%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>流程语句</title>
+    <link href="https://wwwbsf.github.io/posts/dart@04.html"/>
+    <id>https://wwwbsf.github.io/posts/dart@04.html</id>
+    <published>2024-02-06T13:30:00.000Z</published>
+    <updated>2024-07-04T01:44:01.540Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Dart" scheme="https://wwwbsf.github.io/categories/Dart/"/>
+    
+    
+    <category term="if" scheme="https://wwwbsf.github.io/tags/if/"/>
+    
+    <category term="switch" scheme="https://wwwbsf.github.io/tags/switch/"/>
+    
+    <category term="for" scheme="https://wwwbsf.github.io/tags/for/"/>
+    
+    <category term="while" scheme="https://wwwbsf.github.io/tags/while/"/>
+    
+    <category term="where" scheme="https://wwwbsf.github.io/tags/where/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据类型</title>
+    <link href="https://wwwbsf.github.io/posts/dart@03.html"/>
+    <id>https://wwwbsf.github.io/posts/dart@03.html</id>
+    <published>2024-02-01T15:50:50.000Z</published>
+    <updated>2024-07-04T01:17:23.829Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Dart" scheme="https://wwwbsf.github.io/categories/Dart/"/>
+    
+    
+    <category term="数字" scheme="https://wwwbsf.github.io/tags/%E6%95%B0%E5%AD%97/"/>
+    
+    <category term="布尔" scheme="https://wwwbsf.github.io/tags/%E5%B8%83%E5%B0%94/"/>
+    
+    <category term="字典" scheme="https://wwwbsf.github.io/tags/%E5%AD%97%E5%85%B8/"/>
+    
+    <category term="数组" scheme="https://wwwbsf.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+    <category term="集合" scheme="https://wwwbsf.github.io/tags/%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>运算符</title>
+    <link href="https://wwwbsf.github.io/posts/dart@02.html"/>
+    <id>https://wwwbsf.github.io/posts/dart@02.html</id>
+    <published>2024-01-14T16:15:15.000Z</published>
+    <updated>2024-07-04T01:14:29.806Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Dart" scheme="https://wwwbsf.github.io/categories/Dart/"/>
+    
+    
+    <category term="算术" scheme="https://wwwbsf.github.io/tags/%E7%AE%97%E6%9C%AF/"/>
+    
+    <category term="关系" scheme="https://wwwbsf.github.io/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="赋值" scheme="https://wwwbsf.github.io/tags/%E8%B5%8B%E5%80%BC/"/>
+    
+    <category term="逻辑" scheme="https://wwwbsf.github.io/tags/%E9%80%BB%E8%BE%91/"/>
+    
+    <category term="级联" scheme="https://wwwbsf.github.io/tags/%E7%BA%A7%E8%81%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dart概念</title>
+    <link href="https://wwwbsf.github.io/posts/dart@01.html"/>
+    <id>https://wwwbsf.github.io/posts/dart@01.html</id>
+    <published>2024-01-02T16:30:00.000Z</published>
+    <updated>2024-06-22T07:03:57.926Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Dart" scheme="https://wwwbsf.github.io/categories/Dart/"/>
+    
+    
+    <category term="库" scheme="https://wwwbsf.github.io/tags/%E5%BA%93/"/>
+    
+    <category term="注释" scheme="https://wwwbsf.github.io/tags/%E6%B3%A8%E9%87%8A/"/>
+    
+    <category term="变量" scheme="https://wwwbsf.github.io/tags/%E5%8F%98%E9%87%8F/"/>
+    
+    <category term="常量" scheme="https://wwwbsf.github.io/tags/%E5%B8%B8%E9%87%8F/"/>
+    
+    <category term="关键字" scheme="https://wwwbsf.github.io/tags/%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    
+  </entry>
+  
+</feed>
