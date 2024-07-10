@@ -1043,14 +1043,14 @@ h3:hover {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.1k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    25 分
                 </div>
                 
 
@@ -1113,7 +1113,7 @@ void main() &#123;
 <li>常量构造函数：<code>const ClassName(...)</code>，如果生成类的对象不变，可以定义常量构造函数。</li>
 <li>工厂构造函数：<code>factory ClassName(...)</code>，factory关键字可以放在类名函数和命名函数前。</li>
 </ul>
-<h2 id="3-1-普通构造函数"><a href="#3-1-普通构造函数" class="headerlink" title="3-1 普通构造函数"></a>3-1 普通构造函数</h2><ul>
+<h2 id="3-1-无参构造函数"><a href="#3-1-无参构造函数" class="headerlink" title="3-1 无参构造函数"></a>3-1 无参构造函数</h2><ul>
 <li>如果不声明构造函数，则Dart会提供一个默认的无参构造函数。</li>
 <li>若自定义有参构造函数，那么默认的无参构造函数就不存在了。</li>
 </ul>
@@ -1123,7 +1123,7 @@ void main() &#123;
 
   &#x2F;&#x2F; 构造函数，该方法在实例化时触发
   Person() &#123;
-    print(&#39;构造函数&#39;);
+    print(&#39;无参构造函数&#39;);
   &#125;
 
   void printInfo() &#123;
@@ -1136,13 +1136,13 @@ void main() &#123;
   Person p &#x3D; new Person();
   &#x2F;&#x2F; p.printInfo();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<h2 id="3-2-有参构造函数"><a href="#3-2-有参构造函数" class="headerlink" title="3-2 有参构造函数"></a>3-2 有参构造函数</h2><ul>
 <li>实现的功能：在构造函数中，可以动态地给类指定属性。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
   &#x2F;&#x2F; 有参构造函数，提供语法糖简化
-  String name;
-  int age;
+  String name &#x3D; &#39;&#39;;
+  int age &#x3D; 0;
 
   &#x2F;&#x2F; 自定义构造函数
   &#x2F;&#x2F; Person(String name, int age) &#123;
@@ -1166,9 +1166,10 @@ void main() &#123;
   Person p2 &#x3D; new Person(&#39;李四&#39;, 22);
   p2.printInfo();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-2-命名构造函数"><a href="#3-2-命名构造函数" class="headerlink" title="3-2 命名构造函数"></a>3-2 命名构造函数</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
-  String name;
-  int age;
+<h2 id="3-3-命名构造函数"><a href="#3-3-命名构造函数" class="headerlink" title="3-3 命名构造函数"></a>3-3 命名构造函数</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
+  &#x2F;&#x2F; 空安全机制，默认情况下所有变量都必须在声明时被初始化，不能为null
+  String name &#x3D; &#39;&#39;;
+  int age &#x3D; 0;
 
   &#x2F;&#x2F; 命名构造函数
   Person.now() &#123;
@@ -1186,32 +1187,32 @@ void main() &#123;
 &#125;
 
 void main() &#123;
-  &#x2F;&#x2F; 实例化DateTime调用它的命名构造函数
-  var d &#x3D; new DateTime.now();
-  print(d);
-  
   Person p1 &#x3D; new Person.now();
   Person p2 &#x3D; new Person.setInfo(&#39;张三&#39;, 21);
   p2.printInfo();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+  &#x2F;&#x2F; 实例化DateTime调用它的命名构造函数
+  var d &#x3D; new DateTime.now();
+  print(d);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="4-类模块化"><a href="#4-类模块化" class="headerlink" title="4 类模块化"></a>4 类模块化</h1><ul>
 <li>将创建的类放在单独的文件夹下，例如：Person类，放在/lib/Person.dart中。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
-  String name;
-  int age;
-  
+  String name &#x3D; &#39;&#39;;
+  int age &#x3D; 0;
+
   Person(this.name, this.age);
-  
+
   Person.now() &#123;
     print(&#39;命名构造函数&#39;);
   &#125;
-  
+
   Person.setInfo(String name, int age) &#123;
     this.name &#x3D; name;
     this.age &#x3D; age;
   &#125;
-  
+
   void printInfo() &#123;
     print(&#39;$&#123;this.name&#125; --- $&#123;this.age&#125;&#39;);
   &#125;
@@ -1226,9 +1227,9 @@ void main() &#123;
   p.printInfo();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-1-私有属性"><a href="#4-1-私有属性" class="headerlink" title="4-1 私有属性"></a>4-1 私有属性</h2><ul>
-<li>Dart中没有public、private protected等访问修饰符，但可使用<code>_</code>将属性和方法私有化。</li>
+<li>在Dart中没有public、private protected等访问修饰符，但可以使用<code>_</code>将属性和方法私有化。</li>
 <li>自定义私有属性，或自定义私有方法时，必须将其单独抽类到一个文件中，这样才有效果。</li>
-<li>例如：Animal类，定义name为私有属性，将创建的Animal类放在/lib/AnimalProperties.dart中。</li>
+<li>例如：Animal类，定义name为私有属性，将创建的Animal类放入/lib/AnimalProperties.dart。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Animal &#123;
   &#x2F;&#x2F; 私有属性name
@@ -1254,7 +1255,7 @@ void main() &#123;
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;lib&#x2F;AnimalProperties.dart&#39;;
 
 void main() &#123;
-  Animal a &#x3D; new Animal(&#39;小狗&#39;, 3);
+  Animal a &#x3D; new Animal(&#39;小狗&#39;, 100);
   &#x2F;&#x2F; 无法访问私有属性
   &#x2F;&#x2F; print(a._name);
   print(a.age);
@@ -1288,7 +1289,7 @@ void main() &#123;
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;lib&#x2F;AnimalMethods.dart&#39;;
 
 void main() &#123;
-  Animal a &#x3D; new Animal(&#39;小狗&#39;, 3);
+  Animal a &#x3D; new Animal(&#39;小狗&#39;, 100);
   &#x2F;&#x2F; 间接地调用私有方法
   a.execRun();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1337,8 +1338,8 @@ void main() &#123;
   print(&#39;面积：$&#123;r.getArea()&#125;&#39;);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-5-类中的静态成员"><a href="#4-5-类中的静态成员" class="headerlink" title="4-5 类中的静态成员"></a>4-5 类中的静态成员</h2><ul>
-<li>使用static关键字来实现类级别的变量和函数。</li>
-<li>静态属性与静态方法直接通过类名访问，而非类的实例访问。</li>
+<li>通过使用static关键字，来实现类级别的变量以及函数。</li>
+<li>静态属性与静态方法通过类名访问，而非类的实例访问。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
   static String name &#x3D; &#39;张三&#39;;
@@ -1354,9 +1355,9 @@ main() &#123;
   &#x2F;&#x2F; 调用静态方法
   Person.show();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>非静态方法可以访问静态成员、非静态成员，以及静态方法。</li>
-<li>静态方法可以访问静态成员和静态方法，不能访问非静态成员和非静态方法。</li>
+<h2 id="4-6-静态非静态比较"><a href="#4-6-静态非静态比较" class="headerlink" title="4-6 静态非静态比较"></a>4-6 静态非静态比较</h2><ul>
+<li>非静态方法可以直接访问静态成员、静态方法，以及非静态成员。</li>
+<li>静态方法能访问静态成员和静态方法，不能访问非静态成员和非静态方法。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
   static String name &#x3D; &#39;张三&#39;;
@@ -1446,9 +1447,8 @@ main() &#123;
 class Web extends Person &#123;
   &#x2F;&#x2F; 定义子类自己的属性
   String sex;
-  Web(String name, num age, String sex): super(name, age) &#123;
-    this.sex &#x3D; sex;
-  &#125;
+  Web(String name, num age, this.sex): super(name, age);
+
   &#x2F;&#x2F; 定义子类自己的方法
   run() &#123;
     print(&#39;$&#123;this.name&#125; --- $&#123;this.age&#125; --- $&#123;this.sex&#125;&#39;);
@@ -1459,7 +1459,7 @@ main() &#123;
   Web w &#x3D; new Web(&#39;张三&#39;, 21, &#39;男&#39;);
   w.printInfo();
   w.run();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-3-给命名构造函数传参"><a href="#5-3-给命名构造函数传参" class="headerlink" title="5-3 给命名构造函数传参"></a>5-3 给命名构造函数传参</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
   String name;
   num age;
@@ -1473,9 +1473,8 @@ main() &#123;
 
 class Web extends Person &#123;
   String sex;
-  Web(String name, num age, String sex): super.construct(name, age) &#123;
-    this.sex &#x3D; sex;
-  &#125;
+  Web(String name, num age, this.sex): super.construct(name, age);
+  
   run() &#123;
     print(&#39;$&#123;this.name&#125; --- $&#123;this.age&#125; --- $&#123;this.sex&#125;&#39;);
   &#125;
@@ -1485,7 +1484,7 @@ main() &#123;
   Web w &#x3D; new Web(&#39;张三&#39;, 21, &#39;男&#39;);
   w.printInfo();
   w.run();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-4-子类覆写父类的方法"><a href="#5-4-子类覆写父类的方法" class="headerlink" title="5-4 子类覆写父类的方法"></a>5-4 子类覆写父类的方法</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
   String name;
   num age;
@@ -1514,7 +1513,7 @@ class Web extends Person &#123;
 
   @override
   work() &#123;
-    print(&#39;$&#123;this.name&#125;的日常工作任务是写代码&#39;);
+    print(&#39;姓名：$&#123;this.name&#125; --- 工作：写代码&#39;);
   &#125;
 &#125;
 
@@ -1531,9 +1530,9 @@ main() &#123;
   void printInfo() &#123;
     print(&#39;$&#123;this.name&#125; --- $&#123;this.age&#125;&#39;);
   &#125;
-  
+
   work() &#123;
-    print(&#39;$&#123;this.name&#125;在工作&#39;);
+    print(&#39;$&#123;this.name&#125;：工作 --- &#39;);
   &#125;
 &#125;
 
@@ -1541,7 +1540,7 @@ class Web extends Person &#123;
   Web(String name, num age): super(name, age);
   &#x2F;&#x2F; 子类中扩展方法
   run() &#123;
-    print(&#39;程序执行中&#39;);
+    print(&#39;程序：执行 --- &#39;);
     &#x2F;&#x2F; 子类调用父类方法
     super.work();
   &#125;
@@ -1625,7 +1624,7 @@ main() &#123;
   Cat c &#x3D; new Cat();
   c.eat();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<h2 id="6-2-赋值"><a href="#6-2-赋值" class="headerlink" title="6-2 赋值"></a>6-2 赋值</h2><ul>
 <li>允许将子类类型的指针赋值给父类类型的指针，同一个函数调用会有不同的执行效果。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">abstract class Animal &#123;
@@ -1662,7 +1661,7 @@ main() &#123;
   Animal c &#x3D; new Cat();
   c.eat();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-2-接口"><a href="#6-2-接口" class="headerlink" title="6-2 接口"></a>6-2 接口</h2><ul>
+<h2 id="6-3-接口"><a href="#6-3-接口" class="headerlink" title="6-3 接口"></a>6-3 接口</h2><ul>
 <li>Dart的接口没用interface关键字定义，普通类或抽象类都可作为接口，使用implements关键字实现。<ul>
 <li>如果实现接口的类是普通类，那么Dart会将普通类和抽象类里面属性的方法全部覆写一遍。</li>
 <li>抽象类可定义抽象方法，普通类不可，要实现类似于Java接口的方式，一般都会用抽象类。</li>
@@ -1673,7 +1672,7 @@ main() &#123;
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 接口，即约定或叫规范，定义一个DB库，支持MySQL
 abstract class DB &#123;
   &#x2F;&#x2F; 数据库的链接地址
-  String uri;
+  String uri &#x3D; &#39;&#39;;
   add(String data);
   edit();
   delete();
@@ -1704,13 +1703,13 @@ main() &#123;
   MySQL mysql &#x3D; new MySQL(&#39;127.0.0.1&#39;);
   mysql.add(&#39;123456789&#39;);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<h2 id="6-4-抽类"><a href="#6-4-抽类" class="headerlink" title="6-4 抽类"></a>6-4 抽类</h2><ul>
 <li>抽类步骤一：lib目录新建一个DB.dart文件。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 接口，即约定或叫规范，DB.dart文件
 abstract class DB &#123;
   &#x2F;&#x2F; 数据库的链接地址
-  String uri;
+  String uri &#x3D; &#39;&#39;;
   add(String data);
   edit();
   delete();
@@ -1751,9 +1750,9 @@ main() &#123;
   MySQL mysql &#x3D; new MySQL(&#39;127.0.0.1&#39;);
   mysql.add(&#39;123456789&#39;);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-3-多接口"><a href="#6-3-多接口" class="headerlink" title="6-3 多接口"></a>6-3 多接口</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 一个类实现多个接口
+<h2 id="6-5-多接口"><a href="#6-5-多接口" class="headerlink" title="6-5 多接口"></a>6-5 多接口</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 一个类实现多个接口
 abstract class A &#123;
-  String name;
+  String name &#x3D; &#39;&#39;;
   printA();
 &#125;
 
@@ -1763,7 +1762,7 @@ abstract class B &#123;
 
 class C implements A, B &#123;
   @override
-  String name;
+  String name &#x3D; &#39;&#39;;
 
   @override
   printA() &#123;
@@ -1781,7 +1780,7 @@ void main() &#123;
   c.printA();
   c.printB();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-4-mixins"><a href="#6-4-mixins" class="headerlink" title="6-4 mixins"></a>6-4 mixins</h2><ul>
+<h2 id="6-6-mixins"><a href="#6-6-mixins" class="headerlink" title="6-6 mixins"></a>6-6 mixins</h2><ul>
 <li>mixins即混入，指在类中混入其他功能，在Dart中可以使用mixins实现类似多继承的功能。</li>
 <li>使用的条件伴随着Dart版本的变化一直在改变，这里用的是Dart 2.x中使用mixins的条件。</li>
 <li>一个类可以mixins多个mixins类，mixins绝不是继承，也不是接口，而是一种全新的特性。</li>
@@ -1807,7 +1806,7 @@ void main() &#123;
   c.printB();
   print(c.info);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<h3 id="1-继承自Object"><a href="#1-继承自Object" class="headerlink" title="(1) 继承自Object"></a>(1) 继承自Object</h3><ul>
 <li>作为mixins的类只能继承自Object，不能继承其他类。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
@@ -1833,7 +1832,7 @@ class B &#123;
 &#x2F;&#x2F; class C with A, B &#123;&#125;
 
 void main() &#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<h3 id="2-不能有构造函数"><a href="#2-不能有构造函数" class="headerlink" title="(2) 不能有构造函数"></a>(2) 不能有构造函数</h3><ul>
 <li>作为mixins的类不能有构造函数。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class A &#123;
@@ -1859,7 +1858,7 @@ void main() &#123;
   c.printB();
   print(c.info);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<h3 id="3-继承与mixins一起"><a href="#3-继承与mixins一起" class="headerlink" title="(3) 继承与mixins一起"></a>(3) 继承与mixins一起</h3><ul>
 <li>继承与mixins一起写的方法。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
@@ -1895,7 +1894,7 @@ void main() &#123;
   var c &#x3D; new C(&#39;张三&#39;, 21);
   c.printInfo();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<h3 id="4-顺序不同结果不同"><a href="#4-顺序不同结果不同" class="headerlink" title="(4) 顺序不同结果不同"></a>(4) 顺序不同结果不同</h3><ul>
 <li>注意<code>with A, B</code>或<code>with B, A</code>的顺序，打印出来的内容不一样，后面替换前面。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
@@ -1942,7 +1941,7 @@ void main() &#123;
   var c &#x3D; new C(&#39;张三&#39;, 21);
   c.run();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<h3 id="5-mixins的实例类型"><a href="#5-mixins的实例类型" class="headerlink" title="(5) mixins的实例类型"></a>(5) mixins的实例类型</h3><ul>
 <li>mixins的实例类型就是其超类的子类型。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; ignore_for_file: unnecessary_type_check
@@ -1971,7 +1970,7 @@ void main() &#123;
   var a &#x3D; new A();
   print(a is Object);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-5-泛型方法"><a href="#6-5-泛型方法" class="headerlink" title="6-5 泛型方法"></a>6-5 泛型方法</h2><ul>
+<h2 id="6-7-泛型方法"><a href="#6-7-泛型方法" class="headerlink" title="6-7 泛型方法"></a>6-7 泛型方法</h2><ul>
 <li>泛型即解决类、接口、方法的复用性，以及对不特定数据类型的支持(类型校验)。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 只能返回String类型的数据
@@ -2007,7 +2006,7 @@ void main() &#123;
   getData5&lt;int&gt;(23);
   getData5&lt;String&gt;(&#39;王五&#39;);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-6-泛型类定义"><a href="#6-6-泛型类定义" class="headerlink" title="6-6 泛型类定义"></a>6-6 泛型类定义</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class MyList1 &#123;
+<h2 id="6-8-泛型类定义"><a href="#6-8-泛型类定义" class="headerlink" title="6-8 泛型类定义"></a>6-8 泛型类定义</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class MyList1 &#123;
   List list &#x3D; &lt;int&gt;[];
   void add(int value) &#123;
     this.list.add(value);
@@ -2054,7 +2053,7 @@ main() &#123;
   l4.add(&#39;135&#39;);
   print(l4.getList());
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-7-泛型接口定义"><a href="#6-7-泛型接口定义" class="headerlink" title="6-7 泛型接口定义"></a>6-7 泛型接口定义</h2><ul>
+<h2 id="6-9-泛型接口定义"><a href="#6-9-泛型接口定义" class="headerlink" title="6-9 泛型接口定义"></a>6-9 泛型接口定义</h2><ul>
 <li>实现数据缓存的功能：文件缓存和内存缓存，这两种功能按接口约束实现。</li>
 <li>定义一个泛型接口<ul>
 <li>约束实现子类必须有<code>getByKey(Key)</code>和<code>setByKey(key, value)</code>。</li>
@@ -2096,7 +2095,7 @@ class MemoryCache&lt;T&gt; implements Cache&lt;T&gt; &#123;
 
 void main() &#123;
   MemoryCache m1 &#x3D; new MemoryCache&lt;String&gt;();
-  m1.setByKey(&#39;index&#39;, &#39;首页数据&#39;);
+  m1.setByKey(&#39;index&#39;, &#39;&#123;姓名: 李四, 工作: 测试&#125;&#39;);
   MemoryCache m2 &#x3D; new MemoryCache&lt;Map&gt;();
   m2.setByKey(&#39;index&#39;, &#123;&#39;姓名&#39;: &#39;张三&#39;, &#39;工作&#39;: &#39;码农&#39;&#125;);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -3123,7 +3122,7 @@ void main() &#123;
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;📈 站点总字数:&nbsp;<span class="white-color">12.6k</span>&nbsp;字&nbsp;&nbsp;|
+      &nbsp;📈 站点总字数:&nbsp;<span class="white-color">12.7k</span>&nbsp;字&nbsp;&nbsp;|
       
       
       

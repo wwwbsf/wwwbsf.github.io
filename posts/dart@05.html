@@ -1107,7 +1107,7 @@ void main() &#123;
     return sum;
   &#125;
 
-  var n &#x3D; sumNum(10);
+  var n &#x3D; sumNum(20);
   print(n);
 
   &#x2F;&#x2F; 定义一个方法，然后打印用户信息
@@ -1121,7 +1121,7 @@ void main() &#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-1-可选参数"><a href="#2-1-可选参数" class="headerlink" title="2-1 可选参数"></a>2-1 可选参数</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">main() &#123;
   &#x2F;&#x2F; 定义一个方法，该方法带可选参数：[Data type Variable]
-  String printUserInfo(String username, [int age]) &#123;
+  String printUserInfo(String username, [int age &#x3D; 0]) &#123;
     if(age !&#x3D; null) &#123;
       return &#39;姓名：$username --- 年龄：$age&#39;;
     &#125;
@@ -1146,7 +1146,7 @@ void main() &#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-3-命名参数"><a href="#2-3-命名参数" class="headerlink" title="2-3 命名参数"></a>2-3 命名参数</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">main() &#123;
   &#x2F;&#x2F; 定义一个方法，该方法带命名参数：&#123;Data type Variable &#x3D; &#39;Default&#39;&#125;
-  String printUserInfo(String username, &#123;int age&#125;) &#123;
+  String printUserInfo(String username, &#123;int age &#x3D; 0&#125;) &#123;
     if(age !&#x3D; null) &#123;
       return &#39;姓名：$username --- 年龄：$age&#39;;
     &#125;
@@ -1158,7 +1158,7 @@ void main() &#123;
 
   &#x2F;&#x2F; 实现一个方法，该方法将另一个方法当作参数传入
   fn1() &#123;
-    print(&#39;将fn1作为一个参数传入fn2中&#39;);
+    print(&#39;将fn1作为一个参数传入fn2&#39;);
   &#125;
 
   fn2(fName) &#123;
@@ -2283,7 +2283,7 @@ void main() &#123;
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;📈 站点总字数:&nbsp;<span class="white-color">12.6k</span>&nbsp;字&nbsp;&nbsp;|
+      &nbsp;📈 站点总字数:&nbsp;<span class="white-color">12.7k</span>&nbsp;字&nbsp;&nbsp;|
       
       
       
