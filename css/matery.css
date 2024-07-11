@@ -344,7 +344,7 @@ pre[class*="language-"] {
 code[class*="language-"],
 pre[class*="language-"] {
     color: #e8eaf6;
-    white-space: pre-wrap !important;
+    /* white-space: pre-wrap !important; 控制代码换行与行号之间的问题*/
     font-size: 1.06rem !important;
 }
 
@@ -2837,7 +2837,7 @@ body.dark .modal,
 body.dark header .side-nav,
 body.dark header .side-nav .menu-list .m-nav-show
 {
-    background-color: #12121c;
+    background-color: #12121c!important;
 }
 body.dark .aplayer{
     opacity: 0.9;
