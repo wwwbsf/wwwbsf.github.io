@@ -2753,7 +2753,7 @@ body.dark #artitalk_main .shuoshuo_text {
 }
 article .card {
     transition: all 0.6s;
-    box-shadow: 0 1px 20px -6px rgba(0,0,0,)
+    box-shadow: 0 1px 20px -6px rgba(0,0,0,);
 }
 /* article .card:hover {
     transform: scale3d(1.06,1.06,1.08);

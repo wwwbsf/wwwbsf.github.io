@@ -254,7 +254,7 @@ class="themespring" -->
       <div class="wavelineerji">
         <style>
           .wavelineerji {
-            background: url(/medias/wave-white.png) 0 0 repeat-x;
+            background: url(/medias/wave.png) 0 0 repeat-x;
             height: 3px;
             width: 100%;
             position: absolute;
@@ -315,7 +315,7 @@ class="themespring" -->
       <div class="wavelineerji">
         <style>
           .wavelineerji {
-            background: url(/medias/wave-white.png) 0 0 repeat-x;
+            background: url(/medias/wave.png) 0 0 repeat-x;
             height: 3px;
             width: 100%;
             position: absolute;
@@ -489,7 +489,21 @@ class="themespring" -->
           }
         </style>
         
-        
+        <!-- 新增，导航底部波浪线 -->
+        <div class="wavelineheader wavelineshow">
+            <style>
+                .wavelineshow {
+                    background: url(/medias/wave.png) 0 0 repeat-x;
+                    height: 3px;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+                    background-size: 10px 3px;
+                    transform: rotate(180deg);
+                }
+            </style>
+        </div>
     </nav>
 </header>
 <!-- header模块结束 -->
@@ -980,6 +994,42 @@ class="themespring" -->
 
 
 
+
+
+<div class="title">
+    <!-- <i class="far fa-thumbs-up"></i>&nbsp;&nbsp; -->
+    ✍ 推荐文章
+</div>
+
+<div class="row">
+
+    
+    
+    <div class="col s12" >
+        <div class="post-card" style="background-image: url('/medias/toc-banner/dart/dart@01.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                        
+                            <a href="/categories/Dart/" class="category">Dart</a>
+                        
+                    
+                </div>
+                <a href="/posts/dart@01.html">
+                    <h3 class="post-title">Dart概念</h3>
+                </a>
+                <p class="post-description">Dart诞生于2011年10月10日，是一种“结构化的Web编程”语言，应用于Web、服务器、移动应用等领域的开发。</p>
+                <a href="/posts/dart@01.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
+                    <i class="icon far fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+
             </div>
            
            
@@ -1216,6 +1266,31 @@ class="themespring" -->
               </div>
             </div>
           </div>
+          <!-- 新增公告栏底部波浪线 -->
+          <div class="wavecontrl wavelinedream"></div>
+          <style>
+            .wavelinedream {
+              height: 3px;
+              width: 98%;
+              position: absolute;
+              left: 50%;
+              bottom: -3px;
+              transform: translateX(-50%);
+              background: url(/medias/wave_white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+        
+            body.dark .wavelinedream {
+              height: 3px;
+              width: 98%;
+              position: absolute;
+              left: 50%;
+              bottom: -3px;
+              transform: translateX(-50%);
+              background: url(/medias/wave_black.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+          </style>
         </div>
       </div>
       <!-- 全局通知公告播报栏结束 -->
@@ -1227,6 +1302,154 @@ class="themespring" -->
   <!-- 所有文章卡片开始 -->
   <article id="articles" class="container articles">
     <div class="row article-row">
+      
+      <div class="article col s12 m6 l4">
+        <div class="card">
+          <!-- 推荐文章置顶模块效果开始 -->
+          
+          <div class="placetop">推荐文章</div>
+          <style>
+            .placetop {
+              z-index: 99;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 80px;
+              height: 30px;
+              line-height: 30px;
+              border-bottom-right-radius: 8px;
+              background-color: #0c812b;
+              text-align: center;
+              font-size: 15px;
+              color: #fff;
+              font-weight: 400 !important;
+              opacity: 0.95;
+            }
+
+            body.dark .placetop {
+              opacity: 0.75;
+            }
+          </style>
+          
+          <!-- 推荐文章置顶模块效果结束 -->
+          <a href="/posts/dart@01.html">
+            <div class="card-image">
+              
+              <img
+                src="/medias/toc-banner/dart/dart@01.jpg"
+                class="responsive-img"
+                alt="Dart概念"
+              />
+              
+              <!-- 福袋按钮 -->
+              <div class="caishendeng">
+                <div class="caishenxian fudaixian">
+                  <img
+                    class="caishenpic lala"
+                    src="/medias/spring-img/fish.png"
+                  />
+                </div>
+              </div>
+              <span class="card-title">
+                Dart概念
+                <!-- 文章卡片hover线条效果 -->
+                <span class="titlesline">
+                  <style>
+                    .titlesline {
+                      width: 0px;
+                      height: 4px;
+                      background-color: #fadca6;
+                      border-radius: 2px;
+                      position: absolute;
+                      top: 10px;
+                      left: 24px;
+                    }
+
+                    body.dark .titlesline {
+                      filter: brightness(0.7);
+                    }
+
+                    article .card .titlesline {
+                      transition: all 0.36s ease;
+                    }
+
+                    article .card-image:hover .titlesline {
+                      width: 36px;
+                    }
+                  </style>
+                </span>
+              </span>
+            </div>
+          </a>
+
+          <div class="card-content article-content">
+            <div class="summary block-with-text">
+               Dart诞生于2011年10月10日，是一种“结构化的Web编程”语言，应用于Web、服务器、移动应用等领域的开发。 
+            </div>
+            <div class="publish-info">
+              <span class="publish-date">
+                <i class="far fa-clock fa-fw icon-date"></i>
+                2024-01-03
+              </span>
+              <span class="publish-author">
+                
+                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                
+                <a href="/categories/Dart/" class="post-category">
+                  Dart
+                </a>
+                 
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card-action article-tags">
+            
+            <a href="/tags/%E5%BA%93/">
+              <span class="chip bg-color"> 库 </span>
+            </a>
+            
+            <a href="/tags/%E6%B3%A8%E9%87%8A/">
+              <span class="chip bg-color"> 注释 </span>
+            </a>
+            
+            <a href="/tags/%E5%8F%98%E9%87%8F/">
+              <span class="chip bg-color"> 变量 </span>
+            </a>
+            
+            <a href="/tags/%E5%B8%B8%E9%87%8F/">
+              <span class="chip bg-color"> 常量 </span>
+            </a>
+            
+            <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/">
+              <span class="chip bg-color"> 关键字 </span>
+            </a>
+            
+          </div>
+          
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
+      </div>
       
       <div class="article col s12 m6 l4">
         <div class="card">
@@ -1329,6 +1552,26 @@ class="themespring" -->
             
           </div>
           
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
         </div>
       </div>
       
@@ -1434,6 +1677,26 @@ class="themespring" -->
           </div>
           
         </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
       </div>
       
       <div class="article col s12 m6 l4">
@@ -1537,6 +1800,26 @@ class="themespring" -->
             
           </div>
           
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
         </div>
       </div>
       
@@ -1642,6 +1925,26 @@ class="themespring" -->
           </div>
           
         </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
       </div>
       
       <div class="article col s12 m6 l4">
@@ -1746,109 +2049,25 @@ class="themespring" -->
           </div>
           
         </div>
-      </div>
-      
-      <div class="article col s12 m6 l4">
-        <div class="card">
-          <!-- 推荐文章置顶模块效果开始 -->
-          
-          <!-- 推荐文章置顶模块效果结束 -->
-          <a href="/posts/dart@01.html">
-            <div class="card-image">
-              
-              <img
-                src="/medias/toc-banner/dart/dart@01.jpg"
-                class="responsive-img"
-                alt="Dart概念"
-              />
-              
-              <!-- 福袋按钮 -->
-              <div class="caishendeng">
-                <div class="caishenxian fudaixian">
-                  <img
-                    class="caishenpic lala"
-                    src="/medias/spring-img/fish.png"
-                  />
-                </div>
-              </div>
-              <span class="card-title">
-                Dart概念
-                <!-- 文章卡片hover线条效果 -->
-                <span class="titlesline">
-                  <style>
-                    .titlesline {
-                      width: 0px;
-                      height: 4px;
-                      background-color: #fadca6;
-                      border-radius: 2px;
-                      position: absolute;
-                      top: 10px;
-                      left: 24px;
-                    }
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
 
-                    body.dark .titlesline {
-                      filter: brightness(0.7);
-                    }
-
-                    article .card .titlesline {
-                      transition: all 0.36s ease;
-                    }
-
-                    article .card-image:hover .titlesline {
-                      width: 36px;
-                    }
-                  </style>
-                </span>
-              </span>
-            </div>
-          </a>
-
-          <div class="card-content article-content">
-            <div class="summary block-with-text">
-               Dart诞生于2011年10月10日，是一种“结构化的Web编程”语言，应用于Web、服务器、移动应用等领域的开发。 
-            </div>
-            <div class="publish-info">
-              <span class="publish-date">
-                <i class="far fa-clock fa-fw icon-date"></i>
-                2024-01-03
-              </span>
-              <span class="publish-author">
-                
-                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                
-                <a href="/categories/Dart/" class="post-category">
-                  Dart
-                </a>
-                 
-              </span>
-            </div>
-          </div>
-
-          
-          <div class="card-action article-tags">
-            
-            <a href="/tags/%E5%BA%93/">
-              <span class="chip bg-color"> 库 </span>
-            </a>
-            
-            <a href="/tags/%E6%B3%A8%E9%87%8A/">
-              <span class="chip bg-color"> 注释 </span>
-            </a>
-            
-            <a href="/tags/%E5%8F%98%E9%87%8F/">
-              <span class="chip bg-color"> 变量 </span>
-            </a>
-            
-            <a href="/tags/%E5%B8%B8%E9%87%8F/">
-              <span class="chip bg-color"> 常量 </span>
-            </a>
-            
-            <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/">
-              <span class="chip bg-color"> 关键字 </span>
-            </a>
-            
-          </div>
-          
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
         </div>
       </div>
       

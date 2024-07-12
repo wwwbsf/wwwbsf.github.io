@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://wwwbsf.github.io/posts/dart@01.html</loc>
+    <lastmod>2024-07-12</lastmod>
+  </url>
+  <url>
     <loc>https://wwwbsf.github.io/posts/dart@06.html</loc>
     <lastmod>2024-07-10</lastmod>
   </url>
@@ -19,9 +23,5 @@
   <url>
     <loc>https://wwwbsf.github.io/posts/dart@02.html</loc>
     <lastmod>2024-07-04</lastmod>
-  </url>
-  <url>
-    <loc>https://wwwbsf.github.io/posts/dart@01.html</loc>
-    <lastmod>2024-06-22</lastmod>
   </url>
 </urlset> 
