@@ -6,7 +6,7 @@
   <link href="https://wwwbsf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wwwbsf.github.io/"/>
-  <updated>2024-07-15T07:37:05.258Z</updated>
+  <updated>2024-07-16T02:19:53.184Z</updated>
   <id>https://wwwbsf.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wwwbsf.github.io/posts/flutter@03.html"/>
     <id>https://wwwbsf.github.io/posts/flutter@03.html</id>
     <published>2024-04-03T14:00:00.000Z</published>
-    <updated>2024-07-15T07:37:05.258Z</updated>
+    <updated>2024-07-16T02:19:53.184Z</updated>
     
     
       
@@ -39,11 +39,11 @@
     
     <category term="Flex" scheme="https://wwwbsf.github.io/tags/Flex/"/>
     
-    <category term="Stack" scheme="https://wwwbsf.github.io/tags/Stack/"/>
-    
     <category term="Card" scheme="https://wwwbsf.github.io/tags/Card/"/>
     
     <category term="Wrap" scheme="https://wwwbsf.github.io/tags/Wrap/"/>
+    
+    <category term="Stack" scheme="https://wwwbsf.github.io/tags/Stack/"/>
     
   </entry>
   
@@ -52,7 +52,7 @@
     <link href="https://wwwbsf.github.io/posts/ubuntu@01.html"/>
     <id>https://wwwbsf.github.io/posts/ubuntu@01.html</id>
     <published>2024-03-19T15:30:30.000Z</published>
-    <updated>2024-07-15T06:16:42.701Z</updated>
+    <updated>2024-07-16T02:08:09.289Z</updated>
     
     
       
@@ -70,11 +70,11 @@
     
     <category term="Zlib" scheme="https://wwwbsf.github.io/tags/Zlib/"/>
     
+    <category term="Ubuntu" scheme="https://wwwbsf.github.io/tags/Ubuntu/"/>
+    
     <category term="OpenSSL" scheme="https://wwwbsf.github.io/tags/OpenSSL/"/>
     
     <category term="OpenSSH" scheme="https://wwwbsf.github.io/tags/OpenSSH/"/>
-    
-    <category term="Ubuntu" scheme="https://wwwbsf.github.io/tags/Ubuntu/"/>
     
   </entry>
   
@@ -83,7 +83,7 @@
     <link href="https://wwwbsf.github.io/posts/flutter@02.html"/>
     <id>https://wwwbsf.github.io/posts/flutter@02.html</id>
     <published>2024-03-15T15:40:40.000Z</published>
-    <updated>2024-07-15T07:06:21.949Z</updated>
+    <updated>2024-07-16T06:16:05.152Z</updated>
     
     
       
@@ -99,11 +99,11 @@
     <category term="Flutter" scheme="https://wwwbsf.github.io/categories/Flutter/"/>
     
     
-    <category term="Container" scheme="https://wwwbsf.github.io/tags/Container/"/>
-    
     <category term="ListView" scheme="https://wwwbsf.github.io/tags/ListView/"/>
     
     <category term="GridView" scheme="https://wwwbsf.github.io/tags/GridView/"/>
+    
+    <category term="Container" scheme="https://wwwbsf.github.io/tags/Container/"/>
     
   </entry>
   
@@ -112,7 +112,7 @@
     <link href="https://wwwbsf.github.io/posts/flutter@01.html"/>
     <id>https://wwwbsf.github.io/posts/flutter@01.html</id>
     <published>2024-03-10T15:20:30.000Z</published>
-    <updated>2024-07-15T06:42:33.463Z</updated>
+    <updated>2024-07-16T02:19:22.744Z</updated>
     
     
       
@@ -128,11 +128,11 @@
     <category term="Flutter" scheme="https://wwwbsf.github.io/categories/Flutter/"/>
     
     
-    <category term="Android Studio" scheme="https://wwwbsf.github.io/tags/Android-Studio/"/>
+    <category term="Scaffold" scheme="https://wwwbsf.github.io/tags/Scaffold/"/>
     
     <category term="MaterialApp" scheme="https://wwwbsf.github.io/tags/MaterialApp/"/>
     
-    <category term="Scaffold" scheme="https://wwwbsf.github.io/tags/Scaffold/"/>
+    <category term="Android Studio" scheme="https://wwwbsf.github.io/tags/Android-Studio/"/>
     
   </entry>
   
@@ -207,7 +207,7 @@
     <link href="https://wwwbsf.github.io/posts/dart@04.html"/>
     <id>https://wwwbsf.github.io/posts/dart@04.html</id>
     <published>2024-02-11T13:30:00.000Z</published>
-    <updated>2024-07-15T02:50:29.846Z</updated>
+    <updated>2024-07-16T02:03:35.551Z</updated>
     
     
       
@@ -225,13 +225,13 @@
     
     <category term="if" scheme="https://wwwbsf.github.io/tags/if/"/>
     
-    <category term="switch" scheme="https://wwwbsf.github.io/tags/switch/"/>
-    
     <category term="for" scheme="https://wwwbsf.github.io/tags/for/"/>
     
     <category term="while" scheme="https://wwwbsf.github.io/tags/while/"/>
     
     <category term="where" scheme="https://wwwbsf.github.io/tags/where/"/>
+    
+    <category term="switch" scheme="https://wwwbsf.github.io/tags/switch/"/>
     
   </entry>
   

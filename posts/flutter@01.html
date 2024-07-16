@@ -1007,16 +1007,16 @@ h3:hover {
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Android-Studio/">
-                                <span class="chip bg-color">Android Studio</span>
+                            <a href="/tags/Scaffold/">
+                                <span class="chip bg-color">Scaffold</span>
                             </a>
                         
                             <a href="/tags/MaterialApp/">
                                 <span class="chip bg-color">MaterialApp</span>
                             </a>
                         
-                            <a href="/tags/Scaffold/">
-                                <span class="chip bg-color">Scaffold</span>
+                            <a href="/tags/Android-Studio/">
+                                <span class="chip bg-color">Android Studio</span>
                             </a>
                         
                     </div>
@@ -1194,20 +1194,23 @@ import &#39;package:flutter&#x2F;material.dart&#39;;
 &#x2F;&#x2F; 入口方法
 void main() &#123;
   &#x2F;&#x2F; Center组件，让内容居中
-  runApp(const Center(
-    &#x2F;&#x2F; 查看底层代码使用“Ctrl+鼠标左键”
-    child: Text(&#39;Hello Flutter!&#39;,
-      &#x2F;&#x2F; ltr从右向左
-      textDirection: TextDirection.ltr,
-      &#x2F;&#x2F; 改变文本样式
-      style: TextStyle(
-        &#x2F;&#x2F; color: Colors.red,
-        color: Color.fromRGBO(80, 120, 35, 1),
-        fontSize: 27,
+  runApp(
+    const Center(
+      &#x2F;&#x2F; 查看底层代码使用“Ctrl+鼠标左键”
+      child: Text(
+        &#39;Hello Flutter!&#39;,
+        &#x2F;&#x2F; ltr从右向左
+        textDirection: TextDirection.ltr,
+        &#x2F;&#x2F; 改变文本样式
+        style: TextStyle(
+          &#x2F;&#x2F; color: Colors.red,
+          color: Color.fromRGBO(80, 120, 35, 1),
+          fontSize: 27,
+        ),
       ),
     ),
-  ),);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  );
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-2-必须组件"><a href="#5-2-必须组件" class="headerlink" title="5-2 必须组件"></a>5-2 必须组件</h2><ul>
 <li>开发中必须使用的装饰组件：MaterialApp(一般作为顶层Widget使用)、Scaffold(布局结构的基本实现)。</li>
 <li>MaterialApp组件的常用属性：home(主页)、title(标题)、color(颜色)、theme(主题)、routes(路由)等。</li>
@@ -1221,22 +1224,25 @@ void main() &#123;
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;必须组件&#39;)),
-      body: const Center(
-        child: Text(&#39;Hello Flutter!&#39;,
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-            color: Colors.red,
-            &#x2F;&#x2F; color: Color.fromRGBO(80, 120, 35, 1),
-            fontSize: 27,
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;必须组件&#39;)),
+        body: const Center(
+          child: Text(
+            &#39;Hello Flutter!&#39;,
+            textDirection: TextDirection.ltr,
+            style: TextStyle(
+              color: Colors.red,
+              &#x2F;&#x2F; color: Color.fromRGBO(80, 120, 35, 1),
+              fontSize: 27,
+            ),
           ),
         ),
       ),
     ),
-  ),);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  );
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-3-内容抽离"><a href="#5-3-内容抽离" class="headerlink" title="5-3 内容抽离"></a>5-3 内容抽离</h2><ul>
 <li>Flutter自定义组件即一个类，需集成StatelessWidget或StatefulWidget。</li>
 <li>StatelessWidget是无状态组件，状态不可变的Widget，前期接触比较多。</li>
@@ -1245,23 +1251,26 @@ void main() &#123;
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;内容抽离&#39;)),
-      &#x2F;&#x2F; 调用MyApp组件
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;内容抽离&#39;)),
+        &#x2F;&#x2F; 调用MyApp组件
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  &#x2F;&#x2F; 常量构造函数  
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  &#x2F;&#x2F; 常量构造函数
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
     return const Center(
-      child: Text(&#39;Flutter自定义组件&#39;,
+      child: Text(
+        &#39;Flutter自定义组件&#39;,
         textDirection: TextDirection.ltr,
         style: TextStyle(
           &#x2F;&#x2F; color: Colors.red,
@@ -1271,7 +1280,7 @@ class MyApp extends StatelessWidget &#123;
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
             </div>
             <hr/>
 
@@ -1343,16 +1352,16 @@ class MyApp extends StatelessWidget &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Android-Studio/">
-                                    <span class="chip bg-color">Android Studio</span>
+                                <a href="/tags/Scaffold/">
+                                    <span class="chip bg-color">Scaffold</span>
                                 </a>
                             
                                 <a href="/tags/MaterialApp/">
                                     <span class="chip bg-color">MaterialApp</span>
                                 </a>
                             
-                                <a href="/tags/Scaffold/">
-                                    <span class="chip bg-color">Scaffold</span>
+                                <a href="/tags/Android-Studio/">
+                                    <span class="chip bg-color">Android Studio</span>
                                 </a>
                             
                         </div>
@@ -1933,16 +1942,16 @@ class MyApp extends StatelessWidget &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Container/">
-                        <span class="chip bg-color">Container</span>
-                    </a>
-                    
                     <a href="/tags/ListView/">
                         <span class="chip bg-color">ListView</span>
                     </a>
                     
                     <a href="/tags/GridView/">
                         <span class="chip bg-color">GridView</span>
+                    </a>
+                    
+                    <a href="/tags/Container/">
+                        <span class="chip bg-color">Container</span>
                     </a>
                     
                 </div>
@@ -2127,7 +2136,7 @@ class MyApp extends StatelessWidget &#123;
 
     
         
-            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Android Studio">
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Scaffold">
                 <a class="btn-floating btn-large bg-color">
                     <i class="fas fa-list-ul"></i>
                 </a>
@@ -2139,7 +2148,7 @@ class MyApp extends StatelessWidget &#123;
                 </a>
             </div>
         
-            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Scaffold">
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Android Studio">
                 <a class="btn-floating btn-large bg-color">
                     <i class="fas fa-list-ul"></i>
                 </a>
