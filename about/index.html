@@ -1941,7 +1941,9 @@ $(function () {
     <!-- 实现tab切换点击标题显示下划线和颜色改变效果 -->
     <script>
         $(function () {
-            var nowUrl = window.location.href
+            var nowUrl = window.location.href;
+            // 控制台调试，获取不到tagsnet的地址连接
+            // console.log("Current URL:", nowUrl);
             var homeTab = $('nav ul li a[href="/"] span'),
                 categoriesTab = $('nav ul li a[href="/categories"] span'),
                 tagsTab = $('nav ul li a[href="/tags"] span'),
@@ -1979,6 +1981,7 @@ $(function () {
             } else if (nowUrl.indexOf("count") >= 0) {
                 countTab.addClass("aitems")
                 ArticlesTab.addClass("erjiitems")
+            // } else if (nowUrl.indexOf("tagsnet") >= 0) {
             } else if (nowUrl.indexOf("tagsnet") >= 0) {
                 tagsnetTab.addClass("aitems")
                 ArticlesTab.addClass("erjiitems")

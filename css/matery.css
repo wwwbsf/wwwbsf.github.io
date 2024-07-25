@@ -2646,6 +2646,7 @@ body.dark nav ul li:hover a span {
 .fa-chrome:before {
     color: #f14f05;
 }
+/* 悬停时移除边框 */
 nav ul li:hover a[href="/count"] span,
 nav ul li:hover a[href="/gallery"] span,
 nav ul li:hover a[href="/essay"] span,
@@ -2670,11 +2671,12 @@ nav ul li:hover a[href="/record"] span,
 nav ul li:hover a[href="/status"] span,
 nav ul li:hover a[href="/project"] span,
 nav ul li:hover a[href="/friendcircle"] span,
+nav ul li:hover a[href="/tagsnet"] span,
 nav ul li:hover a[href="https://nekodeng.github.io/running_page/"] span
 {
     border: none!important;
 }
-/* hover之后的效果 */
+/* hover之后的效果，悬停时添加底部边框 */
 nav ul li:hover a[href="/friends"] span:hover,
 nav ul li:hover a[href="/collection"] span:hover,
 nav ul li:hover a[href="/count"] span:hover,
@@ -2701,6 +2703,7 @@ nav ul li:hover a[href="/record"] span:hover,
 nav ul li:hover a[href="/status"] span:hover,
 nav ul li:hover a[href="/project"] span:hover,
 nav ul li:hover a[href="/friendcircle"] span:hover,
+nav ul li:hover a[href="/tagsnet"] span:hover,
 nav ul li:hover a[href="https://nekodeng.github.io/running_page/"] span:hover
 {
     border-bottom: 1px solid #fff!important;

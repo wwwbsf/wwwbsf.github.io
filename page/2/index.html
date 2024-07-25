@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="打赏记录, bsf">
+    <meta name="keywords" content="bsf">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>打赏记录 | bsf</title>
+    <title>bsf</title>
     
     <script>
         // 隐藏
@@ -717,7 +717,8 @@ class="themespring" -->
 </div>
 <!-- 春节主题模式样式结束 -->
 
-    <div class="bg-cover pd-header about-cover">
+     
+  <div class="bg-cover pd-header about-cover">
     <div class="container">
         <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -725,7 +726,7 @@ class="themespring" -->
             <div class="title center-align">
                 <!-- 归档不显示 -->
                 <!-- 
-                    打赏记录
+                    浮生若梦
                  -->
                 
                 <!-- matery源码 -->
@@ -734,7 +735,7 @@ class="themespring" -->
                  -->
 
                 
-                    打赏记录
+                    浮生若梦
                 
             </div>
 
@@ -776,853 +777,711 @@ class="themespring" -->
     <div class="mohuxiaoguo"></div>
 </div>
 
+ 
 
-    <style>
-        /* .bg-cover {
-        background-image: url("/medias/banner/donatebg.jpg")!important;
-    } */
-        .bg-cover::before {
-            background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
-        }
 
-        .content {
-            margin-top: -60px;
-        }
+<style>
+  /* 主页背景图 */
+  .bg-cover {
+    background-image: url("/medias/banner/back.jpg") !important;
+  }
 
-        .card-content {
-            padding: 20px !important;
-        }
-
-        body.dark .dashang tr,
-        body.dark .dashang th {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        body.dark .dashang,
-        body.dark .dashang th,
-        body.dark .dashang tr,
-        body.dark .dashang td {
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        body.dark .dashang td {
-            background-color: #282c34;
-        }
-
-        body.dark .dashang td a {
-            color: #039be5;
-        }
-
-        /* #switchspring {
-        bottom: 230px;
-    } */
-        .tangguo {
-            vertical-align: middle;
-            width: 34px;
-        }
-
-        .dashang th,
-        .dashang td {
-            text-align: center;
-        }
-
-        /* @media only screen and (max-width: 601px) {
-        #switchspring {
-            bottom: 178px!important;
-        }
-    } */
-    </style>
-
-    <style>
-        @media only screen and (max-width: 800px) {
-            .swbk {
-                padding: 26px 2px !important;
-                margin: 14px 0px !important;
-            }
-        }
-
-        @media only screen and (max-width: 412px) {
-            .cishunone {
-                display: none;
-            }
-        }
-
-        @media only screen and (max-width: 370px) {
-            .jietunone {
-                display: none;
-            }
-        }
-
-        .swbk {
-            position: relative;
-            padding: 26px 20px;
-            font-style: italic;
-            margin: 10px 0px;
-            border-radius: 8px;
-            -webkit-box-shadow: 0 14px 38px rgba(0, 0, 0, .08), 0 3px 8px rgba(0, 0, 0, .06);
-            box-shadow: 0 14px 38px rgba(0, 0, 0, .08), 0 3px 8px rgba(0, 0, 0, .06);
-            -webkit-transition: all .3s ease 0s, -webkit-transform .6s cubic-bezier(.6, .2, .1, 1) 0s;
-            transition: all .3s ease 0s, -webkit-transform .6s cubic-bezier(.6, .2, .1, 1) 0s;
-            transition: all .3s ease 0s, transform .6s cubic-bezier(.6, .2, .1, 1) 0s;
-            transition: all .3s ease 0s, transform .6s cubic-bezier(.6, .2, .1, 1) 0s, -webkit-transform .6s cubic-bezier(.6, .2, .1, 1) 0s;
-        }
-
-        .swbk:hover {
-            -webkit-transform: translateY(-4px);
-            transform: translateY(-4px);
-            -webkit-box-shadow: 0 14px 38px rgba(0, 0, 0, .14), 0 3px 8px rgba(0, 0, 0, .12);
-            box-shadow: 0 14px 38px rgba(0, 0, 0, .14), 0 3px 8px rgba(0, 0, 0, .12);
-        }
-
-        .swbk:before {
-            content: " “ ";
-            top: 56px;
-            /* left: -14px; */
-        }
-
-        .swbk:after {
-            content: " ” ";
-            bottom: 8px;
-            right: 5px;
-        }
-
-        .swbk:after,
-        .swbk:before {
-            position: absolute;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 42px;
-            text-decoration: inherit;
-        }
-
-        .ziwojieshao .swbk:after,
-        .ziwojieshao .swbk:before {
-            display: none;
-        }
-
-        body.dark .swbk:after,
-        body.dark .swbk:before {
-            color: #d2c9c9;
-        }
-
-        .swbk p {
-            font-size: 16px !important;
-            line-height: 2rem;
-            text-indent: 2rem;
-            font-style: italic;
-            /* font-family: 'Architects Daughter', cursive!important; */
-        }
-
-        .swbk .label {
-            display: inline-block;
-            position: relative;
-            margin-bottom: 10px;
-            padding: 0 14px 0 32px;
-            height: 32px;
-            line-height: 32px;
-            border-radius: 0 3px 3px 0;
-            background-color: currentColor;
-        }
-
-        .swbk .label span {
-            color: #fff;
-        }
-
-        .swbk .label:after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 0;
-            height: 0;
-            background-color: transparent;
-            border-style: solid;
-            border-width: 0 16px 16px 0;
-            border-color: transparent;
-            border-right-color: currentColor;
-            -webkit-filter: brightness(120%);
-            filter: brightness(120%);
-        }
-
-        @media screen and (min-width: 768px) {
-            .swbk .label {
-                left: -37px;
-            }
-        }
-
-        @media screen and (max-width: 767px) {
-            .swbk .label {
-                left: -18px;
-            }
-
-            .swbk p {
-                line-height: 2.02rem;
-                padding: 2px 10px;
-            }
-        }
-    </style>
-
-    <main class="content">
-        <div class="container">
-            <div class="card">
-                <!-- 福袋按钮 -->
-                <div class="caishendeng">
-                    <div class="guguxian">
-                        <img class="caishenpic gugus" src="/medias/spring-img/tang.png" />
-                    </div>
-                </div>
-
-                <div class="card-content">
-                    <div class="swbk">
-                        <!-- 福袋按钮 -->
-                        <div class="caishendeng">
-                            <div class="caishenxian">
-                                <img class="caishenpic lions" src="/medias/spring-img/gugu.png" />
-                            </div>
-                        </div>
-
-                        <div class="label" style="color: rgb(178, 143, 206);">
-                            <!-- 小帽子 -->
-                            <img class="labelmz" src="/medias/spring-img/maozi.png" />
-                            <span>面包会有的&ensp;~&ensp;</span>
-                        </div>
-                        <p>&ensp;&ensp;如果觉得本博客还不错，欢迎多多赞赏，感谢支持哦~
-                        </p>
-                    </div>
-
-                    <!-- 二维码模块 -->
-                    <div class="swbk">
-                        <!-- 福袋按钮 -->
-                        <div class="caishendeng">
-                            <div class="caishenxian">
-                                <img class="caishenpic huadengpic" src="/medias/spring-img/jiaozi.png" />
-                            </div>
-                        </div>
-                        <div class="label" style="color: rgb(134, 193, 102);">
-                            <!-- 小帽子 -->
-                            <img class="labelmz" src="/medias/spring-img/maozi.png" />
-                            <span>支付宝（左），微信（右）</span>
-                        </div>
-                        <p>
-                            <style>
-                                .xiangjipicss {
-                                    margin-top: 16px;
-                                }
-
-                                .xiangjipic {
-                                    width: 240px;
-                                    vertical-align: middle;
-                                    padding: 8px;
-                                    border-radius: 14px;
-                                    display: inline-block;
-                                    margin: 2px 46px;
-                                }
-
-                                @media only screen and (max-width: 770px) {
-                                    .xiangjipic {
-                                        display: list-item;
-                                        margin: 2px auto;
-                                        width: 310px;
-                                    }
-                                }
-
-                                @media only screen and (max-width: 380px) {
-                                    .xiangjipic {
-                                        width: 270px;
-                                    }
-                                }
-
-                                @media only screen and (max-width: 361px) {
-                                    .xiangjipic {
-                                        width: 222px;
-                                    }
-                                }
-
-                                @media only screen and (min-width: 1000px) and (max-width: 1130px) {
-                                    .xiangjipic {
-                                        margin: 2px 20px;
-                                    }
-                                }
-                            </style>
-                        <div class="xiangjipicss col s12 m6 l4">&ensp;&ensp;
-                            <img src="/medias/reward/alipay.png" class="xiangjipic" title="支付宝，谢谢支持！" alt="支付宝，谢谢支持！" />
-                            <img src="/medias/fox.png" class="xiangjipic" title="你资助的亚子真帅气，ԅ(¯﹃¯ԅ)嘻嘻嘻~" alt="谢谢支持！" />
-                            <img src="/medias/reward/wechat.png" class="xiangjipic" title="微信，谢谢支持！" alt="微信，谢谢支持！" />
-                        </div>
-                        </p>
-                    </div>
-
-                    <div class="swbk">
-                        <!-- 福袋按钮 -->
-                        <div class="caishendeng">
-                            <div class="caishenxian">
-                                <img class="caishenpic huadengpic" src="/medias/spring-img/huadeng.png" />
-                            </div>
-                        </div>
-
-                        <div class="label" style="color: rgb(251, 150, 110);">
-                            <!-- 小帽子 -->
-                            <img class="labelmz" src="/medias/spring-img/maozi.png" />
-                            <span>打赏记录&ensp;~&ensp;</span>
-                        </div>
-                        <p>
-                            &ensp;&ensp;打赏规则：1 软妹币 = 1000 糖果 （打赏时可在支付页面填写自己的网址，博客名，备注信息哦，再次感谢支持）
-                        </p>
-                    </div>
-
-                    <!-- 打赏表格模块 -->
-                    <table class="dashang">
-                        <tbody>
-                            <tr>
-                                <th>时间</th>
-                                <th>金主大大</th>
-                                <th>糖果数</th>
-                                <th class="cishunone">次数</th>
-                                <th class="jietunone">打赏方式</th>
-                                <th>备注</th>
-                            </tr>
-                            <!-- 以下每一个tr标签代表一个打赏者信息 -->
-                            <tr>
-                                <td>
-                                    <font color="Hotpink">2023-12-06</font>
-                                </td>
-                                <td><a href="javascript:;">***</a></td>
-                                <td>6000 x <img src="/medias/candy.png" class="tangguo" /></td>
-                                <td class="cishunone">1</td>
-                                <td class="jietunone"><a href="javascript:;">微信支付</a></td>
-                                <td>
-                                    <font color="Hotpink"><img src="/medias/laba.png" class="tangguo"
-                                            style="width: 26px;" /> 未留言，感谢你 ~</font>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <font color="Hotpink">2023-03-24</font>
-                                </td>
-                                <td><a href="javascript:;">***</a></td>
-                                <td>2000 x <img src="/medias/candy.png" class="tangguo" /></td>
-                                <td class="cishunone">1</td>
-                                <td class="jietunone"><a href="javascript:;">微信支付</a></td>
-                                <td>
-                                    <font color="Hotpink"><img src="/medias/laba.png" class="tangguo"
-                                            style="width: 26px;" /> 未留言，感谢你 ~</font>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    
-                        <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
+  @media only screen and (max-width: 760px) {
+    .bg-cover {
+      background-image: url("/medias/banner/smallback.jpg") !important;
     }
+  }
 
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
+  /* @media only screen and (max-width: 601px) {
+    #switchspring {
+      bottom: 178px !important;
     }
+  }
 
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
+  #switchspring {
+    bottom: 232px;
+  } */
 
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
+  .hurens {
+    color: #926fec;
+    font-size: 1.08rem;
+  }
 
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
+  body.dark .hurens {
+    color: #926fec !important;
+  }
 </style>
 
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">来都来了，赏一个呗！</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微&ensp;&ensp;信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-                            
-                </div>
-            </div>
-
-            <!-- 评论模块 -->
-            <div class="card">
-                
-
-                            
-
-                                        
-
-                                                    
-
-                                                                
-                                                                    <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-    .v[data-class=v] .emoji, .v[data-class=v] .vemoji {
-        max-height: 20px;
-        overflow: hidden;
-        max-width: 20px!important;
-    }
-    .v[data-class=v] .vwrap .vemojis {
-        text-align: center;
-    }
-    .roboterbb {
-        position: absolute;
-        right: 87px;
-        padding-top: 3px;
-    }
-    .robot-check-text:hover {
-        color: #26a69a;
-    }
-    .roboter:hover .robot-check-text::before {
-        border: 2px solid #5a5a5a;
-    }
-    .robotxian {
-        background: #5a5a5a;
-        top: 21px;
-        left: 11px!important;
-        transform-origin: 50% -17px;
-        animation: swing 3.5s infinite ease-in-out;
-        -webkit-transform-origin: 50% -17px;
-        -webkit-animation: swing 2.85s infinite ease-in-out;
-    }
-    .v[data-class=v] .vwrap {
-        /* padding-bottom: 23px; */
-        padding-bottom: 30px;
-    }
-    .robotimg {
-        width: 28px!important;
-        height: 28px!important;
-        top: 14px!important;
-        left: -13px!important;
-        max-width: none!important;
-        z-index: 99;
-        cursor: none!important;
-    }
-    .v[data-class=v] .vbtn:disabled {
-        color: #b2b2b5;
-        border-color: #b2b2b5;
-    }
-    .v[data-class=v] .vbtn:disabled {
-        background-color: transparent;
-    }
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-    .v[data-class=v] .vwrap {
-        border-radius: 8px;
-    }
-    /* #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    } */
-    #vcomments textarea {
-        background: url(/medias/comment_bg.webp) no-repeat;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: right;
-        background-color: rgba(255,255,255,0);
-        resize: vertical;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #42b983;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" id="vcomments-top">
-
-    <!-- 福袋按钮 -->
-    <div class="caishendeng">        
-        <div class="caishenxian fudaixian">
-            <img class="caishenpic fudao" src="/medias/spring-img/fudao.png" />
-        </div>              
-    </div>
+<main class="content">
    
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评 论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid"></div>
-</div>
 
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        enableQQ: true,
-        boolean: true,
-        appId: 'Grv3UQKKLVVKB70yDqY6C5ez-gzGzoHsz',
-        appKey: 'HEBFnyeROkIQCr9ysXSiOZQM',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'retro',
-        // avatar: '/medias/robot.png',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '评论前记得点击下方机器人验证按钮噢 ~ ',    
+  <!-- 所有文章卡片开始 -->
+  <article id="articles" class="container articles">
+    <div class="row article-row">
+      
+      <div class="article col s12 m6 l4">
+        <div class="card">
+          <!-- 推荐文章置顶模块效果开始 -->
+          
+          <!-- 推荐文章置顶模块效果结束 -->
+          <a href="/posts/dart@04.html">
+            <div class="card-image">
+              
+              <img
+                src="/medias/toc-banner/dart/dart@04.jpg"
+                class="responsive-img"
+                alt="流程语句"
+              />
+              
+              <!-- 福袋按钮 -->
+              <div class="caishendeng">
+                <div class="caishenxian fudaixian">
+                  <img
+                    class="caishenpic lala"
+                    src="/medias/spring-img/fish.png"
+                  />
+                </div>
+              </div>
+              <span class="card-title">
+                流程语句
+                <!-- 文章卡片hover线条效果 -->
+                <span class="titlesline">
+                  <style>
+                    .titlesline {
+                      width: 0px;
+                      height: 4px;
+                      background-color: #fadca6;
+                      border-radius: 2px;
+                      position: absolute;
+                      top: 10px;
+                      left: 24px;
+                    }
 
-        adminEmailMd5: '',
+                    body.dark .titlesline {
+                      filter: brightness(0.7);
+                    }
 
-        // master: [""],
-        // friends: [""],
-        // tagMeta: ["博主", "小伙伴", "访客"],
-        tagMeta: '博主,小伙伴,访客',
-        master: '',
-        friends: '',
-        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest"]
-    });
-</script>
-<!-- 直达评论 -->
-<div id="to_comment" class="comment-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
-        <i class="fas fa-comments"></i>
-    </a>
-</div>
+                    article .card .titlesline {
+                      transition: all 0.36s ease;
+                    }
 
-
-<!-- 评论机器人验证 -->
-<script>
-    $('.roboter').on('click',function(){
-        $('.robot-check-text').html('·&nbsp;&nbsp;&nbsp;验证成功！');
-        $('.roboter:hover .robot-check-text::before').css('border','2px solid #26a69a');
-        $('.robotxian').css('background','#26a69a');
-        $('.robotimg').attr('src','/medias/robot.png');
-        $('.robot-check-text').css('color','#26a69a');
-    });
-    
-    if(!$('.robot-check').checked) {
-        // alert("请勾选机器人验证后再发表评论！");
-        $('.vsubmit').attr('disabled',true).attr('title','评论前勾选机器人验证按钮');
-    } 
-    $('.robot-check').on('click',function(){
-        $('.vsubmit').attr('disabled',false).attr('title','欢迎畅所欲言');
-    });
-</script>
-
-                                                                        
-
-                                                                            
+                    article .card-image:hover .titlesline {
+                      width: 36px;
+                    }
+                  </style>
+                </span>
+              </span>
             </div>
+          </a>
+
+          <div class="card-content article-content">
+            <div class="summary block-with-text">
+              <!--  Dart流程语句控制程序执行的流程，根据条件决定执行的代码，或重复执行特定代码块，常用语句有if、else、for、while等。  -->
+              
+                Dart流程语句控制程序执行的流程，根据条件决定执行的代码，或重复执行特定代码块，常用语句有if、else、for、while等。
+              
+            </div>
+            <div class="publish-info">
+              <span class="publish-date">
+                <i class="far fa-clock fa-fw icon-date"></i>
+                2024-02-11
+              </span>
+              <span class="publish-author">
+                
+                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                
+                <a href="/categories/Dart/" class="post-category">
+                  Dart
+                </a>
+                 
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card-action article-tags">
+            
+            <a href="/tags/if/">
+              <span class="chip bg-color"> if </span>
+            </a>
+            
+            <a href="/tags/for/">
+              <span class="chip bg-color"> for </span>
+            </a>
+            
+            <a href="/tags/while/">
+              <span class="chip bg-color"> while </span>
+            </a>
+            
+            <a href="/tags/where/">
+              <span class="chip bg-color"> where </span>
+            </a>
+            
+            <a href="/tags/switch/">
+              <span class="chip bg-color"> switch </span>
+            </a>
+            
+          </div>
+          
         </div>
-    </main>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
+      </div>
+      
+      <div class="article col s12 m6 l4">
+        <div class="card">
+          <!-- 推荐文章置顶模块效果开始 -->
+          
+          <!-- 推荐文章置顶模块效果结束 -->
+          <a href="/posts/docker@01.html">
+            <div class="card-image">
+              
+              <img
+                src="/medias/toc-banner/docker/docker@01.jpg"
+                class="responsive-img"
+                alt="Docker Desktop"
+              />
+              
+              <!-- 福袋按钮 -->
+              <div class="caishendeng">
+                <div class="caishenxian fudaixian">
+                  <img
+                    class="caishenpic lala"
+                    src="/medias/spring-img/fish.png"
+                  />
+                </div>
+              </div>
+              <span class="card-title">
+                Docker Desktop
+                <!-- 文章卡片hover线条效果 -->
+                <span class="titlesline">
+                  <style>
+                    .titlesline {
+                      width: 0px;
+                      height: 4px;
+                      background-color: #fadca6;
+                      border-radius: 2px;
+                      position: absolute;
+                      top: 10px;
+                      left: 24px;
+                    }
+
+                    body.dark .titlesline {
+                      filter: brightness(0.7);
+                    }
+
+                    article .card .titlesline {
+                      transition: all 0.36s ease;
+                    }
+
+                    article .card-image:hover .titlesline {
+                      width: 36px;
+                    }
+                  </style>
+                </span>
+              </span>
+            </div>
+          </a>
+
+          <div class="card-content article-content">
+            <div class="summary block-with-text">
+              <!--  Docker是在Linux下的一种容器，支持类似于沙盒环境下的环境搭建、软件安装、软件使用、程序编码等操作。  -->
+              
+                Docker是在Linux下的一种容器，支持类似于沙盒环境下的环境搭建、软件安装、软件使用、程序编码等操作。
+              
+            </div>
+            <div class="publish-info">
+              <span class="publish-date">
+                <i class="far fa-clock fa-fw icon-date"></i>
+                2024-02-10
+              </span>
+              <span class="publish-author">
+                
+                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                
+                <a href="/categories/Docker/" class="post-category">
+                  Docker
+                </a>
+                 
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card-action article-tags">
+            
+            <a href="/tags/Docker/">
+              <span class="chip bg-color"> Docker </span>
+            </a>
+            
+            <a href="/tags/Images/">
+              <span class="chip bg-color"> Images </span>
+            </a>
+            
+            <a href="/tags/Windows/">
+              <span class="chip bg-color"> Windows </span>
+            </a>
+            
+            <a href="/tags/Containers/">
+              <span class="chip bg-color"> Containers </span>
+            </a>
+            
+          </div>
+          
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
+      </div>
+      
+      <div class="article col s12 m6 l4">
+        <div class="card">
+          <!-- 推荐文章置顶模块效果开始 -->
+          
+          <!-- 推荐文章置顶模块效果结束 -->
+          <a href="/posts/dart@03.html">
+            <div class="card-image">
+              
+              <img
+                src="/medias/toc-banner/dart/dart@03.jpg"
+                class="responsive-img"
+                alt="数据类型"
+              />
+              
+              <!-- 福袋按钮 -->
+              <div class="caishendeng">
+                <div class="caishenxian fudaixian">
+                  <img
+                    class="caishenpic lala"
+                    src="/medias/spring-img/fish.png"
+                  />
+                </div>
+              </div>
+              <span class="card-title">
+                数据类型
+                <!-- 文章卡片hover线条效果 -->
+                <span class="titlesline">
+                  <style>
+                    .titlesline {
+                      width: 0px;
+                      height: 4px;
+                      background-color: #fadca6;
+                      border-radius: 2px;
+                      position: absolute;
+                      top: 10px;
+                      left: 24px;
+                    }
+
+                    body.dark .titlesline {
+                      filter: brightness(0.7);
+                    }
+
+                    article .card .titlesline {
+                      transition: all 0.36s ease;
+                    }
+
+                    article .card-image:hover .titlesline {
+                      width: 36px;
+                    }
+                  </style>
+                </span>
+              </span>
+            </div>
+          </a>
+
+          <div class="card-content article-content">
+            <div class="summary block-with-text">
+              <!--  Dart数据类型定义了变量可以存储的值类型，包括数字、字符串、布尔、字典、列表、映射以及其他特殊类型等。  -->
+              
+                Dart数据类型定义了变量可以存储的值类型，包括数字、字符串、布尔、字典、列表、映射以及其他特殊类型等。
+              
+            </div>
+            <div class="publish-info">
+              <span class="publish-date">
+                <i class="far fa-clock fa-fw icon-date"></i>
+                2024-01-30
+              </span>
+              <span class="publish-author">
+                
+                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                
+                <a href="/categories/Dart/" class="post-category">
+                  Dart
+                </a>
+                 
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card-action article-tags">
+            
+            <a href="/tags/%E6%95%B0%E5%AD%97/">
+              <span class="chip bg-color"> 数字 </span>
+            </a>
+            
+            <a href="/tags/%E5%B8%83%E5%B0%94/">
+              <span class="chip bg-color"> 布尔 </span>
+            </a>
+            
+            <a href="/tags/%E5%AD%97%E5%85%B8/">
+              <span class="chip bg-color"> 字典 </span>
+            </a>
+            
+            <a href="/tags/%E6%95%B0%E7%BB%84/">
+              <span class="chip bg-color"> 数组 </span>
+            </a>
+            
+            <a href="/tags/%E9%9B%86%E5%90%88/">
+              <span class="chip bg-color"> 集合 </span>
+            </a>
+            
+          </div>
+          
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
+      </div>
+      
+      <div class="article col s12 m6 l4">
+        <div class="card">
+          <!-- 推荐文章置顶模块效果开始 -->
+          
+          <!-- 推荐文章置顶模块效果结束 -->
+          <a href="/posts/dart@02.html">
+            <div class="card-image">
+              
+              <img
+                src="/medias/toc-banner/dart/dart@02.jpg"
+                class="responsive-img"
+                alt="运算符"
+              />
+              
+              <!-- 福袋按钮 -->
+              <div class="caishendeng">
+                <div class="caishenxian fudaixian">
+                  <img
+                    class="caishenpic lala"
+                    src="/medias/spring-img/fish.png"
+                  />
+                </div>
+              </div>
+              <span class="card-title">
+                运算符
+                <!-- 文章卡片hover线条效果 -->
+                <span class="titlesline">
+                  <style>
+                    .titlesline {
+                      width: 0px;
+                      height: 4px;
+                      background-color: #fadca6;
+                      border-radius: 2px;
+                      position: absolute;
+                      top: 10px;
+                      left: 24px;
+                    }
+
+                    body.dark .titlesline {
+                      filter: brightness(0.7);
+                    }
+
+                    article .card .titlesline {
+                      transition: all 0.36s ease;
+                    }
+
+                    article .card-image:hover .titlesline {
+                      width: 36px;
+                    }
+                  </style>
+                </span>
+              </span>
+            </div>
+          </a>
+
+          <div class="card-content article-content">
+            <div class="summary block-with-text">
+              <!--  运算符用于执行各种操作，例如算术、位运算等，是Dart代码中的基本构建块，用于对数据进行操作并控制程序流。  -->
+              
+                运算符用于执行各种操作，例如算术、位运算等，是Dart代码中的基本构建块，用于对数据进行操作并控制程序流。
+              
+            </div>
+            <div class="publish-info">
+              <span class="publish-date">
+                <i class="far fa-clock fa-fw icon-date"></i>
+                2024-01-15
+              </span>
+              <span class="publish-author">
+                
+                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                
+                <a href="/categories/Dart/" class="post-category">
+                  Dart
+                </a>
+                 
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card-action article-tags">
+            
+            <a href="/tags/%E7%AE%97%E6%9C%AF/">
+              <span class="chip bg-color"> 算术 </span>
+            </a>
+            
+            <a href="/tags/%E5%85%B3%E7%B3%BB/">
+              <span class="chip bg-color"> 关系 </span>
+            </a>
+            
+            <a href="/tags/%E8%B5%8B%E5%80%BC/">
+              <span class="chip bg-color"> 赋值 </span>
+            </a>
+            
+            <a href="/tags/%E9%80%BB%E8%BE%91/">
+              <span class="chip bg-color"> 逻辑 </span>
+            </a>
+            
+            <a href="/tags/%E7%BA%A7%E8%81%94/">
+              <span class="chip bg-color"> 级联 </span>
+            </a>
+            
+          </div>
+          
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
+      </div>
+      
+      <div class="article col s12 m6 l4">
+        <div class="card">
+          <!-- 推荐文章置顶模块效果开始 -->
+          
+          <!-- 推荐文章置顶模块效果结束 -->
+          <a href="/posts/dart@01.html">
+            <div class="card-image">
+              
+              <img
+                src="/medias/toc-banner/dart/dart@01.jpg"
+                class="responsive-img"
+                alt="Dart概念"
+              />
+              
+              <!-- 福袋按钮 -->
+              <div class="caishendeng">
+                <div class="caishenxian fudaixian">
+                  <img
+                    class="caishenpic lala"
+                    src="/medias/spring-img/fish.png"
+                  />
+                </div>
+              </div>
+              <span class="card-title">
+                Dart概念
+                <!-- 文章卡片hover线条效果 -->
+                <span class="titlesline">
+                  <style>
+                    .titlesline {
+                      width: 0px;
+                      height: 4px;
+                      background-color: #fadca6;
+                      border-radius: 2px;
+                      position: absolute;
+                      top: 10px;
+                      left: 24px;
+                    }
+
+                    body.dark .titlesline {
+                      filter: brightness(0.7);
+                    }
+
+                    article .card .titlesline {
+                      transition: all 0.36s ease;
+                    }
+
+                    article .card-image:hover .titlesline {
+                      width: 36px;
+                    }
+                  </style>
+                </span>
+              </span>
+            </div>
+          </a>
+
+          <div class="card-content article-content">
+            <div class="summary block-with-text">
+              <!--  Dart诞生于2011年10月10日，是一种“结构化的Web编程”语言，应用于Web、服务器、移动应用等领域的开发。  -->
+              
+                Dart诞生于2011年10月10日，是一种“结构化的Web编程”语言，应用于Web、服务器、移动应用等领域的开发。
+              
+            </div>
+            <div class="publish-info">
+              <span class="publish-date">
+                <i class="far fa-clock fa-fw icon-date"></i>
+                2024-01-03
+              </span>
+              <span class="publish-author">
+                
+                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                
+                <a href="/categories/Dart/" class="post-category">
+                  Dart
+                </a>
+                 
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card-action article-tags">
+            
+            <a href="/tags/%E5%BA%93/">
+              <span class="chip bg-color"> 库 </span>
+            </a>
+            
+            <a href="/tags/%E6%B3%A8%E9%87%8A/">
+              <span class="chip bg-color"> 注释 </span>
+            </a>
+            
+            <a href="/tags/%E5%8F%98%E9%87%8F/">
+              <span class="chip bg-color"> 变量 </span>
+            </a>
+            
+            <a href="/tags/%E5%B8%B8%E9%87%8F/">
+              <span class="chip bg-color"> 常量 </span>
+            </a>
+            
+            <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/">
+              <span class="chip bg-color"> 关键字 </span>
+            </a>
+            
+          </div>
+          
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
+      </div>
+      
+    </div>
+  </article>
+  <!-- 所有文章卡片结束 -->
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">2 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
 
     <style>
   footer {
