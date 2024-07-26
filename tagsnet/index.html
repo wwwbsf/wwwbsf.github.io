@@ -828,34 +828,63 @@ class="themespring" -->
   <p><p>🦊 <b>努力未必追得上别人，但停滞不前永远也无法遇到更好的自己。</b></p></p>
 </div>
 <style> 
-.links line {
-  stroke: #b1b1b1;
-  stroke-opacity: 0.5;
-}
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 0.3px;
-}
-text {
-  font-family: "Aa漫语手写体" !important;
-  stroke: rgb(80, 80, 80);
-  stroke-width: 0.2px;
-  font-size: 12px;
-}
-body.dark text {
-  font-family: "Aa漫语手写体" !important;
-  stroke: rgb(210, 210, 210);
-  stroke-width: 0.2px;
-  font-size: 12px;
-}
-.svgnet{
-  width:1000px;
-  height:1000px;
-  {% comment %} background-color:#fff; {% endcomment %}
-}
-body.dark {
-  background-color: #fff;
-}
+  .links line {
+    stroke: #b1b1b1;
+    stroke-opacity: 0.5;
+  }
+  .nodes circle {
+    stroke: #fff;
+    stroke-width: 0.3px;
+  }
+  text {
+    font-family: "Aa漫语手写体" !important;
+    stroke: rgb(80, 80, 80);
+    stroke-width: 0.2px;
+    font-size: 12px;
+  }
+  body.dark text {
+    font-family: "Aa漫语手写体" !important;
+    stroke: rgb(210, 210, 210);
+    stroke-width: 0.2px;
+    font-size: 12px;
+  }
+  .svgnet{
+    width:1000px;
+    height:1000px;
+    {% comment %} background-color:#fff; {% endcomment %}
+  }
+  body.dark {
+    background-color: #fff;
+  }
+  
+  /* 自适应 */
+  @media only screen and (max-width: 601px) {
+    .svgnet{
+      width: 400px;
+      height: 400px;
+    }
+    .svgnet text {
+      font-size: NaN; /* 字体大小缩小到原来的 40% */
+    }
+  }
+  @media only screen and (min-width: 600px) and (max-width: 992px) {
+    .svgnet{
+      width: 600px;
+      height: 600px;
+    }
+    .svgnet text {
+      font-size: NaN; /* 字体大小缩小到原来的 60% */
+    }
+  }
+  @media only screen and (min-width: 993px) {
+    .svgnet{
+      width: 1000px;
+      height: 1000px;
+    }
+    .svgnet text {
+      font-size: NaN; /* 字体大小保持原样 */
+    }
+  }
 </style>
 
 <script src="https://d3js.org/d3.v4.min.js"></script> 
@@ -865,7 +894,7 @@ body.dark {
 </div>
 
 <script>
-var data = JSON.parse('{"nodes":[{"id":"Dart","group":6001},{"id":"库","group":1},{"id":"注释","group":1},{"id":"变量","group":1},{"id":"常量","group":1},{"id":"关键字","group":1},{"id":"算术","group":1},{"id":"关系","group":1},{"id":"赋值","group":1},{"id":"逻辑","group":1},{"id":"级联","group":1},{"id":"数字","group":1},{"id":"布尔","group":1},{"id":"字典","group":1},{"id":"数组","group":1},{"id":"集合","group":1},{"id":"if","group":1},{"id":"for","group":1},{"id":"while","group":1},{"id":"where","group":1},{"id":"switch","group":1},{"id":"类","group":1},{"id":"对象","group":1},{"id":"继承","group":1},{"id":"多态","group":1},{"id":"封装","group":1},{"id":"定义","group":1},{"id":"参数","group":1},{"id":"匿名","group":1},{"id":"闭包","group":1},{"id":"高阶","group":1},{"id":"Flutter","group":3600},{"id":"ListView","group":1},{"id":"GridView","group":1},{"id":"Container","group":1},{"id":"Scaffold","group":1},{"id":"MaterialApp","group":1},{"id":"Flex","group":1},{"id":"Card","group":1},{"id":"Stack","group":1},{"id":"Drawer","group":1},{"id":"AppBar","group":1},{"id":"TabBar","group":1},{"id":"Pop","group":1},{"id":"Push","group":1},{"id":"Routes","group":1},{"id":"Timer","group":1},{"id":"Dialog","group":1},{"id":"PageView","group":1},{"id":"Docker","group":801},{"id":"Images","group":1},{"id":"Windows","group":1},{"id":"Containers","group":1},{"id":"Ubuntu","group":801},{"id":"Zlib","group":1},{"id":"OpenSSL","group":1},{"id":"OpenSSH","group":1}],"links":[{"source":"Dart","target":"库","value":1},{"source":"Dart","target":"注释","value":1},{"source":"Dart","target":"变量","value":1},{"source":"Dart","target":"常量","value":1},{"source":"Dart","target":"关键字","value":1},{"source":"Dart","target":"算术","value":1},{"source":"Dart","target":"关系","value":1},{"source":"Dart","target":"赋值","value":1},{"source":"Dart","target":"逻辑","value":1},{"source":"Dart","target":"级联","value":1},{"source":"Dart","target":"数字","value":1},{"source":"Dart","target":"布尔","value":1},{"source":"Dart","target":"字典","value":1},{"source":"Dart","target":"数组","value":1},{"source":"Dart","target":"集合","value":1},{"source":"Dart","target":"if","value":1},{"source":"Dart","target":"for","value":1},{"source":"Dart","target":"while","value":1},{"source":"Dart","target":"where","value":1},{"source":"Dart","target":"switch","value":1},{"source":"Dart","target":"类","value":1},{"source":"Dart","target":"对象","value":1},{"source":"Dart","target":"继承","value":1},{"source":"Dart","target":"多态","value":1},{"source":"Dart","target":"封装","value":1},{"source":"Dart","target":"定义","value":1},{"source":"Dart","target":"参数","value":1},{"source":"Dart","target":"匿名","value":1},{"source":"Dart","target":"闭包","value":1},{"source":"Dart","target":"高阶","value":1},{"source":"Flutter","target":"ListView","value":1},{"source":"Flutter","target":"GridView","value":1},{"source":"Flutter","target":"Container","value":1},{"source":"Flutter","target":"Dart","value":1},{"source":"Flutter","target":"Scaffold","value":1},{"source":"Flutter","target":"MaterialApp","value":1},{"source":"Flutter","target":"Flex","value":1},{"source":"Flutter","target":"Card","value":1},{"source":"Flutter","target":"Stack","value":1},{"source":"Flutter","target":"Drawer","value":1},{"source":"Flutter","target":"AppBar","value":1},{"source":"Flutter","target":"TabBar","value":1},{"source":"Flutter","target":"Pop","value":1},{"source":"Flutter","target":"Push","value":1},{"source":"Flutter","target":"Routes","value":1},{"source":"Flutter","target":"Timer","value":1},{"source":"Flutter","target":"Dialog","value":1},{"source":"Flutter","target":"PageView","value":1},{"source":"Docker","target":"Docker","value":1},{"source":"Docker","target":"Images","value":1},{"source":"Docker","target":"Windows","value":1},{"source":"Docker","target":"Containers","value":1},{"source":"Ubuntu","target":"Zlib","value":1},{"source":"Ubuntu","target":"Ubuntu","value":1},{"source":"Ubuntu","target":"OpenSSL","value":1},{"source":"Ubuntu","target":"OpenSSH","value":1}]}'); //这就是整个代码所可视化的数据
+var data = JSON.parse('{"nodes":[{"id":"Dart","group":6001},{"id":"库","group":1},{"id":"注释","group":1},{"id":"变量","group":1},{"id":"常量","group":1},{"id":"关键字","group":1},{"id":"if","group":1},{"id":"for","group":1},{"id":"while","group":1},{"id":"where","group":1},{"id":"switch","group":1},{"id":"算术","group":1},{"id":"关系","group":1},{"id":"赋值","group":1},{"id":"逻辑","group":1},{"id":"级联","group":1},{"id":"数字","group":1},{"id":"布尔","group":1},{"id":"字典","group":1},{"id":"数组","group":1},{"id":"集合","group":1},{"id":"类","group":1},{"id":"对象","group":1},{"id":"继承","group":1},{"id":"多态","group":1},{"id":"封装","group":1},{"id":"定义","group":1},{"id":"参数","group":1},{"id":"匿名","group":1},{"id":"闭包","group":1},{"id":"高阶","group":1},{"id":"Ubuntu","group":801},{"id":"Zlib","group":1},{"id":"OpenSSL","group":1},{"id":"OpenSSH","group":1},{"id":"Docker","group":801},{"id":"Images","group":1},{"id":"Windows","group":1},{"id":"Containers","group":1},{"id":"Flutter","group":3600},{"id":"Scaffold","group":1},{"id":"MaterialApp","group":1},{"id":"ListView","group":1},{"id":"GridView","group":1},{"id":"Container","group":1},{"id":"Flex","group":1},{"id":"Card","group":1},{"id":"Stack","group":1},{"id":"Pop","group":1},{"id":"Push","group":1},{"id":"Routes","group":1},{"id":"Drawer","group":1},{"id":"AppBar","group":1},{"id":"TabBar","group":1},{"id":"Timer","group":1},{"id":"Dialog","group":1},{"id":"PageView","group":1}],"links":[{"source":"Dart","target":"库","value":1},{"source":"Dart","target":"注释","value":1},{"source":"Dart","target":"变量","value":1},{"source":"Dart","target":"常量","value":1},{"source":"Dart","target":"关键字","value":1},{"source":"Dart","target":"if","value":1},{"source":"Dart","target":"for","value":1},{"source":"Dart","target":"while","value":1},{"source":"Dart","target":"where","value":1},{"source":"Dart","target":"switch","value":1},{"source":"Dart","target":"算术","value":1},{"source":"Dart","target":"关系","value":1},{"source":"Dart","target":"赋值","value":1},{"source":"Dart","target":"逻辑","value":1},{"source":"Dart","target":"级联","value":1},{"source":"Dart","target":"数字","value":1},{"source":"Dart","target":"布尔","value":1},{"source":"Dart","target":"字典","value":1},{"source":"Dart","target":"数组","value":1},{"source":"Dart","target":"集合","value":1},{"source":"Dart","target":"类","value":1},{"source":"Dart","target":"对象","value":1},{"source":"Dart","target":"继承","value":1},{"source":"Dart","target":"多态","value":1},{"source":"Dart","target":"封装","value":1},{"source":"Dart","target":"定义","value":1},{"source":"Dart","target":"参数","value":1},{"source":"Dart","target":"匿名","value":1},{"source":"Dart","target":"闭包","value":1},{"source":"Dart","target":"高阶","value":1},{"source":"Ubuntu","target":"Zlib","value":1},{"source":"Ubuntu","target":"Ubuntu","value":1},{"source":"Ubuntu","target":"OpenSSL","value":1},{"source":"Ubuntu","target":"OpenSSH","value":1},{"source":"Docker","target":"Docker","value":1},{"source":"Docker","target":"Images","value":1},{"source":"Docker","target":"Windows","value":1},{"source":"Docker","target":"Containers","value":1},{"source":"Flutter","target":"Dart","value":1},{"source":"Flutter","target":"Scaffold","value":1},{"source":"Flutter","target":"MaterialApp","value":1},{"source":"Flutter","target":"ListView","value":1},{"source":"Flutter","target":"GridView","value":1},{"source":"Flutter","target":"Container","value":1},{"source":"Flutter","target":"Flex","value":1},{"source":"Flutter","target":"Card","value":1},{"source":"Flutter","target":"Stack","value":1},{"source":"Flutter","target":"Pop","value":1},{"source":"Flutter","target":"Push","value":1},{"source":"Flutter","target":"Routes","value":1},{"source":"Flutter","target":"Drawer","value":1},{"source":"Flutter","target":"AppBar","value":1},{"source":"Flutter","target":"TabBar","value":1},{"source":"Flutter","target":"Timer","value":1},{"source":"Flutter","target":"Dialog","value":1},{"source":"Flutter","target":"PageView","value":1}]}'); //这就是整个代码所可视化的数据
 function drawNet(sss){ 
   var svg = d3.select("svg");
   var color = d3.scaleOrdinal(d3.schemeCategory20);
@@ -876,12 +905,19 @@ function drawNet(sss){
   
   document.getElementById('svgnet').style.width = w;
   document.getElementById('svgnet').style.height = w + h;
+  //var simulation = d3.forceSimulation()
+    //.force('link', d3.forceLink().id(d => d.id).distance(60)) 
+    //.force("charge", d3.forceManyBody().strength(-180).distanceMin(50).distanceMax(250).theta(1))
+    //.force("charge", d3.forceManyBody().distanceMax(2000))
+    //.force("center", d3.forceCenter(w / 2 - 10, (w + h) / 2 ));
+ 
   var simulation = d3.forceSimulation()
-  .force('link', d3.forceLink().id(d => d.id).distance(60)) 
-      .force("charge", d3.forceManyBody().strength(-180).distanceMin(50).distanceMax(250).theta(1))
-      //.force("charge", d3.forceManyBody().distanceMax(2000))
-      .force("center", d3.forceCenter(w / 2 - 10, (w + h) / 2 ));
-  var graph = sss;
+    .force("link", d3.forceLink().id(d => d.id).distance(60))
+    .force("charge", d3.forceManyBody().strength(-100).distanceMin(50).distanceMax(250).theta(1))
+    .force("center", d3.forceCenter(w / 2, (w + h) / 2))
+    .force("collide", d3.forceCollide().radius(function(d) { return d.radius; })); // 添加碰撞检测
+
+    var graph = sss;
   var link = svg.append("g")
       .attr("class", "links")
     .selectAll("line")
@@ -918,11 +954,11 @@ function drawNet(sss){
       }
       })
       .attr('x', function(d) { 
-      if(d.group>=100) return d.group/100*(10.00/48.00)+5; //取整
+      if(d.group>=100) return d.group/100*(10.00/48.00)+5;  // 取整
       else return d.group+3;
     })
       .attr('y',function(d) { 
-      if(d.group>=100) return d.group/100*(3.00/48.00)+5; //取整
+      if(d.group>=100) return d.group/100*(3.00/48.00)+5;   // 取整
       else return 5;
     });
   node.append("title")
@@ -939,9 +975,9 @@ function drawNet(sss){
         .attr("x2", function(d) { return d.target.x; })
         .attr("y2", function(d) { return d.target.y; });
     node
-        .attr("transform", function(d) {
-          return "translate(" + d.x + "," + d.y + ")";
-        })
+      .attr("transform", function(d) {
+        return "translate(" + d.x + "," + d.y + ")";
+      });
   }
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();

@@ -1593,7 +1593,7 @@ body.dark .v[data-class=v] .vcards .vcard .vh .vmeta .vat {
 }
 .v[data-class=v] .vwrap {
     /* background-color: #fff; */
-    box-shadow: 0 15px 35px rgba(50, 50, 93, .18), 0 5px 15px rgba(0, 0, 0, .18) !important;
+    /* box-shadow: 0 15px 35px rgba(50, 50, 93, .18), 0 5px 15px rgba(0, 0, 0, .18) !important; */
 }
 /* .v[data-class=v] .vcards {
     border: 1px solid #f0f0f0;
