@@ -135,9 +135,9 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <!-- 提示：若要开启春节或者圣诞主题样式，直接给body标签添加一个class为
@@ -1980,33 +1980,33 @@ class MyApp extends StatelessWidget &#123;
 - icon.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-mydata-dart"><a href="#1-mydata-dart" class="headerlink" title="(1) mydata.dart"></a>(1) mydata.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">List listData &#x3D; [
   &#123;
-    &quot;title&quot;: &#39;Fly Word&#39;,
-    &quot;author&quot;: &#39;Isla&#39;,
-    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;wx4.sinaimg.cn&#x2F;mw690&#39;
+    &#39;title&#39;: &#39;Fly Word&#39;,
+    &#39;author&#39;: &#39;Isla&#39;,
+    &#39;imageUrl&#39;: &#39;https:&#x2F;&#x2F;wx4.sinaimg.cn&#x2F;mw690&#39;
       &#39;&#x2F;0079svP2gy1g43cj47tolj30go0go403.jpg&#39;,
   &#125;,
   &#123;
-    &quot;title&quot;: &#39;Ten Clock&#39;,
-    &quot;author&quot;: &#39;Olivia&#39;,
-    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;wx1.sinaimg.cn&#x2F;mw690&#39;
+    &#39;title&#39;: &#39;Ten Clock&#39;,
+    &#39;author&#39;: &#39;Olivia&#39;,
+    &#39;imageUrl&#39;: &#39;https:&#x2F;&#x2F;wx1.sinaimg.cn&#x2F;mw690&#39;
       &#39;&#x2F;61bda0ecly1g3pioxcp4sj20go0got9u.jpg&#39;,
   &#125;,
   &#123;
-    &quot;title&quot;: &#39;Candy Shop&#39;,
-    &quot;author&quot;: &#39;Daniel&#39;,
-    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;&#39;
+    &#39;title&#39;: &#39;Candy Shop&#39;,
+    &#39;author&#39;: &#39;Daniel&#39;,
+    &#39;imageUrl&#39;: &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;&#39;
       &#39;2325436244,4185116680&amp;fm&#x3D;253&amp;fmt&#x3D;auto?w&#x3D;600&amp;h&#x3D;600&#39;,
   &#125;,
   &#123;
-    &quot;title&quot;: &#39;Roman Holiday&#39;,
-    &quot;author&quot;: &#39;Benjamin&#39;,
-    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;3366160927,&#39;
+    &#39;title&#39;: &#39;Roman Holiday&#39;,
+    &#39;author&#39;: &#39;Benjamin&#39;,
+    &#39;imageUrl&#39;: &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;3366160927,&#39;
       &#39;634583723&amp;fm&#x3D;253&amp;fmt&#x3D;auto?w&#x3D;600&amp;h&#x3D;600&#39;,
   &#125;,
   &#123;
-    &quot;title&quot;: &#39;Late Autumn Bread&#39;,
-    &quot;author&quot;: &#39;Samuel&#39;,
-    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;3308301908,&#39;
+    &#39;title&#39;: &#39;Late Autumn Bread&#39;,
+    &#39;author&#39;: &#39;Samuel&#39;,
+    &#39;imageUrl&#39;: &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;3308301908,&#39;
       &#39;3006671182&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;500&amp;h&#x3D;500&#39;,
   &#125;,
 ];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -2165,16 +2165,18 @@ class MyApp extends StatelessWidget &#123;
 <h2 id="7-1-count实现"><a href="#7-1-count实现" class="headerlink" title="7-1 count实现"></a>7-1 count实现</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;count实现&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;count实现&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2195,20 +2197,22 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-2-extent实现"><a href="#7-2-extent实现" class="headerlink" title="7-2 extent实现"></a>7-2 extent实现</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;extent实现&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;extent实现&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2229,31 +2233,34 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-3-常用属性实例"><a href="#7-3-常用属性实例" class="headerlink" title="7-3 常用属性实例"></a>7-3 常用属性实例</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;常用属性实例&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;常用属性实例&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   List&lt;Widget&gt; _initGridViewData() &#123;
-    List&lt;Widget&gt; tempList&#x3D;[];
-    for(var i&#x3D;1; i&lt;16; i++) &#123;
+    List&lt;Widget&gt; tempList &#x3D; [];
+    for (var i &#x3D; 1; i &lt; 16; i++) &#123;
       tempList.add(
         Container(
           alignment: Alignment.center,
           decoration: const BoxDecoration(
             color: Colors.blue,
           ),
-          child: Text(&quot;第$&#123;i&#125;个元素&quot;,
+          child: Text(
+            &#39;第$i个元素&#39;,
             style: const TextStyle(fontSize: 20),
           ),
         ),
@@ -2280,34 +2287,36 @@ class MyApp extends StatelessWidget &#123;
       children: _initGridViewData(),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-4-count动态列表"><a href="#7-4-count动态列表" class="headerlink" title="7-4 count动态列表"></a>7-4 count动态列表</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;res&#x2F;mydata.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;count动态列表&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;count动态列表&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   List&lt;Widget&gt; _initGridViewData() &#123;
-    var tempList&#x3D;listData.map((value) &#123;
+    var tempList &#x3D; listData.map((value) &#123;
       return Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black26),
         ),
         child: Column(
           children: [
-            Image.network(value[&quot;imageUrl&quot;]),
+            Image.network(value[&#39;imageUrl&#39;]),
             const SizedBox(height: 10),
             Text(
-              value[&quot;title&quot;],
+              value[&#39;title&#39;],
               style: const TextStyle(fontSize: 13),
             ),
           ],
@@ -2335,21 +2344,23 @@ class MyApp extends StatelessWidget &#123;
       children: _initGridViewData(),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-5-builder动态列表"><a href="#7-5-builder动态列表" class="headerlink" title="7-5 builder动态列表"></a>7-5 builder动态列表</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;res&#x2F;mydata.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;builder动态列表&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;builder动态列表&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   Widget _initGridViewData(context, index) &#123;
     return Container(
@@ -2358,10 +2369,10 @@ class MyApp extends StatelessWidget &#123;
       ),
       child: Column(
         children: [
-          Image.network(listData[index][&quot;imageUrl&quot;]),
+          Image.network(listData[index][&#39;imageUrl&#39;]),
           const SizedBox(height: 10),
           Text(
-            listData[index][&quot;title&quot;],
+            listData[index][&#39;title&#39;],
             style: const TextStyle(fontSize: 13),
           ),
         ],
@@ -2385,7 +2396,7 @@ class MyApp extends StatelessWidget &#123;
       &#x2F;&#x2F; crossAxisCount: 3,
       &#x2F;&#x2F; 宽高比
       &#x2F;&#x2F; childAspectRatio: 0.8,
-      
+
       &#x2F;&#x2F; 类似于count与extent实现的区别
       &#x2F;&#x2F; gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
       &#x2F;&#x2F;   crossAxisSpacing: 2,
@@ -2404,7 +2415,7 @@ class MyApp extends StatelessWidget &#123;
       itemBuilder: _initGridViewData,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
             </div>
             <hr/>
 
