@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://wwwbsf.github.io/posts/flutter@02.html</loc>
+    <lastmod>2024-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://wwwbsf.github.io/posts/docker@01.html</loc>
+    <lastmod>2024-07-31</lastmod>
+  </url>
+  <url>
     <loc>https://wwwbsf.github.io/posts/flutter@06.html</loc>
     <lastmod>2024-07-23</lastmod>
   </url>
@@ -17,10 +25,6 @@
     <lastmod>2024-07-23</lastmod>
   </url>
   <url>
-    <loc>https://wwwbsf.github.io/posts/flutter@02.html</loc>
-    <lastmod>2024-07-23</lastmod>
-  </url>
-  <url>
     <loc>https://wwwbsf.github.io/posts/flutter@01.html</loc>
     <lastmod>2024-07-23</lastmod>
   </url>
@@ -31,10 +35,6 @@
   <url>
     <loc>https://wwwbsf.github.io/posts/dart@04.html</loc>
     <lastmod>2024-07-16</lastmod>
-  </url>
-  <url>
-    <loc>https://wwwbsf.github.io/posts/docker@01.html</loc>
-    <lastmod>2024-07-15</lastmod>
   </url>
   <url>
     <loc>https://wwwbsf.github.io/posts/dart@06.html</loc>

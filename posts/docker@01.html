@@ -135,9 +135,9 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <!-- 提示：若要开启春节或者圣诞主题样式，直接给body标签添加一个class为
@@ -1196,7 +1196,7 @@ h3:hover {
 docker images
 docker image ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-2-拉取镜像"><a href="#2-2-拉取镜像" class="headerlink" title="2-2 拉取镜像"></a>2-2 拉取镜像</h2><ul>
-<li>官方默认仓库名为library，<code>docker pull &lt;image-name&gt;</code>命令相当于<code>docker pull library/&lt;image-name&gt;</code>。</li>
+<li>官方默认仓库名为library，<code>docker pull &lt;image-name&gt;</code>相当于<code>docker pull library/&lt;image-name&gt;</code>。</li>
 </ul>
 <pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 拉取官方镜像(docker pull)
 docker image pull &lt;image-name&gt;
@@ -1251,7 +1251,8 @@ docker run -i -d -t --name&#x3D;kali-test kalilinux&#x2F;kali-rolling
 # 启动网站，本地http:&#x2F;&#x2F;localhost:8080&#x2F;查看
 docker run -dp 8080:80 --name docker-test docker&#x2F;getting-started<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-交互式容器"><a href="#3-交互式容器" class="headerlink" title="3 交互式容器"></a>3 交互式容器</h1><ul>
-<li>创建容器时使用的命令都加入了<code>-d</code>参数，让容器在后台运行，接下来介绍与正运行的容器进行交互的操作。</li>
+<li>创建容器时使用命令加入了<code>-d</code>参数，让容器在后台运行。</li>
+<li>接下来介绍内容，如何与正在运行的容器进行交互的操作。</li>
 </ul>
 <h2 id="3-1-查看容器"><a href="#3-1-查看容器" class="headerlink" title="3-1 查看容器"></a>3-1 查看容器</h2><ul>
 <li>CONTAINER ID(镜像ID)、IMAGE(镜像名)、COMMAND(默认启动命令)。</li>
@@ -2107,7 +2108,7 @@ docker load -i &lt;file-path&gt;&#x2F;&lt;backup-file&gt;<span aria-hidden="true
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('1000')) {
+        if (('' + selection).length < Number.parseInt('10000')) {
             return;
         }
 
@@ -2336,7 +2337,7 @@ docker load -i &lt;file-path&gt;&#x2F;&lt;backup-file&gt;<span aria-hidden="true
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">53.5k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">54k</span>&nbsp;字&nbsp;🌼<br>
       
       
       

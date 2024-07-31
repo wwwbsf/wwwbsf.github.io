@@ -135,9 +135,9 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <!-- 提示：若要开启春节或者圣诞主题样式，直接给body标签添加一个class为
@@ -1123,14 +1123,14 @@ h3:hover {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    26 分
+                    29 分
                 </div>
                 
 
@@ -1565,16 +1565,18 @@ fonts:
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;图标组件&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;图标组件&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1586,6 +1588,7 @@ class MyApp extends StatelessWidget &#123;
         SizedBox(height: 20),
         Icon(Icons.shop, size: 60, color: Colors.deepPurple),
         SizedBox(height: 20),
+        &#x2F;&#x2F; 自定义图标
         Icon(icon.book, size: 60, color: Colors.lightBlueAccent),
         SizedBox(height: 20),
         Icon(icon.wechat, size: 60, color: Colors.green),
@@ -1595,28 +1598,29 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-2-icon-dart"><a href="#5-2-icon-dart" class="headerlink" title="5-2 icon.dart"></a>5-2 icon.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class icon &#123;
   static const IconData book &#x3D; IconData(
-    0X3447,
+    0Xe634,
     &#x2F;&#x2F; code对应编码，解压的json文件中对应图标的unicode值
+    &#x2F;&#x2F; 保留Ox部分，或取css文件中的content值，去掉“\”
     &#x2F;&#x2F; pubspec.yaml配置文件中，family依据需求自定义的字体
     fontFamily: &#39;Schyler&#39;,
     matchTextDirection: true,
   );
   static const IconData wechat &#x3D; IconData(
-      0Xe637,
-      fontFamily: &#39;Schyler&#39;,
-      matchTextDirection: true,
+    0Xe63f,
+    fontFamily: &#39;Schyler&#39;,
+    matchTextDirection: true,
   );
   static const IconData cart &#x3D; IconData(
-      0Xf0179,
-      fontFamily: &#39;Schyler&#39;,
-      matchTextDirection: true,
+    0Xe826,
+    fontFamily: &#39;Schyler&#39;,
+    matchTextDirection: true,
   );
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="6-列表组件"><a href="#6-列表组件" class="headerlink" title="6 列表组件"></a>6 列表组件</h1><ul>
 <li>列表布局是开发中最常用的一种布局，通过ListView来定义列表项，支持垂直和水平方向展示。</li>
 <li>通过一个属性就可以控制列表的显示方向，其中列表又分成了垂直列表、水平列表和动态列表。</li>
@@ -1704,7 +1708,11 @@ class MyApp extends StatelessWidget &#123;
       padding: const EdgeInsets.all(10),
       children: &lt;Widget&gt;[
         ListTile(
-          leading: Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;wiIfq&#39;),
+          leading: Image.network(
+              &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#39;
+              &#39;&#x2F;u&#x3D;2418477747,2527785597&amp;fm&#x3D;253&#39;
+              &#39;&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;500&amp;h&#x3D;500&#39;
+            ),
           title: const Text(&#39;博美&#39;),
           subtitle: const Text(&#39;风度翩翩，待人友好，不挑衅，外貌也特别有魅力。&#39;),
         ),
@@ -1712,11 +1720,22 @@ class MyApp extends StatelessWidget &#123;
         ListTile(
           title: const Text(&#39;雪纳瑞&#39;),
           subtitle: const Text(&#39;个性勇敢，不掉毛，聪明独立更适合办公室驯养。&#39;),
-          trailing: Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;ahkrp&#39;),
+          trailing: Image.network(
+            &#39;https:&#x2F;&#x2F;gimg2.baidu.com&#x2F;image_search&#39;
+            &#39;&#x2F;src&#x3D;http%3A%2F%2Fci.xiaohongshu.com&#39;
+            &#39;%2F812208d9-e14f-3491-92e0-d8826d38dd7b&#39;
+            &#39;%3FimageView2%2F2%2Fw%2F1080%2Fformat&#39;
+            &#39;%2Fjpg&amp;refer&#x3D;http%3A%2F%2Fci.xiaohongshu.com&#39;
+            &#39;&amp;app&#x3D;2002&amp;size&#x3D;f9999,10000&amp;q&#x3D;a80&amp;n&#x3D;0&amp;g&#x3D;0n&amp;fmt&#x3D;auto?&#39;
+            &#39;sec&#x3D;1725003450&amp;t&#x3D;45b81e18f49c4f12c97530ed14370aa5&#39;
+          ),
         ),
         const Divider(),
         ListTile(
-          leading: Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;tnhix&#39;),
+          leading: Image.network(
+            &#39;https:&#x2F;&#x2F;i1.hdslb.com&#x2F;bfs&#x2F;face&#39;
+            &#39;&#x2F;0f93e69c24c049256b7f92472dc65cd0c0a04b37.jpg&#39;
+          ),
           title: const Text(&#39;柴犬&#39;),
           subtitle: const Text(&#39;聪明，对主人看护，身体干净。&#39;),
         ),
@@ -1724,11 +1743,18 @@ class MyApp extends StatelessWidget &#123;
         ListTile(
           title: const Text(&#39;拉布拉多&#39;),
           subtitle: const Text(&#39;性格温和，对主人忠心，外貌憨厚，比较容易驯养。&#39;),
-          trailing: Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;tqVLU&#39;),
+          trailing: Image.network(
+            &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#39;
+            &#39;&#x2F;u&#x3D;106284635,2156645854&amp;fm&#x3D;253&#39;
+            &#39;&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;500&amp;h&#x3D;500&#39;
+          ),
         ),
         const Divider(),
         ListTile(
-          leading: Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;trjsD&#39;),
+          leading: Image.network(
+            &#39;https:&#x2F;&#x2F;www.goupuzi.com&#x2F;newatt&#39;
+            &#39;&#x2F;Mon_1902&#x2F;1_180878_2d78897ad7d3bee.jpg&#39;
+          ),
           title: const Text(&#39;德牧&#39;),
           subtitle: const Text(&#39;IQ高，较好训练，忠诚，善于整理头发。&#39;),
         ),
@@ -1736,11 +1762,22 @@ class MyApp extends StatelessWidget &#123;
         ListTile(
           title: const Text(&#39;金毛&#39;),
           subtitle: const Text(&#39;待人友好，性情温和，接受指令，适合于工作犬。&#39;),
-          trailing: Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;WsKFq&#39;),
+          trailing: Image.network(
+            &#39;https:&#x2F;&#x2F;gimg2.baidu.com&#x2F;image_search&#39;
+            &#39;&#x2F;src&#x3D;http%3A%2F%2Fimg3.doubanio.com%2Fview&#39;
+            &#39;%2Fnote%2Flarge%2Fpublic%2Fp38828385.jpg&#39;
+            &#39;&amp;refer&#x3D;http%3A%2F%2Fimg3.doubanio.com&amp;app&#x3D;2002&#39;
+            &#39;&amp;size&#x3D;f9999,10000&amp;q&#x3D;a80&amp;n&#x3D;0&amp;g&#x3D;0n&amp;fmt&#x3D;auto?&#39;
+            &#39;sec&#x3D;1725003882&amp;t&#x3D;03bcffc445d47b6a8f4797a8ce252f84&#39;
+          ),
         ),
         const Divider(),
         ListTile(
-          leading: Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;MnMuc&#39;),
+          leading: Image.network(
+            &#39;https:&#x2F;&#x2F;gss0.baidu.com&#39;
+            &#39;&#x2F;-vo3dSag_xI4khGko9WTAnF6hhy&#x2F;zhidao&#x2F;pic&#x2F;item&#39;
+            &#39;&#x2F;b58f8c5494eef01fff50eae7e9fe9925bc317d48.jpg&#39;
+          ),
           title: const Text(&#39;哈士奇&#39;),
           subtitle: const Text(&#39;长得真漂亮，走路表情包，喂食比较少。&#39;),
         ),
@@ -1748,7 +1785,7 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-图片展示"><a href="#2-图片展示" class="headerlink" title="(2) 图片展示"></a>(2) 图片展示</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
@@ -1770,7 +1807,10 @@ class MyApp extends StatelessWidget &#123;
     return ListView(
       padding: const EdgeInsets.all(10),
       children: &lt;Widget&gt;[
-        Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;jFcvO&#39;),
+        Image.network(
+          &#39;https:&#x2F;&#x2F;pic.quanjing.com&#39;
+          &#39;&#x2F;x8&#x2F;tv&#x2F;QJ6754720830.jpg@%21350h&#39;
+        ),
         Container(
           padding: const EdgeInsets.fromLTRB(0, 1, 0, 0),
           height: 30,
@@ -1780,7 +1820,11 @@ class MyApp extends StatelessWidget &#123;
             style: TextStyle(fontSize: 20),
           ),
         ),
-        Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;qmwjR&#39;),
+        Image.network(
+          &#39;https:&#x2F;&#x2F;img1.baidu.com&#39;
+          &#39;&#x2F;it&#x2F;u&#x3D;2154124395,252693757&amp;fm&#x3D;253&#39;
+          &#39;&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;800&amp;h&#x3D;1294&#39;
+        ),
         Container(
           padding: const EdgeInsets.fromLTRB(0, 1, 0, 0),
           height: 30,
@@ -1790,7 +1834,11 @@ class MyApp extends StatelessWidget &#123;
             style: TextStyle(fontSize: 20),
           ),
         ),
-        Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;oFHvn&#39;),
+        Image.network(
+          &#39;https:&#x2F;&#x2F;img1.baidu.com&#39;
+          &#39;&#x2F;it&#x2F;u&#x3D;1832276864,3519016632&amp;fm&#x3D;253&#39;
+          &#39;&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;450&amp;h&#x3D;600&#39;
+        ),
         Container(
           padding: const EdgeInsets.fromLTRB(0, 1, 0, 0),
           height: 30,
@@ -1803,7 +1851,7 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-2-水平列表"><a href="#6-2-水平列表" class="headerlink" title="6-2 水平列表"></a>6-2 水平列表</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
@@ -1840,7 +1888,8 @@ class MyApp extends StatelessWidget &#123;
                 SizedBox(
                   height: 110,
                   child: Image.network(
-                    &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;uHlvA&#39;, 
+                    &#39;https:&#x2F;&#x2F;wx4.sinaimg.cn&#x2F;large&#39;
+                    &#39;&#x2F;006S7UvTly4gutt43wm3gj611u0o20yy02.jpg&#39;,
                     fit: BoxFit.cover
                   ),
                 ),
@@ -1856,7 +1905,9 @@ class MyApp extends StatelessWidget &#123;
                 SizedBox(
                   height: 110,
                   child: Image.network(
-                    &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;ifTZY&#39;, 
+                    &#39;https:&#x2F;&#x2F;t10.baidu.com&#39;
+                    &#39;&#x2F;it&#x2F;u&#x3D;1911060544,216411802&amp;fm&#x3D;30&amp;app&#x3D;106&#39;
+                    &#39;&amp;f&#x3D;JPEG?w&#x3D;640&amp;h&#x3D;427&amp;s&#x3D;12A066A1D419EFCE323C08F1030050B2&#39;,
                     fit: BoxFit.cover
                   ),
                 ),
@@ -1872,7 +1923,8 @@ class MyApp extends StatelessWidget &#123;
                 SizedBox(
                   height: 110,
                   child: Image.network(
-                    &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;NcAie&#39;, 
+                    &#39;https:&#x2F;&#x2F;p4-q.mafengwo.net&#x2F;s9&#x2F;M00&#x2F;97&#39;
+                    &#39;&#x2F;E1&#x2F;wKgBs1fOHSOAUEwbAAdJRFPuN6s93.jpeg&#39;,
                     fit: BoxFit.cover
                   ),
                 ),
@@ -1888,7 +1940,8 @@ class MyApp extends StatelessWidget &#123;
                 SizedBox(
                   height: 110,
                   child: Image.network(
-                    &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;rlDUS&#39;, 
+                    &#39;https:&#x2F;&#x2F;i0.hdslb.com&#x2F;bfs&#x2F;archive&#39;
+                    &#39;&#x2F;58a609e71eef228368bbeb0e7f3ba0e478be1cd6.jpg&#39;,
                     fit: BoxFit.cover
                   ),
                 ),
@@ -1904,7 +1957,9 @@ class MyApp extends StatelessWidget &#123;
                 SizedBox(
                   height: 110,
                   child: Image.network(
-                    &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;dtQwt&#39;, 
+                    &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#39;
+                    &#39;&#x2F;u&#x3D;3151136850,293696562&amp;fm&#x3D;253&#39;
+                    &#39;&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;500&amp;h&#x3D;334&#39;,
                     fit: BoxFit.cover
                   ),
                 ),
@@ -1916,14 +1971,52 @@ class MyApp extends StatelessWidget &#123;
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-3-动态列表"><a href="#6-3-动态列表" class="headerlink" title="6-3 动态列表"></a>6-3 动态列表</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-3-动态列表"><a href="#6-3-动态列表" class="headerlink" title="6-3 动态列表"></a>6-3 动态列表</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下
+- lib&#x2F;
+  - res&#x2F;
+    - mydata.dart
+- main.dart
+- icon.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-mydata-dart"><a href="#1-mydata-dart" class="headerlink" title="(1) mydata.dart"></a>(1) mydata.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">List listData &#x3D; [
+  &#123;
+    &quot;title&quot;: &#39;Fly Word&#39;,
+    &quot;author&quot;: &#39;Isla&#39;,
+    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;wx4.sinaimg.cn&#x2F;mw690&#39;
+      &#39;&#x2F;0079svP2gy1g43cj47tolj30go0go403.jpg&#39;,
+  &#125;,
+  &#123;
+    &quot;title&quot;: &#39;Ten Clock&#39;,
+    &quot;author&quot;: &#39;Olivia&#39;,
+    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;wx1.sinaimg.cn&#x2F;mw690&#39;
+      &#39;&#x2F;61bda0ecly1g3pioxcp4sj20go0got9u.jpg&#39;,
+  &#125;,
+  &#123;
+    &quot;title&quot;: &#39;Candy Shop&#39;,
+    &quot;author&quot;: &#39;Daniel&#39;,
+    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;&#39;
+      &#39;2325436244,4185116680&amp;fm&#x3D;253&amp;fmt&#x3D;auto?w&#x3D;600&amp;h&#x3D;600&#39;,
+  &#125;,
+  &#123;
+    &quot;title&quot;: &#39;Roman Holiday&#39;,
+    &quot;author&quot;: &#39;Benjamin&#39;,
+    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;3366160927,&#39;
+      &#39;634583723&amp;fm&#x3D;253&amp;fmt&#x3D;auto?w&#x3D;600&amp;h&#x3D;600&#39;,
+  &#125;,
+  &#123;
+    &quot;title&quot;: &#39;Late Autumn Bread&#39;,
+    &quot;author&quot;: &#39;Samuel&#39;,
+    &quot;imageUrl&quot;: &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;3308301908,&#39;
+      &#39;3006671182&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;500&amp;h&#x3D;500&#39;,
+  &#125;,
+];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-自定义方法"><a href="#2-自定义方法" class="headerlink" title="(2) 自定义方法"></a>(2) 自定义方法</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
   runApp(
     MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text(&#39;动态列表&#39;)),
+        appBar: AppBar(title: const Text(&#39;自定义方法&#39;)),
         body: const MyApp(),
       ),
     ),
@@ -1935,8 +2028,8 @@ class MyApp extends StatelessWidget &#123;
 
   &#x2F;&#x2F; 自定义方法
   List&lt;Widget&gt; _initListData() &#123;
-    List&lt;Widget&gt; list&#x3D;[];
-    for(var i&#x3D;0; i&lt;&#x3D;7; i++) &#123;
+    List&lt;Widget&gt; list &#x3D; [];
+    for (var i &#x3D; 0; i &lt;&#x3D; 7; i++) &#123;
       list.add(ListTile(title: Text(&#39;自定义方法---$i&#39;)));
     &#125;
     return list;
@@ -1950,60 +2043,28 @@ class MyApp extends StatelessWidget &#123;
     );
   &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-mydata-dart"><a href="#1-mydata-dart" class="headerlink" title="(1) mydata.dart"></a>(1) mydata.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; myflutter(项目名)目录结构如下
-&#x2F;&#x2F; - lib&#x2F;
-&#x2F;&#x2F;   - res&#x2F;
-&#x2F;&#x2F;     - mydata.dart
-&#x2F;&#x2F; - main.dart
-&#x2F;&#x2F; - icon.dart
-
-List listData&#x3D;[
-  &#123;
-    &quot;title&quot;: &#39;Fly Word&#39;,
-    &quot;author&quot;: &#39;Isla&#39;,
-    &quot;imageUrl&quot;: &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;GxYmQ&#39;,
-  &#125;,
-  &#123;
-    &quot;title&quot;: &#39;Ten Clock&#39;,
-    &quot;author&quot;: &#39;Olivia&#39;,
-    &quot;imageUrl&quot;: &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;TrLBS&#39;,
-  &#125;,
-  &#123;
-    &quot;title&quot;: &#39;Candy Shop&#39;,
-    &quot;author&quot;: &#39;Daniel&#39;,
-    &quot;imageUrl&quot;: &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;ZqsJH&#39;,
-  &#125;,
-  &#123;
-    &quot;title&quot;: &#39;Roman Holiday&#39;,
-    &quot;author&quot;: &#39;Benjamin&#39;,
-    &quot;imageUrl&quot;: &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;wTiWA&#39;,
-  &#125;,
-  &#123;
-    &quot;title&quot;: &#39;Late Autumn Bread&#39;,
-    &quot;author&quot;: &#39;Samuel&#39;,
-    &quot;imageUrl&quot;: &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;erxaA&#39;,
-  &#125;,
-];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-for动态循环"><a href="#2-for动态循环" class="headerlink" title="(2) for动态循环"></a>(2) for动态循环</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;res&#x2F;mydata.dart&#39;;
+<h3 id="3-for动态循环"><a href="#3-for动态循环" class="headerlink" title="(3) for动态循环"></a>(3) for动态循环</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;res&#x2F;mydata.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;for动态循环&#39;)),
-      body: MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;for动态循环&#39;)),
+        body: MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  MyApp(&#123;Key? key&#125;): super(key: key) &#123;
+  MyApp(&#123;Key? key&#125;) : super(key: key) &#123;
     print(listData);
   &#125;
 
   List&lt;Widget&gt; _initListData() &#123;
-    List&lt;Widget&gt; tempList&#x3D;[];
-    for(var i&#x3D;0; i&lt;listData.length; i++) &#123;
+    List&lt;Widget&gt; tempList &#x3D; [];
+    for (var i &#x3D; 0; i &lt; listData.length; i++) &#123;
       tempList.add(
         ListTile(
           leading: Image.network(&#39;$&#123;listData[i][&quot;imageUrl&quot;]&#125;&#39;),
@@ -2021,26 +2082,28 @@ class MyApp extends StatelessWidget &#123;
       children: _initListData(),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-map动态循环"><a href="#3-map动态循环" class="headerlink" title="(3) map动态循环"></a>(3) map动态循环</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;res&#x2F;mydata.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;map动态循环&#39;)),
-      body: MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;map动态循环&#39;)),
+        body: MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  MyApp(&#123;Key? key&#125;): super(key: key) &#123;
+  MyApp(&#123;Key? key&#125;) : super(key: key) &#123;
     print(listData);
   &#125;
 
   List&lt;Widget&gt; _initListData() &#123;
-    var tempList&#x3D;listData.map((value) &#123;
+    var tempList &#x3D; listData.map((value) &#123;
       return ListTile(
         leading: Image.network(&#39;$&#123;value[&quot;imageUrl&quot;]&#125;&#39;),
         title: Text(&#39;$&#123;value[&quot;title&quot;]&#125;&#39;),
@@ -2056,21 +2119,23 @@ class MyApp extends StatelessWidget &#123;
       children: _initListData(),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-builder动态循环"><a href="#4-builder动态循环" class="headerlink" title="(4) builder动态循环"></a>(4) builder动态循环</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;res&#x2F;mydata.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;builder动态循环&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;builder动态循环&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2086,7 +2151,7 @@ class MyApp extends StatelessWidget &#123;
       &#125;,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="7-网格组件"><a href="#7-网格组件" class="headerlink" title="7 网格组件"></a>7 网格组件</h1><ul>
 <li>GridView主要的三种方式：GridView.count、GridView.extent、GridView.builder。</li>
 <li>常用属性<ul>
@@ -3106,7 +3171,7 @@ class MyApp extends StatelessWidget &#123;
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('1000')) {
+        if (('' + selection).length < Number.parseInt('10000')) {
             return;
         }
 
@@ -3329,7 +3394,7 @@ class MyApp extends StatelessWidget &#123;
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">53.5k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">54k</span>&nbsp;字&nbsp;🌼<br>
       
       
       
