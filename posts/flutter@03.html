@@ -1114,7 +1114,7 @@ h3:hover {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-04-03
+                    2024-04-11
                 </div>
                 
 
@@ -1123,14 +1123,14 @@ h3:hover {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    6.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    30 分
+                    32 分
                 </div>
                 
 
@@ -1166,55 +1166,59 @@ h3:hover {
 </ul>
 </li>
 <li>SingleChildScrollView<ul>
-<li>产生可滚动的组件区域，只有一个子组件，当使用Column或Row嵌套大量组件时可能超出屏幕尺寸。</li>
-<li>此时用SingleChildScrollView组件将其包裹，使之在应用程序中可滚动并能够适应不同的屏幕尺寸。</li>
+<li>产生可滚动的组件区域，只有一个子组件，使用Column或Row嵌套大量组件时可能超出屏幕尺寸。</li>
+<li>此时用SingleChildScrollView组件将其包裹，使之在应用程序中可滚动并能够适应不同屏幕尺寸。</li>
 </ul>
 </li>
 </ul>
 <h1 id="2-填充组件"><a href="#2-填充组件" class="headerlink" title="2 填充组件"></a>2 填充组件</h1><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;填充组件&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;填充组件&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
     &#x2F;&#x2F; return Container(
     &#x2F;&#x2F;   padding: const EdgeInsets.all(160),
-    &#x2F;&#x2F;   child: const Text(&quot;Hello, Flutter!&quot;),
+    &#x2F;&#x2F;   child: const Text(&#39;Hello, Flutter!&#39;),
     &#x2F;&#x2F; );
     &#x2F;&#x2F; 占用内存比Container小
     return const Padding(
       &#x2F;&#x2F; Padding组件属性比较单一
       padding: EdgeInsets.all(160),
-      child: Text(&quot;Hello, Flutter!&quot;),
+      child: Text(&#39;Hello, Flutter!&#39;),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-线性布局"><a href="#3-线性布局" class="headerlink" title="3 线性布局"></a>3 线性布局</h1><ul>
-<li>mainAxisAlignment(主轴的排序方式)、crossAxisAlignment(次轴的排序方式)、children(组件子元素)。</li>
+<li>mainAxisAlignment(主轴排序方式)、crossAxisAlignment(次轴排序方式)、children(组件子元素)。</li>
 </ul>
 <h2 id="3-1-水平布局组件"><a href="#3-1-水平布局组件" class="headerlink" title="3-1 水平布局组件"></a>3-1 水平布局组件</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;水平布局组件&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;水平布局组件&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1255,7 +1259,8 @@ class IconContainer extends StatelessWidget &#123;
   Color color;
   &#x2F;&#x2F; 没有默认颜色使用required关键字
   IconData icon;
-  IconContainer(this.icon, &#123;Key? key, this.color&#x3D;Colors.red&#125;): super(key: key);
+  IconContainer(this.icon, &#123;Key? key, this.color &#x3D; Colors.red&#125;)
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1267,20 +1272,22 @@ class IconContainer extends StatelessWidget &#123;
       child: Icon(icon, color: Colors.white, size: 28),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-2-垂直布局组件"><a href="#3-2-垂直布局组件" class="headerlink" title="3-2 垂直布局组件"></a>3-2 垂直布局组件</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;垂直布局组件&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;垂直布局组件&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1320,7 +1327,8 @@ class IconContainer extends StatelessWidget &#123;
   Color color;
   &#x2F;&#x2F; 没有默认颜色使用required关键字
   IconData icon;
-  IconContainer(this.icon, &#123;Key? key, this.color&#x3D;Colors.red&#125;): super(key: key);
+  IconContainer(this.icon, &#123;Key? key, this.color &#x3D; Colors.red&#125;)
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1332,7 +1340,7 @@ class IconContainer extends StatelessWidget &#123;
       child: Icon(icon, color: Colors.white, size: 28),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="4-弹性布局"><a href="#4-弹性布局" class="headerlink" title="4 弹性布局"></a>4 弹性布局</h1><ul>
 <li>Flex组件可以沿着水平或垂直方向排列子组件，如果知道主轴方向，使用Row或Column会很方便。</li>
 <li>Row和Column都继承自Flex，参数基本相同，所以能使用Flex的地方基本都可使用Row和Column。</li>
@@ -1341,16 +1349,18 @@ class IconContainer extends StatelessWidget &#123;
 <h2 id="4-1-水平左右比例"><a href="#4-1-水平左右比例" class="headerlink" title="4-1 水平左右比例"></a>4-1 水平左右比例</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;水平左右比例&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;水平左右比例&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1380,7 +1390,8 @@ class IconContainer extends StatelessWidget &#123;
   Color color;
   &#x2F;&#x2F; 没有默认颜色使用required关键字
   IconData icon;
-  IconContainer(this.icon, &#123;Key? key, this.color&#x3D;Colors.red&#125;): super(key: key);
+  IconContainer(this.icon, &#123;Key? key, this.color &#x3D; Colors.red&#125;)
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1392,20 +1403,22 @@ class IconContainer extends StatelessWidget &#123;
       child: Icon(icon, color: Colors.white, size: 28),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-2-水平右侧固定"><a href="#4-2-水平右侧固定" class="headerlink" title="4-2 水平右侧固定"></a>4-2 水平右侧固定</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;水平右侧固定&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;水平右侧固定&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1431,7 +1444,8 @@ class IconContainer extends StatelessWidget &#123;
   Color color;
   &#x2F;&#x2F; 没有默认颜色使用required关键字
   IconData icon;
-  IconContainer(this.icon, &#123;Key? key, this.color&#x3D;Colors.red&#125;): super(key: key);
+  IconContainer(this.icon, &#123;Key? key, this.color &#x3D; Colors.red&#125;)
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1444,16 +1458,18 @@ class IconContainer extends StatelessWidget &#123;
       child: Icon(icon, color: Colors.white, size: 28),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-3-实现弹性布局"><a href="#4-3-实现弹性布局" class="headerlink" title="4-3 实现弹性布局"></a>4-3 实现弹性布局</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;实现弹性布局&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;实现弹性布局&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
@@ -1466,7 +1482,7 @@ class MyApp extends StatelessWidget &#123;
         Container(
           width: double.infinity,
           height: 200,
-          color: Colors.black,
+          color: Colors.white,
         ),
         Row(
           children: [
@@ -1474,7 +1490,16 @@ class MyApp extends StatelessWidget &#123;
               child: SizedBox(
                 &#x2F;&#x2F; 水平方向考虑高度
                 height: 200,
-                child: Image.network(&#39;http:&#x2F;&#x2F;www.m58.link&#x2F;pOQYO&#39;, fit: BoxFit.cover),
+                child: Image.network(
+                  &#39;https:&#x2F;&#x2F;gimg2.baidu.com&#x2F;image_search&#39;
+                  &#39;&#x2F;src&#x3D;http%3A%2F%2Fc-ssl.duitang.com%&#39;
+                  &#39;2Fuploads%2Fblog%2F202009%2F20%2F202&#39;
+                  &#39;00920220228_e6d34.jpg&amp;refer&#x3D;http%3A%&#39;
+                  &#39;2F%2Fc-ssl.duitang.com&amp;app&#x3D;2002&amp;size&#39;
+                  &#39;&#x3D;f9999,10000&amp;q&#x3D;a80&amp;n&#x3D;0&amp;g&#x3D;0n&amp;fmt&#x3D;auto&#39;
+                  &#39;?sec&#x3D;1725155093&amp;t&#x3D;b3ea8cb72ee2c8770fda07b2e4bd5872&#39;,
+                  fit: BoxFit.cover,
+                ),
               ),
               flex: 2,
             ),
@@ -1488,7 +1513,9 @@ class MyApp extends StatelessWidget &#123;
                     &#x2F;&#x2F; 图片可能不会铺满，使用SizedBox
                     Expanded(
                       child: Image.network(
-                        &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;BiPCY&#39;,
+                        &#39;https:&#x2F;&#x2F;c-ssl.dtstatic.com&#x2F;uploads&#39;
+                        &#39;&#x2F;blog&#x2F;202211&#x2F;05&#x2F;20221105172125_7ca&#39;
+                        &#39;2f.thumb.1000_0.jpg&#39;,
                         fit: BoxFit.cover,
                       ),
                       flex: 1,
@@ -1499,7 +1526,11 @@ class MyApp extends StatelessWidget &#123;
                         &#x2F;&#x2F; 占满屏幕
                         width: double.infinity,
                         child: Image.network(
-                          &#39;http:&#x2F;&#x2F;www.m58.link&#x2F;dDobp&#39;,
+                          &#39;https:&#x2F;&#x2F;pic.90sheji.com&#x2F;original_origin_pic&#39;
+                          &#39;&#x2F;18&#x2F;10&#x2F;25&#x2F;52c0e55eebb42d07e3d23ae7dde692df.&#39;
+                          &#39;png%21&#x2F;fwfh&#x2F;5808x0&#x2F;clip&#x2F;0x3856a0a0&#x2F;quality&#x2F;&#39;
+                          &#39;90&#x2F;unsharp&#x2F;true&#x2F;compress&#x2F;true&#x2F;watermark&#x2F;url&#39;
+                          &#39;&#x2F;LzkwX3dhdGVyX3Y2LnBuZw&#x3D;&#x3D;&#x2F;repeat&#x2F;true&#39;,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -1514,7 +1545,7 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="5-层叠组件"><a href="#5-层叠组件" class="headerlink" title="5 层叠组件"></a>5 层叠组件</h1><ul>
 <li>Stack即堆<ul>
 <li>使用Stack，或Stack结合Align，或Stack结合Positioned实现页面的定位布局。</li>
@@ -1525,16 +1556,18 @@ class MyApp extends StatelessWidget &#123;
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;层叠组件&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;层叠组件&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1545,44 +1578,46 @@ class MyApp extends StatelessWidget &#123;
         Container(
           height: 400,
           width: 400,
-          color: Colors.red,
+          color: Colors.green,
         ),
         Container(
           height: 200,
           width: 200,
           color: Colors.yellow,
         ),
-        const Text(&quot;Hello, Flutter!&quot;),
+        const Text(&#39;Hello, Flutter!&#39;),
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-1-Positioned"><a href="#5-1-Positioned" class="headerlink" title="5-1 Positioned"></a>5-1 Positioned</h2><ul>
 <li>Stack组件结合Positioned组件可以控制每个子元素的显示位置。</li>
-<li>top(子元素距离顶部的距离)、bottom(子元素距离底部的距离)、child(子组件)。</li>
 <li>left(子元素距离左侧距离)、right(子元素距离右侧距离)、height(子组件高度)。</li>
+<li>top(子元素距离顶部的距离)、bottom(子元素距离底部的距离)、child(子组件)。</li>
 <li>width(子组件的宽度，注意宽度和高度必须是固定值，没法使用double.infinity)。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;Positioned&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;Positioned&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
     return Container(
       height: 400,
       width: 400,
-      color: Colors.red,
+      color: Colors.green,
       &#x2F;&#x2F; Stack是相对于外部容器进行定位
       child: Stack(
         &#x2F;&#x2F; 若无外部容器就相对于整个屏幕定位
@@ -1601,26 +1636,28 @@ class MyApp extends StatelessWidget &#123;
             &#x2F;&#x2F; 居于容器右侧中间
             right: 0,
             top: 200,
-            child: Text(&quot;Hello, Flutter!&quot;),
+            child: Text(&#39;Hello, Flutter!&#39;),
           ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-2-浮动导航功能"><a href="#5-2-浮动导航功能" class="headerlink" title="5-2 浮动导航功能"></a>5-2 浮动导航功能</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;浮动导航功能&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;浮动导航功能&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1632,26 +1669,26 @@ class MyApp extends StatelessWidget &#123;
           &#x2F;&#x2F; 将隐藏的列表01显示出来
           padding: const EdgeInsets.only(top: 50),
           children: const [
-            ListTile(title: Text(&quot;列表01&quot;)),
-            ListTile(title: Text(&quot;列表02&quot;)),
-            ListTile(title: Text(&quot;列表03&quot;)),
-            ListTile(title: Text(&quot;列表04&quot;)),
-            ListTile(title: Text(&quot;列表05&quot;)),
-            ListTile(title: Text(&quot;列表06&quot;)),
-            ListTile(title: Text(&quot;列表07&quot;)),
-            ListTile(title: Text(&quot;列表08&quot;)),
-            ListTile(title: Text(&quot;列表09&quot;)),
-            ListTile(title: Text(&quot;列表10&quot;)),
-            ListTile(title: Text(&quot;列表11&quot;)),
-            ListTile(title: Text(&quot;列表12&quot;)),
-            ListTile(title: Text(&quot;列表13&quot;)),
-            ListTile(title: Text(&quot;列表14&quot;)),
-            ListTile(title: Text(&quot;列表15&quot;)),
-            ListTile(title: Text(&quot;列表16&quot;)),
-            ListTile(title: Text(&quot;列表17&quot;)),
-            ListTile(title: Text(&quot;列表18&quot;)),
-            ListTile(title: Text(&quot;列表19&quot;)),
-            ListTile(title: Text(&quot;列表20&quot;)),
+            ListTile(title: Text(&#39;列表01&#39;)),
+            ListTile(title: Text(&#39;列表02&#39;)),
+            ListTile(title: Text(&#39;列表03&#39;)),
+            ListTile(title: Text(&#39;列表04&#39;)),
+            ListTile(title: Text(&#39;列表05&#39;)),
+            ListTile(title: Text(&#39;列表06&#39;)),
+            ListTile(title: Text(&#39;列表07&#39;)),
+            ListTile(title: Text(&#39;列表08&#39;)),
+            ListTile(title: Text(&#39;列表09&#39;)),
+            ListTile(title: Text(&#39;列表10&#39;)),
+            ListTile(title: Text(&#39;列表11&#39;)),
+            ListTile(title: Text(&#39;列表12&#39;)),
+            ListTile(title: Text(&#39;列表13&#39;)),
+            ListTile(title: Text(&#39;列表14&#39;)),
+            ListTile(title: Text(&#39;列表15&#39;)),
+            ListTile(title: Text(&#39;列表16&#39;)),
+            ListTile(title: Text(&#39;列表17&#39;)),
+            ListTile(title: Text(&#39;列表18&#39;)),
+            ListTile(title: Text(&#39;列表19&#39;)),
+            ListTile(title: Text(&#39;列表20&#39;)),
           ],
         ),
         Positioned(
@@ -1662,35 +1699,40 @@ class MyApp extends StatelessWidget &#123;
           height: 50,
           child: Row(
             children: [
-              Expanded(flex: 1, child: Container(
-                alignment: Alignment.center,
-                height: 50,
-                color: Colors.purple,
-                child: const Text(
-                  &quot;二级导航&quot;, 
-                  style: TextStyle(color: Colors.white),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50,
+                  color: Colors.purple,
+                  child: const Text(
+                    &#39;二级导航&#39;,
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-              )),
+              ),
             ],
           ),
         ),
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-3-优化浮动导航"><a href="#5-3-优化浮动导航" class="headerlink" title="5-3 优化浮动导航"></a>5-3 优化浮动导航</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;优化浮动导航&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;优化浮动导航&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1701,26 +1743,26 @@ class MyApp extends StatelessWidget &#123;
         ListView(
           padding: const EdgeInsets.only(bottom: 50),
           children: const [
-            ListTile(title: Text(&quot;列表01&quot;)),
-            ListTile(title: Text(&quot;列表02&quot;)),
-            ListTile(title: Text(&quot;列表03&quot;)),
-            ListTile(title: Text(&quot;列表04&quot;)),
-            ListTile(title: Text(&quot;列表05&quot;)),
-            ListTile(title: Text(&quot;列表06&quot;)),
-            ListTile(title: Text(&quot;列表07&quot;)),
-            ListTile(title: Text(&quot;列表08&quot;)),
-            ListTile(title: Text(&quot;列表09&quot;)),
-            ListTile(title: Text(&quot;列表10&quot;)),
-            ListTile(title: Text(&quot;列表11&quot;)),
-            ListTile(title: Text(&quot;列表12&quot;)),
-            ListTile(title: Text(&quot;列表13&quot;)),
-            ListTile(title: Text(&quot;列表14&quot;)),
-            ListTile(title: Text(&quot;列表15&quot;)),
-            ListTile(title: Text(&quot;列表16&quot;)),
-            ListTile(title: Text(&quot;列表17&quot;)),
-            ListTile(title: Text(&quot;列表18&quot;)),
-            ListTile(title: Text(&quot;列表19&quot;)),
-            ListTile(title: Text(&quot;列表20&quot;)),
+            ListTile(title: Text(&#39;列表01&#39;)),
+            ListTile(title: Text(&#39;列表02&#39;)),
+            ListTile(title: Text(&#39;列表03&#39;)),
+            ListTile(title: Text(&#39;列表04&#39;)),
+            ListTile(title: Text(&#39;列表05&#39;)),
+            ListTile(title: Text(&#39;列表06&#39;)),
+            ListTile(title: Text(&#39;列表07&#39;)),
+            ListTile(title: Text(&#39;列表08&#39;)),
+            ListTile(title: Text(&#39;列表09&#39;)),
+            ListTile(title: Text(&#39;列表10&#39;)),
+            ListTile(title: Text(&#39;列表11&#39;)),
+            ListTile(title: Text(&#39;列表12&#39;)),
+            ListTile(title: Text(&#39;列表13&#39;)),
+            ListTile(title: Text(&#39;列表14&#39;)),
+            ListTile(title: Text(&#39;列表15&#39;)),
+            ListTile(title: Text(&#39;列表16&#39;)),
+            ListTile(title: Text(&#39;列表17&#39;)),
+            ListTile(title: Text(&#39;列表18&#39;)),
+            ListTile(title: Text(&#39;列表19&#39;)),
+            ListTile(title: Text(&#39;列表20&#39;)),
           ],
         ),
         Positioned(
@@ -1734,7 +1776,7 @@ class MyApp extends StatelessWidget &#123;
             alignment: Alignment.center,
             color: Colors.purple,
             child: const Text(
-              &quot;二级导航&quot;,
+              &#39;二级导航&#39;,
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -1742,20 +1784,22 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-4-Align方法介绍"><a href="#5-4-Align方法介绍" class="headerlink" title="5-4 Align方法介绍"></a>5-4 Align方法介绍</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;Align方法介绍&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;Align方法介绍&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1764,48 +1808,51 @@ class MyApp extends StatelessWidget &#123;
       &#x2F;&#x2F; alignment: Alignment.topCenter,
       width: 200,
       height: 200,
-      color: Colors.red,
+      color: Colors.green,
 
       &#x2F;&#x2F; 方法二
       &#x2F;&#x2F; child: const Align(
       &#x2F;&#x2F;   alignment: Alignment.center,
-      &#x2F;&#x2F;   child: Text(&quot;Hello, Flutter!&quot;),
+      &#x2F;&#x2F;   child: Text(&#39;Hello, Flutter!&#39;),
       &#x2F;&#x2F; ),
 
       &#x2F;&#x2F; 方法三
       &#x2F;&#x2F; child: const Center(
-      &#x2F;&#x2F;   child: Text(&quot;Hello, Flutter!&quot;),
+      &#x2F;&#x2F;   child: Text(&#39;Hello, Flutter!&#39;),
       &#x2F;&#x2F; ),
 
-      &#x2F;&#x2F; (Alignment.x*childwidth&#x2F;2+childwidth&#x2F;2,Alignment.y*childHeight&#x2F;2+childHeight&#x2F;2)
+      &#x2F;&#x2F; (Alignment.x*childwidth&#x2F;2+childwidth&#x2F;2, 
+      &#x2F;&#x2F; Alignment.y*childHeight&#x2F;2+childHeight&#x2F;2)
       child: const Align(
         &#x2F;&#x2F; 通过坐标转换公式计算偏移位置
         alignment: Alignment(-1, 1),
-        child: Text(&quot;Hello, Flutter!&quot;),
+        child: Text(&#39;Hello, Flutter!&#39;),
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-5-Stack结合Align"><a href="#5-5-Stack结合Align" class="headerlink" title="5-5 Stack结合Align"></a>5-5 Stack结合Align</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;Stack结合Align&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;Stack结合Align&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
     &#x2F;&#x2F; return Stack(
     &#x2F;&#x2F;   children: const [
-    &#x2F;&#x2F;     Align(alignment: Alignment.topLeft, child: Text(&quot;收藏&quot;)),
-    &#x2F;&#x2F;     Align(alignment: Alignment.topRight, child: Text(&quot;购买&quot;)),
+    &#x2F;&#x2F;     Align(alignment: Alignment.topLeft, child: Text(&#39;收藏&#39;)),
+    &#x2F;&#x2F;     Align(alignment: Alignment.topRight, child: Text(&#39;购买&#39;)),
     &#x2F;&#x2F;   ],
     &#x2F;&#x2F; );
     return Column(
@@ -1815,8 +1862,8 @@ class MyApp extends StatelessWidget &#123;
           height: 40,
           child: Stack(
             children: const [
-              Align(alignment: Alignment.topLeft, child: Text(&quot;收藏&quot;)),
-              Align(alignment: Alignment.topRight, child: Text(&quot;购买&quot;)),
+              Align(alignment: Alignment.topLeft, child: Text(&#39;收藏&#39;)),
+              Align(alignment: Alignment.topRight, child: Text(&#39;购买&#39;)),
             ],
           ),
         ),
@@ -1826,49 +1873,51 @@ class MyApp extends StatelessWidget &#123;
           &#x2F;&#x2F; 相对于容器SizedBox来定位
           child: Stack(
             children: const [
-              Positioned(left: 10, child: Text(&quot;收藏&quot;)),
-              Positioned(right: 10, child: Text(&quot;购买&quot;)),
+              Positioned(left: 10, child: Text(&#39;收藏&#39;)),
+              Positioned(right: 10, child: Text(&#39;购买&#39;)),
             ],
           ),
         ),
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="6-比例组件"><a href="#6-比例组件" class="headerlink" title="6 比例组件"></a>6 比例组件</h1><ul>
 <li>作用是根据设置调整子元素child的宽高比，首先在布局限制条件允许的范围内尽可能的扩展。</li>
 <li>Widget的高度由宽度和比率决定，类似于BoxFit中的contain，按照固定比率去尽量占满区域。</li>
-<li>如果满足所有限制条件后仍无法找到一个可行尺寸，将优先适应布局限制条件，忽略设置的比率。</li>
+<li>若满足所有限制条件后仍无法找到一个可行尺寸，将优先适应布局限制条件，忽略设置的比率。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;比例组件&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;比例组件&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
     &#x2F;&#x2F; 页面上显示一个容器，宽度是屏幕的宽度，高度是宽度的一半
     return AspectRatio(
-      aspectRatio: 2&#x2F;1,
+      aspectRatio: 2 &#x2F; 1,
       child: Container(
-        color: Colors.red,
+        color: Colors.green,
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="7-卡片组件"><a href="#7-卡片组件" class="headerlink" title="7 卡片组件"></a>7 卡片组件</h1><ul>
 <li>Card是卡片组件块，内容由大多数类型组件构成，具有圆角和阴影，看起来更具立体感。</li>
 <li>margin(外边距)、elevation(阴影值的深度)、color(背景颜色)、shadowColor(阴影颜色)。</li>
-<li>child(子组件)、Shape(Card的阴影效果，默认为圆角长方形边)、clipBehavior(内容溢出的剪切方式)。<ul>
+<li>child(子组件)、Shape(阴影效果，默认为圆角长方形边)、clipBehavior(内容溢出的剪切方式)。<ul>
 <li>Clip.none(不剪切)、Clip.harEdge(剪切但不抗锯齿)、Clip.antiAlias(剪切并抗锯齿)。</li>
 <li>Clip.antiAliasWithSaveLayer：带有抗锯齿的剪切，并在剪切之后立即保存saveLayer。</li>
 </ul>
@@ -1878,16 +1927,18 @@ class MyApp extends StatelessWidget &#123;
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;卡片组件&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;卡片组件&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1905,13 +1956,13 @@ class MyApp extends StatelessWidget &#123;
           child: Column(
             children: const [
               ListTile(
-                title: Text(&quot;Luxury&quot;, style: TextStyle(fontSize: 28)),
-                subtitle: Text(&quot;高级软件工程师&quot;),
+                title: Text(&#39;Luxury&#39;, style: TextStyle(fontSize: 28)),
+                subtitle: Text(&#39;高级软件工程师&#39;),
               ),
               &#x2F;&#x2F; 分割线
               Divider(),
-              ListTile(title: Text(&quot;电话：18856666110&quot;)),
-              ListTile(title: Text(&quot;地址：福建省厦门市思明区&quot;)),
+              ListTile(title: Text(&#39;电话：18856666110&#39;)),
+              ListTile(title: Text(&#39;地址：福建省厦门市思明区&#39;)),
             ],
           ),
         ),
@@ -1925,33 +1976,35 @@ class MyApp extends StatelessWidget &#123;
           child: Column(
             children: const [
               ListTile(
-                title: Text(&quot;Aurora&quot;, style: TextStyle(fontSize: 28)),
-                subtitle: Text(&quot;高级开发工程师&quot;),
+                title: Text(&#39;Aurora&#39;, style: TextStyle(fontSize: 28)),
+                subtitle: Text(&#39;高级开发工程师&#39;),
               ),
               &#x2F;&#x2F; 分割线
               Divider(),
-              ListTile(title: Text(&quot;电话：18856666120&quot;)),
-              ListTile(title: Text(&quot;地址：福建省厦门市湖里区&quot;)),
+              ListTile(title: Text(&#39;电话：18856666120&#39;)),
+              ListTile(title: Text(&#39;地址：福建省厦门市湖里区&#39;)),
             ],
           ),
         ),
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-1-圆形图片"><a href="#7-1-圆形图片" class="headerlink" title="7-1 圆形图片"></a>7-1 圆形图片</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;圆形图片&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;圆形图片&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -1966,21 +2019,33 @@ class MyApp extends StatelessWidget &#123;
           child: Column(
             children: [
               AspectRatio(
-                aspectRatio: 16&#x2F;9,
-                child: Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;yWnmo&quot;, fit: BoxFit.cover),
+                aspectRatio: 16 &#x2F; 9,
+                child: Image.network(
+                  &#39;https:&#x2F;&#x2F;gimg2.baidu.com&#x2F;image_search&#39;
+                  &#39;&#x2F;src&#x3D;http%3A%2F%2Fc-ssl.duitang.com%&#39;
+                  &#39;2Fuploads%2Fitem%2F201905%2F19%2F201&#39;
+                  &#39;90519103932_lCZT3.jpeg&amp;refer&#x3D;http%3A&#39;
+                  &#39;%2F%2Fc-ssl.duitang.com&amp;app&#x3D;2002&amp;siz&#39;
+                  &#39;e&#x3D;f9999,10000&amp;q&#x3D;a80&amp;n&#x3D;0&amp;g&#x3D;0n&amp;fmt&#x3D;aut&#39;
+                  &#39;o?sec&#x3D;1725157682&amp;t&#x3D;1c8606884ee741fc8&#39;
+                  &#39;5920124947c8969&#39;,
+                  fit: BoxFit.cover,
+                ),
               ),
               ListTile(
                 &#x2F;&#x2F; ClipOval实现圆形图片
                 leading: ClipOval(
                   child: Image.network(
-                    &quot;http:&#x2F;&#x2F;www.m58.link&#x2F;yWnmo&quot;,
+                    &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;377968&#39;
+                    &#39;1995,915534195&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#39;
+                    &#39;&#x3D;138&amp;f&#x3D;JPEG?w&#x3D;500&amp;h&#x3D;500&#39;,
                     fit: BoxFit.cover,
                     height: 50,
                     width: 50,
                   ),
                 ),
-                title: const Text(&quot;桃夭&quot;),
-                subtitle: const Text(&quot;桃之夭夭，灼灼其华。&quot;),
+                title: const Text(&#39;桃夭&#39;),
+                subtitle: const Text(&#39;桃之夭夭，灼灼其华。&#39;),
               ),
             ],
           ),
@@ -1994,18 +2059,33 @@ class MyApp extends StatelessWidget &#123;
           child: Column(
             children: [
               AspectRatio(
-                aspectRatio: 16&#x2F;9,
-                child: Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;abMGM&quot;, fit: BoxFit.cover),
+                aspectRatio: 16 &#x2F; 9,
+                child: Image.network(
+                  &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#39;
+                  &#39;&#x2F;u&#x3D;2050583615,2484881629&amp;&#39;
+                  &#39;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#39;
+                  &#39;&#x3D;JPEG?w&#x3D;890&amp;h&#x3D;500&#39;,
+                  fit: BoxFit.cover,
+                ),
               ),
               const ListTile(
                 &#x2F;&#x2F; CircleAvatar实现圆形图片
                 leading: CircleAvatar(
                   &#x2F;&#x2F; 设置头像半径
                   radius: 25,
-                  backgroundImage: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;abMGM&quot;),
+                  backgroundImage: NetworkImage(
+                    &#39;https:&#x2F;&#x2F;gimg2.baidu.com&#x2F;image_search&#39;
+                    &#39;&#x2F;src&#x3D;http%3A%2F%2Fb-ssl.duitang.com%&#39;
+                    &#39;2Fuploads%2Fitem%2F201803%2F23%2F201&#39;
+                    &#39;80323164300_ZQLAt.jpeg&amp;refer&#x3D;http%3A&#39;
+                    &#39;%2F%2Fb-ssl.duitang.com&amp;app&#x3D;2002&amp;siz&#39;
+                    &#39;e&#x3D;f9999,10000&amp;q&#x3D;a80&amp;n&#x3D;0&amp;g&#x3D;0n&amp;fmt&#x3D;aut&#39;
+                    &#39;o?sec&#x3D;1725157893&amp;t&#x3D;24cf15995121c713c&#39;
+                    &#39;6081a03a3596499&#39;,
+                  ),
                 ),
-                title: Text(&quot;蒹葭&quot;),
-                subtitle: Text(&quot;蒹葭苍苍，白露为霜。&quot;),
+                title: Text(&#39;蒹葭&#39;),
+                subtitle: Text(&#39;蒹葭苍苍，白露为霜。&#39;),
               ),
             ],
           ),
@@ -2013,21 +2093,23 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-2-循环遍历"><a href="#7-2-循环遍历" class="headerlink" title="7-2 循环遍历"></a>7-2 循环遍历</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;res&#x2F;mydata.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;循环遍历&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;循环遍历&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   List&lt;Widget&gt; _initCardData() &#123;
     var tempList &#x3D; listData.map((value) &#123;
@@ -2040,7 +2122,7 @@ class MyApp extends StatelessWidget &#123;
         child: Column(
           children: [
             AspectRatio(
-              aspectRatio: 16&#x2F;9,
+              aspectRatio: 16 &#x2F; 9,
               child: Image.network(value[&#39;imageUrl&#39;], fit: BoxFit.cover),
             ),
             ListTile(
@@ -2070,31 +2152,33 @@ class MyApp extends StatelessWidget &#123;
       children: _initCardData(),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="8-按钮组件"><a href="#8-按钮组件" class="headerlink" title="8 按钮组件"></a>8 按钮组件</h1><ul>
 <li>onPressed(必填参，按下按钮时触发回调，接收一个方法，传null表禁用，显示相关样式)。</li>
 <li>child(子组件)、style(通过ButtonStyle进行装饰，ButtonStyle里面的常用参数，如下所示)。<ul>
 <li>ElevatedButton：凸起按钮，默认带有阴影和灰色背景，按下后阴影变大。</li>
 <li>TextButton：文本按钮，默认背景透明并且不带阴影，按下后会有背景色。</li>
-<li>OutlinedButton：默认带边框，不带阴影且背景透明，按下后边框颜色变亮同时出现背景和阴影。</li>
-<li>IconButton：是一个可点击的Icon图标，不包含文字，默认是没有背景的，点击后将会出现背景。</li>
-<li>带图标的按钮：ElevatedButton、TextButton、OutlinedButton都有一个icon构造函数，可带图标。</li>
+<li>OutlinedButton：默认带边框，不带阴影背景透明，按下后边框颜色变亮同时出现背景和阴影。</li>
+<li>IconButton：一个可点击的Icon图标，不包含文字，默认是没有背景的，点击后将会出现背景。</li>
+<li>带图标按钮：ElevatedButton、TextButton、OutlinedButton都有一个icon构造函数，可带图标。</li>
 </ul>
 </li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;按钮组件&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;按钮组件&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2106,20 +2190,22 @@ class MyApp extends StatelessWidget &#123;
             &#x2F;&#x2F; 凸起按钮
             ElevatedButton(
               &#x2F;&#x2F; 打印ElevatedButton
-              onPressed: ()&#123;print(&quot;ElevatedButton&quot;);&#125;,
-              child: const Text(&quot;普通按钮&quot;),
+              onPressed: () &#123;
+                print(&#39;ElevatedButton&#39;);
+              &#125;,
+              child: const Text(&#39;普通按钮&#39;),
             ),
             &#x2F;&#x2F; 文本按钮
             TextButton(
-              onPressed: ()&#123;&#125;,
-              child: const Text(&quot;文本按钮&quot;),
+              onPressed: () &#123;&#125;,
+              child: const Text(&#39;文本按钮&#39;),
             ),
             &#x2F;&#x2F; 带边框的按钮
             const OutlinedButton(
               onPressed: null,
-              child: Text(&quot;边框按钮&quot;),
+              child: Text(&#39;边框按钮&#39;),
             ),
-            IconButton(onPressed: ()&#123;&#125;, icon: const Icon(Icons.thumb_up)),
+            IconButton(onPressed: () &#123;&#125;, icon: const Icon(Icons.thumb_up)),
           ],
         ),
         const SizedBox(height: 20),
@@ -2129,19 +2215,19 @@ class MyApp extends StatelessWidget &#123;
           children: [
             &#x2F;&#x2F; 带图标的按钮
             ElevatedButton.icon(
-              onPressed: ()&#123;&#125;,
+              onPressed: () &#123;&#125;,
               icon: const Icon(Icons.send),
-              label: const Text(&quot;发送&quot;),
+              label: const Text(&#39;发送&#39;),
             ),
             TextButton.icon(
-              onPressed: ()&#123;&#125;,
+              onPressed: () &#123;&#125;,
               icon: const Icon(Icons.info),
-              label: const Text(&quot;消息&quot;),
+              label: const Text(&#39;消息&#39;),
             ),
             OutlinedButton.icon(
-              onPressed: ()&#123;&#125;,
+              onPressed: () &#123;&#125;,
               icon: const Icon(Icons.add),
-              label: const Text(&quot;增加&quot;),
+              label: const Text(&#39;增加&#39;),
             ),
           ],
         ),
@@ -2156,28 +2242,32 @@ class MyApp extends StatelessWidget &#123;
                 backgroundColor: MaterialStateProperty.all(Colors.red),
                 foregroundColor: MaterialStateProperty.all(Colors.white),
               ),
-              onPressed: ()&#123;print(&quot;ElevatedButton&quot;);&#125;,
-              child: const Text(&quot;普通按钮&quot;),
+              onPressed: () &#123;
+                print(&#39;ElevatedButton&#39;);
+              &#125;,
+              child: const Text(&#39;普通按钮&#39;),
             ),
           ],
         ),
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="8-1-修改宽和高"><a href="#8-1-修改宽和高" class="headerlink" title="8-1 修改宽和高"></a>8-1 修改宽和高</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;修改宽和高&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;修改宽和高&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2191,17 +2281,17 @@ class MyApp extends StatelessWidget &#123;
               height: 60,
               width: 180,
               child: ElevatedButton(
-                onPressed: ()&#123;&#125;,
-                child: const Text(&quot;确认&quot;),
+                onPressed: () &#123;&#125;,
+                child: const Text(&#39;确认&#39;),
               ),
             ),
             SizedBox(
               height: 60,
               width: 180,
               child: ElevatedButton.icon(
-                onPressed: ()&#123;&#125;,
+                onPressed: () &#123;&#125;,
                 icon: const Icon(Icons.search),
-                label: const Text(&quot;搜索&quot;),
+                label: const Text(&#39;搜索&#39;),
               ),
             ),
           ],
@@ -2209,20 +2299,22 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="8-2-自适应按钮"><a href="#8-2-自适应按钮" class="headerlink" title="8-2 自适应按钮"></a>8-2 自适应按钮</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;自适应按钮&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;自适应按钮&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2241,14 +2333,14 @@ class MyApp extends StatelessWidget &#123;
                 &#x2F;&#x2F; 没效果了
                 &#x2F;&#x2F; width: 180,
                 child: ElevatedButton(
-                  onPressed: ()&#123;&#125;,
+                  onPressed: () &#123;&#125;,
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
                       const Color.fromARGB(220, 219, 35, 35),
                     ),
-                    foregroundColor: MaterialStateProperty.all(Colors.white)
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
                   ),
-                  child: const Text(&quot;登录&quot;),
+                  child: const Text(&#39;登录&#39;),
                 ),
               ),
             ),
@@ -2257,20 +2349,22 @@ class MyApp extends StatelessWidget &#123;
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="8-3-圆形与圆角"><a href="#8-3-圆形与圆角" class="headerlink" title="8-3 圆形与圆角"></a>8-3 圆形与圆角</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;圆形与圆角&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;圆形与圆角&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2294,8 +2388,8 @@ class MyApp extends StatelessWidget &#123;
                     ),
                   ),
                 ),
-                onPressed: ()&#123;&#125;,
-                child: const Text(&quot;圆形&quot;),
+                onPressed: () &#123;&#125;,
+                child: const Text(&#39;圆形&#39;),
               ),
             ),
             ElevatedButton(
@@ -2306,28 +2400,30 @@ class MyApp extends StatelessWidget &#123;
                   ),
                 ),
               ),
-              onPressed: ()&#123;&#125;,
-              child: const Text(&quot;圆角&quot;),
+              onPressed: () &#123;&#125;,
+              child: const Text(&#39;圆角&#39;),
             ),
           ],
         ),
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="8-4-边框的修改"><a href="#8-4-边框的修改" class="headerlink" title="8-4 边框的修改"></a>8-4 边框的修改</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;边框的修改&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;边框的修改&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2343,18 +2439,18 @@ class MyApp extends StatelessWidget &#123;
                   const BorderSide(width: 1, color: Colors.red),
                 ),
               ),
-              onPressed: ()&#123;&#125;,
-              child: const Text(&quot;带边框的按钮&quot;),
+              onPressed: () &#123;&#125;,
+              child: const Text(&#39;带边框的按钮&#39;),
             ),
           ],
         ),
       ],
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="9-Wrap组件"><a href="#9-Wrap组件" class="headerlink" title="9 Wrap组件"></a>9 Wrap组件</h1><ul>
-<li>该组件可以实现流布局，单行的Wrap和Row表现几乎一致，单列的Wrap和Column也表现几乎一致。</li>
-<li>Row与Column都是单行单列，Wrap则突破限制，mainAxis上空间不足时，向crossAxis上扩展显示。</li>
+<li>该组件可实现流布局，单行的Wrap和Row表现几乎一致，单列的Wrap和Column表现也几乎一致。</li>
+<li>Row与Column都是单行单列，Wrap则突破限制，mainAxis上空间不足时向crossAxis上扩展显示。</li>
 <li>属性说明<ul>
 <li>direction(主轴的方向，默认水平)、spacing(主轴方向上的间距)。</li>
 <li>alignment(主轴的对齐方式)、textDirection(文本方向)、runSpacing(run的间距)。</li>
@@ -2366,20 +2462,22 @@ class MyApp extends StatelessWidget &#123;
 <h2 id="9-1-Wrap组件使用"><a href="#9-1-Wrap组件使用" class="headerlink" title="9-1 Wrap组件使用"></a>9-1 Wrap组件使用</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;Wrap组件使用&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;Wrap组件使用&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
-    &#x2F;&#x2F; return Button(&quot;第1集&quot;, onPressed: ()&#123;&#125;);
+    &#x2F;&#x2F; return Button(&#39;第1集&#39;, onPressed: ()&#123;&#125;);
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Wrap(
@@ -2392,24 +2490,24 @@ class MyApp extends StatelessWidget &#123;
         &#x2F;&#x2F; 垂直方向排列
         &#x2F;&#x2F; direction: Axis.vertical,
         children: [
-          Button(&quot;第1集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第2集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第3集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第4集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第5集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第6集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第7集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第8集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第9集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第10集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第11集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第12集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第13集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第14集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第15集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第16集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第17集&quot;, onPressed: ()&#123;&#125;),
-          Button(&quot;第18集&quot;, onPressed: ()&#123;&#125;),
+          Button(&#39;第1集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第2集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第3集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第4集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第5集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第6集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第7集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第8集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第9集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第10集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第11集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第12集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第13集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第14集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第15集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第16集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第17集&#39;, onPressed: () &#123;&#125;),
+          Button(&#39;第18集&#39;, onPressed: () &#123;&#125;),
         ],
       ),
     );
@@ -2422,7 +2520,7 @@ class Button extends StatelessWidget &#123;
   String text;
   &#x2F;&#x2F; 方法
   void Function()? onPressed;
-  Button(this.text, &#123;Key? key, required this.onPressed&#125;): super(key: key);
+  Button(this.text, &#123;Key? key, required this.onPressed&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2437,20 +2535,22 @@ class Button extends StatelessWidget &#123;
       child: Text(text),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="9-2-搜索页面布局"><a href="#9-2-搜索页面布局" class="headerlink" title="9-2 搜索页面布局"></a>9-2 搜索页面布局</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: const Text(&#39;搜索页面布局&#39;)),
-      body: const MyApp(),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;搜索页面布局&#39;)),
+        body: const MyApp(),
+      ),
     ),
-  ),);
+  );
 &#125;
 
 class MyApp extends StatelessWidget &#123;
-  const MyApp(&#123;Key? key&#125;): super(key: key);
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2459,7 +2559,7 @@ class MyApp extends StatelessWidget &#123;
       children: [
         Row(
           children: [
-            Text(&quot;热搜&quot;, style: Theme.of(context).textTheme.titleLarge),
+            Text(&#39;热搜&#39;, style: Theme.of(context).textTheme.titleLarge),
           ],
         ),
         const Divider(),
@@ -2467,30 +2567,30 @@ class MyApp extends StatelessWidget &#123;
           spacing: 10,
           runSpacing: 10,
           children: [
-            Button(&quot;女装&quot;, onPressed: ()&#123;&#125;),
-            Button(&quot;笔记本&quot;, onPressed: ()&#123;&#125;),
-            Button(&quot;玩具&quot;, onPressed: ()&#123;&#125;),
-            Button(&quot;文学&quot;, onPressed: ()&#123;&#125;),
-            Button(&quot;时尚&quot;, onPressed: ()&#123;&#125;),
-            Button(&quot;扭扭棒&quot;, onPressed: ()&#123;&#125;),
-            Button(&quot;健身&quot;, onPressed: ()&#123;&#125;),
-            Button(&quot;台式机&quot;, onPressed: ()&#123;&#125;),
+            Button(&#39;女装&#39;, onPressed: () &#123;&#125;),
+            Button(&#39;笔记本&#39;, onPressed: () &#123;&#125;),
+            Button(&#39;玩具&#39;, onPressed: () &#123;&#125;),
+            Button(&#39;文学&#39;, onPressed: () &#123;&#125;),
+            Button(&#39;时尚&#39;, onPressed: () &#123;&#125;),
+            Button(&#39;扭扭棒&#39;, onPressed: () &#123;&#125;),
+            Button(&#39;健身&#39;, onPressed: () &#123;&#125;),
+            Button(&#39;台式机&#39;, onPressed: () &#123;&#125;),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
-            Text(&quot;历史记录&quot;, style: Theme.of(context).textTheme.titleLarge),
+            Text(&#39;历史记录&#39;, style: Theme.of(context).textTheme.titleLarge),
           ],
         ),
         const Divider(),
         Column(
           children: const [
-            ListTile(title: Text(&quot;女装&quot;)),
+            ListTile(title: Text(&#39;女装&#39;)),
             Divider(),
-            ListTile(title: Text(&quot;手机&quot;)),
+            ListTile(title: Text(&#39;手机&#39;)),
             Divider(),
-            ListTile(title: Text(&quot;电脑&quot;)),
+            ListTile(title: Text(&#39;电脑&#39;)),
             Divider(),
           ],
         ),
@@ -2499,7 +2599,7 @@ class MyApp extends StatelessWidget &#123;
         &#x2F;&#x2F; OutlinedButton.icon(
         &#x2F;&#x2F;   onPressed: ()&#123;&#125;,
         &#x2F;&#x2F;   icon: const Icon(Icons.delete),
-        &#x2F;&#x2F;   label: const Text(&quot;清空历史记录&quot;),
+        &#x2F;&#x2F;   label: const Text(&#39;清空历史记录&#39;),
         &#x2F;&#x2F; ),
         Padding(
           padding: const EdgeInsets.all(40),
@@ -2507,9 +2607,9 @@ class MyApp extends StatelessWidget &#123;
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all(Colors.black45),
             ),
-            onPressed: ()&#123;&#125;,
+            onPressed: () &#123;&#125;,
             icon: const Icon(Icons.delete),
-            label: const Text(&quot;清空历史记录&quot;),
+            label: const Text(&#39;清空历史记录&#39;),
           ),
         ),
       ],
@@ -2523,7 +2623,7 @@ class Button extends StatelessWidget &#123;
   String text;
   &#x2F;&#x2F; 方法
   void Function()? onPressed;
-  Button(this.text, &#123;Key? key, required this.onPressed&#125;): super(key: key);
+  Button(this.text, &#123;Key? key, required this.onPressed&#125;) : super(key: key);
 
   @override
   Widget build(BuildContext context) &#123;
@@ -2538,7 +2638,7 @@ class Button extends StatelessWidget &#123;
       child: Text(text),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
             </div>
             <hr/>
 
@@ -3183,7 +3283,7 @@ class Button extends StatelessWidget &#123;
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-29
                         </span>
                         <span class="publish-author">
                             
@@ -3223,10 +3323,10 @@ class Button extends StatelessWidget &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/ubuntu@01.html">
+                <a href="/posts/flutter@02.html">
                     <div class="card-image">
                         
-                        <img src="/medias/toc-banner/ubuntu/ubuntu@01.jpg" class="responsive-img" alt="手动安装SSH服务">
+                        <img src="/medias/toc-banner/flutter/flutter@02.jpg" class="responsive-img" alt="基础结构">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -3237,26 +3337,26 @@ class Button extends StatelessWidget &#123;
                         <span class="card-title">
                           <!-- 文章卡片hover线条效果 -->
                           <span class="titlesline"></span>
-                          手动安装SSH服务
+                          基础结构
                         </span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装SSH时，国外源无法访问，更换国内源仍然无果，可能地区特殊，网络做了类似于运营商的缓存劫持限制。
+                            Flutter项目结构通常包含lib、android、ios等目录，其中lib目录存放Dart代码，android和ios目录分别存放平台相关的代码。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Ubuntu/" class="post-category">
-                                    Ubuntu
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
                                 </a>
                             
                             
@@ -3266,20 +3366,16 @@ class Button extends StatelessWidget &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Zlib/">
-                        <span class="chip bg-color">Zlib</span>
+                    <a href="/tags/ListView/">
+                        <span class="chip bg-color">ListView</span>
                     </a>
                     
-                    <a href="/tags/Ubuntu/">
-                        <span class="chip bg-color">Ubuntu</span>
+                    <a href="/tags/GridView/">
+                        <span class="chip bg-color">GridView</span>
                     </a>
                     
-                    <a href="/tags/OpenSSL/">
-                        <span class="chip bg-color">OpenSSL</span>
-                    </a>
-                    
-                    <a href="/tags/OpenSSH/">
-                        <span class="chip bg-color">OpenSSH</span>
+                    <a href="/tags/Container/">
+                        <span class="chip bg-color">Container</span>
                     </a>
                     
                 </div>
@@ -3528,7 +3624,7 @@ class Button extends StatelessWidget &#123;
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">54k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">54.4k</span>&nbsp;字&nbsp;🌼<br>
       
       
       
