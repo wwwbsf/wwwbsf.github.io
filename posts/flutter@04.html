@@ -1170,7 +1170,7 @@ class MyApp extends StatelessWidget &#123;
   Widget build(BuildContext context) &#123;
     return MaterialApp(
       title: &#39;Flutter Demo&#39;,
-      theme: ThemeData(primarySwatch: Colors.blue,),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: HomePage(),
     );
   &#125;
@@ -1191,7 +1191,7 @@ class HomePage extends StatelessWidget &#123;
             Text(&#39;$countNum&#39;, style: Theme.of(context).textTheme.headline1),
             const SizedBox(height: 100),
             ElevatedButton(
-              onPressed: ()&#123;
+              onPressed: () &#123;
                 &#x2F;&#x2F; 增加时值会改变，页面不会变
                 countNum++;
                 &#x2F;&#x2F; 在StatelessWidget中无法调用
@@ -1238,7 +1238,7 @@ class HomePage extends StatefulWidget &#123;
 
 class _HomePageState extends State&lt;HomePage&gt; &#123;
   int _numCount &#x3D; 0;
-  
+
   @override
   Widget build(BuildContext context) &#123;
     &#x2F;&#x2F; 打印出来
@@ -1252,7 +1252,7 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
             Text(&#39;$_numCount&#39;, style: Theme.of(context).textTheme.headline2),
             const SizedBox(height: 60),
             ElevatedButton(
-              onPressed: ()&#123;
+              onPressed: () &#123;
                 setState(() &#123;
                   _numCount++;
                 &#125;);
@@ -1308,7 +1308,7 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
             Text(&#39;$_numCount&#39;, style: Theme.of(context).textTheme.headline2),
             const SizedBox(height: 60),
             ElevatedButton(
-              onPressed: ()&#123;
+              onPressed: () &#123;
                 setState(() &#123;
                   _numCount++;
                 &#125;);
@@ -1320,7 +1320,7 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
       ),
       &#x2F;&#x2F; 浮动按钮
       floatingActionButton: FloatingActionButton(
-        onPressed: ()&#123;
+        onPressed: () &#123;
           setState(() &#123;
             _numCount++;
           &#125;);
@@ -1367,7 +1367,7 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
       appBar: AppBar(title: const Text(&#39;实现动态列表&#39;)),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: ()&#123;
+        onPressed: () &#123;
           &#x2F;&#x2F; 改变数据必须加上setState
           setState(() &#123;
             _list.add(&#39;新增列表&#39;);
@@ -1380,7 +1380,7 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
         &#x2F;&#x2F;   ListTile(title: Text(&#39;列表&#39;)),
         &#x2F;&#x2F;   ListTile(title: Text(&#39;列表&#39;)),
         &#x2F;&#x2F; ],
-        children: _list.map((v)&#123;
+        children: _list.map((v) &#123;
           return ListTile(title: Text(v));
         &#125;).toList(),
       ),
@@ -1428,12 +1428,12 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;实现底部导航&quot;)),
+      appBar: AppBar(title: const Text(&#39;实现底部导航&#39;)),
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -1443,16 +1443,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#125;,
         items: const [
           BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
+            icon: Icon(Icons.home),
+            label: &#39;首页&#39;,
           ),
           BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
+            icon: Icon(Icons.category),
+            label: &#39;分类&#39;,
           ),
           BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
+            icon: Icon(Icons.settings),
+            label: &#39;设置&#39;,
           ),
         ],
       ),
