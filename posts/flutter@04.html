@@ -602,7 +602,8 @@ class="themespring" -->
         .deng-box, .deng-box1 {
             width: 40%;
         }
-        body.themespring .right {
+        /* 点开主题，会影响到移动哒的翻页按钮 */
+        /* body.themespring .right {
             float: left!important;
         }
     }
@@ -610,7 +611,7 @@ class="themespring" -->
         .right {
             float: left!important;
         }
-    }
+    } */
     .deng-box {
         position: fixed;
         top: -40px;
@@ -1123,7 +1124,7 @@ h3:hover {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.8k
+                    7.7k
                 </div>
                 
 
@@ -1468,7 +1469,92 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
     - category.dart
   - tabs.dart
 - main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-main-dart"><a href="#1-main-dart" class="headerlink" title="(1) main.dart"></a>(1) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
+<h3 id="1-user-dart"><a href="#1-user-dart" class="headerlink" title="(1) user.dart"></a>(1) user.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class UserPage extends StatefulWidget &#123;
+  const UserPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;UserPage&gt; createState() &#x3D;&gt; _UserPageState();
+&#125;
+
+class _UserPageState extends State&lt;UserPage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return const Center(
+      child: Text(&#39;用户信息&#39;),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-tabs-dart"><a href="#2-tabs-dart" class="headerlink" title="(2) tabs.dart"></a>(2) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  const Tabs(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  int _currentIndex &#x3D; 0;
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;实现页面切换&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: &#39;首页&#39;,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: &#39;分类&#39;,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: &#39;设置&#39;,
+          ),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: &#39;用户&#39;,
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-main-dart"><a href="#3-main-dart" class="headerlink" title="(3) main.dart"></a>(3) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
@@ -1487,88 +1573,6 @@ class MyApp extends StatelessWidget &#123;
     );
   &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-tabs-dart"><a href="#2-tabs-dart" class="headerlink" title="(2) tabs.dart"></a>(2) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
-import &#39;package:flutter&#x2F;material.dart&#39;;
-
-class Tabs extends StatefulWidget &#123;
-  const Tabs(&#123;Key? key&#125;) : super(key: key);
-
-  @override
-  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
-&#125;
-
-class _TabsState extends State&lt;Tabs&gt; &#123;
-  int _currentIndex &#x3D; 0;
-  final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
-  ];
-
-  @override
-  Widget build(BuildContext context) &#123;
-    return Scaffold(
-      appBar: AppBar(title: const Text(&quot;实现页面切换&quot;)),
-      body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        &#x2F;&#x2F; 选中的颜色
-        fixedColor: Colors.red,
-        &#x2F;&#x2F; 配置底部菜单大小
-        iconSize: 40,
-        &#x2F;&#x2F; 4个以上菜单需配置此项
-        type: BottomNavigationBarType.fixed,
-        &#x2F;&#x2F; 默认选中分类(第二个)
-        &#x2F;&#x2F; currentIndex: 1,
-        currentIndex: _currentIndex,
-        onTap: (index)&#123;
-          &#x2F;&#x2F; 获取点击的索引值
-          &#x2F;&#x2F; print(index);
-          &#x2F;&#x2F; 注意调用setState
-          setState(() &#123;
-            _currentIndex &#x3D; index;
-          &#125;);
-        &#125;,
-        items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
-          &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
-        ],
-      ),
-    );
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-user-dart"><a href="#3-user-dart" class="headerlink" title="(3) user.dart"></a>(3) user.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
-
-class UserPage extends StatefulWidget &#123;
-  const UserPage(&#123;Key? key&#125;) : super(key: key);
-
-  @override
-  State&lt;UserPage&gt; createState() &#x3D;&gt; _UserPageState();
-&#125;
-
-class _UserPageState extends State&lt;UserPage&gt; &#123;
-  @override
-  Widget build(BuildContext context) &#123;
-    return const Center(
-      child: Text(&quot;用户信息&quot;),
-    );
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-home-dart"><a href="#4-home-dart" class="headerlink" title="(4) home.dart"></a>(4) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class HomePage extends StatefulWidget &#123;
@@ -1582,7 +1586,7 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return const Center(
-      child: Text(&quot;首页&quot;),
+      child: Text(&#39;首页&#39;),
     );
   &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1599,7 +1603,7 @@ class _SettingPageState extends State&lt;SettingPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return const Center(
-      child: Text(&quot;系统设置&quot;),
+      child: Text(&#39;系统设置&#39;),
     );
   &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1616,13 +1620,13 @@ class _CategoryPageState extends State&lt;CategoryPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     &#x2F;&#x2F; return const Center(
-    &#x2F;&#x2F;   child: Text(&quot;分类&quot;),
+    &#x2F;&#x2F;   child: Text(&#39;分类&#39;),
     &#x2F;&#x2F; );
     return ListView(
       children: const [
-        ListTile(title: Text(&quot;列表1&quot;)),
-        ListTile(title: Text(&quot;列表2&quot;)),
-        ListTile(title: Text(&quot;列表3&quot;)),
+        ListTile(title: Text(&#39;列表1&#39;)),
+        ListTile(title: Text(&#39;列表2&#39;)),
+        ListTile(title: Text(&#39;列表3&#39;)),
       ],
     );
   &#125;
@@ -1636,15 +1640,15 @@ class _CategoryPageState extends State&lt;CategoryPage&gt; &#123;
 </ul>
 </li>
 </ul>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，除tabs.dart外，其余内容不变，多了message.dart文件
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，新增message.dart，除tabs.dart，其他内容不变
 - pages&#x2F;
   - tabs&#x2F;
     - user.dart
     - home.dart
     - setting.dart
-    - message.dart【✔】
+    - message.dart【+】
     - category.dart
-  - tabs.dart【✔】
+  - tabs.dart【🖊】
 - main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-1-tabs-dart"><a href="#3-1-tabs-dart" class="headerlink" title="3-1 tabs.dart"></a>3-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
@@ -1663,13 +1667,17 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), MessagePage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    MessagePage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;凸起按钮的导航&quot;)),
+      appBar: AppBar(title: const Text(&#39;凸起按钮的导航&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -1681,7 +1689,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -1691,25 +1699,25 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#125;,
         items: const [
           BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
+            icon: Icon(Icons.home),
+            label: &#39;首页&#39;,
           ),
           BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
+            icon: Icon(Icons.category),
+            label: &#39;分类&#39;,
           ),
           BottomNavigationBarItem(
-            icon:Icon(Icons.message),
-            label: &quot;消息&quot;,
+            icon: Icon(Icons.message),
+            label: &#39;消息&#39;,
           ),
           BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
+            icon: Icon(Icons.settings),
+            label: &#39;设置&#39;,
           ),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
           BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
+            icon: Icon(Icons.people),
+            label: &#39;用户&#39;,
           ),
         ],
       ),
@@ -1725,12 +1733,12 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           borderRadius: BorderRadius.circular(30),
         ),
         child: FloatingActionButton(
-          backgroundColor: _currentIndex&#x3D;&#x3D;2 ? Colors.red : Colors.blue,
+          backgroundColor: _currentIndex &#x3D;&#x3D; 2 ? Colors.red : Colors.blue,
           child: const Icon(Icons.add),
-          onPressed: ()&#123;
+          onPressed: () &#123;
             setState(() &#123;
               &#x2F;&#x2F; 点击凸起+按钮会显示消息页面
-              _currentIndex&#x3D;2;
+              _currentIndex &#x3D; 2;
             &#125;);
           &#125;,
         ),
@@ -1739,7 +1747,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-2-message-dart"><a href="#3-2-message-dart" class="headerlink" title="3-2 message.dart"></a>3-2 message.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class MessagePage extends StatefulWidget &#123;
@@ -1753,7 +1761,7 @@ class _MessagePageState extends State&lt;MessagePage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return const Center(
-      child: Text(&quot;消息&quot;),
+      child: Text(&#39;消息&#39;),
     );
   &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1762,7 +1770,7 @@ class _MessagePageState extends State&lt;MessagePage&gt; &#123;
 <li>侧边栏默认是隐藏的，可通过手指滑动显示侧边栏，也可通过点击按钮显示侧边栏。</li>
 </ul>
 <h2 id="4-1-创建抽屉头部"><a href="#4-1-创建抽屉头部" class="headerlink" title="4-1 创建抽屉头部"></a>4-1 创建抽屉头部</h2><ul>
-<li>DrawerHeader常见属性：decoration(顶部背景颜色)、child(子元素)、padding(内边距)、margin(外边距)。</li>
+<li>DrawerHeader属性：decoration(顶部背景颜色)、child(子元素)、padding(内边距)、margin(外边距)。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; tabs.dart，其余文件内容不变
 import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
@@ -2178,7 +2186,7 @@ class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStat
     - category.dart
   - tabs.dart【✔】
 - main.dart【✔】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-main-dart-1"><a href="#1-main-dart-1" class="headerlink" title="(1) main.dart"></a>(1) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
+<h3 id="1-main-dart"><a href="#1-main-dart" class="headerlink" title="(1) main.dart"></a>(1) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
