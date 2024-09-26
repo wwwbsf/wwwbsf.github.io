@@ -602,16 +602,16 @@ class="themespring" -->
         .deng-box, .deng-box1 {
             width: 40%;
         }
-        /* 点开主题，会影响到移动哒的翻页按钮 */
+        /* 点开主题，会影响到移动端的翻页按钮 */
         /* body.themespring .right {
             float: left!important;
-        }
+        } */
     }
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
-        .right {
+        /* .right {
             float: left!important;
-        }
-    } */
+        } */
+    }
     .deng-box {
         position: fixed;
         top: -40px;
@@ -1327,33 +1327,53 @@ class="themespring" -->
                 </style>
               </div>
             </div>
+            <!-- 新增，公告栏底部波浪线，没效果？？？ -->
+            <div class="wavecontrl wavelinedream">
+              <style>
+                .wavelinedream {
+                height: 3px;
+                width: 98%;
+                position: absolute;
+                left: 50%;
+                bottom: -3px;
+                transform: translateX(-50%);
+                background: url(/medias/wave_white.png) 0 0 repeat-x;
+                background-size: 10px 3px;
+              }
+  
+              body.dark .wavelinedream {
+                height: 3px;
+                width: 98%;
+                position: absolute;
+                left: 50%;
+                bottom: -3px;
+                transform: translateX(-50%);
+                background: url(/medias/wave_black.png) 0 0 repeat-x;
+                background-size: 10px 3px;
+              }
+              </style>
+            </div>
           </div>
         </div>
         <!-- 新增，公告栏底部波浪线，没效果？？？ -->
-        <div class="wavecontrl wavelinedream">
+        <!-- <div class="wavedream wavelinedream">
           <style>
-            .wavelinedream {
+            .wavelinearticle {
               height: 3px;
-              width: 98%;
+              width: 90%;
               position: absolute;
               left: 50%;
-              bottom: -3px;
+              bottom: calc(1rem - 3px);
               transform: translateX(-50%);
-              background: url(/medias/wave_white.png) 0 0 repeat-x;
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
               background-size: 10px 3px;
             }
 
-            body.dark .wavelinedream {
-              height: 3px;
-              width: 98%;
-              position: absolute;
-              left: 50%;
-              bottom: -3px;
-              transform: translateX(-50%);
-              background: url(/medias/wave_black.png) 0 0 repeat-x;
-              background-size: 10px 3px;
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
             }
-          </style>
+          </style> -->
         </div>
       </div>
       <!-- 全局通知公告播报栏结束 -->
@@ -1365,6 +1385,133 @@ class="themespring" -->
   <!-- 所有文章卡片开始 -->
   <article id="articles" class="container articles">
     <div class="row article-row">
+      
+      <div class="article col s12 m6 l4">
+        <div class="card">
+          <!-- 推荐文章置顶模块效果开始 -->
+          
+          <!-- 推荐文章置顶模块效果结束 -->
+          <a href="/posts/javascript@01.html">
+            <div class="card-image">
+              
+              <img
+                src="/medias/toc-banner/javascript/javascript@01.jpg"
+                class="responsive-img"
+                alt="可视化工具D3"
+              />
+              
+              <!-- 福袋按钮 -->
+              <div class="caishendeng">
+                <div class="caishenxian fudaixian">
+                  <img
+                    class="caishenpic lala"
+                    src="/medias/spring-img/fish.png"
+                  />
+                </div>
+              </div>
+              <span class="card-title">
+                可视化工具D3
+                <!-- 文章卡片hover线条效果 -->
+                <span class="titlesline">
+                  <style>
+                    .titlesline {
+                      width: 0px;
+                      height: 4px;
+                      background-color: #fadca6;
+                      border-radius: 2px;
+                      position: absolute;
+                      top: 10px;
+                      left: 24px;
+                    }
+
+                    body.dark .titlesline {
+                      filter: brightness(0.7);
+                    }
+
+                    article .card .titlesline {
+                      transition: all 0.36s ease;
+                    }
+
+                    article .card-image:hover .titlesline {
+                      width: 36px;
+                    }
+                  </style>
+                </span>
+              </span>
+            </div>
+          </a>
+
+          <div class="card-content article-content">
+            <div class="summary block-with-text">
+              <!--  D3是一个JavaScript函数库，用于创建动态、交互式数据可视化，支持各种图表、地图和复杂的视觉表现，广泛应用于展示。  -->
+              
+                D3是一个JavaScript函数库，用于创建动态、交互式数据可视化，支持各种图表、地图和复杂的视觉表现，广泛应用于展示。
+              
+            </div>
+            <div class="publish-info">
+              <span class="publish-date">
+                <i class="far fa-clock fa-fw icon-date"></i>
+                2024-09-21
+              </span>
+              <span class="publish-author">
+                
+                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                
+                <a href="/categories/Web/" class="post-category">
+                  Web
+                </a>
+                 
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card-action article-tags">
+            
+            <a href="/tags/Web/">
+              <span class="chip bg-color"> Web </span>
+            </a>
+            
+            <a href="/tags/%E5%B8%83%E5%B1%80/">
+              <span class="chip bg-color"> 布局 </span>
+            </a>
+            
+            <a href="/tags/%E6%AF%94%E4%BE%8B%E5%B0%BA/">
+              <span class="chip bg-color"> 比例尺 </span>
+            </a>
+            
+            <a href="/tags/%E5%9D%90%E6%A0%87%E8%BD%B4/">
+              <span class="chip bg-color"> 坐标轴 </span>
+            </a>
+            
+            <a href="/tags/%E9%80%89%E6%8B%A9%E9%9B%86/">
+              <span class="chip bg-color"> 选择集 </span>
+            </a>
+            
+          </div>
+          
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
+      </div>
       
       <div class="article col s12 m6 l4">
         <div class="card">
@@ -2330,133 +2477,6 @@ class="themespring" -->
         </div>
       </div>
       
-      <div class="article col s12 m6 l4">
-        <div class="card">
-          <!-- 推荐文章置顶模块效果开始 -->
-          
-          <!-- 推荐文章置顶模块效果结束 -->
-          <a href="/posts/dart@05.html">
-            <div class="card-image">
-              
-              <img
-                src="/medias/toc-banner/dart/dart@05.jpg"
-                class="responsive-img"
-                alt="函数说明"
-              />
-              
-              <!-- 福袋按钮 -->
-              <div class="caishendeng">
-                <div class="caishenxian fudaixian">
-                  <img
-                    class="caishenpic lala"
-                    src="/medias/spring-img/fish.png"
-                  />
-                </div>
-              </div>
-              <span class="card-title">
-                函数说明
-                <!-- 文章卡片hover线条效果 -->
-                <span class="titlesline">
-                  <style>
-                    .titlesline {
-                      width: 0px;
-                      height: 4px;
-                      background-color: #fadca6;
-                      border-radius: 2px;
-                      position: absolute;
-                      top: 10px;
-                      left: 24px;
-                    }
-
-                    body.dark .titlesline {
-                      filter: brightness(0.7);
-                    }
-
-                    article .card .titlesline {
-                      transition: all 0.36s ease;
-                    }
-
-                    article .card-image:hover .titlesline {
-                      width: 36px;
-                    }
-                  </style>
-                </span>
-              </span>
-            </div>
-          </a>
-
-          <div class="card-content article-content">
-            <div class="summary block-with-text">
-              <!--  Dart函数是代码的构建块，用于执行特定的任务，并返回值，将代码逻辑划分为独立的功能模块，提高可读性和可维护性。  -->
-              
-                Dart函数是代码的构建块，用于执行特定的任务，并返回值，将代码逻辑划分为独立的功能模块，提高可读性和可维护性。
-              
-            </div>
-            <div class="publish-info">
-              <span class="publish-date">
-                <i class="far fa-clock fa-fw icon-date"></i>
-                2024-02-21
-              </span>
-              <span class="publish-author">
-                
-                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                
-                <a href="/categories/Dart/" class="post-category">
-                  Dart
-                </a>
-                 
-              </span>
-            </div>
-          </div>
-
-          
-          <div class="card-action article-tags">
-            
-            <a href="/tags/%E5%AE%9A%E4%B9%89/">
-              <span class="chip bg-color"> 定义 </span>
-            </a>
-            
-            <a href="/tags/%E5%8F%82%E6%95%B0/">
-              <span class="chip bg-color"> 参数 </span>
-            </a>
-            
-            <a href="/tags/%E5%8C%BF%E5%90%8D/">
-              <span class="chip bg-color"> 匿名 </span>
-            </a>
-            
-            <a href="/tags/%E9%97%AD%E5%8C%85/">
-              <span class="chip bg-color"> 闭包 </span>
-            </a>
-            
-            <a href="/tags/%E9%AB%98%E9%98%B6/">
-              <span class="chip bg-color"> 高阶 </span>
-            </a>
-            
-          </div>
-          
-        </div>
-        <!-- 新增，文章卡片波浪线 -->
-        <div class="wavearticle wavelinearticle">
-          <style>
-            .wavelinearticle {
-              height: 3px;
-              width: 90%;
-              position: absolute;
-              left: 50%;
-              bottom: calc(1rem - 3px);
-              transform: translateX(-50%);
-              background: url(/medias/wave-white.png) 0 0 repeat-x;
-              background-size: 10px 3px;
-            }
-
-            body.dark .wavelinearticle {
-              background: none;
-              display: none;
-            }
-          </style>
-        </div>
-      </div>
-      
     </div>
   </article>
   <!-- 所有文章卡片结束 -->
@@ -2525,7 +2545,7 @@ class="themespring" -->
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">54.4k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">63.7k</span>&nbsp;字&nbsp;🌼<br>
       
       
       
