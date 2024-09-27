@@ -1124,14 +1124,14 @@ h3:hover {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.7k
+                    8.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    41 分
+                    45 分
                 </div>
                 
 
@@ -1772,7 +1772,7 @@ class _MessagePageState extends State&lt;MessagePage&gt; &#123;
 <h2 id="4-1-创建抽屉头部"><a href="#4-1-创建抽屉头部" class="headerlink" title="4-1 创建抽屉头部"></a>4-1 创建抽屉头部</h2><ul>
 <li>DrawerHeader属性：decoration(顶部背景颜色)、child(子元素)、padding(内边距)、margin(外边距)。</li>
 </ul>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; tabs.dart，其余文件内容不变
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; tabs.dart【🖊】，其余内容不变
 import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -1790,13 +1790,17 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), MessagePage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    MessagePage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;创建抽屉头部&quot;)),
+      appBar: AppBar(title: const Text(&#39;创建抽屉头部&#39;)),
       drawer: Drawer(
         child: Column(
           children: [
@@ -1806,9 +1810,13 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
                   flex: 1,
                   child: DrawerHeader(
                     decoration: const BoxDecoration(
-                      color: Colors.yellow,
+                      color: Colors.blue,
                       image: DecorationImage(
-                        image: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;QKBLQ&quot;),
+                        image: NetworkImage(
+                          &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;4187316955,&#39;
+                          &#39;4131058151&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JP&#39;
+                          &#39;EG?w&#x3D;889&amp;h&#x3D;500&#39;,
+                        ),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -1816,11 +1824,18 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
                       children: const [
                         ListTile(
                           leading: CircleAvatar(
-                            backgroundImage: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;ymHZl&quot;),
+                            backgroundImage: NetworkImage(
+                              &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;343412189,&#39;
+                              &#39;4190523006&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;J&#39;
+                              &#39;PEG?w&#x3D;300&amp;h&#x3D;300&#39;,
+                            ),
                           ),
-                          title: Text(&quot;钱三两&quot;, style: TextStyle(color: Colors.blue)),
+                          title: Text(
+                            &#39;钱三两&#39;,
+                            style: TextStyle(color: Colors.blue),
+                          ),
                         ),
-                        ListTile(title: Text(&quot;邮箱：Siren1996@qq.com&quot;)),
+                        ListTile(title: Text(&#39;邮箱：Siren1996@qq.com&#39;)),
                       ],
                     ),
                   ),
@@ -1829,18 +1844,18 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
             ),
             const ListTile(
               leading: CircleAvatar(child: Icon(Icons.people)),
-              title: Text(&quot;个人中心&quot;),
+              title: Text(&#39;个人中心&#39;),
             ),
             const Divider(),
             const ListTile(
               leading: CircleAvatar(child: Icon(Icons.settings)),
-              title: Text(&quot;系统设置&quot;),
+              title: Text(&#39;系统设置&#39;),
             ),
             const Divider(),
           ],
         ),
       ),
-      endDrawer: const Drawer(child: Text(&quot;右侧侧边栏&quot;)),
+      endDrawer: const Drawer(child: Text(&#39;右侧侧边栏&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -1850,13 +1865,17 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 4个以上菜单需配置此项
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;setState(() &#123;_currentIndex &#x3D; index;&#125;);&#125;,
+        onTap: (index) &#123;
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
         items: const [
-          BottomNavigationBarItem(icon:Icon(Icons.home), label: &quot;首页&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.category), label: &quot;分类&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.message), label: &quot;消息&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.settings), label: &quot;设置&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.people), label: &quot;用户&quot;),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: &#39;消息&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
       &#x2F;&#x2F; 调整FloatingActionButton的大小
@@ -1865,19 +1884,24 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 调整FloatingActionButton的位置
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(30),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
         ),
         child: FloatingActionButton(
-          backgroundColor: _currentIndex&#x3D;&#x3D;2 ? Colors.red : Colors.blue,
+          backgroundColor: _currentIndex &#x3D;&#x3D; 2 ? Colors.red : Colors.blue,
           child: const Icon(Icons.add),
-          onPressed: ()&#123;setState(() &#123;_currentIndex&#x3D;2;&#125;);&#125;,
+          onPressed: () &#123;
+            setState(() &#123;
+              _currentIndex &#x3D; 2;
+            &#125;);
+          &#125;,
         ),
       ),
       &#x2F;&#x2F; 配置浮动按钮的位置
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-2-账户抽屉头部"><a href="#4-2-账户抽屉头部" class="headerlink" title="4-2 账户抽屉头部"></a>4-2 账户抽屉头部</h2><ul>
 <li>UserAccountsDrawerHeader常见属性<ul>
 <li>currentAccountPicture(账户头像)、otherAccountsPictures(用来设置当前账户的其他账户头像)。</li>
@@ -1885,7 +1909,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
 </ul>
 </li>
 </ul>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; tabs.dart，其余文件内容不变
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; tabs.dart【🖊】，其余内容不变
 import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -1903,13 +1927,17 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), MessagePage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    MessagePage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;账户抽屉头部&quot;)),
+      appBar: AppBar(title: const Text(&#39;账户抽屉头部&#39;)),
       drawer: Drawer(
         child: Column(
           children: [
@@ -1918,20 +1946,39 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
                 Expanded(
                   flex: 1,
                   child: UserAccountsDrawerHeader(
-                    accountName: const Text(&quot;钱三两&quot;),
-                    accountEmail: const Text(&quot;Siren1996@qq.com&quot;),
+                    accountName: const Text(&#39;钱三两&#39;),
+                    accountEmail: const Text(&#39;Siren1996@qq.com&#39;),
                     otherAccountsPictures: [
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;uPqPD&quot;),
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;uFOCk&quot;),
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;fKFLL&quot;),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;wx2.sinaimg.cn&#x2F;mw690&#x2F;714&#39;
+                        &#39;ded47ly1g1xq9wc5uuj21e01e0jur.jpg&#39;,
+                      ),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;2293783843,&#39;
+                        &#39;2984695986&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;120&amp;f&#x3D;JP&#39;
+                        &#39;EG?w&#x3D;500&amp;h&#x3D;500&#39;,
+                      ),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;2293783843,&#39;
+                        &#39;2984695986&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;120&amp;f&#x3D;JP&#39;
+                        &#39;EG?w&#x3D;500&amp;h&#x3D;500&#39;,
+                      ),
                     ],
                     currentAccountPicture: const CircleAvatar(
-                      backgroundImage: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;ymHZl&quot;),
+                      backgroundImage: NetworkImage(
+                        &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;343412189,&#39;
+                        &#39;4190523006&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;J&#39;
+                        &#39;PEG?w&#x3D;300&amp;h&#x3D;300&#39;,
+                      ),
                     ),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;DClbg&quot;),
+                        image: NetworkImage(
+                          &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;4187316955,&#39;
+                          &#39;4131058151&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JP&#39;
+                          &#39;EG?w&#x3D;889&amp;h&#x3D;500&#39;,
+                        ),
                       ),
                     ),
                   ),
@@ -1940,18 +1987,18 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
             ),
             const ListTile(
               leading: CircleAvatar(child: Icon(Icons.people)),
-              title: Text(&quot;个人中心&quot;),
+              title: Text(&#39;个人中心&#39;),
             ),
             const Divider(),
             const ListTile(
               leading: CircleAvatar(child: Icon(Icons.settings)),
-              title: Text(&quot;系统设置&quot;),
+              title: Text(&#39;系统设置&#39;),
             ),
             const Divider(),
           ],
         ),
       ),
-      endDrawer: const Drawer(child: Text(&quot;右侧侧边栏&quot;)),
+      endDrawer: const Drawer(child: Text(&#39;右侧侧边栏&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -1961,13 +2008,17 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 4个以上菜单需配置此项
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;setState(() &#123;_currentIndex &#x3D; index;&#125;);&#125;,
+        onTap: (index) &#123;
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
         items: const [
-          BottomNavigationBarItem(icon:Icon(Icons.home), label: &quot;首页&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.category), label: &quot;分类&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.message), label: &quot;消息&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.settings), label: &quot;设置&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.people), label: &quot;用户&quot;),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: &#39;消息&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
       &#x2F;&#x2F; 调整FloatingActionButton的大小
@@ -1976,19 +2027,24 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 调整FloatingActionButton的位置
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(30),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
         ),
         child: FloatingActionButton(
-          backgroundColor: _currentIndex&#x3D;&#x3D;2 ? Colors.red : Colors.blue,
+          backgroundColor: _currentIndex &#x3D;&#x3D; 2 ? Colors.red : Colors.blue,
           child: const Icon(Icons.add),
-          onPressed: ()&#123;setState(() &#123;_currentIndex&#x3D;2;&#125;);&#125;,
+          onPressed: () &#123;
+            setState(() &#123;
+              _currentIndex &#x3D; 2;
+            &#125;);
+          &#125;,
         ),
       ),
       &#x2F;&#x2F; 配置浮动按钮的位置
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="5-自定义顶部按钮"><a href="#5-自定义顶部按钮" class="headerlink" title="5 自定义顶部按钮"></a>5 自定义顶部按钮</h1><ul>
 <li>AppBar自定义顶部按钮图标、颜色，属性如下。<ul>
 <li>actions(通常使用IconButton来表示，可以放按钮组件)、iconTheme(图标样式)。</li>
@@ -2031,38 +2087,41 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.menu), onPressed: ()&#123;print(&quot;左侧按钮图标&quot;);&#125;,
+          icon: const Icon(Icons.menu),
+          onPressed: () &#123;
+            print(&#39;左侧按钮图标&#39;);
+          &#125;,
         ),
         &#x2F;&#x2F; 导航的背景颜色
         backgroundColor: Colors.red,
-        title: const Text(&quot;实现顶部按钮&quot;),
+        title: const Text(&#39;实现顶部按钮&#39;),
         &#x2F;&#x2F; 右侧的按钮图标
         actions: [
           IconButton(
-            icon: const Icon(Icons.search), onPressed: ()&#123;print(&quot;搜索&quot;);&#125;,
+            icon: const Icon(Icons.search),
+            onPressed: () &#123;
+              print(&#39;搜索&#39;);
+            &#125;,
           ),
           IconButton(
-            icon: const Icon(Icons.more_horiz), onPressed: ()&#123;print(&quot;更多&quot;);&#125;,
+            icon: const Icon(Icons.more_horiz),
+            onPressed: () &#123;
+              print(&#39;更多&#39;);
+            &#125;,
           ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-2-顶部滑动导航"><a href="#5-2-顶部滑动导航" class="headerlink" title="5-2 顶部滑动导航"></a>5-2 顶部滑动导航</h2><ul>
-<li>TabBar常见属性<ul>
-<li>indicatorSize(指示器大小计算方式)。<ul>
-<li>TabBarIndicatorSize.label：跟文字等宽。</li>
-<li>TabBarIndicatorSize.tab：跟每个tab等宽。</li>
-</ul>
-</li>
+<li>TabBar常见属性，indicatorSize：指示器大小计算方式如下(两个等宽)。</li>
+<li>TabBarIndicatorSize.label(跟文字等宽)、TabBarIndicatorSize.tab(跟每个tab等宽)。</li>
 <li>unselectedLabelColor(未选中label颜色)、unselectedLabelStyle(未选中label的Style)。</li>
 <li>indicatorPadding(底部指示器的Padding)、indicator(指示器decoration，例如边框等)。</li>
 <li>tabs(显示的标签内容，一般使用Tab对象，也可以是其他组件)、isScrollable(是否可以滚动)。</li>
 <li>controller(TabController对象)、indicatorColor(指示器颜色)、indicatorWeight(指示器高度)。</li>
 <li>labelColor(选中label颜色)、labelStyle(选中label样式)、labelPadding(每个label的padding值)。</li>
-</ul>
-</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -2091,16 +2150,18 @@ class HomePage extends StatefulWidget &#123;
   State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
 &#125;
 
-class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStateMixin &#123;
+class _HomePageState extends State&lt;HomePage&gt;
+    with SingleTickerProviderStateMixin &#123;
   late TabController _tabController;
 
   &#x2F;&#x2F; 生命周期函数(组件初始化时触发)
-  @override                                             
+  @override
   void initState() &#123;
     super.initState();
     &#x2F;&#x2F; length(导航标题)够多可左右滑动
-    _tabController&#x3D;TabController(length: 5, vsync: this);
+    _tabController &#x3D; TabController(length: 5, vsync: this);
   &#125;
+
   List&lt;String&gt; list &#x3D; [];
 
   @override
@@ -2109,18 +2170,27 @@ class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStat
       appBar: AppBar(
         &#x2F;&#x2F; 左侧的按钮图标
         leading: IconButton(
-          icon: const Icon(Icons.menu), onPressed: ()&#123;print(&quot;左侧按钮图标&quot;);&#125;,
+          icon: const Icon(Icons.menu),
+          onPressed: () &#123;
+            print(&#39;左侧按钮图标&#39;);
+          &#125;,
         ),
         &#x2F;&#x2F; 导航的背景颜色
         backgroundColor: Colors.red,
-        title: const Text(&quot;顶部滑动导航&quot;),
+        title: const Text(&#39;顶部滑动导航&#39;),
         &#x2F;&#x2F; 右侧的按钮图标
         actions: [
           IconButton(
-            icon: const Icon(Icons.search), onPressed: ()&#123;print(&quot;搜索&quot;);&#125;,
+            icon: const Icon(Icons.search),
+            onPressed: () &#123;
+              print(&#39;搜索&#39;);
+            &#125;,
           ),
           IconButton(
-            icon: const Icon(Icons.more_horiz), onPressed: ()&#123;print(&quot;更多&quot;);&#125;,
+            icon: const Icon(Icons.more_horiz),
+            onPressed: () &#123;
+              print(&#39;更多&#39;);
+            &#125;,
           ),
         ],
         bottom: TabBar(
@@ -2150,43 +2220,182 @@ class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStat
           &#x2F;&#x2F; 配置controller需要去掉const
           controller: _tabController,
           tabs: const [
-            Tab(child: Text(&quot;关注&quot;)),
-            Tab(child: Text(&quot;热门&quot;)),
-            Tab(child: Text(&quot;视频&quot;)),
-            Tab(child: Text(&quot;图片&quot;)),
-            Tab(child: Text(&quot;推荐&quot;)),
+            Tab(child: Text(&#39;关注&#39;)),
+            Tab(child: Text(&#39;热门&#39;)),
+            Tab(child: Text(&#39;视频&#39;)),
+            Tab(child: Text(&#39;图片&#39;)),
+            Tab(child: Text(&#39;推荐&#39;)),
           ],
         ),
       ),
       body: TabBarView(
         controller: _tabController,
         children: [
-          &#x2F;&#x2F; const Text(&quot;我是关注&quot;),
-          ListView(children: const [ListTile(title: Text(&quot;动态关注&quot;))]),
-          ListView(children: const [ListTile(title: Text(&quot;热门信息&quot;))]),
-          ListView(children: const [ListTile(title: Text(&quot;视频加载&quot;))]),
-          ListView(children: const [ListTile(title: Text(&quot;图片赏析&quot;))]),
-          ListView(children: const [ListTile(title: Text(&quot;推荐列表&quot;))]),
+          &#x2F;&#x2F; const Text(&#39;我是关注&#39;),
+          ListView(children: const [ListTile(title: Text(&#39;动态关注&#39;))]),
+          ListView(children: const [ListTile(title: Text(&#39;热门信息&#39;))]),
+          ListView(children: const [ListTile(title: Text(&#39;视频加载&#39;))]),
+          ListView(children: const [ListTile(title: Text(&#39;图片赏析&#39;))]),
+          ListView(children: const [ListTile(title: Text(&#39;推荐列表&#39;))]),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="6-底部与顶部结合"><a href="#6-底部与顶部结合" class="headerlink" title="6 底部与顶部结合"></a>6 底部与顶部结合</h1><ul>
 <li>PreferredSize可以改变AppBar高度，AutomaticKeepAliveClientMixin可以快速实现页面缓存功能。</li>
 <li>但是通过混入的方式实现不是很优雅，所以有必要对AutomaticKeepAliveClientMixin混入进行封装。</li>
 </ul>
-<h2 id="6-1-底部页面使用导航"><a href="#6-1-底部页面使用导航" class="headerlink" title="6-1 底部页面使用导航"></a>6-1 底部页面使用导航</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，只更改main.dart、tabs.dart、home.dart的内容，其余不变
+<h2 id="6-1-底部页面使用导航"><a href="#6-1-底部页面使用导航" class="headerlink" title="6-1 底部页面使用导航"></a>6-1 底部页面使用导航</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，更改main.dart、tabs.dart、home.dart内容，其他不变
 - pages&#x2F;
   - tabs&#x2F;
     - user.dart
-    - home.dart【✔】
+    - home.dart【🖊】
     - setting.dart
     - message.dart
     - category.dart
-  - tabs.dart【✔】
-- main.dart【✔】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-main-dart"><a href="#1-main-dart" class="headerlink" title="(1) main.dart"></a>(1) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
+  - tabs.dart【🖊】
+- main.dart【🖊】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-tabs-dart"><a href="#1-tabs-dart" class="headerlink" title="(1) tabs.dart"></a>(1) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;message.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  const Tabs(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  int _currentIndex &#x3D; 0;
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    MessagePage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 1,
+        backgroundColor: Colors.red,
+        title: const Text(&#39;底部页面使用导航&#39;),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: UserAccountsDrawerHeader(
+                    accountName: const Text(&#39;钱三两&#39;),
+                    accountEmail: const Text(&#39;Siren1996@qq.com&#39;),
+                    otherAccountsPictures: [
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;wx2.sinaimg.cn&#x2F;mw690&#x2F;714&#39;
+                        &#39;ded47ly1g1xq9wc5uuj21e01e0jur.jpg&#39;,
+                      ),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;2293783843,&#39;
+                        &#39;2984695986&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;120&amp;f&#x3D;JP&#39;
+                        &#39;EG?w&#x3D;500&amp;h&#x3D;500&#39;,
+                      ),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;2293783843,&#39;
+                        &#39;2984695986&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;120&amp;f&#x3D;JP&#39;
+                        &#39;EG?w&#x3D;500&amp;h&#x3D;500&#39;,
+                      ),
+                    ],
+                    currentAccountPicture: const CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;343412189,&#39;
+                        &#39;4190523006&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;J&#39;
+                        &#39;PEG?w&#x3D;300&amp;h&#x3D;300&#39;,
+                      ),
+                    ),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                          &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;4187316955,&#39;
+                          &#39;4131058151&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JP&#39;
+                          &#39;EG?w&#x3D;889&amp;h&#x3D;500&#39;,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const ListTile(
+              leading: CircleAvatar(child: Icon(Icons.people)),
+              title: Text(&#39;个人中心&#39;),
+            ),
+            const Divider(),
+            const ListTile(
+              leading: CircleAvatar(child: Icon(Icons.settings)),
+              title: Text(&#39;系统设置&#39;),
+            ),
+            const Divider(),
+          ],
+        ),
+      ),
+      &#x2F;&#x2F; endDrawer: const Drawer(child: Text(&#39;右侧侧边栏&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 25,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: &#39;消息&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+      &#x2F;&#x2F; 调整FloatingActionButton的大小
+      floatingActionButton: Container(
+        height: 60, width: 60, padding: const EdgeInsets.all(5),
+        &#x2F;&#x2F; 调整FloatingActionButton的位置
+        margin: const EdgeInsets.only(top: 5),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: FloatingActionButton(
+          backgroundColor: _currentIndex &#x3D;&#x3D; 2 ? Colors.red : Colors.blue,
+          child: const Icon(Icons.add),
+          onPressed: () &#123;
+            setState(() &#123;
+              _currentIndex &#x3D; 2;
+            &#125;);
+          &#125;,
+        ),
+      ),
+      &#x2F;&#x2F; 配置浮动按钮的位置
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-main-dart"><a href="#2-main-dart" class="headerlink" title="(2) main.dart"></a>(2) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 void main() &#123;
@@ -2207,113 +2416,6 @@ class MyApp extends StatelessWidget &#123;
     );
   &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-tabs-dart-1"><a href="#2-tabs-dart-1" class="headerlink" title="(2) tabs.dart"></a>(2) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;message.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
-import &#39;package:flutter&#x2F;material.dart&#39;;
-
-class Tabs extends StatefulWidget &#123;
-  const Tabs(&#123;Key? key&#125;) : super(key: key);
-
-  @override
-  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
-&#125;
-
-class _TabsState extends State&lt;Tabs&gt; &#123;
-  int _currentIndex &#x3D; 0;
-  final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), MessagePage(), SettingPage(), UserPage(),
-  ];
-
-  @override
-  Widget build(BuildContext context) &#123;
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 1,
-        backgroundColor: Colors.red,
-        title: const Text(&quot;底部页面使用导航&quot;),
-      ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: UserAccountsDrawerHeader(
-                    accountName: const Text(&quot;钱三两&quot;),
-                    accountEmail: const Text(&quot;Siren1996@qq.com&quot;),
-                    otherAccountsPictures: [
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;uPqPD&quot;),
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;uFOCk&quot;),
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;fKFLL&quot;),
-                    ],
-                    currentAccountPicture: const CircleAvatar(
-                      backgroundImage: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;ymHZl&quot;),
-                    ),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;DClbg&quot;),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const ListTile(
-              leading: CircleAvatar(child: Icon(Icons.people)),
-              title: Text(&quot;个人中心&quot;),
-            ),
-            const Divider(),
-            const ListTile(
-              leading: CircleAvatar(child: Icon(Icons.settings)),
-              title: Text(&quot;系统设置&quot;),
-            ),
-            const Divider(),
-          ],
-        ),
-      ),
-      &#x2F;&#x2F; endDrawer: const Drawer(child: Text(&quot;右侧侧边栏&quot;)),
-      body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        &#x2F;&#x2F; 选中的颜色
-        fixedColor: Colors.red,
-        &#x2F;&#x2F; 配置底部菜单大小
-        iconSize: 25,
-        &#x2F;&#x2F; 4个以上菜单需配置此项
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: (index)&#123;setState(() &#123;_currentIndex &#x3D; index;&#125;);&#125;,
-        items: const [
-          BottomNavigationBarItem(icon:Icon(Icons.home), label: &quot;首页&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.category), label: &quot;分类&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.message), label: &quot;消息&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.settings), label: &quot;设置&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.people), label: &quot;用户&quot;),
-        ],
-      ),
-      &#x2F;&#x2F; 调整FloatingActionButton的大小
-      floatingActionButton: Container(
-        height: 60, width: 60, padding: const EdgeInsets.all(5),
-        &#x2F;&#x2F; 调整FloatingActionButton的位置
-        margin: const EdgeInsets.only(top: 5),
-        decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(30),
-        ),
-        child: FloatingActionButton(
-          backgroundColor: _currentIndex&#x3D;&#x3D;2 ? Colors.red : Colors.blue,
-          child: const Icon(Icons.add),
-          onPressed: ()&#123;setState(() &#123;_currentIndex&#x3D;2;&#125;);&#125;,
-        ),
-      ),
-      &#x2F;&#x2F; 配置浮动按钮的位置
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-home-dart"><a href="#3-home-dart" class="headerlink" title="(3) home.dart"></a>(3) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class HomePage extends StatefulWidget &#123;
@@ -2323,12 +2425,13 @@ class HomePage extends StatefulWidget &#123;
   State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
 &#125;
 
-class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStateMixin &#123;
+class _HomePageState extends State&lt;HomePage&gt;
+    with SingleTickerProviderStateMixin &#123;
   late TabController _tabController;
   @override
   void initState() &#123;
     super.initState();
-    _tabController&#x3D;TabController(length: 8, vsync: this);
+    _tabController &#x3D; TabController(length: 8, vsync: this);
   &#125;
 
   @override
@@ -2354,10 +2457,14 @@ class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStat
               indicatorSize: TabBarIndicatorSize.label,
               controller: _tabController,
               tabs: const [
-                Tab(child: Text(&quot;关注&quot;)), Tab(child: Text(&quot;热门&quot;)),
-                Tab(child: Text(&quot;生活&quot;)), Tab(child: Text(&quot;娱乐&quot;)),
-                Tab(child: Text(&quot;绘画&quot;)), Tab(child: Text(&quot;设计&quot;)),
-                Tab(child: Text(&quot;编程&quot;)), Tab(child: Text(&quot;职场&quot;)),
+                Tab(child: Text(&#39;关注&#39;)),
+                Tab(child: Text(&#39;热门&#39;)),
+                Tab(child: Text(&#39;生活&#39;)),
+                Tab(child: Text(&#39;娱乐&#39;)),
+                Tab(child: Text(&#39;绘画&#39;)),
+                Tab(child: Text(&#39;设计&#39;)),
+                Tab(child: Text(&#39;编程&#39;)),
+                Tab(child: Text(&#39;职场&#39;)),
               ],
             ),
           ),
@@ -2367,261 +2474,52 @@ class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStat
         controller: _tabController,
         children: [
           ListView(children: const [
-            ListTile(title: Text(&quot;关注列表01&quot;)), ListTile(title: Text(&quot;关注列表02&quot;)),
-            ListTile(title: Text(&quot;关注列表03&quot;)), ListTile(title: Text(&quot;关注列表04&quot;)),
-            ListTile(title: Text(&quot;关注列表05&quot;)), ListTile(title: Text(&quot;关注列表06&quot;)),
-            ListTile(title: Text(&quot;关注列表07&quot;)), ListTile(title: Text(&quot;关注列表08&quot;)),
-            ListTile(title: Text(&quot;关注列表09&quot;)), ListTile(title: Text(&quot;关注列表10&quot;)),
-            ListTile(title: Text(&quot;关注列表11&quot;)), ListTile(title: Text(&quot;关注列表12&quot;)),
-            ListTile(title: Text(&quot;关注列表13&quot;)), ListTile(title: Text(&quot;关注列表14&quot;)),
-            ListTile(title: Text(&quot;关注列表15&quot;)), ListTile(title: Text(&quot;关注列表16&quot;)),
-            ListTile(title: Text(&quot;关注列表17&quot;)), ListTile(title: Text(&quot;关注列表18&quot;)),
-            ListTile(title: Text(&quot;关注列表19&quot;)), ListTile(title: Text(&quot;关注列表20&quot;)),
+            ListTile(title: Text(&#39;关注列表01&#39;)),
+            ListTile(title: Text(&#39;关注列表02&#39;)),
+            ListTile(title: Text(&#39;关注列表03&#39;)),
+            ListTile(title: Text(&#39;关注列表04&#39;)),
+            ListTile(title: Text(&#39;关注列表05&#39;)),
+            ListTile(title: Text(&#39;关注列表06&#39;)),
+            ListTile(title: Text(&#39;关注列表07&#39;)),
+            ListTile(title: Text(&#39;关注列表08&#39;)),
+            ListTile(title: Text(&#39;关注列表09&#39;)),
+            ListTile(title: Text(&#39;关注列表10&#39;)),
+            ListTile(title: Text(&#39;关注列表11&#39;)),
+            ListTile(title: Text(&#39;关注列表12&#39;)),
+            ListTile(title: Text(&#39;关注列表13&#39;)),
+            ListTile(title: Text(&#39;关注列表14&#39;)),
+            ListTile(title: Text(&#39;关注列表15&#39;)),
+            ListTile(title: Text(&#39;关注列表16&#39;)),
+            ListTile(title: Text(&#39;关注列表17&#39;)),
+            ListTile(title: Text(&#39;关注列表18&#39;)),
+            ListTile(title: Text(&#39;关注列表19&#39;)),
+            ListTile(title: Text(&#39;关注列表20&#39;)),
           ]),
-          const Text(&quot;热门&quot;), const Text(&quot;生活&quot;), const Text(&quot;娱乐&quot;), const Text(&quot;绘画&quot;),
-          const Text(&quot;设计&quot;), const Text(&quot;编程&quot;), const Text(&quot;职场&quot;),
+          const Text(&#39;热门&#39;),
+          const Text(&#39;生活&#39;),
+          const Text(&#39;娱乐&#39;),
+          const Text(&#39;绘画&#39;),
+          const Text(&#39;设计&#39;),
+          const Text(&#39;编程&#39;),
+          const Text(&#39;职场&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-2-自定义的缓存组件"><a href="#6-2-自定义的缓存组件" class="headerlink" title="6-2 自定义的缓存组件"></a>6-2 自定义的缓存组件</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，只更改tabs.dart、home.dart的内容，其余不变
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-2-自定义的缓存组件"><a href="#6-2-自定义的缓存组件" class="headerlink" title="6-2 自定义的缓存组件"></a>6-2 自定义的缓存组件</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，新增KeepAliveWrapper.dart
+# 更改tabs.dart、home.dart内容，其他不变
 - pages&#x2F;
   - tabs&#x2F;
     - user.dart
-    - home.dart【✔】
+    - home.dart【🖊】
     - setting.dart
     - message.dart
     - category.dart
-  - tabs.dart【✔】
+  - tabs.dart【🖊】
 - tools&#x2F;
-  - KeepAliveWrapper.dart【✔】
-- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-tabs-dart"><a href="#1-tabs-dart" class="headerlink" title="(1) tabs.dart"></a>(1) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;message.dart&#39;;
-import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
-import &#39;package:flutter&#x2F;material.dart&#39;;
-
-class Tabs extends StatefulWidget &#123;
-  const Tabs(&#123;Key? key&#125;) : super(key: key);
-
-  @override
-  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
-&#125;
-
-class _TabsState extends State&lt;Tabs&gt; &#123;
-  int _currentIndex &#x3D; 0;
-  final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), MessagePage(), SettingPage(), UserPage(),
-  ];
-
-  @override
-  Widget build(BuildContext context) &#123;
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 1,
-        backgroundColor: Colors.red,
-        title: const Text(&quot;自定义的缓存组件&quot;),
-      ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: UserAccountsDrawerHeader(
-                    accountName: const Text(&quot;钱三两&quot;),
-                    accountEmail: const Text(&quot;Siren1996@qq.com&quot;),
-                    otherAccountsPictures: [
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;uPqPD&quot;),
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;uFOCk&quot;),
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;fKFLL&quot;),
-                    ],
-                    currentAccountPicture: const CircleAvatar(
-                      backgroundImage: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;ymHZl&quot;),
-                    ),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;DClbg&quot;),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const ListTile(
-              leading: CircleAvatar(child: Icon(Icons.people)),
-              title: Text(&quot;个人中心&quot;),
-            ),
-            const Divider(),
-            const ListTile(
-              leading: CircleAvatar(child: Icon(Icons.settings)),
-              title: Text(&quot;系统设置&quot;),
-            ),
-            const Divider(),
-          ],
-        ),
-      ),
-      &#x2F;&#x2F; endDrawer: const Drawer(child: Text(&quot;右侧侧边栏&quot;)),
-      body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        &#x2F;&#x2F; 选中的颜色
-        fixedColor: Colors.red,
-        &#x2F;&#x2F; 配置底部菜单大小
-        iconSize: 25,
-        &#x2F;&#x2F; 4个以上菜单需配置此项
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: (index)&#123;setState(() &#123;_currentIndex &#x3D; index;&#125;);&#125;,
-        items: const [
-          BottomNavigationBarItem(icon:Icon(Icons.home), label: &quot;首页&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.category), label: &quot;分类&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.message), label: &quot;消息&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.settings), label: &quot;设置&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.people), label: &quot;用户&quot;),
-        ],
-      ),
-      &#x2F;&#x2F; 调整FloatingActionButton的大小
-      floatingActionButton: Container(
-        height: 60, width: 60, padding: const EdgeInsets.all(5),
-        &#x2F;&#x2F; 调整FloatingActionButton的位置
-        margin: const EdgeInsets.only(top: 5),
-        decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(30),
-        ),
-        child: FloatingActionButton(
-          backgroundColor: _currentIndex&#x3D;&#x3D;2 ? Colors.red : Colors.blue,
-          child: const Icon(Icons.add),
-          onPressed: ()&#123;setState(() &#123;_currentIndex&#x3D;2;&#125;);&#125;,
-        ),
-      ),
-      &#x2F;&#x2F; 配置浮动按钮的位置
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-home-dart"><a href="#2-home-dart" class="headerlink" title="(2) home.dart"></a>(2) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
-import &#39;..&#x2F;..&#x2F;tools&#x2F;KeepAliveWrapper.dart&#39;;
-
-class HomePage extends StatefulWidget &#123;
-  const HomePage(&#123;Key? key&#125;) : super(key: key);
-
-  @override
-  State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
-&#125;
-
-class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStateMixin &#123;
-  late TabController _tabController;
-  @override
-  void initState() &#123;
-    super.initState();
-    _tabController&#x3D;TabController(length: 8, vsync: this);
-  &#125;
-
-  @override
-  Widget build(BuildContext context) &#123;
-    return Scaffold(
-      &#x2F;&#x2F; 可以配置appBar的高度
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(40),
-        child: AppBar(
-          elevation: 0.5,
-          backgroundColor: Colors.white,
-          title: SizedBox(
-            &#x2F;&#x2F; 修改TabBar的高度
-            height: 30,
-            child: TabBar(
-              labelStyle: const TextStyle(fontSize: 15),
-              isScrollable: true,
-              &#x2F;&#x2F; 底部指示器的颜色
-              indicatorColor: Colors.red,
-              labelColor: Colors.red,
-              &#x2F;&#x2F; label未选中的颜色
-              unselectedLabelColor: Colors.black,
-              indicatorSize: TabBarIndicatorSize.label,
-              controller: _tabController,
-              tabs: const [
-                Tab(child: Text(&quot;关注&quot;)), Tab(child: Text(&quot;热门&quot;)),
-                Tab(child: Text(&quot;生活&quot;)), Tab(child: Text(&quot;娱乐&quot;)),
-                Tab(child: Text(&quot;绘画&quot;)), Tab(child: Text(&quot;设计&quot;)),
-                Tab(child: Text(&quot;编程&quot;)), Tab(child: Text(&quot;职场&quot;)),
-              ],
-            ),
-          ),
-        ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          &#x2F;&#x2F; KeepAliveWrapper自定义缓存组件
-          KeepAliveWrapper(child: ListView(children: const [
-            ListTile(title: Text(&quot;关注列表01&quot;)), ListTile(title: Text(&quot;关注列表02&quot;)),
-            ListTile(title: Text(&quot;关注列表03&quot;)), ListTile(title: Text(&quot;关注列表04&quot;)),
-            ListTile(title: Text(&quot;关注列表05&quot;)), ListTile(title: Text(&quot;关注列表06&quot;)),
-            ListTile(title: Text(&quot;关注列表07&quot;)), ListTile(title: Text(&quot;关注列表08&quot;)),
-            ListTile(title: Text(&quot;关注列表09&quot;)), ListTile(title: Text(&quot;关注列表10&quot;)),
-            ListTile(title: Text(&quot;关注列表11&quot;)), ListTile(title: Text(&quot;关注列表12&quot;)),
-            ListTile(title: Text(&quot;关注列表13&quot;)), ListTile(title: Text(&quot;关注列表14&quot;)),
-            ListTile(title: Text(&quot;关注列表15&quot;)), ListTile(title: Text(&quot;关注列表16&quot;)),
-            ListTile(title: Text(&quot;关注列表17&quot;)), ListTile(title: Text(&quot;关注列表18&quot;)),
-            ListTile(title: Text(&quot;关注列表19&quot;)), ListTile(title: Text(&quot;关注列表20&quot;)),
-          ])),
-          const Text(&quot;热门&quot;), const Text(&quot;生活&quot;), const Text(&quot;娱乐&quot;), const Text(&quot;绘画&quot;),
-          const Text(&quot;设计&quot;), const Text(&quot;编程&quot;), const Text(&quot;职场&quot;),
-        ],
-      ),
-    );
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-KeepAliveWrapper-dart"><a href="#3-KeepAliveWrapper-dart" class="headerlink" title="(3) KeepAliveWrapper.dart"></a>(3) KeepAliveWrapper.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
-
-class KeepAliveWrapper extends StatefulWidget &#123;
-  const KeepAliveWrapper (
-    &#123;Key? key, @required this.child, this.keepAlive &#x3D; true&#125;
-  ) : super(key: key);
-
-  final Widget? child;
-  final bool keepAlive;
-
-  @override
-  State&lt;KeepAliveWrapper&gt; createState() &#x3D;&gt; _KeepAliveWrapperState();
-&#125;
-
-class _KeepAliveWrapperState extends State&lt;KeepAliveWrapper&gt; 
-  with AutomaticKeepAliveClientMixin &#123;
-  @override
-  Widget build(BuildContext context) &#123;
-    return widget.child!;
-  &#125;
-
-  @override
-  bool get wantKeepAlive &#x3D;&gt; widget.keepAlive;
-
-  @override
-  void didUpdateWidget(covariant KeepAliveWrapper oldWidget) &#123;
-    if (oldWidget.keepAlive !&#x3D; widget.keepAlive) &#123;
-      &#x2F;&#x2F; keepAlive状态需要更新，实现在AutomaticKeepAliveClientMixin中
-      updateKeepAlive();
-    &#125;
-    super.didUpdateWidget(oldWidget);
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-3-获取选项卡索引值"><a href="#6-3-获取选项卡索引值" class="headerlink" title="6-3 获取选项卡索引值"></a>6-3 获取选项卡索引值</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，只更改tabs.dart、home.dart的内容，其余不变
-- pages&#x2F;
-  - tabs&#x2F;
-    - user.dart
-    - home.dart【✔】
-    - setting.dart
-    - message.dart
-    - category.dart
-  - tabs.dart【✔】
-- tools&#x2F;
-  - KeepAliveWrapper.dart
-- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  - KeepAliveWrapper.dart【+】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-tabs-dart-1"><a href="#1-tabs-dart-1" class="headerlink" title="(1) tabs.dart"></a>(1) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -2639,7 +2537,11 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), MessagePage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    MessagePage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
@@ -2648,7 +2550,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       appBar: AppBar(
         elevation: 1,
         backgroundColor: Colors.red,
-        title: const Text(&quot;获取选项卡索引值&quot;),
+        title: const Text(&#39;自定义的缓存组件&#39;),
       ),
       drawer: Drawer(
         child: Column(
@@ -2658,20 +2560,39 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
                 Expanded(
                   flex: 1,
                   child: UserAccountsDrawerHeader(
-                    accountName: const Text(&quot;钱三两&quot;),
-                    accountEmail: const Text(&quot;Siren1996@qq.com&quot;),
+                    accountName: const Text(&#39;钱三两&#39;),
+                    accountEmail: const Text(&#39;Siren1996@qq.com&#39;),
                     otherAccountsPictures: [
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;uPqPD&quot;),
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;uFOCk&quot;),
-                      Image.network(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;fKFLL&quot;),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;wx2.sinaimg.cn&#x2F;mw690&#x2F;714&#39;
+                        &#39;ded47ly1g1xq9wc5uuj21e01e0jur.jpg&#39;,
+                      ),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;3251345887,&#39;
+                        &#39;2581092454&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;120&amp;f&#x3D;JP&#39;
+                        &#39;EG?w&#x3D;500&amp;h&#x3D;500&#39;,
+                      ),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;2293783843,&#39;
+                        &#39;2984695986&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;120&amp;f&#x3D;JP&#39;
+                        &#39;EG?w&#x3D;500&amp;h&#x3D;500&#39;,
+                      ),
                     ],
                     currentAccountPicture: const CircleAvatar(
-                      backgroundImage: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;ymHZl&quot;),
+                      backgroundImage: NetworkImage(
+                        &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;343412189,&#39;
+                        &#39;4190523006&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;J&#39;
+                        &#39;PEG?w&#x3D;300&amp;h&#x3D;300&#39;,
+                      ),
                     ),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(&quot;http:&#x2F;&#x2F;www.m58.link&#x2F;DClbg&quot;),
+                        image: NetworkImage(
+                          &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;4187316955,&#39;
+                          &#39;4131058151&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JP&#39;
+                          &#39;EG?w&#x3D;889&amp;h&#x3D;500&#39;,
+                        ),
                       ),
                     ),
                   ),
@@ -2680,18 +2601,18 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
             ),
             const ListTile(
               leading: CircleAvatar(child: Icon(Icons.people)),
-              title: Text(&quot;个人中心&quot;),
+              title: Text(&#39;个人中心&#39;),
             ),
             const Divider(),
             const ListTile(
               leading: CircleAvatar(child: Icon(Icons.settings)),
-              title: Text(&quot;系统设置&quot;),
+              title: Text(&#39;系统设置&#39;),
             ),
             const Divider(),
           ],
         ),
       ),
-      &#x2F;&#x2F; endDrawer: const Drawer(child: Text(&quot;右侧侧边栏&quot;)),
+      &#x2F;&#x2F; endDrawer: const Drawer(child: Text(&#39;右侧侧边栏&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -2701,13 +2622,17 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 4个以上菜单需配置此项
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;setState(() &#123;_currentIndex &#x3D; index;&#125;);&#125;,
+        onTap: (index) &#123;
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
         items: const [
-          BottomNavigationBarItem(icon:Icon(Icons.home), label: &quot;首页&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.category), label: &quot;分类&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.message), label: &quot;消息&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.settings), label: &quot;设置&quot;),
-          BottomNavigationBarItem(icon:Icon(Icons.people), label: &quot;用户&quot;),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: &#39;消息&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
       &#x2F;&#x2F; 调整FloatingActionButton的大小
@@ -2716,19 +2641,301 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 调整FloatingActionButton的位置
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(30),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
         ),
         child: FloatingActionButton(
-          backgroundColor: _currentIndex&#x3D;&#x3D;2 ? Colors.red : Colors.blue,
+          backgroundColor: _currentIndex &#x3D;&#x3D; 2 ? Colors.red : Colors.blue,
           child: const Icon(Icons.add),
-          onPressed: ()&#123;setState(() &#123;_currentIndex&#x3D;2;&#125;);&#125;,
+          onPressed: () &#123;
+            setState(() &#123;
+              _currentIndex &#x3D; 2;
+            &#125;);
+          &#125;,
         ),
       ),
       &#x2F;&#x2F; 配置浮动按钮的位置
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-home-dart"><a href="#2-home-dart" class="headerlink" title="(2) home.dart"></a>(2) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+import &#39;..&#x2F;..&#x2F;tools&#x2F;KeepAliveWrapper.dart&#39;;
+
+class HomePage extends StatefulWidget &#123;
+  const HomePage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
+&#125;
+
+class _HomePageState extends State&lt;HomePage&gt;
+    with SingleTickerProviderStateMixin &#123;
+  late TabController _tabController;
+  @override
+  void initState() &#123;
+    super.initState();
+    _tabController &#x3D; TabController(length: 8, vsync: this);
+  &#125;
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      &#x2F;&#x2F; 可以配置appBar的高度
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(40),
+        child: AppBar(
+          elevation: 0.5,
+          backgroundColor: Colors.white,
+          title: SizedBox(
+            &#x2F;&#x2F; 修改TabBar的高度
+            height: 30,
+            child: TabBar(
+              labelStyle: const TextStyle(fontSize: 15),
+              isScrollable: true,
+              &#x2F;&#x2F; 底部指示器的颜色
+              indicatorColor: Colors.red,
+              labelColor: Colors.red,
+              &#x2F;&#x2F; label未选中的颜色
+              unselectedLabelColor: Colors.black,
+              indicatorSize: TabBarIndicatorSize.label,
+              controller: _tabController,
+              tabs: const [
+                Tab(child: Text(&#39;关注&#39;)),
+                Tab(child: Text(&#39;热门&#39;)),
+                Tab(child: Text(&#39;生活&#39;)),
+                Tab(child: Text(&#39;娱乐&#39;)),
+                Tab(child: Text(&#39;绘画&#39;)),
+                Tab(child: Text(&#39;设计&#39;)),
+                Tab(child: Text(&#39;编程&#39;)),
+                Tab(child: Text(&#39;职场&#39;)),
+              ],
+            ),
+          ),
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          &#x2F;&#x2F; KeepAliveWrapper自定义缓存组件
+          KeepAliveWrapper(
+            child: ListView(
+              children: const [
+                ListTile(title: Text(&#39;关注列表01&#39;)),
+                ListTile(title: Text(&#39;关注列表02&#39;)),
+                ListTile(title: Text(&#39;关注列表03&#39;)),
+                ListTile(title: Text(&#39;关注列表04&#39;)),
+                ListTile(title: Text(&#39;关注列表05&#39;)),
+                ListTile(title: Text(&#39;关注列表06&#39;)),
+                ListTile(title: Text(&#39;关注列表07&#39;)),
+                ListTile(title: Text(&#39;关注列表08&#39;)),
+                ListTile(title: Text(&#39;关注列表09&#39;)),
+                ListTile(title: Text(&#39;关注列表10&#39;)),
+                ListTile(title: Text(&#39;关注列表11&#39;)),
+                ListTile(title: Text(&#39;关注列表12&#39;)),
+                ListTile(title: Text(&#39;关注列表13&#39;)),
+                ListTile(title: Text(&#39;关注列表14&#39;)),
+                ListTile(title: Text(&#39;关注列表15&#39;)),
+                ListTile(title: Text(&#39;关注列表16&#39;)),
+                ListTile(title: Text(&#39;关注列表17&#39;)),
+                ListTile(title: Text(&#39;关注列表18&#39;)),
+                ListTile(title: Text(&#39;关注列表19&#39;)),
+                ListTile(title: Text(&#39;关注列表20&#39;)),
+              ],
+            ),
+          ),
+          const Text(&#39;热门&#39;), const Text(&#39;生活&#39;), const Text(&#39;娱乐&#39;),
+          const Text(&#39;绘画&#39;),
+          const Text(&#39;设计&#39;), const Text(&#39;编程&#39;), const Text(&#39;职场&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-KeepAliveWrapper-dart"><a href="#3-KeepAliveWrapper-dart" class="headerlink" title="(3) KeepAliveWrapper.dart"></a>(3) KeepAliveWrapper.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class KeepAliveWrapper extends StatefulWidget &#123;
+  const KeepAliveWrapper(
+      &#123;Key? key, @required this.child, this.keepAlive &#x3D; true&#125;)
+      : super(key: key);
+
+  final Widget? child;
+  final bool keepAlive;
+
+  @override
+  State&lt;KeepAliveWrapper&gt; createState() &#x3D;&gt; _KeepAliveWrapperState();
+&#125;
+
+class _KeepAliveWrapperState extends State&lt;KeepAliveWrapper&gt;
+    with AutomaticKeepAliveClientMixin &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return widget.child!;
+  &#125;
+
+  @override
+  bool get wantKeepAlive &#x3D;&gt; widget.keepAlive;
+
+  @override
+  void didUpdateWidget(covariant KeepAliveWrapper oldWidget) &#123;
+    if (oldWidget.keepAlive !&#x3D; widget.keepAlive) &#123;
+      &#x2F;&#x2F; keepAlive状态需要更新，实现在AutomaticKeepAliveClientMixin中
+      updateKeepAlive();
+    &#125;
+    super.didUpdateWidget(oldWidget);
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-3-获取选项卡索引值"><a href="#6-3-获取选项卡索引值" class="headerlink" title="6-3 获取选项卡索引值"></a>6-3 获取选项卡索引值</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，更改tabs.dart、home.dart内容，其他不变
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart【🖊】
+    - setting.dart
+    - message.dart
+    - category.dart
+  - tabs.dart【🖊】
+- tools&#x2F;
+  - KeepAliveWrapper.dart
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-tabs-dart-2"><a href="#1-tabs-dart-2" class="headerlink" title="(1) tabs.dart"></a>(1) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;message.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  const Tabs(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  int _currentIndex &#x3D; 0;
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    MessagePage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 1,
+        backgroundColor: Colors.red,
+        title: const Text(&#39;获取选项卡索引值&#39;),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: UserAccountsDrawerHeader(
+                    accountName: const Text(&#39;钱三两&#39;),
+                    accountEmail: const Text(&#39;Siren1996@qq.com&#39;),
+                    otherAccountsPictures: [
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;wx2.sinaimg.cn&#x2F;mw690&#x2F;714&#39;
+                        &#39;ded47ly1g1xq9wc5uuj21e01e0jur.jpg&#39;,
+                      ),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;3251345887,&#39;
+                        &#39;2581092454&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;120&amp;f&#x3D;JP&#39;
+                        &#39;EG?w&#x3D;500&amp;h&#x3D;500&#39;,
+                      ),
+                      Image.network(
+                        &#39;https:&#x2F;&#x2F;img1.baidu.com&#x2F;it&#x2F;u&#x3D;2293783843,&#39;
+                        &#39;2984695986&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;120&amp;f&#x3D;JP&#39;
+                        &#39;EG?w&#x3D;500&amp;h&#x3D;500&#39;,
+                      ),
+                    ],
+                    currentAccountPicture: const CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        &#39;https:&#x2F;&#x2F;img0.baidu.com&#x2F;it&#x2F;u&#x3D;343412189,&#39;
+                        &#39;4190523006&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;J&#39;
+                        &#39;PEG?w&#x3D;300&amp;h&#x3D;300&#39;,
+                      ),
+                    ),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                          &#39;https:&#x2F;&#x2F;img2.baidu.com&#x2F;it&#x2F;u&#x3D;4187316955,&#39;
+                          &#39;4131058151&amp;fm&#x3D;253&amp;fmt&#x3D;auto&amp;app&#x3D;138&amp;f&#x3D;JP&#39;
+                          &#39;EG?w&#x3D;889&amp;h&#x3D;500&#39;,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const ListTile(
+              leading: CircleAvatar(child: Icon(Icons.people)),
+              title: Text(&#39;个人中心&#39;),
+            ),
+            const Divider(),
+            const ListTile(
+              leading: CircleAvatar(child: Icon(Icons.settings)),
+              title: Text(&#39;系统设置&#39;),
+            ),
+            const Divider(),
+          ],
+        ),
+      ),
+      &#x2F;&#x2F; endDrawer: const Drawer(child: Text(&#39;右侧侧边栏&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 25,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: &#39;消息&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+      &#x2F;&#x2F; 调整FloatingActionButton的大小
+      floatingActionButton: Container(
+        height: 60, width: 60, padding: const EdgeInsets.all(5),
+        &#x2F;&#x2F; 调整FloatingActionButton的位置
+        margin: const EdgeInsets.only(top: 5),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: FloatingActionButton(
+          backgroundColor: _currentIndex &#x3D;&#x3D; 2 ? Colors.red : Colors.blue,
+          child: const Icon(Icons.add),
+          onPressed: () &#123;
+            setState(() &#123;
+              _currentIndex &#x3D; 2;
+            &#125;);
+          &#125;,
+        ),
+      ),
+      &#x2F;&#x2F; 配置浮动按钮的位置
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-home-dart-1"><a href="#2-home-dart-1" class="headerlink" title="(2) home.dart"></a>(2) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 import &#39;..&#x2F;..&#x2F;tools&#x2F;KeepAliveWrapper.dart&#39;;
 
@@ -2739,17 +2946,18 @@ class HomePage extends StatefulWidget &#123;
   State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
 &#125;
 
-class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStateMixin &#123;
+class _HomePageState extends State&lt;HomePage&gt;
+    with SingleTickerProviderStateMixin &#123;
   late TabController _tabController;
   @override
   void initState() &#123;
     super.initState();
-    _tabController&#x3D;TabController(length: 8, vsync: this);
+    _tabController &#x3D; TabController(length: 8, vsync: this);
     &#x2F;&#x2F; 监听_tabController的改变事件
     _tabController.addListener(() &#123;
       &#x2F;&#x2F; 获取两次
-      &#x2F;&#x2F; print(_tabController.index); 
-      if (_tabController.animation!.value&#x3D;&#x3D;_tabController.index) &#123;
+      &#x2F;&#x2F; print(_tabController.index);
+      if (_tabController.animation!.value &#x3D;&#x3D; _tabController.index) &#123;
         &#x2F;&#x2F; 获取索引值方法①：获取点击或滑动页面的索引值
         print(_tabController.index);
       &#125;
@@ -2792,10 +3000,14 @@ class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStat
               &#x2F;&#x2F;   print(index);
               &#x2F;&#x2F; &#125;,
               tabs: const [
-                Tab(child: Text(&quot;关注&quot;)), Tab(child: Text(&quot;热门&quot;)),
-                Tab(child: Text(&quot;生活&quot;)), Tab(child: Text(&quot;娱乐&quot;)),
-                Tab(child: Text(&quot;绘画&quot;)), Tab(child: Text(&quot;设计&quot;)),
-                Tab(child: Text(&quot;编程&quot;)), Tab(child: Text(&quot;职场&quot;)),
+                Tab(child: Text(&#39;关注&#39;)),
+                Tab(child: Text(&#39;热门&#39;)),
+                Tab(child: Text(&#39;生活&#39;)),
+                Tab(child: Text(&#39;娱乐&#39;)),
+                Tab(child: Text(&#39;绘画&#39;)),
+                Tab(child: Text(&#39;设计&#39;)),
+                Tab(child: Text(&#39;编程&#39;)),
+                Tab(child: Text(&#39;职场&#39;)),
               ],
             ),
           ),
@@ -2805,25 +3017,40 @@ class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStat
         controller: _tabController,
         children: [
           &#x2F;&#x2F; KeepAliveWrapper自定义缓存组件
-          KeepAliveWrapper(child: ListView(children: const [
-            ListTile(title: Text(&quot;关注列表01&quot;)), ListTile(title: Text(&quot;关注列表02&quot;)),
-            ListTile(title: Text(&quot;关注列表03&quot;)), ListTile(title: Text(&quot;关注列表04&quot;)),
-            ListTile(title: Text(&quot;关注列表05&quot;)), ListTile(title: Text(&quot;关注列表06&quot;)),
-            ListTile(title: Text(&quot;关注列表07&quot;)), ListTile(title: Text(&quot;关注列表08&quot;)),
-            ListTile(title: Text(&quot;关注列表09&quot;)), ListTile(title: Text(&quot;关注列表10&quot;)),
-            ListTile(title: Text(&quot;关注列表11&quot;)), ListTile(title: Text(&quot;关注列表12&quot;)),
-            ListTile(title: Text(&quot;关注列表13&quot;)), ListTile(title: Text(&quot;关注列表14&quot;)),
-            ListTile(title: Text(&quot;关注列表15&quot;)), ListTile(title: Text(&quot;关注列表16&quot;)),
-            ListTile(title: Text(&quot;关注列表17&quot;)), ListTile(title: Text(&quot;关注列表18&quot;)),
-            ListTile(title: Text(&quot;关注列表19&quot;)), ListTile(title: Text(&quot;关注列表20&quot;)),
-          ])),
-          const Text(&quot;热门&quot;), const Text(&quot;生活&quot;), const Text(&quot;娱乐&quot;), const Text(&quot;绘画&quot;),
-          const Text(&quot;设计&quot;), const Text(&quot;编程&quot;), const Text(&quot;职场&quot;),
+          KeepAliveWrapper(
+            child: ListView(
+              children: const [
+                ListTile(title: Text(&#39;关注列表01&#39;)),
+                ListTile(title: Text(&#39;关注列表02&#39;)),
+                ListTile(title: Text(&#39;关注列表03&#39;)),
+                ListTile(title: Text(&#39;关注列表04&#39;)),
+                ListTile(title: Text(&#39;关注列表05&#39;)),
+                ListTile(title: Text(&#39;关注列表06&#39;)),
+                ListTile(title: Text(&#39;关注列表07&#39;)),
+                ListTile(title: Text(&#39;关注列表08&#39;)),
+                ListTile(title: Text(&#39;关注列表09&#39;)),
+                ListTile(title: Text(&#39;关注列表10&#39;)),
+                ListTile(title: Text(&#39;关注列表11&#39;)),
+                ListTile(title: Text(&#39;关注列表12&#39;)),
+                ListTile(title: Text(&#39;关注列表13&#39;)),
+                ListTile(title: Text(&#39;关注列表14&#39;)),
+                ListTile(title: Text(&#39;关注列表15&#39;)),
+                ListTile(title: Text(&#39;关注列表16&#39;)),
+                ListTile(title: Text(&#39;关注列表17&#39;)),
+                ListTile(title: Text(&#39;关注列表18&#39;)),
+                ListTile(title: Text(&#39;关注列表19&#39;)),
+                ListTile(title: Text(&#39;关注列表20&#39;)),
+              ],
+            ),
+          ),
+          const Text(&#39;热门&#39;), const Text(&#39;生活&#39;), const Text(&#39;娱乐&#39;),
+          const Text(&#39;绘画&#39;),
+          const Text(&#39;设计&#39;), const Text(&#39;编程&#39;), const Text(&#39;职场&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
             </div>
             <hr/>
 
@@ -3809,7 +4036,7 @@ class _HomePageState extends State&lt;HomePage&gt; with SingleTickerProviderStat
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">63.7k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">64.4k</span>&nbsp;字&nbsp;🌼<br>
       
       
       
