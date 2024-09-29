@@ -22,7 +22,7 @@
     
     <script>
         // 隐藏
-        //右键
+        // 右键
         // document.oncontextmenu = function (event){
         //     if(window.event){
         //     event = window.event;
@@ -37,7 +37,7 @@
         //     }
         // }
 
-        //debugger部分
+        // debugger部分
             // setInterval(function() {
             // check();
             // }, 500);
@@ -82,7 +82,7 @@
             //         window.event.returnValue=false;
             //     }
             // }
-        //宽高
+        // 宽高
         // var threshold = 160; // 打开控制台的宽或高阈值  
         // // 每秒检查一次  
         // window.setInterval(function() {  
@@ -93,7 +93,7 @@
         //     }  
         // }, 1e3);
 
-        //debug调试时跳转页面
+        // debug调试时跳转页面
         // var element = new Image();
         // Object.defineProperty(element,'id',{get:function(){window.location.href="/tenfour/homepage/"}});
         // console.log(element);
@@ -171,7 +171,7 @@ class="themespring" -->
         }
     </script>
     <div onclick="switchSpringThemes()" id="switchspring">
-        <img class="chunjiepic" src="/medias/spring-img/denglong.png" title="春节主题" />
+        <img class="chunjiepic" src="/medias/spring-img/denglong.png" title="节日主题" />
     </div>
     <!-- 中国节日按钮结束  -->
     <!-- 网站主题切换模式结束 -->
@@ -1883,8 +1883,8 @@ $(function () {
     <!----------节日判断，进行网站修饰，比如春节圣诞或变灰色的清明等----- -->
     <script>
         // 判断今天是哪个节假日或特殊纪念日进行网站修饰，比如春节圣诞或变灰色的清明等
-        var curMonth = new Date().getMonth() + 1; //月
-        var curDate = new Date().getDate(); //日
+        var curMonth = new Date().getMonth() + 1;   // 月
+        var curDate = new Date().getDate();         // 日
         function cancelguajian() {
             // 判断如果是变灰色的纪念日则将小挂件隐藏
             var guajianone = document.getElementsByClassName('caishendeng');
@@ -1914,16 +1914,16 @@ $(function () {
             document.getElementById('dtone').innerHTML = "快乐";
             document.getElementById('dttwo').innerHTML = "元旦";
         }
-        else if(curMonth == 9 && curDate == 29) {
+        else if(curMonth == 9 && curDate == 30) {
             // 9月30日为全国烈士纪念日，设在国庆前一天
             document.getElementsByTagName('html')[0].classList.add('gray');
-            document.getElementById('popupbb').style.display = "block";
-            document.getElementById('jinianci').innerHTML = "今天是“ 9月30日 ”，“ 全国烈士纪念日 ”。定为每年的9月30日,正好是国庆前一天,让全国人民永远不要忘记先有无数先烈的前赴后继、奋勇献身,才有我们国家今天的繁荣富强、文明进步。"
-            document.getElementById('switchchristmas').style.display = "none";
-            document.getElementById('switchspring').style.display = "none";
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "缅怀";
             document.getElementById('dttwo').innerHTML = "烈士";
+            document.getElementById('jinianci').innerHTML = "今天是“ 9月30日 ”，“ 全国烈士纪念日 ”。定为每年的9月30日，正好是国庆前一天，让全国人民永远不要忘记先有无数先烈的前赴后继、奋勇献身，才有我们国家今天的繁荣富强、文明进步。"
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
             cancelguajian();
         }
         // 10月1日为国庆节
@@ -1939,12 +1939,12 @@ $(function () {
             document.getElementById('dtone').innerHTML = "欢度";
             document.getElementById('dttwo').innerHTML = "国庆";
             document.getElementById('index-video').src = "https://txmov2.a.yximgs.com/upic/2021/09/30/15/BMjAyMTA5MzAxNTE5MDhfMTg1ODk2MDg4N181ODA5MjQ1NDkyMV8xXzM=_b_Bef514871cf947c46c11bc54a3ed3faa9.mp4?pkey=AAWo-kOQESq9j_AMCO-BT6jTPS090PuVHWtyuSQ8cddkgMmI3V-P9uWMDY13QrPuCjtWVbch_01wRcj6Rtm5w0AkLhgVTMSceLLiRYjlWUfLDNNLX3jISKEscl9uNXUnYcM&tag=1-1632986688-xpcwebprofile-0-ongrobirtl-58c917acab52d13f&clientCacheKey=3xajcj9u8fubzm4_b.mp4";
+            document.getElementById('jinianci').style.textAlign = "center";
+            document.getElementById('jinianci').innerHTML = "《 国庆日🚩 》<br> 十月惊雷震九重，国富民强聩耳聋。<br>城头城下聚农工，神州处处花潮涌。<br>而今白鹿奋清风，山长水远不知踪。"
             document.getElementById('popupbb').style.display = "block"
             document.getElementById('tujis').style.display = "block";
             // document.getElementById('fights').style.display = "none";
-            document.getElementById('jinianci').style.textAlign = "center";
-            document.getElementById('jinianci').innerHTML = "《 国庆日🚩》<br> 十月惊雷震九重，国富民强聩耳聋。<br>城头城下聚农工，神州处处花潮涌。<br>而今白鹿奋清风，山长水远不知踪。"
-          }
+        }
         else if(curMonth == 12 && curDate == 13) {
             // 12月13日为国家公祭日
             document.getElementsByTagName('html')[0].classList.add('gray');
@@ -1965,7 +1965,7 @@ $(function () {
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "地震";
             document.getElementById('dttwo').innerHTML = "袁老";
-            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，.......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
             document.getElementById('popupbb').style.display = "block";
             document.getElementById('switchchristmas').style.display = "none";
             document.getElementById('switchspring').style.display = "none";
@@ -1975,38 +1975,43 @@ $(function () {
         else if(curMonth == 12 && curDate == 25) {
             // 12月25日为圣诞节
             document.body.classList.add('themechris');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "圣诞";
         }
-        // --------------以下节日为农历，每年不固定--------------
+        // --------------以下节日为农历，每年不固定，需要手动改（后续看是否可使用API）--------------
         else if(curMonth == 4 && curDate == 4) {
-            // 2021年4月4日为清明节
+            // 2025年4月4日为清明节
             document.getElementsByTagName('html')[0].classList.add('gray');
-            document.getElementById('switchchristmas').style.display = "none";
-            document.getElementById('switchspring').style.display = "none";
-            document.getElementById('popupbb').style.display = "block";
-            document.getElementById('jinianci').innerHTML = "今天是“ 4月4日 ”，“ 清明节 ”，正是郊外踏青春游与行清墓祭的好时节。燕子来时新社,梨花落后清明。"
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "安康";
             document.getElementById('dttwo').innerHTML = "清明";
+            document.getElementById('jinianci').innerHTML = "今天是“ 4月4日 ”，“ 清明节 ”，正是郊外踏青春游与行清墓祭的好时节。燕子来时新社，梨花落后清明。"
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
             cancelguajian();
         }
-        else if(curMonth == 1 && curDate == 31) {
-            // 2021春节除夕为1月31日
+        else if(curMonth == 1 && curDate == 28) {
+            // 2025春节除夕为1月28日
             document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "快乐";
             document.getElementById('dttwo').innerHTML = "除夕";
         }
-        else if(curMonth == 2) {
-            // 2021春节为2月1日开始
+        else if(curMonth == 1) {
+            // 2025春节为1月29日开始
             document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "春节";
         }
-        else if(curMonth == 6 && curDate == 14) {
-            // 2021端午节为6月14日
+        else if(curMonth == 5 && curDate == 31) {
+            // 2025端午节为5月31日
             document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "安康";
             document.getElementById('dttwo').innerHTML = "端午";
         }
-        else if(curMonth == 9 && curDate == 21) {
-            // 2021中秋节为9月21日
+        else if(curMonth == 10 && curDate == 6) {
+            // 2025中秋节为10月6日
             document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "团圆";
             document.getElementById('dttwo').innerHTML = "中秋";
