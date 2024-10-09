@@ -1098,10 +1098,6 @@ h3:hover {
                                 <span class="chip bg-color">坐标轴</span>
                             </a>
                         
-                            <a href="/tags/%E9%80%89%E6%8B%A9%E9%9B%86/">
-                                <span class="chip bg-color">选择集</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -1132,14 +1128,14 @@ h3:hover {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.4k
+                    9.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    50 分
+                    49 分
                 </div>
                 
 
@@ -1158,6 +1154,7 @@ h3:hover {
 
 <h1 id="1-D3概述"><a href="#1-D3概述" class="headerlink" title="1 D3概述"></a>1 D3概述</h1><ul>
 <li>D3版本下载：<a target="_blank" rel="noopener" href="https://github.com/d3/d3/releases">https://github.com/d3/d3/releases</a>、<a target="_blank" rel="noopener" href="https://d3js.org">https://d3js.org</a>。</li>
+<li>GitHub下载的ZIP包只是未进行编译的D3源代码文件，不能直接使用。</li>
 <li>选择元素(选择集)、绑定数据是D3最基础的内容，通常需要一起使用。<ul>
 <li>选择元素：<code>d3.select()</code>(选择所有指定元素的第一个)、<code>d3.selectAll()</code>(选择指定全部元素)。</li>
 <li>绑定数据：<code>datum()</code>(绑定数据到选择集)、<code>data()</code>(绑定数组到选择集，各项值对应元素绑定)。</li>
@@ -1171,12 +1168,11 @@ h3:hover {
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
     &lt;title&gt;D3概述&lt;&#x2F;title&gt;
     &lt;!-- 使用官网链接的引入，需要梯子 --&gt;
-    &lt;!-- &lt;script src&#x3D;&#39;http:&#x2F;&#x2F;d3js.org&#x2F;d3.v3.min.js&#39; charset&#x3D;&#39;utf-8&#39;&gt;&lt;&#x2F;script&gt; --&gt;
+    &lt;!-- &lt;script src&#x3D;&#39;http:&#x2F;&#x2F;d3js.org&#x2F;d3.v3.min.js&#39; charset&#x3D;&#39;utf-8&#39;&gt;
+    &lt;&#x2F;script&gt; --&gt;
     &lt;!-- 使用CDN节点的链接引入 --&gt;
     &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
     &lt;&#x2F;script&gt;
-    &lt;!-- 加载本地文件引入，需要下载，引入时好像没看到d3.v3.min.js文件？？？ --&gt;
-    &lt;!-- &lt;script src&#x3D;&#39;xxx&#x2F;d3.v3.min.js&#39; charset&#x3D;&#39;utf-8&#39;&gt;&lt;&#x2F;script&gt; --&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body style&#x3D;&#39;text-align: center&#39;&gt;&lt;br &#x2F;&gt;
@@ -1210,7 +1206,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-1-选择元素"><a href="#1-1-选择元素" class="headerlink" title="1-1 选择元素"></a>1-1 选择元素</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
@@ -1337,12 +1333,6 @@ h3:hover {
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 数据：矩形的宽度
         var dataset &#x3D; [280, 210, 170, 130, 90, 160, 110];
@@ -1370,7 +1360,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-2-纵向矩形"><a href="#2-2-纵向矩形" class="headerlink" title="2-2 纵向矩形"></a>2-2 纵向矩形</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
@@ -1388,12 +1378,6 @@ h3:hover {
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 数据：矩形的宽度
         var dataset &#x3D; [280, 210, 170, 130, 90, 160, 110];
@@ -1423,8 +1407,11 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-3-常用比例尺"><a href="#2-3-常用比例尺" class="headerlink" title="2-3 常用比例尺"></a>2-3 常用比例尺</h2><ul>
+<li>比例尺就是一个数据映射函数，例如线性比例尺可实现类似<code>y = ax + b</code>的变换。</li>
+<li>D3共有三类比例尺：数量型、序数型(序数、颜色比例尺)、时间型(时间比例尺)。</li>
+<li>数量型：线性、恒等、乘方、对数、量化比例尺、分位数比例尺、临界值比例尺。</li>
 <li>D3中的比例尺，有定义域和值域，分别被称为domain和range。</li>
 <li>常用的比例尺<ul>
 <li>线性比例尺：能将一个连续的区间，映射到另一区间。</li>
@@ -1440,21 +1427,9 @@ h3:hover {
     &lt;title&gt;线性比例尺&lt;&#x2F;title&gt;
     &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
     &lt;&#x2F;script&gt;
-    &lt;style&gt;
-        svg &#123;
-            display: block;
-            margin: auto;
-        &#125;
-    &lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         var dataset &#x3D; [1.2, 2.3, 0.9, 1.5, 3.3];
         var min &#x3D; d3.min(dataset);
@@ -1469,7 +1444,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-序数比例尺"><a href="#2-序数比例尺" class="headerlink" title="(2) 序数比例尺"></a>(2) 序数比例尺</h3><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
@@ -1478,21 +1453,9 @@ h3:hover {
     &lt;title&gt;序数比例尺&lt;&#x2F;title&gt;
     &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
     &lt;&#x2F;script&gt;
-    &lt;style&gt;
-        svg &#123;
-            display: block;
-            margin: auto;
-        &#125;
-    &lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         var index &#x3D; [0, 1, 2, 3, 4, 5, 6];
         var color &#x3D; [
@@ -1508,7 +1471,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-4-添加比例尺"><a href="#2-4-添加比例尺" class="headerlink" title="2-4 添加比例尺"></a>2-4 添加比例尺</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
@@ -1526,12 +1489,6 @@ h3:hover {
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         var dataset &#x3D; [1.2, 2.3, 0.9, 1.5, 3.3];
         var min &#x3D; d3.min(dataset);
@@ -1564,7 +1521,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-5-定义坐标轴"><a href="#2-5-定义坐标轴" class="headerlink" title="2-5 定义坐标轴"></a>2-5 定义坐标轴</h2><ul>
 <li>要生成坐标轴，则需要用到比例尺，二者经常一起使用。</li>
 </ul>
@@ -1597,12 +1554,6 @@ h3:hover {
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 数据
         var dataset &#x3D; [1.2, 2.3, 0.9, 1.5, 3.3];
@@ -1636,7 +1587,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-6-完整矩形图"><a href="#2-6-完整矩形图" class="headerlink" title="2-6 完整矩形图"></a>2-6 完整矩形图</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
@@ -1654,12 +1605,6 @@ h3:hover {
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 添加SVG画布，设置画布大小
         width &#x3D; 300; height &#x3D; 300;
@@ -1739,7 +1684,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-动态效果"><a href="#3-动态效果" class="headerlink" title="3 动态效果"></a>3 动态效果</h1><ul>
 <li>D3提供了4种方法用于实现图形的过渡，即动态效果，代表从状态A变成了状态B。</li>
 <li>transition()：启动过渡效果，前后是图形变化前后的状态(形状、位置、颜色等)。</li>
@@ -1820,12 +1765,6 @@ h3:hover {
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 添加SVG画布，设置画布大小
         width &#x3D; 300; height &#x3D; 300;
@@ -1916,7 +1855,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-3-数量关系处理"><a href="#3-3-数量关系处理" class="headerlink" title="3-3 数量关系处理"></a>3-3 数量关系处理</h2><ul>
 <li>update()、enter()、exit()是D3处理选择集和数据之间数量关系不确定的重要函数。</li>
 <li>update()<ul>
@@ -1961,12 +1900,6 @@ h3:hover {
 &lt;&#x2F;head&gt;
 
 &lt;body&gt;&lt;br &#x2F;&gt;
-    &lt;svg&gt;
-        &lt;!-- 矩形的元素标签 --&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-        &lt;rect&gt;&lt;&#x2F;rect&gt;
-    &lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 添加SVG画布，设置画布大小
         width &#x3D; 300; height &#x3D; 300;
@@ -2058,7 +1991,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="4-布局详解"><a href="#4-布局详解" class="headerlink" title="4 布局详解"></a>4 布局详解</h1><ul>
 <li>Layout，将不适合用于绘图的数据转换成了适合用于绘图的数据(数据转换)。</li>
 <li>D3常用的布局<ul>
@@ -2090,7 +2023,6 @@ h3:hover {
 
 &lt;body&gt;&lt;br &#x2F;&gt;
     &lt;svg&gt;&lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 画布
         var width &#x3D; 500; height &#x3D; 500;
@@ -2147,7 +2079,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="6-力导向图"><a href="#6-力导向图" class="headerlink" title="6 力导向图"></a>6 力导向图</h1><ul>
 <li>力导向图，英文叫Force-Directed Graph，是绘图的一种算法。</li>
 <li>在二维或三维空间里配置节点，节点之间用线连接，称为连线。</li>
@@ -2172,7 +2104,6 @@ h3:hover {
 
 &lt;body&gt;&lt;br &#x2F;&gt;
     &lt;svg&gt;&lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 画布
         var width &#x3D; 800; height &#x3D; 600;
@@ -2257,7 +2188,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="7-树状图形"><a href="#7-树状图形" class="headerlink" title="7 树状图形"></a>7 树状图形</h1><pre class="line-numbers language-JSON" data-language="JSON"><code class="language-JSON">&#123;
     &quot;name&quot;: &quot;福建&quot;,
     &quot;children&quot;: [
@@ -2502,7 +2433,6 @@ h3:hover {
 
 &lt;body&gt;&lt;br &#x2F;&gt;
     &lt;svg&gt;&lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 画布
         var width &#x3D; 800; height &#x3D; 1000;
@@ -2560,7 +2490,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="8-可视化地图"><a href="#8-可视化地图" class="headerlink" title="8 可视化地图"></a>8 可视化地图</h1><ul>
 <li>制作地图需要Json文件，将Json格式应用于地理上的文件，叫GeoJson文件。</li>
 </ul>
@@ -2595,7 +2525,6 @@ h3:hover {
 
 &lt;body&gt;&lt;br &#x2F;&gt;
     &lt;svg&gt;&lt;&#x2F;svg&gt;
-
     &lt;script&gt;
         &#x2F;&#x2F; 设置SVG容器
         var width &#x3D; 960; height &#x3D; 600;
@@ -2633,7 +2562,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
             </div>
             <hr/>
 
@@ -2719,10 +2648,6 @@ h3:hover {
                             
                                 <a href="/tags/%E5%9D%90%E6%A0%87%E8%BD%B4/">
                                     <span class="chip bg-color">坐标轴</span>
-                                </a>
-                            
-                                <a href="/tags/%E9%80%89%E6%8B%A9%E9%9B%86/">
-                                    <span class="chip bg-color">选择集</span>
                                 </a>
                             
                         </div>
@@ -3321,10 +3246,6 @@ h3:hover {
                         <span class="chip bg-color">坐标轴</span>
                     </a>
                     
-                    <a href="/tags/%E9%80%89%E6%8B%A9%E9%9B%86/">
-                        <span class="chip bg-color">选择集</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -3523,12 +3444,6 @@ h3:hover {
                 </a>
             </div>
         
-            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="选择集">
-                <a class="btn-floating btn-large bg-color">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-            </div>
-        
     
 
 
@@ -3649,7 +3564,7 @@ h3:hover {
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">64.4k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">64.1k</span>&nbsp;字&nbsp;🌼<br>
       
       
       
