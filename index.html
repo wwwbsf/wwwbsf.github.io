@@ -1108,6 +1108,32 @@ class="themespring" -->
  
           
         </div>
+        <!-- 新增，梦想卡片底部波浪线，没效果？？？ -->
+        <div class="wavecontrl cardcontentline">
+          <style>
+            .cardcontentline {
+            height: 3px;
+            width: 98%;
+            position: absolute;
+            left: 50%;
+            bottom: -3px;
+            transform: translateX(-50%);
+            background: url(/medias/wave_white.png) 0 0 repeat-x;
+            background-size: 10px 3px;
+          }
+
+          body.dark .cardcontentline {
+            height: 3px;
+            width: 98%;
+            position: absolute;
+            left: 50%;
+            bottom: -3px;
+            transform: translateX(-50%);
+            background: url(/medias/wave_black.png) 0 0 repeat-x;
+            background-size: 10px 3px;
+          }
+          </style>
+        </div>
 
         <!-- 旋转樱花 -->
         <div class="yinghua yhleft">
@@ -1151,30 +1177,31 @@ class="themespring" -->
         </div>
       </div>
       <!-- 新增，语录栏底部波浪线，没效果？？？ -->
-      <div class="wavelinecard"></div>
-      <style>
-        .wavelinecard {
-          height: 3px;
-          width: 98%;
-          position: absolute;
-          left: 50%;
-          bottom: -3px;
-          transform: translateX(-50%);
-          background: url(/medias/wave_white.png) 0 0 repeat-x;
-          background-size: 10px 3px;
-        }
-    
-        body.dark .wavelinecard {
-          height: 3px;
-          width: 98%;
-          position: absolute;
-          left: 50%;
-          bottom: -3px;
-          transform: translateX(-50%);
-          background: url(/medias/wave_black.png) 0 0 repeat-x;
-          background-size: 10px 3px;
-        }
-      </style>
+      <div class="wavelinecard">
+        <style>
+          .wavelinecard {
+            height: 3px;
+            width: 98%;
+            position: absolute;
+            left: 50%;
+            bottom: -3px;
+            transform: translateX(-50%);
+            background: url(/medias/wave_white.png) 0 0 repeat-x;
+            background-size: 10px 3px;
+          }
+      
+          body.dark .wavelinecard {
+            height: 3px;
+            width: 98%;
+            position: absolute;
+            left: 50%;
+            bottom: -3px;
+            transform: translateX(-50%);
+            background: url(/medias/wave_black.png) 0 0 repeat-x;
+            background-size: 10px 3px;
+          }
+        </style>
+      </div>
       <!-- 语录栏结束 -->
 
       <!-- 全局通知公告播报栏开始 -->
@@ -2923,6 +2950,12 @@ $(function () {
             document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "团圆";
             document.getElementById('dttwo').innerHTML = "中秋";
+        }
+        else {
+            // 平常时间
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "万事";
+            document.getElementById('dttwo').innerHTML = "胜意";
         }
     </script>
 

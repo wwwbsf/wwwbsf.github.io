@@ -1123,7 +1123,7 @@ class="themespring" -->
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Docker","value":1},{"name":"Dart","value":6},{"name":"Flutter","value":6},{"name":"Ubuntu","value":1},{"name":"Web","value":1}],
+                data: [{"name":"Dart","value":6},{"name":"Docker","value":1},{"name":"Flutter","value":6},{"name":"Ubuntu","value":1},{"name":"Web","value":1}],
                 label: {
                     fontFamily: "Aa漫语手写体",
                     fontWeight: 1000
@@ -1694,6 +1694,12 @@ $(function () {
             document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "团圆";
             document.getElementById('dttwo').innerHTML = "中秋";
+        }
+        else {
+            // 平常时间
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "万事";
+            document.getElementById('dttwo').innerHTML = "胜意";
         }
     </script>
 
