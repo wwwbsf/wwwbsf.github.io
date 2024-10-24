@@ -135,9 +135,9 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <!-- 提示：若要开启春节或者圣诞主题样式，直接给body标签添加一个class为
@@ -1418,13 +1418,13 @@ class="themespring" -->
           <!-- 推荐文章置顶模块效果开始 -->
           
           <!-- 推荐文章置顶模块效果结束 -->
-          <a href="/posts/javascript@01.html">
+          <a href="/posts/javascript@02.html">
             <div class="card-image">
               
               <img
-                src="/medias/toc-banner/javascript/javascript@01.jpg"
+                src="/medias/toc-banner/javascript/javascript@02.jpg"
                 class="responsive-img"
-                alt="可视化工具D3"
+                alt="可视化D3(二)"
               />
               
               <!-- 福袋按钮 -->
@@ -1437,7 +1437,130 @@ class="themespring" -->
                 </div>
               </div>
               <span class="card-title">
-                可视化工具D3
+                可视化D3(二)
+                <!-- 文章卡片hover线条效果 -->
+                <span class="titlesline">
+                  <style>
+                    .titlesline {
+                      width: 0px;
+                      height: 4px;
+                      background-color: #fadca6;
+                      border-radius: 2px;
+                      position: absolute;
+                      top: 10px;
+                      left: 24px;
+                    }
+
+                    body.dark .titlesline {
+                      filter: brightness(0.7);
+                    }
+
+                    article .card .titlesline {
+                      transition: all 0.36s ease;
+                    }
+
+                    article .card-image:hover .titlesline {
+                      width: 36px;
+                    }
+                  </style>
+                </span>
+              </span>
+            </div>
+          </a>
+
+          <div class="card-content article-content">
+            <div class="summary block-with-text">
+              <!--  D3可用于创建交互式可视化，允许使用数据操作、转换和呈现，然后将其转换为可在Web浏览器中显示的SVG、Canvas或HTML。  -->
+              
+                D3可用于创建交互式可视化，允许使用数据操作、转换和呈现，然后将其转换为可在Web浏览器中显示的SVG、Canvas或HTML。
+              
+            </div>
+            <div class="publish-info">
+              <span class="publish-date">
+                <i class="far fa-clock fa-fw icon-date"></i>
+                2024-10-24
+              </span>
+              <span class="publish-author">
+                
+                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                
+                <a href="/categories/Web/" class="post-category">
+                  Web
+                </a>
+                 
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="card-action article-tags">
+            
+            <a href="/tags/Web/">
+              <span class="chip bg-color"> Web </span>
+            </a>
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+              <span class="chip bg-color"> 数据类型 </span>
+            </a>
+            
+            <a href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/">
+              <span class="chip bg-color"> 文件加载 </span>
+            </a>
+            
+            <a href="/tags/%E5%BC%A6%E5%9B%BE%E7%BB%98%E5%88%B6/">
+              <span class="chip bg-color"> 弦图绘制 </span>
+            </a>
+            
+          </div>
+          
+        </div>
+        <!-- 新增，文章卡片波浪线 -->
+        <div class="wavearticle wavelinearticle">
+          <style>
+            .wavelinearticle {
+              height: 3px;
+              width: 90%;
+              position: absolute;
+              left: 50%;
+              bottom: calc(1rem - 3px);
+              transform: translateX(-50%);
+              background: url(/medias/wave-white.png) 0 0 repeat-x;
+              background-size: 10px 3px;
+            }
+
+            body.dark .wavelinearticle {
+              background: none;
+              display: none;
+            }
+          </style>
+        </div>
+      </div>
+      
+      <div class="article col s12 m6 l4">
+        <div class="card">
+          <!-- 推荐文章置顶模块效果开始 -->
+          
+          <!-- 推荐文章置顶模块效果结束 -->
+          <a href="/posts/javascript@01.html">
+            <div class="card-image">
+              
+              <img
+                src="/medias/toc-banner/javascript/javascript@01.jpg"
+                class="responsive-img"
+                alt="可视化D3(一)"
+              />
+              
+              <!-- 福袋按钮 -->
+              <div class="caishendeng">
+                <div class="caishenxian fudaixian">
+                  <img
+                    class="caishenpic lala"
+                    src="/medias/spring-img/fish.png"
+                  />
+                </div>
+              </div>
+              <span class="card-title">
+                可视化D3(一)
                 <!-- 文章卡片hover线条效果 -->
                 <span class="titlesline">
                   <style>
@@ -2373,133 +2496,6 @@ class="themespring" -->
         </div>
       </div>
       
-      <div class="article col s12 m6 l4">
-        <div class="card">
-          <!-- 推荐文章置顶模块效果开始 -->
-          
-          <!-- 推荐文章置顶模块效果结束 -->
-          <a href="/posts/dart@06.html">
-            <div class="card-image">
-              
-              <img
-                src="/medias/toc-banner/dart/dart@06.jpg"
-                class="responsive-img"
-                alt="面向对象"
-              />
-              
-              <!-- 福袋按钮 -->
-              <div class="caishendeng">
-                <div class="caishenxian fudaixian">
-                  <img
-                    class="caishenpic lala"
-                    src="/medias/spring-img/fish.png"
-                  />
-                </div>
-              </div>
-              <span class="card-title">
-                面向对象
-                <!-- 文章卡片hover线条效果 -->
-                <span class="titlesline">
-                  <style>
-                    .titlesline {
-                      width: 0px;
-                      height: 4px;
-                      background-color: #fadca6;
-                      border-radius: 2px;
-                      position: absolute;
-                      top: 10px;
-                      left: 24px;
-                    }
-
-                    body.dark .titlesline {
-                      filter: brightness(0.7);
-                    }
-
-                    article .card .titlesline {
-                      transition: all 0.36s ease;
-                    }
-
-                    article .card-image:hover .titlesline {
-                      width: 36px;
-                    }
-                  </style>
-                </span>
-              </span>
-            </div>
-          </a>
-
-          <div class="card-content article-content">
-            <div class="summary block-with-text">
-              <!--  Dart面向对象编程(OOP)是一种将代码组织成对象的编程范式，每个对象都包含数据和行为，类似于现实世界中的实体。  -->
-              
-                Dart面向对象编程(OOP)是一种将代码组织成对象的编程范式，每个对象都包含数据和行为，类似于现实世界中的实体。
-              
-            </div>
-            <div class="publish-info">
-              <span class="publish-date">
-                <i class="far fa-clock fa-fw icon-date"></i>
-                2024-03-01
-              </span>
-              <span class="publish-author">
-                
-                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                
-                <a href="/categories/Dart/" class="post-category">
-                  Dart
-                </a>
-                 
-              </span>
-            </div>
-          </div>
-
-          
-          <div class="card-action article-tags">
-            
-            <a href="/tags/%E7%B1%BB/">
-              <span class="chip bg-color"> 类 </span>
-            </a>
-            
-            <a href="/tags/%E5%AF%B9%E8%B1%A1/">
-              <span class="chip bg-color"> 对象 </span>
-            </a>
-            
-            <a href="/tags/%E7%BB%A7%E6%89%BF/">
-              <span class="chip bg-color"> 继承 </span>
-            </a>
-            
-            <a href="/tags/%E5%A4%9A%E6%80%81/">
-              <span class="chip bg-color"> 多态 </span>
-            </a>
-            
-            <a href="/tags/%E5%B0%81%E8%A3%85/">
-              <span class="chip bg-color"> 封装 </span>
-            </a>
-            
-          </div>
-          
-        </div>
-        <!-- 新增，文章卡片波浪线 -->
-        <div class="wavearticle wavelinearticle">
-          <style>
-            .wavelinearticle {
-              height: 3px;
-              width: 90%;
-              position: absolute;
-              left: 50%;
-              bottom: calc(1rem - 3px);
-              transform: translateX(-50%);
-              background: url(/medias/wave-white.png) 0 0 repeat-x;
-              background-size: 10px 3px;
-            }
-
-            body.dark .wavelinearticle {
-              background: none;
-              display: none;
-            }
-          </style>
-        </div>
-      </div>
-      
     </div>
   </article>
   <!-- 所有文章卡片结束 -->
@@ -2568,7 +2564,7 @@ class="themespring" -->
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">64.1k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">82k</span>&nbsp;字&nbsp;🌼<br>
       
       
       

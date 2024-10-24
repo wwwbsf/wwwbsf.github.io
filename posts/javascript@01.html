@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="可视化工具D3, bsf">
+    <meta name="keywords" content="可视化D3(一), bsf">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>可视化工具D3 | bsf</title>
+    <title>可视化D3(一) | bsf</title>
     
     <script>
         // 隐藏
@@ -135,9 +135,9 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <!-- 提示：若要开启春节或者圣诞主题样式，直接给body标签添加一个class为
@@ -801,7 +801,7 @@ class="themespring" -->
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">可视化工具D3</h1>
+                    <h1 class="description center-align post-title">可视化D3(一)</h1>
                 </div>
             </div>
         </div>
@@ -1128,14 +1128,14 @@ h3:hover {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.1k
+                    12.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    49 分
+                    65 分
                 </div>
                 
 
@@ -2085,6 +2085,9 @@ h3:hover {
 <li>在二维或三维空间里配置节点，节点之间用线连接，称为连线。</li>
 <li>节点之间的各个连线长度几乎都相等，并且会尽可能地不相交。</li>
 <li>节点和连线都被施加了力的作用，而力则根据节点和连线的相对位置计算。</li>
+<li>nodes(节点)和edges(边)都是必备属性，节点和边数组都可以有额外属性。</li>
+<li>nodes数据是一个表示节点的对象数组，而edges是一个表示边的对象数组。</li>
+<li>其中，source和target子属性也是必备的，其值代表了nodes数组中的索引。</li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -2104,13 +2107,15 @@ h3:hover {
 
 &lt;body&gt;&lt;br &#x2F;&gt;
     &lt;svg&gt;&lt;&#x2F;svg&gt;
+
     &lt;script&gt;
         &#x2F;&#x2F; 画布
         var width &#x3D; 800; height &#x3D; 600;
         var svg &#x3D; d3.select(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height).append(&#39;g&#39;)
             .attr(
-                &#39;transform&#39;, 
+                &#39;transform&#39;,
                 &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 4 + &#39;)&#39;
             );
 
@@ -2118,11 +2123,16 @@ h3:hover {
         var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
 
         &#x2F;&#x2F; 初始数据
-        var nodes &#x3D; [&#123; name: &#39;福建&#39; &#125;, &#123; name: &#39;广东&#39; &#125;, &#123; name: &#39;福州&#39; &#125;,
-        &#123; name: &#39;莆田&#39; &#125;, &#123; name: &#39;广州&#39; &#125;, &#123; name: &#39;茂名&#39; &#125;, &#123; name: &#39;深圳&#39; &#125;];
-        var edges &#x3D; [&#123; source: 0, target: 1 &#125;, &#123; source: 0, target: 2 &#125;,
-        &#123; source: 0, target: 3 &#125;, &#123; source: 1, target: 4 &#125;,
-        &#123; source: 1, target: 5 &#125;, &#123; source: 1, target: 6 &#125;];
+        var nodes &#x3D; [
+            &#123; name: &#39;福建&#39; &#125;, &#123; name: &#39;广东&#39; &#125;,
+            &#123; name: &#39;福州&#39; &#125;, &#123; name: &#39;莆田&#39; &#125;,
+            &#123; name: &#39;广州&#39; &#125;, &#123; name: &#39;茂名&#39; &#125;, &#123; name: &#39;深圳&#39; &#125;
+        ];
+        var edges &#x3D; [
+            &#123; source: 0, target: 1 &#125;, &#123; source: 0, target: 2 &#125;,
+            &#123; source: 0, target: 3 &#125;, &#123; source: 1, target: 4 &#125;,
+            &#123; source: 1, target: 5 &#125;, &#123; source: 1, target: 6 &#125;
+        ];
 
         &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
         var simulation &#x3D; d3.forceSimulation(nodes)
@@ -2131,31 +2141,29 @@ h3:hover {
             .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
 
         &#x2F;&#x2F; 绘制连线
-        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;).data(edges).enter().append(&#39;line&#39;)
+        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
+            .data(edges).enter().append(&#39;line&#39;)
             .style(&#39;stroke&#39;, &#39;#ccc&#39;).style(&#39;stroke-width&#39;, 1);
 
         &#x2F;&#x2F; 添加节点 
-        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
-            .data(nodes).enter().append(&#39;circle&#39;).attr(&#39;r&#39;, 15)
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;).data(nodes)
+            .enter().append(&#39;circle&#39;).attr(&#39;r&#39;, 15)
             .style(&#39;fill&#39;, function (d, i) &#123;
                 return color(i);
             &#125;)
             &#x2F;&#x2F; 确保使用新的拖动API
-            .call(
-                d3.drag()
-                    .on(&#39;start&#39;, dragstarted)
-                    .on(&#39;drag&#39;, dragged)
-                    .on(&#39;end&#39;, dragended)
-            );
+            .call(d3.drag().on(&#39;start&#39;, dragstarted)
+                .on(&#39;drag&#39;, dragged).on(&#39;end&#39;, dragended));
 
         &#x2F;&#x2F; 添加文字
-        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;).data(nodes).enter().append(&#39;text&#39;)
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(nodes).enter().append(&#39;text&#39;)
             .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
             .text(function (d) &#123;
                 return d.name;
             &#125;);
 
-        &#x2F;&#x2F; 由于力导向图是不断运动的，每一时刻都在发生更新，必须不断更新节点和连线的位置
+        &#x2F;&#x2F; 力导向图是不断运动的，每一时刻都在发生更新，须不断更新节点和连线位置
         simulation.on(&#39;tick&#39;, function () &#123;
             &#x2F;&#x2F; 每个tick更新节点和连线的位置
             svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
@@ -2188,245 +2196,19 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="7-树状图形"><a href="#7-树状图形" class="headerlink" title="7 树状图形"></a>7 树状图形</h1><pre class="line-numbers language-JSON" data-language="JSON"><code class="language-JSON">&#123;
-    &quot;name&quot;: &quot;福建&quot;,
-    &quot;children&quot;: [
-        &#123;
-            &quot;name&quot;: &quot;福州&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;闽侯&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;连江&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;罗源&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;闽清&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;永泰&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;平潭&quot;
-                &#125;
-            ]
-        &#125;,
-        &#123;
-            &quot;name&quot;: &quot;厦门&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;海沧&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;集美&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;同安&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;翔安&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;思明&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;湖里&quot;
-                &#125;
-            ]
-        &#125;,
-        &#123;
-            &quot;name&quot;: &quot;莆田&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;仙游县&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;荔城区&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;城厢区&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;涵江区&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;秀屿区&quot;
-                &#125;
-            ]
-        &#125;,
-        &#123;
-            &quot;name&quot;: &quot;三明&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;明溪&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;清流&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;宁化&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;大田&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;尤溪&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;将乐&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;泰宁&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;建宁&quot;
-                &#125;
-            ]
-        &#125;,
-        &#123;
-            &quot;name&quot;: &quot;泉州&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;惠安&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;安溪&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;永春&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;德化&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;金门&quot;
-                &#125;
-            ]
-        &#125;,
-        &#123;
-            &quot;name&quot;: &quot;漳州&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;漳浦&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;云霄&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;诏安&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;平和&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;华安&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;南靖&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;东山&quot;
-                &#125;
-            ]
-        &#125;,
-        &#123;
-            &quot;name&quot;: &quot;南平&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;顺昌&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;浦城&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;光泽&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;松溪&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;政和&quot;
-                &#125;
-            ]
-        &#125;,
-        &#123;
-            &quot;name&quot;: &quot;龙岩&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;长汀&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;上杭&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;武平&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;连城&quot;
-                &#125;
-            ]
-        &#125;,
-        &#123;
-            &quot;name&quot;: &quot;宁德&quot;,
-            &quot;children&quot;: [
-                &#123;
-                    &quot;name&quot;: &quot;霞浦&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;古田&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;屏南&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;寿宁&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;周宁&quot;
-                &#125;,
-                &#123;
-                    &quot;name&quot;: &quot;柘荣&quot;
-                &#125;
-            ]
-        &#125;
-    ]
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>树状图形，可以用来表示节点之间的包含与被包含关系，代码中引入了tree.json文件。</li>
-<li>避免跨域问题，使用VSCode的Live Server插件在本地启动一个HTTP服务器进行查看。</li>
-</ul>
-<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-1-分子式"><a href="#6-1-分子式" class="headerlink" title="6-1 分子式"></a>6-1 分子式</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
-    &lt;title&gt;树状图形&lt;&#x2F;title&gt;
+    &lt;title&gt;分子式&lt;&#x2F;title&gt;
     &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
     &lt;&#x2F;script&gt;
     &lt;style&gt;
         svg &#123;
             display: block;
             margin: auto;
-        &#125;
-
-        .node circle &#123;
-            fill: #FFF;
-            stroke: steelblue;
-            stroke-width: 1.5px;
-        &#125;
-
-        .node &#123;
-            font: 12px sans-serif;
-        &#125;
-
-        .link &#123;
-            fill: none;
-            stroke: #ccc;
-            stroke-width: 1.5px;
         &#125;
     &lt;&#x2F;style&gt;
 &lt;&#x2F;head&gt;
@@ -2435,63 +2217,548 @@ h3:hover {
     &lt;svg&gt;&lt;&#x2F;svg&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 画布
-        var width &#x3D; 800; height &#x3D; 1000;
+        var width &#x3D; 800; height &#x3D; 600;
         var svg &#x3D; d3.select(&#39;svg&#39;)
             .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
             .attr(
-                &#39;transform&#39;, 
-                &#39;translate(&#39; + width &#x2F; 8 + &#39;,&#39; + height &#x2F; 10 + &#39;)&#39;
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
             );
 
         &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
         var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
 
-        &#x2F;&#x2F; 加载数据
-        d3.json(&#39;.&#x2F;file&#x2F;tree.json&#39;).then(function (data) &#123;
-            &#x2F;&#x2F; 使用加载的数据创建层级结构
-            var root &#x3D; d3.hierarchy(data);
-            &#x2F;&#x2F; 定义一个集群图布局，设定尺寸
-            var tree &#x3D; d3.tree().size([height - 200, width - 200]);
-            tree(root);
+        &#x2F;&#x2F; 数据
+        var graph &#x3D; &#123;
+            &#39;nodes&#39;: [
+                &#123; &#39;atom&#39;: &#39;福建&#39;, &#39;size&#39;: 30 &#125;,
+                &#123; &#39;atom&#39;: &#39;福州&#39;, &#39;size&#39;: 10 &#125;,
+                &#123; &#39;atom&#39;: &#39;莆田&#39;, &#39;size&#39;: 10 &#125;,
+                &#123; &#39;atom&#39;: &#39;广东&#39;, &#39;size&#39;: 30 &#125;,
+                &#123; &#39;atom&#39;: &#39;广州&#39;, &#39;size&#39;: 10 &#125;,
+                &#123; &#39;atom&#39;: &#39;茂名&#39;, &#39;size&#39;: 10 &#125;,
+                &#123; &#39;atom&#39;: &#39;深圳&#39;, &#39;size&#39;: 10 &#125;
+            ],
+            &#39;links&#39;: [
+                &#123; &#39;source&#39;: 0, &#39;target&#39;: 0, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 0, &#39;target&#39;: 1, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 0, &#39;target&#39;: 2, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 0, &#39;target&#39;: 3, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 3, &#39;target&#39;: 3, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 3, &#39;target&#39;: 4, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 3, &#39;target&#39;: 5, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 3, &#39;target&#39;: 6, &#39;bond&#39;: 1 &#125;
+            ]
+        &#125;
 
-            &#x2F;&#x2F; 数据转换，使用root.descendants()获取节点
-            var nodes &#x3D; root.descendants();
-            var links &#x3D; root.links();
-            console.log(nodes);
-            console.log(links);
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        var simulation &#x3D; d3.forceSimulation(graph.nodes)
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-100))
+            .force(&#39;link&#39;, d3.forceLink(graph.links).distance(function (d) &#123;
+                &#x2F;&#x2F; 根据大小调整距离
+                return 20 + 2 * (d.source.size + d.target.size);
+            &#125;));
 
-            &#x2F;&#x2F; 绘制连线
-            var diagonal &#x3D; d3.linkHorizontal()
-                .x(function (d) &#123; return d.y; &#125;)
-                .y(function (d) &#123; return d.x; &#125;);
-            var link &#x3D; svg.selectAll(&#39;.link&#39;)
-                .data(root.links()).enter().append(&#39;path&#39;)
-                .attr(&#39;class&#39;, &#39;link&#39;).attr(&#39;d&#39;, diagonal);
+        &#x2F;&#x2F; 定义一个半径比例尺
+        var radius &#x3D; d3.scaleSqrt().range([0, 10]).domain([1, 20]);
 
-            &#x2F;&#x2F; 绘制节点
-            var node &#x3D; svg.selectAll(&#39;.node&#39;).
-                data(nodes).enter().append(&#39;g&#39;).attr(&#39;class&#39;, &#39;node&#39;)
-                .attr(
-                    &#39;transform&#39;, 
-                    function (d) &#123;
-                        return &#39;translate(&#39; + d.y + &#39;,&#39; + d.x + &#39;)&#39;;
-                    &#125;
-                );
-            node.append(&#39;circle&#39;).attr(&#39;r&#39;, 5)
-                .style(&#39;fill&#39;, function (d) &#123; return color(d.depth); &#125;);
-            node.append(&#39;text&#39;).attr(&#39;dy&#39;, &#39;.35em&#39;)
-                .attr(&#39;x&#39;, function (d) &#123; return d.children ? -8 : 8; &#125;)
-                .style(
-                    &#39;text-anchor&#39;, 
-                    function (d) &#123; return d.children ? &#39;end&#39; : &#39;start&#39;; &#125;
-                )
-                .text(function (d) &#123; return d.data.name; &#125;);
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
+            .data(graph.links).enter().append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;).style(&#39;stroke-width&#39;, 1);
+
+        svg_edges.filter(function (d) &#123; return d.bond &gt; 1; &#125;)
+            .append(&#39;line&#39;).attr(&#39;class&#39;, &#39;separator&#39;);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(graph.nodes)
+            .enter().append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, function (d) &#123; return radius(d.size); &#125;)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            &#x2F;&#x2F; 确保使用新的拖动API
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(graph.nodes).enter().append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.atom;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图是不断运动的
+        &#x2F;&#x2F; 每一时刻都在发生更新，必须不断更新节点和连线的位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
+                .attr(&#39;y1&#39;, function (d) &#123; return d.source.y; &#125;)
+                .attr(&#39;x2&#39;, function (d) &#123; return d.target.x; &#125;)
+                .attr(&#39;y2&#39;, function (d) &#123; return d.target.y; &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
         &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="8-可视化地图"><a href="#8-可视化地图" class="headerlink" title="8 可视化地图"></a>8 可视化地图</h1><ul>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-2-带文字"><a href="#6-2-带文字" class="headerlink" title="6-2 带文字"></a>6-2 带文字</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;带文字&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 800; height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 初始数据，链接数组
+        var links &#x3D; [
+            &#123; source: &#39;福建&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;福州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;莆田&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广东&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
+        ];
+        &#x2F;&#x2F; 初始化一个空的节点对象映射
+        var nodes &#x3D; &#123;&#125;;
+
+        &#x2F;&#x2F; 从链接中分离出不同的节点
+        links.forEach(function (link) &#123;
+            link.source &#x3D; nodes[link.source]
+                || (nodes[link.source] &#x3D; &#123; name: link.source &#125;);
+            link.target &#x3D; nodes[link.target]
+                || (nodes[link.target] &#x3D; &#123; name: link.target &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        var simulation &#x3D; d3.forceSimulation(Object.values(nodes))
+            .force(&#39;link&#39;, d3.forceLink().links(links).distance(150))
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-500))
+            .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
+
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
+            .data(links).enter().append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;).style(&#39;stroke-width&#39;, 1);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(Object.values(nodes))
+            .enter().append(&#39;circle&#39;).attr(&#39;r&#39;, 15)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            &#x2F;&#x2F; 确保使用新的拖动API
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(Object.values(nodes)).enter().append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.name;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图是不断运动的
+        &#x2F;&#x2F; 每一时刻都在发生更新，必须不断更新节点和连线的位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
+                .attr(&#39;y1&#39;, function (d) &#123; return d.source.y; &#125;)
+                .attr(&#39;x2&#39;, function (d) &#123; return d.target.x; &#125;)
+                .attr(&#39;y2&#39;, function (d) &#123; return d.target.y; &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-3-弧箭头"><a href="#6-3-弧箭头" class="headerlink" title="6-3 弧箭头*"></a>6-3 弧箭头*</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;弧箭头&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 800; height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 初始数据，链接数组
+        var links &#x3D; [
+            &#123; source: &#39;福建&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;福州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;莆田&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广东&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
+        ];
+        &#x2F;&#x2F; 初始化一个空的节点对象映射
+        var nodes &#x3D; &#123;&#125;;
+
+        &#x2F;&#x2F; 从链接中分离出不同的节点
+        links.forEach(function (link) &#123;
+            link.source &#x3D; nodes[link.source]
+                || (nodes[link.source] &#x3D; &#123; name: link.source &#125;);
+            link.target &#x3D; nodes[link.target]
+                || (nodes[link.target] &#x3D; &#123; name: link.target &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        var simulation &#x3D; d3.forceSimulation(Object.values(nodes))
+            .force(&#39;link&#39;, d3.forceLink().links(links).distance(150))
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-500))
+            .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
+
+        &#x2F;&#x2F; 创建箭头
+        svg.append(&#39;svg:defs&#39;).selectAll(&#39;marker&#39;)
+            .data([&#39;suit&#39;])
+            .enter().append(&#39;svg:marker&#39;)
+            &#x2F;&#x2F; 确保ID与引用时使用的字符串匹配
+            .attr(&#39;id&#39;, &#39;suit&#39;)
+            .attr(&#39;viewBox&#39;, &#39;0 -5 10 10&#39;)
+            .attr(&#39;refX&#39;, 15)
+            .attr(&#39;refY&#39;, -1.5)
+            .attr(&#39;markerWidth&#39;, 6)
+            .attr(&#39;markerHeight&#39;, 6)
+            .attr(&#39;orient&#39;, &#39;auto&#39;)
+            .append(&#39;svg:path&#39;)
+            &#x2F;&#x2F; M0,-5表示路径的起点，坐标(0, -5)
+            &#x2F;&#x2F; L10,0表示从上一步的起点绘制一条直线到坐标(10, 0)的点
+            &#x2F;&#x2F; L0,5表示从上一步的点绘制一条直线到坐标(0, 5)的点
+            .attr(&#39;d&#39;, &#39;M0,-5L10,0L0,5&#39;);
+
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;.link&#39;)
+            .data(links).enter().append(&#39;svg:path&#39;)
+            .attr(&#39;class&#39;, function (d) &#123;
+                return &#39;link &#39; + d.type;
+            &#125;)
+            &#x2F;&#x2F; 使用默认的箭头标记
+            .attr(&#39;marker-end&#39;, function (d) &#123;
+                return &#39;url(#&#39; + d.type + &#39;)&#39;;
+            &#125;)
+            &#x2F;&#x2F; 调整线宽，使其更细
+            .style(&#39;stroke-width&#39;, 1)
+            &#x2F;&#x2F; 添加虚线效果
+            .style(&#39;stroke-dasharray&#39;, &#39;0,2 1&#39;);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(Object.values(nodes))
+            .enter().append(&#39;circle&#39;).attr(&#39;r&#39;, 15)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            &#x2F;&#x2F; 确保使用新的拖动API
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(Object.values(nodes)).enter().append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.name;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图是不断运动的
+        &#x2F;&#x2F; 每一时刻都在发生更新，必须不断更新节点和连线的位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;d&#39;, function (d) &#123;
+                var dx &#x3D; d.target.x - d.source.x,
+                    dy &#x3D; d.target.y - d.source.y,
+                    &#x2F;&#x2F; 计算距离
+                    dr &#x3D; Math.sqrt(dx * dx + dy * dy);
+                &#x2F;&#x2F; 增大系数，使弧线更弯曲
+                &#x2F;&#x2F; 系数越大好像越接近直线，非箭头连线，设置没效果？？？
+                dr &#x3D; dr * 0.5 + 100;
+                &#x2F;&#x2F; dr + &#39; 0 0,1 &#39;，第一个0指弧线的大弧形或小弧形
+                &#x2F;&#x2F; 第二个0，指弧线的扫掠方向，0代表顺时针，1代表逆时针
+                &#x2F;&#x2F; 第三个1，指弧线结束于起点顺时针旋转超过180度的位置
+                return &#39;M&#39; + d.source.x + &#39;,&#39; + d.source.y + &#39;A&#39; + dr + &#39;,&#39;
+                    + dr + &#39; 0 0,1 &#39; + d.target.x + &#39;,&#39; + d.target.y;
+            &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-4-带图片"><a href="#6-4-带图片" class="headerlink" title="6-4 带图片*"></a>6-4 带图片*</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;带图片&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 800; height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 初始数据，链接数组
+        var links &#x3D; [
+            &#123; source: &#39;福建&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;福州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;莆田&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广东&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
+        ];
+        &#x2F;&#x2F; 初始化一个空的节点对象映射
+        var nodes &#x3D; &#123;&#125;;
+
+        &#x2F;&#x2F; 从链接中分离出不同的节点
+        links.forEach(function (link) &#123;
+            link.source &#x3D; nodes[link.source]
+                || (nodes[link.source] &#x3D; &#123; name: link.source &#125;);
+            link.target &#x3D; nodes[link.target]
+                || (nodes[link.target] &#x3D; &#123; name: link.target &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        var simulation &#x3D; d3.forceSimulation(Object.values(nodes))
+            .force(&#39;link&#39;, d3.forceLink().links(links).distance(150))
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-500))
+            .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
+
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
+            .data(links).enter().append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;).style(&#39;stroke-width&#39;, 1);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, 15)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            .call(d3.drag()
+                .on(&#39;start&#39;, dragstarted)
+                .on(&#39;drag&#39;, dragged)
+                .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加图片
+        &#x2F;&#x2F; svg_nodes.append(&#39;image&#39;)
+        &#x2F;&#x2F;     .attr(&#39;xlink:href&#39;, &#39;.&#x2F;file&#x2F;avater1.png&#39;)
+        &#x2F;&#x2F;     .attr(&#39;x&#39;, -8)
+        &#x2F;&#x2F;     .attr(&#39;y&#39;, -8)
+        &#x2F;&#x2F;     .attr(&#39;width&#39;, 16)
+        &#x2F;&#x2F;     .attr(&#39;height&#39;, 16);
+
+        &#x2F;&#x2F; 为不同节点设置不同图片，图片效果出不来？？？
+        svg_nodes.append(&#39;image&#39;)
+            .attr(&#39;xlink:href&#39;, function (d) &#123;
+                &#x2F;&#x2F; 根据节点数据返回不同的图片URL
+                return d.name &#x3D;&#x3D;&#x3D; &#39;福建&#39; ? &#39;.&#x2F;file&#x2F;avater2.png&#39; :
+                    d.name &#x3D;&#x3D;&#x3D; &#39;广东&#39; ? &#39;.&#x2F;file&#x2F;avater3.png&#39; :
+                        &#39;.&#x2F;file&#x2F;avater1.png&#39;;
+            &#125;)
+            .attr(&#39;x&#39;, -8)
+            .attr(&#39;y&#39;, -8)
+            .attr(&#39;width&#39;, 16)
+            .attr(&#39;height&#39;, 16);
+
+        &#x2F;&#x2F; 添加提示，这里和添加文字是否有区别？？？
+        svg_nodes.append(&#39;title&#39;)
+            .text(function (d) &#123; return d.name; &#125;);
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(Object.values(nodes)).enter().append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.name;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图是不断运动的
+        &#x2F;&#x2F; 每一时刻都在发生更新，必须不断更新节点和连线的位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
+                .attr(&#39;y1&#39;, function (d) &#123; return d.source.y; &#125;)
+                .attr(&#39;x2&#39;, function (d) &#123; return d.target.x; &#125;)
+                .attr(&#39;y2&#39;, function (d) &#123; return d.target.y; &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            &#x2F;&#x2F; svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+            &#x2F;&#x2F;     .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="7-可视化地图"><a href="#7-可视化地图" class="headerlink" title="7 可视化地图"></a>7 可视化地图</h1><ul>
 <li>制作地图需要Json文件，将Json格式应用于地理上的文件，叫GeoJson文件。</li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
@@ -3183,13 +3450,12 @@ h3:hover {
         
         <div class="article col s12 m6">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/javascript@01.html">
+                <a href="/posts/javascript@02.html">
                     <div class="card-image">
                         
-                        <img src="/medias/toc-banner/javascript/javascript@01.jpg" class="responsive-img" alt="可视化工具D3">
+                        <img src="/medias/toc-banner/javascript/javascript@02.jpg" class="responsive-img" alt="可视化D3(二)">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -3200,20 +3466,20 @@ h3:hover {
                         <span class="card-title">
                           <!-- 文章卡片hover线条效果 -->
                           <span class="titlesline"></span>
-                          可视化工具D3
+                          可视化D3(二)
                         </span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            D3是一个JavaScript函数库，用于创建动态、交互式数据可视化，支持各种图表、地图和复杂的视觉表现，广泛应用于展示。
+                            D3可用于创建交互式可视化，允许使用数据操作、转换和呈现，然后将其转换为可在Web浏览器中显示的SVG、Canvas或HTML。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-10-24
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -3226,7 +3492,6 @@ h3:hover {
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -3234,16 +3499,16 @@ h3:hover {
                         <span class="chip bg-color">Web</span>
                     </a>
                     
-                    <a href="/tags/%E5%B8%83%E5%B1%80/">
-                        <span class="chip bg-color">布局</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+                        <span class="chip bg-color">数据类型</span>
                     </a>
                     
-                    <a href="/tags/%E6%AF%94%E4%BE%8B%E5%B0%BA/">
-                        <span class="chip bg-color">比例尺</span>
+                    <a href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/">
+                        <span class="chip bg-color">文件加载</span>
                     </a>
                     
-                    <a href="/tags/%E5%9D%90%E6%A0%87%E8%BD%B4/">
-                        <span class="chip bg-color">坐标轴</span>
+                    <a href="/tags/%E5%BC%A6%E5%9B%BE%E7%BB%98%E5%88%B6/">
+                        <span class="chip bg-color">弦图绘制</span>
                     </a>
                     
                 </div>
@@ -3564,7 +3829,7 @@ h3:hover {
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">64.1k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">82k</span>&nbsp;字&nbsp;🌼<br>
       
       
       
