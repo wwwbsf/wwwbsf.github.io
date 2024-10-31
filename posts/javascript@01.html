@@ -1128,14 +1128,14 @@ h3:hover {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12.1k
+                    12.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    65 分
+                    66 分
                 </div>
                 
 
@@ -1156,20 +1156,22 @@ h3:hover {
 <li>D3版本下载：<a target="_blank" rel="noopener" href="https://github.com/d3/d3/releases">https://github.com/d3/d3/releases</a>、<a target="_blank" rel="noopener" href="https://d3js.org">https://d3js.org</a>。</li>
 <li>GitHub下载的ZIP包只是未进行编译的D3源代码文件，不能直接使用。</li>
 <li>选择元素(选择集)、绑定数据是D3最基础的内容，通常需要一起使用。<ul>
-<li>选择元素：<code>d3.select()</code>(选择所有指定元素的第一个)、<code>d3.selectAll()</code>(选择指定全部元素)。</li>
+<li>选择元素：<code>d3.select()</code>(选所有指定元素的第一个)、<code>d3.selectAll()</code>(选指定的全部元素)。</li>
 <li>绑定数据：<code>datum()</code>(绑定数据到选择集)、<code>data()</code>(绑定数组到选择集，各项值对应元素绑定)。</li>
 </ul>
 </li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
     &lt;title&gt;D3概述&lt;&#x2F;title&gt;
+
     &lt;!-- 使用官网链接的引入，需要梯子 --&gt;
-    &lt;!-- &lt;script src&#x3D;&#39;http:&#x2F;&#x2F;d3js.org&#x2F;d3.v3.min.js&#39; charset&#x3D;&#39;utf-8&#39;&gt;
-    &lt;&#x2F;script&gt; --&gt;
+    &lt;!-- &lt;script src&#x3D;&#39;http:&#x2F;&#x2F;d3js.org&#x2F;d3.v3.min.js&#39; charset&#x3D;&#39;utf-8&#39;&gt; --&gt;
+    &lt;!-- &lt;&#x2F;script&gt; --&gt;
+
     &lt;!-- 使用CDN节点的链接引入 --&gt;
     &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
     &lt;&#x2F;script&gt;
@@ -1178,8 +1180,8 @@ h3:hover {
 &lt;body style&#x3D;&#39;text-align: center&#39;&gt;&lt;br &#x2F;&gt;
     &lt;p&gt;&lt;&#x2F;p&gt;
     &lt;p&gt;&lt;&#x2F;p&gt;
-    &lt;p&gt;&lt;&#x2F;p&gt;
-    &lt;br &#x2F;&gt;
+    &lt;p&gt;&lt;&#x2F;p&gt;&lt;br &#x2F;&gt;
+
     &lt;h3&gt;&lt;&#x2F;h3&gt;
     &lt;h3&gt;&lt;&#x2F;h3&gt;
     &lt;h3&gt;&lt;&#x2F;h3&gt;
@@ -1187,9 +1189,11 @@ h3:hover {
     &lt;script&gt;
         &#x2F;&#x2F; datum()
         var str &#x3D; &#39;datum()&#39;;
+
         &#x2F;&#x2F; 选择元素
         var body &#x3D; d3.select(&#39;body&#39;);
         var p &#x3D; body.selectAll(&#39;p&#39;);
+        
         &#x2F;&#x2F; 绑定数据
         p.datum(str);
         p.text(function (x, y) &#123;
@@ -1200,15 +1204,16 @@ h3:hover {
         var dataset &#x3D; [&#39;耐心&#39;, &#39;坚持&#39;, &#39;勇敢&#39;];
         var body &#x3D; d3.select(&#39;body&#39;);
         var h &#x3D; body.selectAll(&#39;h3&#39;);
-        h.data(dataset).text(function (x, y) &#123;
-            return &#39;我要&#39; + x + &#39;！&#39;;
-        &#125;);
+        h.data(dataset)
+            .text(function (x, y) &#123;
+                return &#39;我要&#39; + x + &#39;！&#39;;
+            &#125;);
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-1-选择元素"><a href="#1-1-选择元素" class="headerlink" title="1-1 选择元素"></a>1-1 选择元素</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1229,22 +1234,28 @@ h3:hover {
 
     &lt;script&gt;
         &#x2F;&#x2F; 选择所有元素
-        d3.select(&#39;body&#39;).selectAll(&#39;p&#39;).style(&#39;color&#39;, &#39;blue&#39;);
+        d3.select(&#39;body&#39;)
+            .selectAll(&#39;p&#39;)
+            .style(&#39;color&#39;, &#39;blue&#39;);
 
         &#x2F;&#x2F; 选择第一个元素
-        d3.select(&#39;body&#39;).select(&#39;p&#39;).style(&#39;color&#39;, &#39;red&#39;);
+        d3.select(&#39;body&#39;)
+            .select(&#39;p&#39;)
+            .style(&#39;color&#39;, &#39;red&#39;);
 
         &#x2F;&#x2F; 选择第二个元素
-        d3.select(&#39;#p2&#39;).style(&#39;color&#39;, &#39;green&#39;);
+        d3.select(&#39;#p2&#39;)
+            .style(&#39;color&#39;, &#39;green&#39;);
 
         &#x2F;&#x2F; 选择后三个元素
-        d3.selectAll(&#39;.c6&#39;).style(&#39;color&#39;, &#39;orange&#39;);
+        d3.selectAll(&#39;.c6&#39;)
+            .style(&#39;color&#39;, &#39;orange&#39;);
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-2-插入元素"><a href="#1-2-插入元素" class="headerlink" title="1-2 插入元素"></a>1-2 插入元素</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1265,19 +1276,32 @@ h3:hover {
 
     &lt;script&gt;
         &#x2F;&#x2F; insert()：在选择集前面插入元素
-        d3.select(&#39;body&#39;).insert(&#39;p&#39;, &#39;#p1&#39;).text(&#39;社会主义核心价值观&#39;);
+        d3.select(&#39;body&#39;)
+            .insert(&#39;p&#39;, &#39;#p1&#39;)
+            .text(&#39;社会主义核心价值观&#39;);
 
         &#x2F;&#x2F; append()：在选择集末尾插入元素
-        d3.select(&#39;body&#39;).append(&#39;p&#39;).text(&#39;爱国&#39;);
-        d3.select(&#39;body&#39;).append(&#39;p&#39;).text(&#39;敬业&#39;);
-        d3.select(&#39;body&#39;).append(&#39;p&#39;).text(&#39;诚信&#39;);
-        d3.select(&#39;body&#39;).append(&#39;p&#39;).text(&#39;友善&#39;);
+        d3.select(&#39;body&#39;)
+            .append(&#39;p&#39;)
+            .text(&#39;爱国&#39;);
+
+        d3.select(&#39;body&#39;)
+            .append(&#39;p&#39;)
+            .text(&#39;敬业&#39;);
+
+        d3.select(&#39;body&#39;)
+            .append(&#39;p&#39;)
+            .text(&#39;诚信&#39;);
+
+        d3.select(&#39;body&#39;)
+            .append(&#39;p&#39;)
+            .text(&#39;友善&#39;);
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-3-删除元素"><a href="#1-3-删除元素" class="headerlink" title="1-3 删除元素"></a>1-3 删除元素</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1298,11 +1322,12 @@ h3:hover {
 
     &lt;script&gt;
         &#x2F;&#x2F; remove()：删除一个元素
-        d3.select(&#39;#p8&#39;).remove();
+        d3.select(&#39;#p8&#39;)
+            .remove();
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="2-矩形图"><a href="#2-矩形图" class="headerlink" title="2 矩形图"></a>2 矩形图</h1><ul>
 <li>HTML5提供了SVG和Canvas两种强有力的画布。</li>
 <li>SVG：D3提供了众多的SVG图形生成器，都只支持SVG，建议使用该画布。<ul>
@@ -1317,7 +1342,7 @@ h3:hover {
 </li>
 </ul>
 <h2 id="2-1-横向矩形"><a href="#2-1-横向矩形" class="headerlink" title="2-1 横向矩形"></a>2-1 横向矩形</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1339,30 +1364,42 @@ h3:hover {
 
         &#x2F;&#x2F; 添加画布：画布的宽度
         var width &#x3D; 300;
+
         &#x2F;&#x2F; 添加画布：画布的高度
         var height &#x3D; 300;
-        &#x2F;&#x2F; 选择文档中的body元素，添加一个svg元素，设定宽度，设定高度
-        var svg &#x3D; d3.select(&#39;body&#39;).append(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height);
+        
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
         &#x2F;&#x2F; 每个矩形所占的像素高度(包括空白)
         var rectHeight &#x3D; 25;
 
         &#x2F;&#x2F; 绘制横向矩形
         svg.selectAll(&#39;rect&#39;)
-            .data(dataset).enter().append(&#39;rect&#39;).attr(&#39;x&#39;, 20)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(&#39;x&#39;, 20)
             .attr(&#39;y&#39;, function (d, i) &#123;
                 return i * rectHeight;
             &#125;)
             .attr(&#39;width&#39;, function (d) &#123;
                 return d;
             &#125;)
-            .attr(&#39;height&#39;, rectHeight - 2).attr(&#39;fill&#39;, &#39;steelblue&#39;);
+            .attr(&#39;height&#39;, rectHeight - 2)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-2-纵向矩形"><a href="#2-2-纵向矩形" class="headerlink" title="2-2 纵向矩形"></a>2-2 纵向矩形</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1384,16 +1421,27 @@ h3:hover {
 
         &#x2F;&#x2F; 添加画布：画布的宽度
         var width &#x3D; 300;
+
         &#x2F;&#x2F; 添加画布：画布的高度
         var height &#x3D; 300;
-        &#x2F;&#x2F; 选择文档中的body元素，添加一个svg元素，设定宽度，设定高度
-        var svg &#x3D; d3.select(&#39;body&#39;).append(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height);
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
         &#x2F;&#x2F; 每个矩形所占的像素高度(包括空白)
         var rectHeight &#x3D; 25;
 
         &#x2F;&#x2F; 绘制纵向矩形
-        svg.selectAll(&#39;rect&#39;).data(dataset).enter().append(&#39;rect&#39;)
+        svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
             .attr(&#39;y&#39;, function (d, i) &#123;
                 return height - d;
             &#125;)
@@ -1403,11 +1451,12 @@ h3:hover {
             .attr(&#39;height&#39;, function (d) &#123;
                 return d;
             &#125;)
-            .attr(&#39;width&#39;, rectHeight - 2).attr(&#39;fill&#39;, &#39;steelblue&#39;);
+            .attr(&#39;width&#39;, rectHeight - 2)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-3-常用比例尺"><a href="#2-3-常用比例尺" class="headerlink" title="2-3 常用比例尺"></a>2-3 常用比例尺</h2><ul>
 <li>比例尺就是一个数据映射函数，例如线性比例尺可实现类似<code>y = ax + b</code>的变换。</li>
 <li>D3共有三类比例尺：数量型、序数型(序数、颜色比例尺)、时间型(时间比例尺)。</li>
@@ -1420,7 +1469,7 @@ h3:hover {
 </li>
 </ul>
 <h3 id="1-线性比例尺"><a href="#1-线性比例尺" class="headerlink" title="(1) 线性比例尺"></a>(1) 线性比例尺</h3><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1436,7 +1485,9 @@ h3:hover {
         var max &#x3D; d3.max(dataset);
 
         &#x2F;&#x2F; 将dataset中最小的值映射成0，最大的值映射成300
-        var linear &#x3D; d3.scaleLinear().domain([min, max]).range([0, 300]);
+        var linear &#x3D; d3.scaleLinear()
+            .domain([min, max])
+            .range([0, 300]);
 
         console.log(linear(0.9));
         console.log(linear(2.3));
@@ -1444,9 +1495,9 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-序数比例尺"><a href="#2-序数比例尺" class="headerlink" title="(2) 序数比例尺"></a>(2) 序数比例尺</h3><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1459,11 +1510,14 @@ h3:hover {
     &lt;script&gt;
         var index &#x3D; [0, 1, 2, 3, 4, 5, 6];
         var color &#x3D; [
-            &#39;red&#39;, &#39;orange&#39;, &#39;yellow&#39;, &#39;green&#39;, &#39;cyan&#39;, &#39;blue&#39;, &#39;purple&#39;
+            &#39;red&#39;, &#39;orange&#39;, &#39;yellow&#39;,
+            &#39;green&#39;, &#39;cyan&#39;, &#39;blue&#39;, &#39;purple&#39;
         ];
 
         &#x2F;&#x2F; 0对应颜色red，1对应orange，以此类推
-        var ordinal &#x3D; d3.scaleOrdinal().domain(index).range(color);
+        var ordinal &#x3D; d3.scaleOrdinal()
+            .domain(index)
+            .range(color);
 
         console.log(ordinal(0));
         console.log(ordinal(2));
@@ -1471,9 +1525,9 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-4-添加比例尺"><a href="#2-4-添加比例尺" class="headerlink" title="2-4 添加比例尺"></a>2-4 添加比例尺</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1494,22 +1548,36 @@ h3:hover {
         var min &#x3D; d3.min(dataset);
         var max &#x3D; d3.max(dataset);
 
-        &#x2F;&#x2F; 将dataset中最小的值设为0，最大的值映射成300
-        var linear &#x3D; d3.scaleLinear().domain([0, max]).range([0, 300]);
+        &#x2F;&#x2F; 将dataset中最小的值设为0
+        var linear &#x3D; d3.scaleLinear()
+            .domain([0, max])
+            &#x2F;&#x2F; 最大的值映射成300
+            .range([0, 300]);
 
         &#x2F;&#x2F; 添加画布：画布的宽度
         var width &#x3D; 300;
+
         &#x2F;&#x2F; 添加画布：画布的高度
         var height &#x3D; 300;
-        &#x2F;&#x2F; 选择文档中的body元素，添加一个svg元素，设定宽度，设定高度
-        var svg &#x3D; d3.select(&#39;body&#39;).append(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height);
+        
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
         &#x2F;&#x2F; 每个矩形所占的像素高度(包括空白)
         var rectHeight &#x3D; 25;
 
         &#x2F;&#x2F; 绘制横向矩形
         svg.selectAll(&#39;rect&#39;)
-            .data(dataset).enter().append(&#39;rect&#39;).attr(&#39;x&#39;, 20)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(&#39;x&#39;, 20)
             .attr(&#39;y&#39;, function (d, i) &#123;
                 return i * rectHeight;
             &#125;)
@@ -1517,16 +1585,17 @@ h3:hover {
                 &#x2F;&#x2F; 使用比例尺
                 return linear(d);
             &#125;)
-            .attr(&#39;height&#39;, rectHeight - 2).attr(&#39;fill&#39;, &#39;steelblue&#39;);
+            .attr(&#39;height&#39;, rectHeight - 2)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-5-定义坐标轴"><a href="#2-5-定义坐标轴" class="headerlink" title="2-5 定义坐标轴"></a>2-5 定义坐标轴</h2><ul>
 <li>要生成坐标轴，则需要用到比例尺，二者经常一起使用。</li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1557,21 +1626,35 @@ h3:hover {
     &lt;script&gt;
         &#x2F;&#x2F; 数据
         var dataset &#x3D; [1.2, 2.3, 0.9, 1.5, 3.3];
+
         &#x2F;&#x2F; 定义比例尺
         var linear &#x3D; d3.scaleLinear()
-            .domain([0, d3.max(dataset)]).range([0, 300]);
-        &#x2F;&#x2F; 定义坐标轴，指定刻度数量
-        var axis &#x3D; d3.axisBottom(linear).ticks(7);
+            .domain([0, d3.max(dataset)])
+            .range([0, 300]);
 
-        &#x2F;&#x2F; 选择文档中的body元素，添加一个svg元素，设定宽度，设定高度
-        var svg &#x3D; d3.select(&#39;body&#39;).append(&#39;svg&#39;)
-            .attr(&#39;width&#39;, 300).attr(&#39;height&#39;, 300);
+        &#x2F;&#x2F; 定义坐标轴
+        var axis &#x3D; d3.axisBottom(linear)
+            &#x2F;&#x2F; 指定刻度数量
+            .ticks(7);
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, 300)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, 300);
+
         &#x2F;&#x2F; 每个矩形所占的像素高度(包括空白)
         var rectHeight &#x3D; 25;
 
         &#x2F;&#x2F; 绘制横向矩形
         svg.selectAll(&#39;rect&#39;)
-            .data(dataset).enter().append(&#39;rect&#39;).attr(&#39;x&#39;, 20)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(&#39;x&#39;, 20)
             .attr(&#39;y&#39;, function (d, i) &#123;
                 return i * rectHeight;
             &#125;)
@@ -1579,17 +1662,21 @@ h3:hover {
                 &#x2F;&#x2F; 使用比例尺
                 return linear(d);
             &#125;)
-            .attr(&#39;height&#39;, rectHeight - 2).attr(&#39;fill&#39;, &#39;steelblue&#39;);
+            .attr(&#39;height&#39;, rectHeight - 2)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
 
-        &#x2F;&#x2F; 添加坐标轴，默认的样式不美观，在head中增加style样式
+        &#x2F;&#x2F; 添加坐标轴
         svg.append(&#39;g&#39;)
-            .call(axis).attr(&#39;transform&#39;, &#39;translate(20,130)&#39;).call(axis);;
+            .call(axis)
+            &#x2F;&#x2F; 默认的样式不美观，在head中增加style样式
+            .attr(&#39;transform&#39;, &#39;translate(20,130)&#39;)
+            .call(axis);;
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-6-完整矩形图"><a href="#2-6-完整矩形图" class="headerlink" title="2-6 完整矩形图"></a>2-6 完整矩形图</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1607,25 +1694,42 @@ h3:hover {
 &lt;body&gt;&lt;br &#x2F;&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 添加SVG画布，设置画布大小
-        width &#x3D; 300; height &#x3D; 300;
-        &#x2F;&#x2F; 选择文档中的body元素，添加一个svg元素，设定宽度，设定高度
-        var svg &#x3D; d3.select(&#39;body&#39;).append(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height);
+        width &#x3D; 300;
+        height &#x3D; 300;
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
         &#x2F;&#x2F; 画布周边的空白
-        var padding &#x3D; &#123; left: 30, right: 30, top: 30, bottom: 30 &#125;;
+        var padding &#x3D; &#123;
+            left: 30,
+            right: 30,
+            top: 30,
+            bottom: 30
+        &#125;;
 
         &#x2F;&#x2F; 定义一个数组
         var dataset &#x3D; [10, 30, 50, 70, 33, 24, 17, 9];
 
         &#x2F;&#x2F; 定义x轴比例尺
-        var xScale &#x3D; d3.scaleBand().domain(d3.range(dataset.length))
+        var xScale &#x3D; d3.scaleBand()
+            .domain(d3.range(dataset.length))
             .range([0, width - padding.left - padding.right]);
+
         &#x2F;&#x2F; 定义y轴比例尺
-        var yScale &#x3D; d3.scaleLinear().domain([0, d3.max(dataset)])
+        var yScale &#x3D; d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
             .range([height - padding.top - padding.bottom, 0]);
 
         &#x2F;&#x2F; 定义x轴
         var xAxis &#x3D; d3.axisBottom(xScale);
+
         &#x2F;&#x2F; 定义y轴
         var yAxis &#x3D; d3.axisLeft(yScale);
 
@@ -1633,7 +1737,10 @@ h3:hover {
         var rectPadding &#x3D; 5;
 
         &#x2F;&#x2F; 添加矩形元素
-        var rects &#x3D; svg.selectAll(&#39;rect&#39;).data(dataset).enter().append(&#39;rect&#39;)
+        var rects &#x3D; svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
             .attr(
                 &#39;transform&#39;,
                 &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
@@ -1651,7 +1758,10 @@ h3:hover {
             .attr(&#39;fill&#39;, &#39;steelblue&#39;);
 
         &#x2F;&#x2F; 添加文字
-        var texts &#x3D; svg.selectAll(&#39;text&#39;).data(dataset).enter().append(&#39;text&#39;)
+        var texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;text&#39;)
             .attr(
                 &#39;transform&#39;,
                 &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
@@ -1662,29 +1772,34 @@ h3:hover {
             .attr(&#39;y&#39;, function (d) &#123;
                 return yScale(d) - 5;
             &#125;)
-            .attr(&#39;dx&#39;, &#39;0.1em&#39;).attr(&#39;dy&#39;, &#39;1.5em&#39;)
+            .attr(&#39;dx&#39;, &#39;0.1em&#39;)
+            .attr(&#39;dy&#39;, &#39;1.5em&#39;)
             .text(function (d) &#123;
                 return d;
             &#125;)
-            .style(&#39;fill&#39;, &#39;#FFF&#39;).style(&#39;text-anchor&#39;, &#39;middle&#39;);
+            .style(&#39;fill&#39;, &#39;#FFF&#39;)
+            .style(&#39;text-anchor&#39;, &#39;middle&#39;);
 
         &#x2F;&#x2F; 添加x轴
-        svg.append(&#39;g&#39;).call(xAxis)
+        svg.append(&#39;g&#39;)
+            .call(xAxis)
             .attr(
                 &#39;transform&#39;,
-                &#39;translate(\
-                    &#39; + padding.left + &#39;,&#39; + (height - padding.bottom) + &#39;\
-                )&#39;
+                &#39;translate(&#39; + padding.left + &#39;,&#39;
+                + (height - padding.bottom) + &#39;)&#39;
             );
+
         &#x2F;&#x2F; 添加y轴
-        svg.append(&#39;g&#39;).call(yAxis)
+        svg.append(&#39;g&#39;)
+            .call(yAxis)
             .attr(
-                &#39;transform&#39;, &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
             );
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-动态效果"><a href="#3-动态效果" class="headerlink" title="3 动态效果"></a>3 动态效果</h1><ul>
 <li>D3提供了4种方法用于实现图形的过渡，即动态效果，代表从状态A变成了状态B。</li>
 <li>transition()：启动过渡效果，前后是图形变化前后的状态(形状、位置、颜色等)。</li>
@@ -1697,7 +1812,7 @@ h3:hover {
 <li>delay()：指定延迟时间，表示一定时间后才开始转变，可对整体或个别指定延迟。</li>
 </ul>
 <h2 id="3-1-简单动态效果"><a href="#3-1-简单动态效果" class="headerlink" title="3-1 简单动态效果"></a>3-1 简单动态效果</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1724,32 +1839,54 @@ h3:hover {
         var svg &#x3D; d3.select(&#39;svg&#39;);
 
         &#x2F;&#x2F; 第一个圆移动x坐标
-        var circle1 &#x3D; svg.select(&#39;#c1&#39;).attr(&#39;cx&#39;, 100).attr(&#39;cy&#39;, 100)
-            .attr(&#39;r&#39;, 20).style(&#39;fill&#39;, &#39;green&#39;);
+        var circle1 &#x3D; svg.select(&#39;#c1&#39;)
+            .attr(&#39;cx&#39;, 100)
+            .attr(&#39;cy&#39;, 100)
+            .attr(&#39;r&#39;, 20)
+            .style(&#39;fill&#39;, &#39;green&#39;);
+
         &#x2F;&#x2F; 在1秒(1000毫秒)内将圆心坐标由100变为300
-        circle1.transition().duration(1000).attr(&#39;cx&#39;, 300);
+        circle1.transition()
+            .duration(1000)
+            .attr(&#39;cx&#39;, 300);
 
         &#x2F;&#x2F; 第二个圆移动x坐标，并改变颜色
-        var circle2 &#x3D; svg.select(&#39;#c2&#39;).attr(&#39;cx&#39;, 100).attr(&#39;cy&#39;, 200)
-            .attr(&#39;r&#39;, 20).style(&#39;fill&#39;, &#39;green&#39;);
-        &#x2F;&#x2F; 在1.5秒(1500毫秒)内将圆心坐标由100变为300，并将颜色从绿色变为橘色
-        circle2.transition()
-            .duration(1500).attr(&#39;cx&#39;, 300).style(&#39;fill&#39;, &#39;orange&#39;);
+        var circle2 &#x3D; svg.select(&#39;#c2&#39;)
+            .attr(&#39;cx&#39;, 100)
+            .attr(&#39;cy&#39;, 200)
+            .attr(&#39;r&#39;, 20)
+            .style(&#39;fill&#39;, &#39;green&#39;);
 
-        &#x2F;&#x2F; 第三个圆移动x坐标，并改变颜色和半径
-        var circle3 &#x3D; svg.select(&#39;#c3&#39;).attr(&#39;cx&#39;, 100).attr(&#39;cy&#39;, 300)
-            .attr(&#39;r&#39;, 20).style(&#39;fill&#39;, &#39;green&#39;);
+        &#x2F;&#x2F; 在1.5秒(1500毫秒)内将圆心坐标由100变为300
+        circle2.transition()
+            .duration(1500)
+            .attr(&#39;cx&#39;, 300)
+            &#x2F;&#x2F; 将颜色从绿色变为橘色
+            .style(&#39;fill&#39;, &#39;orange&#39;);
+
+        &#x2F;&#x2F; 第三个圆移动x坐标
+        var circle3 &#x3D; svg.select(&#39;#c3&#39;)
+            .attr(&#39;cx&#39;, 100)
+            .attr(&#39;cy&#39;, 300)
+            &#x2F;&#x2F; 改变颜色和半径
+            .attr(&#39;r&#39;, 20)
+            .style(&#39;fill&#39;, &#39;green&#39;);
+            
         &#x2F;&#x2F; 在2秒(2000毫秒)内将圆心坐标由100变为300
         circle3.transition()
-            &#x2F;&#x2F; 并将颜色从绿色变为橘色，半径从20变成35
-            .duration(2000).ease(d3.easeBounce).attr(&#39;cx&#39;, 300)
-            .style(&#39;fill&#39;, &#39;orange&#39;).attr(&#39;r&#39;, 35);
+            &#x2F;&#x2F; 并将颜色从绿色变为橘色
+            .duration(2000)
+            .ease(d3.easeBounce)
+            .attr(&#39;cx&#39;, 300)
+            .style(&#39;fill&#39;, &#39;orange&#39;)
+            &#x2F;&#x2F; 半径从20变成35
+            .attr(&#39;r&#39;, 35);
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-2-矩形动态效果"><a href="#3-2-矩形动态效果" class="headerlink" title="3-2 矩形动态效果"></a>3-2 矩形动态效果</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1767,25 +1904,42 @@ h3:hover {
 &lt;body&gt;&lt;br &#x2F;&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 添加SVG画布，设置画布大小
-        width &#x3D; 300; height &#x3D; 300;
-        &#x2F;&#x2F; 选择文档中的body元素，添加一个svg元素，设定宽度，设定高度
-        var svg &#x3D; d3.select(&#39;body&#39;).append(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height);
+        width &#x3D; 300;
+        height &#x3D; 300;
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
         &#x2F;&#x2F; 画布周边的空白
-        var padding &#x3D; &#123; left: 30, right: 30, top: 30, bottom: 30 &#125;;
+        var padding &#x3D; &#123;
+            left: 30,
+            right: 30,
+            top: 30,
+            bottom: 30
+        &#125;;
 
         &#x2F;&#x2F; 定义一个数组
         var dataset &#x3D; [10, 30, 50, 70, 33, 24, 17, 9];
 
         &#x2F;&#x2F; 定义x轴比例尺
-        var xScale &#x3D; d3.scaleBand().domain(d3.range(dataset.length))
+        var xScale &#x3D; d3.scaleBand()
+            .domain(d3.range(dataset.length))
             .range([0, width - padding.left - padding.right]);
+
         &#x2F;&#x2F; 定义y轴比例尺
-        var yScale &#x3D; d3.scaleLinear().domain([0, d3.max(dataset)])
+        var yScale &#x3D; d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
             .range([height - padding.top - padding.bottom, 0]);
 
         &#x2F;&#x2F; 定义x轴
         var xAxis &#x3D; d3.axisBottom(xScale);
+
         &#x2F;&#x2F; 定义y轴
         var yAxis &#x3D; d3.axisLeft(yScale);
 
@@ -1793,9 +1947,12 @@ h3:hover {
         var rectPadding &#x3D; 5;
 
         &#x2F;&#x2F; 添加矩形元素
-        var rects &#x3D; svg.selectAll(&#39;rect&#39;).data(dataset).enter().append(&#39;rect&#39;)
+        var rects &#x3D; svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
             .attr(
-                &#39;transform&#39;, 
+                &#39;transform&#39;,
                 &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
             )
             .attr(&#39;x&#39;, function (d, i) &#123;
@@ -1811,9 +1968,12 @@ h3:hover {
             .attr(&#39;fill&#39;, &#39;steelblue&#39;);
 
         &#x2F;&#x2F; 添加文字
-        var texts &#x3D; svg.selectAll(&#39;text&#39;).data(dataset).enter().append(&#39;text&#39;)
+        var texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;text&#39;)
             .attr(
-                &#39;transform&#39;, 
+                &#39;transform&#39;,
                 &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
             )
             .attr(&#39;x&#39;, function (d, i) &#123;
@@ -1828,34 +1988,39 @@ h3:hover {
             .delay(function (d, i) &#123;
                 return i * 200;
             &#125;)
-            .duration(2000).ease(d3.easeBounce)
+            .duration(2000)
+            .ease(d3.easeBounce)
             .attr(&#39;y&#39;, function (d) &#123;
                 return yScale(d) - 5;
             &#125;)
-            .attr(&#39;dx&#39;, &#39;0.1em&#39;).attr(&#39;dy&#39;, &#39;1.5em&#39;)
+            .attr(&#39;dx&#39;, &#39;0.1em&#39;)
+            .attr(&#39;dy&#39;, &#39;1.5em&#39;)
             .text(function (d) &#123;
                 return d;
             &#125;)
-            .style(&#39;fill&#39;, &#39;#FFF&#39;).style(&#39;text-anchor&#39;, &#39;middle&#39;);
+            .style(&#39;fill&#39;, &#39;#FFF&#39;)
+            .style(&#39;text-anchor&#39;, &#39;middle&#39;);
 
         &#x2F;&#x2F; 添加x轴
-        svg.append(&#39;g&#39;).call(xAxis)
+        svg.append(&#39;g&#39;)
+            .call(xAxis)
             .attr(
-                &#39;transform&#39;, 
-                &#39;translate(\
-                    &#39; + padding.left + &#39;,&#39; + (height - padding.bottom) + &#39;\
-                )&#39;
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39;
+                + (height - padding.bottom) + &#39;)&#39;
             );
+
         &#x2F;&#x2F; 添加y轴
-        svg.append(&#39;g&#39;).call(yAxis)
+        svg.append(&#39;g&#39;)
+            .call(yAxis)
             .attr(
-                &#39;transform&#39;, 
+                &#39;transform&#39;,
                 &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
             );
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-3-数量关系处理"><a href="#3-3-数量关系处理" class="headerlink" title="3-3 数量关系处理"></a>3-3 数量关系处理</h2><ul>
 <li>update()、enter()、exit()是D3处理选择集和数据之间数量关系不确定的重要函数。</li>
 <li>update()<ul>
@@ -1864,13 +2029,13 @@ h3:hover {
 </ul>
 </li>
 <li>enter()<ul>
-<li>绑定数据数量 &gt; 对应元素，即对应的元素数量不足。</li>
-<li>需添加元素，使之与绑定数据的数量相等，常跟append操作。</li>
+<li>绑定数据数量 &gt; 对应元素，即：对应的元素数量不足。</li>
+<li>需添加元素，使之与绑定数据的数量相等，常跟append。</li>
 </ul>
 </li>
 <li>exit()<ul>
-<li>绑定数据数量 &lt; 对应元素，即对应的元素数量过多。</li>
-<li>需删除元素，使之与绑定数据的数量相等，常跟remove操作。</li>
+<li>绑定数据数量 &lt; 对应元素，即：对应的元素数量过多。</li>
+<li>需删除元素，使之与绑定数据的数量相等，常跟remove。</li>
 </ul>
 </li>
 </ul>
@@ -1884,7 +2049,7 @@ h3:hover {
 </li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -1902,25 +2067,42 @@ h3:hover {
 &lt;body&gt;&lt;br &#x2F;&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 添加SVG画布，设置画布大小
-        width &#x3D; 300; height &#x3D; 300;
-        &#x2F;&#x2F; 选择文档中的body元素，添加一个svg元素，设定宽度，设定高度
-        var svg &#x3D; d3.select(&#39;body&#39;).append(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height);
+        width &#x3D; 300;
+        height &#x3D; 300;
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
         &#x2F;&#x2F; 画布周边的空白
-        var padding &#x3D; &#123; left: 30, right: 30, top: 30, bottom: 30 &#125;;
+        var padding &#x3D; &#123;
+            left: 30,
+            right: 30,
+            top: 30,
+            bottom: 30
+        &#125;;
 
         &#x2F;&#x2F; 定义一个数组
         var dataset &#x3D; [10, 30, 50, 70, 33, 24, 17, 9];
 
         &#x2F;&#x2F; 定义x轴比例尺
-        var xScale &#x3D; d3.scaleBand().domain(d3.range(dataset.length))
+        var xScale &#x3D; d3.scaleBand()
+            .domain(d3.range(dataset.length))
             .range([0, width - padding.left - padding.right]);
+
         &#x2F;&#x2F; 定义y轴比例尺
-        var yScale &#x3D; d3.scaleLinear().domain([0, d3.max(dataset)])
+        var yScale &#x3D; d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
             .range([height - padding.top - padding.bottom, 0]);
 
         &#x2F;&#x2F; 定义x轴
         var xAxis &#x3D; d3.axisBottom(xScale);
+
         &#x2F;&#x2F; 定义y轴
         var yAxis &#x3D; d3.axisLeft(yScale);
 
@@ -1928,9 +2110,12 @@ h3:hover {
         var rectPadding &#x3D; 5;
 
         &#x2F;&#x2F; 添加矩形元素
-        var rects &#x3D; svg.selectAll(&#39;rect&#39;).data(dataset).enter().append(&#39;rect&#39;)
+        var rects &#x3D; svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
             .attr(
-                &#39;transform&#39;, 
+                &#39;transform&#39;,
                 &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
             )
             .attr(&#39;x&#39;, function (d, i) &#123;
@@ -1957,9 +2142,12 @@ h3:hover {
             &#125;);
 
         &#x2F;&#x2F; 添加文字
-        var texts &#x3D; svg.selectAll(&#39;text&#39;).data(dataset).enter().append(&#39;text&#39;)
+        var texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;text&#39;)
             .attr(
-                &#39;transform&#39;, 
+                &#39;transform&#39;,
                 &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
             )
             .attr(&#39;x&#39;, function (d, i) &#123;
@@ -1968,30 +2156,34 @@ h3:hover {
             .attr(&#39;y&#39;, function (d) &#123;
                 return yScale(d) - 5;
             &#125;)
-            .attr(&#39;dx&#39;, &#39;0.1em&#39;).attr(&#39;dy&#39;, &#39;1.5em&#39;)
+            .attr(&#39;dx&#39;, &#39;0.1em&#39;)
+            .attr(&#39;dy&#39;, &#39;1.5em&#39;)
             .text(function (d) &#123;
                 return d;
             &#125;)
-            .style(&#39;fill&#39;, &#39;#FFF&#39;).style(&#39;text-anchor&#39;, &#39;middle&#39;);
+            .style(&#39;fill&#39;, &#39;#FFF&#39;)
+            .style(&#39;text-anchor&#39;, &#39;middle&#39;);
 
         &#x2F;&#x2F; 添加x轴
-        svg.append(&#39;g&#39;).call(xAxis)
+        svg.append(&#39;g&#39;)
+            .call(xAxis)
             .attr(
-                &#39;transform&#39;, 
-                &#39;translate(\
-                    &#39; + padding.left + &#39;,&#39; + (height - padding.bottom) + &#39;\
-                )&#39;
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39;
+                + (height - padding.bottom) + &#39;)&#39;
             );
+
         &#x2F;&#x2F; 添加y轴
-        svg.append(&#39;g&#39;).call(yAxis)
+        svg.append(&#39;g&#39;)
+            .call(yAxis)
             .attr(
-                &#39;transform&#39;, 
+                &#39;transform&#39;,
                 &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
             );
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="4-布局详解"><a href="#4-布局详解" class="headerlink" title="4 布局详解"></a>4 布局详解</h1><ul>
 <li>Layout，将不适合用于绘图的数据转换成了适合用于绘图的数据(数据转换)。</li>
 <li>D3常用的布局<ul>
@@ -2006,7 +2198,7 @@ h3:hover {
   <div style="width: 100%; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; text-align: center;">布局详解</div>
 </a></p>
 <h1 id="5-饼状图形"><a href="#5-饼状图形" class="headerlink" title="5 饼状图形"></a>5 饼状图形</h1><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -2025,10 +2217,13 @@ h3:hover {
     &lt;svg&gt;&lt;&#x2F;svg&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 画布
-        var width &#x3D; 500; height &#x3D; 500;
+        var width &#x3D; 500;
+        var height &#x3D; 500;
         var radius &#x3D; Math.min(width, height) &#x2F; 2;
         var svg &#x3D; d3.select(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
             .attr(
                 &#39;transform&#39;, 
                 &#39;translate(&#39; + width &#x2F; 2 + &#39;,&#39; + height &#x2F; 2 + &#39;)&#39;
@@ -2036,24 +2231,36 @@ h3:hover {
 
         &#x2F;&#x2F; 数据
         var dataset &#x3D; [30, 10, 43, 55, 13];
+
         &#x2F;&#x2F; 定义一个布局
         var pie &#x3D; d3.pie();
+
         &#x2F;&#x2F; 数据转换
         var piedata &#x3D; pie(dataset);
+
         &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
         var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
 
         &#x2F;&#x2F; 绘制图形，这里绘制的是饼图，需要使用弧生成器，设置外半径和内半径
         var outerRadius &#x3D; 100;
+
         &#x2F;&#x2F; 内半径，为0则中间没有空白
         var innerRadius &#x3D; 70;
+
         &#x2F;&#x2F; 弧生成器，设置外半径和内半径
-        var arc &#x3D; d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
+        var arc &#x3D; d3.arc()
+            .innerRadius(innerRadius)
+            .outerRadius(outerRadius);
 
         &#x2F;&#x2F; 在SVG中添加图形元素
         var arcs &#x3D; svg.selectAll(&#39;g&#39;)
-            &#x2F;&#x2F; 添加足够数量的分组元素(5个)，每个分组用于存放一段弧的相关元素
-            .data(piedata).enter().append(&#39;g&#39;).attr(&#39;class&#39;, &#39;arc&#39;);
+            &#x2F;&#x2F; 添加足够数量的分组元素(5个)
+            .data(piedata)
+            .enter()
+            .append(&#39;g&#39;)
+            &#x2F;&#x2F; 每个分组用于存放一段弧的相关元素
+            .attr(&#39;class&#39;, &#39;arc&#39;);
+            
         &#x2F;&#x2F; 对每个g元素添加path
         arcs.append(&#39;path&#39;)
             .attr(&#39;fill&#39;, function (d, i) &#123;
@@ -2079,7 +2286,7 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="6-力导向图"><a href="#6-力导向图" class="headerlink" title="6 力导向图"></a>6 力导向图</h1><ul>
 <li>力导向图，英文叫Force-Directed Graph，是绘图的一种算法。</li>
 <li>在二维或三维空间里配置节点，节点之间用线连接，称为连线。</li>
@@ -2090,7 +2297,7 @@ h3:hover {
 <li>其中，source和target子属性也是必备的，其值代表了nodes数组中的索引。</li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -2110,10 +2317,12 @@ h3:hover {
 
     &lt;script&gt;
         &#x2F;&#x2F; 画布
-        var width &#x3D; 800; height &#x3D; 600;
+        var width &#x3D; 800;
+        height &#x3D; 600;
         var svg &#x3D; d3.select(&#39;svg&#39;)
             .attr(&#39;width&#39;, width)
-            .attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
             .attr(
                 &#39;transform&#39;,
                 &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 4 + &#39;)&#39;
@@ -2142,28 +2351,42 @@ h3:hover {
 
         &#x2F;&#x2F; 绘制连线
         var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
-            .data(edges).enter().append(&#39;line&#39;)
-            .style(&#39;stroke&#39;, &#39;#ccc&#39;).style(&#39;stroke-width&#39;, 1);
+            .data(edges)
+            .enter()
+            .append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;)
+            .style(&#39;stroke-width&#39;, 1);
 
         &#x2F;&#x2F; 添加节点 
-        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;).data(nodes)
-            .enter().append(&#39;circle&#39;).attr(&#39;r&#39;, 15)
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(nodes)
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, 15)
             .style(&#39;fill&#39;, function (d, i) &#123;
                 return color(i);
             &#125;)
             &#x2F;&#x2F; 确保使用新的拖动API
-            .call(d3.drag().on(&#39;start&#39;, dragstarted)
-                .on(&#39;drag&#39;, dragged).on(&#39;end&#39;, dragended));
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
 
         &#x2F;&#x2F; 添加文字
         var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
-            .data(nodes).enter().append(&#39;text&#39;)
-            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .data(nodes)
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
             .text(function (d) &#123;
                 return d.name;
             &#125;);
 
-        &#x2F;&#x2F; 力导向图是不断运动的，每一时刻都在发生更新，须不断更新节点和连线位置
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
         simulation.on(&#39;tick&#39;, function () &#123;
             &#x2F;&#x2F; 每个tick更新节点和连线的位置
             svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
@@ -2196,9 +2419,9 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-1-分子式"><a href="#6-1-分子式" class="headerlink" title="6-1 分子式"></a>6-1 分子式</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -2217,9 +2440,12 @@ h3:hover {
     &lt;svg&gt;&lt;&#x2F;svg&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 画布
-        var width &#x3D; 800; height &#x3D; 600;
+        var width &#x3D; 800;
+        height &#x3D; 600;
         var svg &#x3D; d3.select(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
             .attr(
                 &#39;transform&#39;,
                 &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
@@ -2251,7 +2477,7 @@ h3:hover {
             ]
         &#125;
 
-        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力
         var simulation &#x3D; d3.forceSimulation(graph.nodes)
             .force(&#39;charge&#39;, d3.forceManyBody().strength(-100))
             .force(&#39;link&#39;, d3.forceLink(graph.links).distance(function (d) &#123;
@@ -2260,20 +2486,27 @@ h3:hover {
             &#125;));
 
         &#x2F;&#x2F; 定义一个半径比例尺
-        var radius &#x3D; d3.scaleSqrt().range([0, 10]).domain([1, 20]);
+        var radius &#x3D; d3.scaleSqrt()
+            .range([0, 10])
+            .domain([1, 20]);
 
         &#x2F;&#x2F; 绘制连线
         var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
-            .data(graph.links).enter().append(&#39;line&#39;)
-            .style(&#39;stroke&#39;, &#39;#ccc&#39;).style(&#39;stroke-width&#39;, 1);
+            .data(graph.links)
+            .enter()
+            .append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;)
+            .style(&#39;stroke-width&#39;, 1);
 
         svg_edges.filter(function (d) &#123; return d.bond &gt; 1; &#125;)
-            .append(&#39;line&#39;).attr(&#39;class&#39;, &#39;separator&#39;);
+            .append(&#39;line&#39;)
+            .attr(&#39;class&#39;, &#39;separator&#39;);
 
         &#x2F;&#x2F; 添加节点 
         var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
             .data(graph.nodes)
-            .enter().append(&#39;circle&#39;)
+            .enter()
+            .append(&#39;circle&#39;)
             .attr(&#39;r&#39;, function (d) &#123; return radius(d.size); &#125;)
             .style(&#39;fill&#39;, function (d, i) &#123;
                 return color(i);
@@ -2288,14 +2521,17 @@ h3:hover {
 
         &#x2F;&#x2F; 添加文字
         var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
-            .data(graph.nodes).enter().append(&#39;text&#39;)
-            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .data(graph.nodes)
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
             .text(function (d) &#123;
                 return d.atom;
             &#125;);
 
-        &#x2F;&#x2F; 力导向图是不断运动的
-        &#x2F;&#x2F; 每一时刻都在发生更新，必须不断更新节点和连线的位置
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
         simulation.on(&#39;tick&#39;, function () &#123;
             &#x2F;&#x2F; 每个tick更新节点和连线的位置
             svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
@@ -2328,9 +2564,9 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-2-带文字"><a href="#6-2-带文字" class="headerlink" title="6-2 带文字"></a>6-2 带文字</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -2349,9 +2585,12 @@ h3:hover {
     &lt;svg&gt;&lt;&#x2F;svg&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 画布
-        var width &#x3D; 800; height &#x3D; 600;
+        var width &#x3D; 800;
+        height &#x3D; 600;
         var svg &#x3D; d3.select(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
             .attr(
                 &#39;transform&#39;,
                 &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
@@ -2371,6 +2610,7 @@ h3:hover {
             &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
             &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
         ];
+
         &#x2F;&#x2F; 初始化一个空的节点对象映射
         var nodes &#x3D; &#123;&#125;;
 
@@ -2390,13 +2630,18 @@ h3:hover {
 
         &#x2F;&#x2F; 绘制连线
         var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
-            .data(links).enter().append(&#39;line&#39;)
-            .style(&#39;stroke&#39;, &#39;#ccc&#39;).style(&#39;stroke-width&#39;, 1);
+            .data(links)
+            .enter()
+            .append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;)
+            .style(&#39;stroke-width&#39;, 1);
 
         &#x2F;&#x2F; 添加节点 
         var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
             .data(Object.values(nodes))
-            .enter().append(&#39;circle&#39;).attr(&#39;r&#39;, 15)
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, 15)
             .style(&#39;fill&#39;, function (d, i) &#123;
                 return color(i);
             &#125;)
@@ -2410,14 +2655,17 @@ h3:hover {
 
         &#x2F;&#x2F; 添加文字
         var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
-            .data(Object.values(nodes)).enter().append(&#39;text&#39;)
-            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
             .text(function (d) &#123;
                 return d.name;
             &#125;);
 
-        &#x2F;&#x2F; 力导向图是不断运动的
-        &#x2F;&#x2F; 每一时刻都在发生更新，必须不断更新节点和连线的位置
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
         simulation.on(&#39;tick&#39;, function () &#123;
             &#x2F;&#x2F; 每个tick更新节点和连线的位置
             svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
@@ -2450,9 +2698,9 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-3-弧箭头"><a href="#6-3-弧箭头" class="headerlink" title="6-3 弧箭头*"></a>6-3 弧箭头*</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -2471,9 +2719,12 @@ h3:hover {
     &lt;svg&gt;&lt;&#x2F;svg&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 画布
-        var width &#x3D; 800; height &#x3D; 600;
+        var width &#x3D; 800;
+        height &#x3D; 600;
         var svg &#x3D; d3.select(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
             .attr(
                 &#39;transform&#39;,
                 &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
@@ -2493,6 +2744,7 @@ h3:hover {
             &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
             &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
         ];
+        
         &#x2F;&#x2F; 初始化一个空的节点对象映射
         var nodes &#x3D; &#123;&#125;;
 
@@ -2511,9 +2763,11 @@ h3:hover {
             .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
 
         &#x2F;&#x2F; 创建箭头
-        svg.append(&#39;svg:defs&#39;).selectAll(&#39;marker&#39;)
+        svg.append(&#39;svg:defs&#39;)
+            .selectAll(&#39;marker&#39;)
             .data([&#39;suit&#39;])
-            .enter().append(&#39;svg:marker&#39;)
+            .enter()
+            .append(&#39;svg:marker&#39;)
             &#x2F;&#x2F; 确保ID与引用时使用的字符串匹配
             .attr(&#39;id&#39;, &#39;suit&#39;)
             .attr(&#39;viewBox&#39;, &#39;0 -5 10 10&#39;)
@@ -2530,7 +2784,9 @@ h3:hover {
 
         &#x2F;&#x2F; 绘制连线
         var svg_edges &#x3D; svg.selectAll(&#39;.link&#39;)
-            .data(links).enter().append(&#39;svg:path&#39;)
+            .data(links)
+            .enter()
+            .append(&#39;svg:path&#39;)
             .attr(&#39;class&#39;, function (d) &#123;
                 return &#39;link &#39; + d.type;
             &#125;)
@@ -2546,7 +2802,9 @@ h3:hover {
         &#x2F;&#x2F; 添加节点 
         var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
             .data(Object.values(nodes))
-            .enter().append(&#39;circle&#39;).attr(&#39;r&#39;, 15)
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, 15)
             .style(&#39;fill&#39;, function (d, i) &#123;
                 return color(i);
             &#125;)
@@ -2560,14 +2818,17 @@ h3:hover {
 
         &#x2F;&#x2F; 添加文字
         var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
-            .data(Object.values(nodes)).enter().append(&#39;text&#39;)
-            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
             .text(function (d) &#123;
                 return d.name;
             &#125;);
 
-        &#x2F;&#x2F; 力导向图是不断运动的
-        &#x2F;&#x2F; 每一时刻都在发生更新，必须不断更新节点和连线的位置
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
         simulation.on(&#39;tick&#39;, function () &#123;
             &#x2F;&#x2F; 每个tick更新节点和连线的位置
             svg_edges.attr(&#39;d&#39;, function (d) &#123;
@@ -2610,9 +2871,9 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-4-带图片"><a href="#6-4-带图片" class="headerlink" title="6-4 带图片*"></a>6-4 带图片*</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -2631,9 +2892,12 @@ h3:hover {
     &lt;svg&gt;&lt;&#x2F;svg&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 画布
-        var width &#x3D; 800; height &#x3D; 600;
+        var width &#x3D; 800;
+        height &#x3D; 600;
         var svg &#x3D; d3.select(&#39;svg&#39;)
-            .attr(&#39;width&#39;, width).attr(&#39;height&#39;, height).append(&#39;g&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
             .attr(
                 &#39;transform&#39;,
                 &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
@@ -2653,6 +2917,7 @@ h3:hover {
             &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
             &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
         ];
+
         &#x2F;&#x2F; 初始化一个空的节点对象映射
         var nodes &#x3D; &#123;&#125;;
 
@@ -2672,8 +2937,11 @@ h3:hover {
 
         &#x2F;&#x2F; 绘制连线
         var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
-            .data(links).enter().append(&#39;line&#39;)
-            .style(&#39;stroke&#39;, &#39;#ccc&#39;).style(&#39;stroke-width&#39;, 1);
+            .data(links)
+            .enter()
+            .append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;)
+            .style(&#39;stroke-width&#39;, 1);
 
         &#x2F;&#x2F; 添加节点 
         var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
@@ -2684,10 +2952,11 @@ h3:hover {
             .style(&#39;fill&#39;, function (d, i) &#123;
                 return color(i);
             &#125;)
-            .call(d3.drag()
-                .on(&#39;start&#39;, dragstarted)
-                .on(&#39;drag&#39;, dragged)
-                .on(&#39;end&#39;, dragended)
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
             );
 
         &#x2F;&#x2F; 添加图片
@@ -2717,14 +2986,17 @@ h3:hover {
 
         &#x2F;&#x2F; 添加文字
         var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
-            .data(Object.values(nodes)).enter().append(&#39;text&#39;)
-            .style(&#39;fill&#39;, &#39;black&#39;).attr(&#39;dx&#39;, 20).attr(&#39;dy&#39;, 8)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
             .text(function (d) &#123;
                 return d.name;
             &#125;);
 
-        &#x2F;&#x2F; 力导向图是不断运动的
-        &#x2F;&#x2F; 每一时刻都在发生更新，必须不断更新节点和连线的位置
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
         simulation.on(&#39;tick&#39;, function () &#123;
             &#x2F;&#x2F; 每个tick更新节点和连线的位置
             svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
@@ -2735,8 +3007,8 @@ h3:hover {
             svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
                 .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
 
-            &#x2F;&#x2F; svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
-            &#x2F;&#x2F;     .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
         &#125;);
 
         &#x2F;&#x2F; 拖动的处理函数
@@ -2757,12 +3029,12 @@ h3:hover {
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="7-可视化地图"><a href="#7-可视化地图" class="headerlink" title="7 可视化地图"></a>7 可视化地图</h1><ul>
 <li>制作地图需要Json文件，将Json格式应用于地理上的文件，叫GeoJson文件。</li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
 
 &lt;head&gt;
     &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
@@ -2794,42 +3066,58 @@ h3:hover {
     &lt;svg&gt;&lt;&#x2F;svg&gt;
     &lt;script&gt;
         &#x2F;&#x2F; 设置SVG容器
-        var width &#x3D; 960; height &#x3D; 600;
-        var svg &#x3D; d3.select(&#39;svg&#39;).attr(&#39;width&#39;, width).attr(&#39;height&#39;, height);
+        var width &#x3D; 960;
+        height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height);
 
         &#x2F;&#x2F; 投影设置：GeoJson中的地图数据都是三维的经纬度，而网页显示为二维
         &#x2F;&#x2F; 此时需要设定一个投影函数，用于经纬度转换
         const projection &#x3D; d3.geoMercator()
             &#x2F;&#x2F; scale为缩放因子，数值越小缩放效果越大
-            .scale(90).translate([width &#x2F; 2, height &#x2F; 2]);
+            .scale(90)
+            .translate([width &#x2F; 2, height &#x2F; 2]);
+
         &#x2F;&#x2F; 地理路径生成器
-        const path &#x3D; d3.geoPath().projection(projection);
+        const path &#x3D; d3.geoPath()
+            .projection(projection);
 
         &#x2F;&#x2F; 加载数据
-        d3.json(&#39;https:&#x2F;&#x2F;d3js.org&#x2F;world-110m.v1.json&#39;).then(data &#x3D;&gt; &#123;
-            &#x2F;&#x2F; 转换TopoJSON数据
-            const countries &#x3D; topojson.feature(
-                data, data.objects.countries
-            ).features;
+        d3.json(&#39;https:&#x2F;&#x2F;d3js.org&#x2F;world-110m.v1.json&#39;)
+            .then(data &#x3D;&gt; &#123;
+                &#x2F;&#x2F; 转换TopoJSON数据
+                const countries &#x3D; topojson.feature(
+                    data, data.objects.countries
+                ).features;
 
-            &#x2F;&#x2F; 绘制国家
-            svg.selectAll(&#39;.country&#39;).data(countries)
-                .enter().append(&#39;path&#39;).attr(&#39;class&#39;, &#39;country&#39;)
-                .attr(&#39;d&#39;, path).attr(&#39;fill&#39;, &#39;steelblue&#39;)
-                .attr(&#39;stroke&#39;, &#39;white&#39;).attr(&#39;stroke-width&#39;, 0.5)
-                .on(&#39;mouseover&#39;, function (event) &#123;
-                    d3.select(this)
-                        .transition().duration(200).style(&#39;fill&#39;, &#39;orange&#39;);
-                &#125;)
-                .on(&#39;mouseout&#39;, function (event) &#123;
-                    d3.select(this)
-                        .transition().duration(200).style(&#39;fill&#39;, &#39;steelblue&#39;);
-                &#125;);
-        &#125;);
+                &#x2F;&#x2F; 绘制国家
+                svg.selectAll(&#39;.country&#39;)
+                    .data(countries)
+                    .enter()
+                    .append(&#39;path&#39;)
+                    .attr(&#39;class&#39;, &#39;country&#39;)
+                    .attr(&#39;d&#39;, path)
+                    .attr(&#39;fill&#39;, &#39;steelblue&#39;)
+                    .attr(&#39;stroke&#39;, &#39;white&#39;)
+                    .attr(&#39;stroke-width&#39;, 0.5)
+                    .on(&#39;mouseover&#39;, function (event) &#123;
+                        d3.select(this)
+                            .transition()
+                            .duration(200)
+                            .style(&#39;fill&#39;, &#39;orange&#39;);
+                    &#125;)
+                    .on(&#39;mouseout&#39;, function (event) &#123;
+                        d3.select(this)
+                            .transition()
+                            .duration(200)
+                            .style(&#39;fill&#39;, &#39;steelblue&#39;);
+                    &#125;);
+            &#125;);
     &lt;&#x2F;script&gt;
 &lt;&#x2F;body&gt;
 
-&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
             </div>
             <hr/>
 
@@ -3473,7 +3761,7 @@ h3:hover {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            D3可用于创建交互式可视化，允许使用数据操作、转换和呈现，然后将其转换为可在Web浏览器中显示的SVG、Canvas或HTML。
+                            D3可用于创建交互式可视化，允许使用数据操作、转换和呈现，然后将其转换为可在浏览器中显示的SVG、Canvas或HTML。
                         
                     </div>
                     <div class="publish-info">
@@ -3829,7 +4117,7 @@ h3:hover {
       
       <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
       &nbsp;<i class="fas fa-chart-area"></i>
-      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">82k</span>&nbsp;字&nbsp;🌼<br>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">82.1k</span>&nbsp;字&nbsp;🌼<br>
       
       
       
@@ -4215,8 +4503,8 @@ $(function () {
         else {
             // 平常时间
             document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "万事";
-            document.getElementById('dttwo').innerHTML = "胜意";
+            document.getElementById('dtone').innerHTML = "福寿";
+            document.getElementById('dttwo').innerHTML = "康宁";
         }
     </script>
 
