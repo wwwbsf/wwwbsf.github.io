@@ -1006,7 +1006,7 @@ class="themespring" -->
                 
                 
                 
-                <a href="/categories/Flutter/" class="wenzhs" title="Flutter : 6">
+                <a href="/categories/Dart/" class="wenzhs" title="Dart : 6">
                     
                     <div class="moleskine-wrapper">
                         <div class="moleskine-notebook">
@@ -1015,7 +1015,7 @@ class="themespring" -->
                                     style="background-color: #cc4b48;">                                               
                                 <div class="notebook-skin
                                      chip-default "
-                                    >Flutter                                  
+                                    >Dart                                  
                                     <!-- 福袋按钮 -->
                                     <div class="caishendeng">        
                                         <div class="fenleiss">
@@ -1030,7 +1030,7 @@ class="themespring" -->
                 </a>
                 
                 
-                <a href="/categories/Dart/" class="wenzhs" title="Dart : 6">
+                <a href="/categories/Flutter/" class="wenzhs" title="Flutter : 6">
                     
                     <div class="moleskine-wrapper">
                         <div class="moleskine-notebook">
@@ -1039,7 +1039,7 @@ class="themespring" -->
                                     style="background-color: #2e95aa;">                                               
                                 <div class="notebook-skin
                                      chip-default "
-                                    >Dart                                  
+                                    >Flutter                                  
                                     <!-- 福袋按钮 -->
                                     <div class="caishendeng">        
                                         <div class="fenleiss">
@@ -1173,7 +1173,7 @@ class="themespring" -->
                     fontFamily: "Aa漫语手写体"
                 }
             },
-            indicator: [{"name":"Flutter","max":7},{"name":"Dart","max":7},{"name":"Docker","max":7},{"name":"Ubuntu","max":7},{"name":"Web","max":7}],
+            indicator: [{"name":"Dart","max":7},{"name":"Flutter","max":7},{"name":"Docker","max":7},{"name":"Ubuntu","max":7},{"name":"Web","max":7}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -1514,6 +1514,19 @@ $(function () {
             document.getElementById('dtone').innerHTML = "快乐";
             document.getElementById('dttwo').innerHTML = "元旦";
         }
+        // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
+        else if(curMonth == 5 && curDate == 22) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            document.body.classList.add('dark');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "地震";
+            document.getElementById('dttwo').innerHTML = "袁老";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
         else if(curMonth == 9 && curDate == 30) {
             // 9月30日为全国烈士纪念日，设在国庆前一天
             document.getElementsByTagName('html')[0].classList.add('gray');
@@ -1545,8 +1558,8 @@ $(function () {
             document.getElementById('tujis').style.display = "block";
             // document.getElementById('fights').style.display = "none";
         }
+        // 12月13日为国家公祭日
         else if(curMonth == 12 && curDate == 13) {
-            // 12月13日为国家公祭日
             document.getElementsByTagName('html')[0].classList.add('gray');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "国家";
@@ -1557,23 +1570,8 @@ $(function () {
             document.getElementById('switchspring').style.display = "none";
             cancelguajian();
         }
-
-        else if(curMonth == 5 && curDate == 22) {
-            // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
-            document.getElementsByTagName('html')[0].classList.add('gray');
-            document.body.classList.add('dark');
-            // document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "地震";
-            document.getElementById('dttwo').innerHTML = "袁老";
-            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
-            document.getElementById('popupbb').style.display = "block";
-            document.getElementById('switchchristmas').style.display = "none";
-            document.getElementById('switchspring').style.display = "none";
-            cancelguajian();
-        }
-
+        // 12月25日为圣诞节
         else if(curMonth == 12 && curDate == 25) {
-            // 12月25日为圣诞节
             document.body.classList.add('themechris');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "快乐";

@@ -1115,7 +1115,7 @@ h3:hover {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-06-04
+                    2024-12-04
                 </div>
                 
 
@@ -4399,12 +4399,13 @@ class _PageViewSwiperState extends State&lt;PageViewSwiper&gt; &#123;
         
         <div class="article col s12 m6">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/javascript@01.html">
+                <a href="/posts/flutter@06.html">
                     <div class="card-image">
                         
-                        <img src="/medias/toc-banner/javascript/javascript@01.jpg" class="responsive-img" alt="可视化D3(一)">
+                        <img src="/medias/toc-banner/flutter/flutter@06.jpg" class="responsive-img" alt="弹窗与轮动图">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -4415,49 +4416,46 @@ class _PageViewSwiperState extends State&lt;PageViewSwiper&gt; &#123;
                         <span class="card-title">
                           <!-- 文章卡片hover线条效果 -->
                           <span class="titlesline"></span>
-                          可视化D3(一)
+                          弹窗与轮动图
                         </span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            D3是一个JavaScript函数库，用于创建动态、交互式数据可视化，支持各种图表、地图和复杂的视觉表现，广泛应用于展示。
+                            Dialog弹窗，用于显示信息、提示用户或获取用户输入，PageView则是一个可滑动的页面视图，用于展示多页面切换效果。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-09-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-12-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Web/" class="post-category">
-                                    Web
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
+                    <a href="/tags/Timer/">
+                        <span class="chip bg-color">Timer</span>
                     </a>
                     
-                    <a href="/tags/%E5%B8%83%E5%B1%80/">
-                        <span class="chip bg-color">布局</span>
+                    <a href="/tags/Dialog/">
+                        <span class="chip bg-color">Dialog</span>
                     </a>
                     
-                    <a href="/tags/%E6%AF%94%E4%BE%8B%E5%B0%BA/">
-                        <span class="chip bg-color">比例尺</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9D%90%E6%A0%87%E8%BD%B4/">
-                        <span class="chip bg-color">坐标轴</span>
+                    <a href="/tags/PageView/">
+                        <span class="chip bg-color">PageView</span>
                     </a>
                     
                 </div>
@@ -4497,7 +4495,7 @@ class _PageViewSwiperState extends State&lt;PageViewSwiper&gt; &#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-16
                             </span>
                         <span class="publish-author">
                             
@@ -5053,6 +5051,19 @@ $(function () {
             document.getElementById('dtone').innerHTML = "快乐";
             document.getElementById('dttwo').innerHTML = "元旦";
         }
+        // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
+        else if(curMonth == 5 && curDate == 22) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            document.body.classList.add('dark');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "地震";
+            document.getElementById('dttwo').innerHTML = "袁老";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
         else if(curMonth == 9 && curDate == 30) {
             // 9月30日为全国烈士纪念日，设在国庆前一天
             document.getElementsByTagName('html')[0].classList.add('gray');
@@ -5084,8 +5095,8 @@ $(function () {
             document.getElementById('tujis').style.display = "block";
             // document.getElementById('fights').style.display = "none";
         }
+        // 12月13日为国家公祭日
         else if(curMonth == 12 && curDate == 13) {
-            // 12月13日为国家公祭日
             document.getElementsByTagName('html')[0].classList.add('gray');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "国家";
@@ -5096,23 +5107,8 @@ $(function () {
             document.getElementById('switchspring').style.display = "none";
             cancelguajian();
         }
-
-        else if(curMonth == 5 && curDate == 22) {
-            // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
-            document.getElementsByTagName('html')[0].classList.add('gray');
-            document.body.classList.add('dark');
-            // document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "地震";
-            document.getElementById('dttwo').innerHTML = "袁老";
-            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
-            document.getElementById('popupbb').style.display = "block";
-            document.getElementById('switchchristmas').style.display = "none";
-            document.getElementById('switchspring').style.display = "none";
-            cancelguajian();
-        }
-
+        // 12月25日为圣诞节
         else if(curMonth == 12 && curDate == 25) {
-            // 12月25日为圣诞节
             document.body.classList.add('themechris');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "快乐";

@@ -1813,6 +1813,19 @@ $(function () {
             document.getElementById('dtone').innerHTML = "快乐";
             document.getElementById('dttwo').innerHTML = "元旦";
         }
+        // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
+        else if(curMonth == 5 && curDate == 22) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            document.body.classList.add('dark');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "地震";
+            document.getElementById('dttwo').innerHTML = "袁老";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
         else if(curMonth == 9 && curDate == 30) {
             // 9月30日为全国烈士纪念日，设在国庆前一天
             document.getElementsByTagName('html')[0].classList.add('gray');
@@ -1844,8 +1857,8 @@ $(function () {
             document.getElementById('tujis').style.display = "block";
             // document.getElementById('fights').style.display = "none";
         }
+        // 12月13日为国家公祭日
         else if(curMonth == 12 && curDate == 13) {
-            // 12月13日为国家公祭日
             document.getElementsByTagName('html')[0].classList.add('gray');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "国家";
@@ -1856,23 +1869,8 @@ $(function () {
             document.getElementById('switchspring').style.display = "none";
             cancelguajian();
         }
-
-        else if(curMonth == 5 && curDate == 22) {
-            // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
-            document.getElementsByTagName('html')[0].classList.add('gray');
-            document.body.classList.add('dark');
-            // document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "地震";
-            document.getElementById('dttwo').innerHTML = "袁老";
-            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
-            document.getElementById('popupbb').style.display = "block";
-            document.getElementById('switchchristmas').style.display = "none";
-            document.getElementById('switchspring').style.display = "none";
-            cancelguajian();
-        }
-
+        // 12月25日为圣诞节
         else if(curMonth == 12 && curDate == 25) {
-            // 12月25日为圣诞节
             document.body.classList.add('themechris');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "快乐";

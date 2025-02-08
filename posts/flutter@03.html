@@ -1115,7 +1115,7 @@ h3:hover {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-04-11
+                    2024-09-11
                 </div>
                 
 
@@ -3258,10 +3258,10 @@ class Button extends StatelessWidget &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/flutter@04.html">
+                <a href="/posts/javascript@01.html">
                     <div class="card-image">
                         
-                        <img src="/medias/toc-banner/flutter/flutter@04.jpg" class="responsive-img" alt="有状态组件">
+                        <img src="/medias/toc-banner/javascript/javascript@01.jpg" class="responsive-img" alt="可视化D3(一)">
                         
                         <!-- 福袋按钮 -->
                         <div class="caishendeng">        
@@ -3272,26 +3272,26 @@ class Button extends StatelessWidget &#123;
                         <span class="card-title">
                           <!-- 文章卡片hover线条效果 -->
                           <span class="titlesline"></span>
-                          有状态组件
+                          可视化D3(一)
                         </span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Flutter有状态组件是UI中可根据时间变化而更新的部分，与无状态组件不同，拥有State对象，用于存储和管理组件的状态。
+                            D3是一个JavaScript函数库，用于创建动态、交互式数据可视化，支持各种图表、地图和复杂的视觉表现，广泛应用于展示。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-09-21
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/Web/" class="post-category">
+                                    Web
                                 </a>
                             
                             
@@ -3301,16 +3301,20 @@ class Button extends StatelessWidget &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Drawer/">
-                        <span class="chip bg-color">Drawer</span>
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
                     </a>
                     
-                    <a href="/tags/AppBar/">
-                        <span class="chip bg-color">AppBar</span>
+                    <a href="/tags/%E5%B8%83%E5%B1%80/">
+                        <span class="chip bg-color">布局</span>
                     </a>
                     
-                    <a href="/tags/TabBar/">
-                        <span class="chip bg-color">TabBar</span>
+                    <a href="/tags/%E6%AF%94%E4%BE%8B%E5%B0%BA/">
+                        <span class="chip bg-color">比例尺</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9D%90%E6%A0%87%E8%BD%B4/">
+                        <span class="chip bg-color">坐标轴</span>
                     </a>
                     
                 </div>
@@ -3350,7 +3354,7 @@ class Button extends StatelessWidget &#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-29
                             </span>
                         <span class="publish-author">
                             
@@ -3906,6 +3910,19 @@ $(function () {
             document.getElementById('dtone').innerHTML = "快乐";
             document.getElementById('dttwo').innerHTML = "元旦";
         }
+        // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
+        else if(curMonth == 5 && curDate == 22) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            document.body.classList.add('dark');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "地震";
+            document.getElementById('dttwo').innerHTML = "袁老";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
         else if(curMonth == 9 && curDate == 30) {
             // 9月30日为全国烈士纪念日，设在国庆前一天
             document.getElementsByTagName('html')[0].classList.add('gray');
@@ -3937,8 +3954,8 @@ $(function () {
             document.getElementById('tujis').style.display = "block";
             // document.getElementById('fights').style.display = "none";
         }
+        // 12月13日为国家公祭日
         else if(curMonth == 12 && curDate == 13) {
-            // 12月13日为国家公祭日
             document.getElementsByTagName('html')[0].classList.add('gray');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "国家";
@@ -3949,23 +3966,8 @@ $(function () {
             document.getElementById('switchspring').style.display = "none";
             cancelguajian();
         }
-
-        else if(curMonth == 5 && curDate == 22) {
-            // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
-            document.getElementsByTagName('html')[0].classList.add('gray');
-            document.body.classList.add('dark');
-            // document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "地震";
-            document.getElementById('dttwo').innerHTML = "袁老";
-            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
-            document.getElementById('popupbb').style.display = "block";
-            document.getElementById('switchchristmas').style.display = "none";
-            document.getElementById('switchspring').style.display = "none";
-            cancelguajian();
-        }
-
+        // 12月25日为圣诞节
         else if(curMonth == 12 && curDate == 25) {
-            // 12月25日为圣诞节
             document.body.classList.add('themechris');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "快乐";

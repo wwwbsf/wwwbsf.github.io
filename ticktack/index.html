@@ -1126,7 +1126,7 @@ class="themespring" -->
           var mn = document.querySelector(".mn");
           var sc = document.querySelector(".sc");
           var time = document.querySelector(".time_wrap1");
-          //根据当前时间初始化表盘时钟
+          // 根据当前时间初始化表盘时钟
           var date = new Date();
           var hour = date.getHours();
           var min = date.getMinutes();
@@ -1160,7 +1160,7 @@ class="themespring" -->
       <div class="card-content">
         <div class="biaotis">
           <span>距离</span>
-          <span class="zhuti">2025</span>
+          <span class="zhuti"></span>
           <span>仅有</span>
         </div>
         <div id="CountMsg" class="HotDate">
@@ -1171,30 +1171,44 @@ class="themespring" -->
         </div>
         <script type="text/javascript">
           function getRTime() {
-            var EndTime = new Date("2025/01/01 00:00:00"); //截止时间
-            var NowTime = new Date();
-            var t = EndTime.getTime() - NowTime.getTime();
+            const currentYear = new Date().getFullYear();    //获取当前年份
+            const nextYear = currentYear + 1;                //计算下一年
+            //var EndTime = new Date("2025/01/01 00:00:00"); //截止时间
+            var EndTime = new Date(`${nextYear}/01/01 00:00:00`);
+            var NowTime = new Date();                        //获取当前时间
+            var t = EndTime.getTime() - NowTime.getTime();   //计算时间差(毫秒)
 
             //累减
-            // var d=Math.floor(t/1000/60/60/24);
-            // t-=d*(1000*60*60*24);
-            // var h=Math.floor(t/1000/60/60);
-            // t-=h*60*60*1000;
-            // var m=Math.floor(t/1000/60);
-            // t-=m*60*1000;
-            // var s=Math.floor(t/1000);
+            //var d=Math.floor(t/1000/60/60/24);
+            //t-=d*(1000*60*60*24);
+            //var h=Math.floor(t/1000/60/60);
+            //t-=h*60*60*1000;
+            //var m=Math.floor(t/1000/60);
+            //t-=m*60*1000;
+            //var s=Math.floor(t/1000);
 
             //累加
-            var d = Math.floor(t / 1000 / 60 / 60 / 24);
-            var h = Math.floor((t / 1000 / 60 / 60) % 24);
-            var m = Math.floor((t / 1000 / 60) % 60);
-            var s = Math.floor((t / 1000) % 60);
+            //var d = Math.floor(t / 1000 / 60 / 60 / 24);
+            //var h = Math.floor((t / 1000 / 60 / 60) % 24);
+            //var m = Math.floor((t / 1000 / 60) % 60);
+            //var s = Math.floor((t / 1000) % 60);
+
+            // 简化计算，使用模运算符提高可读性和效率
+            const d = Math.floor(t / (1000 * 60 * 60 * 24));
+            const h = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((t % (1000 * 60)) / 1000);
 
             document.getElementById("t_d").innerHTML = d + "天";
             document.getElementById("t_h").innerHTML = h + "时";
             document.getElementById("t_m").innerHTML = m + "分";
             document.getElementById("t_s").innerHTML = s + "秒";
+
+            //<span class="zhuti"></span>
+            document.querySelector(".zhuti").innerHTML = nextYear;
           }
+
+          // 每秒更新一次
           setInterval(getRTime, 1000);
         </script>
       </div>
@@ -1887,6 +1901,19 @@ $(function () {
             document.getElementById('dtone').innerHTML = "快乐";
             document.getElementById('dttwo').innerHTML = "元旦";
         }
+        // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
+        else if(curMonth == 5 && curDate == 22) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            document.body.classList.add('dark');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "地震";
+            document.getElementById('dttwo').innerHTML = "袁老";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
         else if(curMonth == 9 && curDate == 30) {
             // 9月30日为全国烈士纪念日，设在国庆前一天
             document.getElementsByTagName('html')[0].classList.add('gray');
@@ -1918,8 +1945,8 @@ $(function () {
             document.getElementById('tujis').style.display = "block";
             // document.getElementById('fights').style.display = "none";
         }
+        // 12月13日为国家公祭日
         else if(curMonth == 12 && curDate == 13) {
-            // 12月13日为国家公祭日
             document.getElementsByTagName('html')[0].classList.add('gray');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "国家";
@@ -1930,23 +1957,8 @@ $(function () {
             document.getElementById('switchspring').style.display = "none";
             cancelguajian();
         }
-
-        else if(curMonth == 5 && curDate == 22) {
-            // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
-            document.getElementsByTagName('html')[0].classList.add('gray');
-            document.body.classList.add('dark');
-            // document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "地震";
-            document.getElementById('dttwo').innerHTML = "袁老";
-            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
-            document.getElementById('popupbb').style.display = "block";
-            document.getElementById('switchchristmas').style.display = "none";
-            document.getElementById('switchspring').style.display = "none";
-            cancelguajian();
-        }
-
+        // 12月25日为圣诞节
         else if(curMonth == 12 && curDate == 25) {
-            // 12月25日为圣诞节
             document.body.classList.add('themechris');
             // document.body.classList.add('themespring');
             document.getElementById('dtone').innerHTML = "快乐";
