@@ -970,7 +970,8 @@ header .go-back i {
 
 .archive-calendar {
     margin-top: -60px;
-    max-width: 820px;
+    max-width: 1125px;
+    /* max-width: 820px; */
 }
 
 #post-calendar {
