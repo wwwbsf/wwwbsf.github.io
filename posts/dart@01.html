@@ -1266,7 +1266,7 @@ testAsync() async &#123;
 description: pubtest
 
 environment:
-  sdk: &#39;&gt;&#x3D;2.10.0 &lt;3.0.0&#39;
+  sdk: &quot;&gt;&#x3D;2.12.0 &lt;4.0.0&quot;
 
 dependencies:
   http: ^0.13.5
@@ -1293,33 +1293,29 @@ main() async &#123;
 <h3 id="1-person1-dart"><a href="#1-person1-dart" class="headerlink" title="(1) person1.dart"></a>(1) person1.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
   String name;
   int age;
+
   &#x2F;&#x2F; 默认构造函数的简写
   Person(this.name, this.age);
 
-  Person.setInfo(String name, int age) &#123;
-    this.name &#x3D; name;
-    this.age &#x3D; age;
-  &#125;
+  Person.setInfo(this.name, this.age);
 
   void printInfo() &#123;
     print(&#39;Person1：$&#123;this.name&#125;---$&#123;this.age&#125;&#39;);
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-person2-dart"><a href="#2-person2-dart" class="headerlink" title="(2) person2.dart"></a>(2) person2.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
   String name;
   int age;
+
   &#x2F;&#x2F; 默认构造函数的简写
   Person(this.name, this.age);
 
-  Person.setInfo(String name, int age) &#123;
-    this.name &#x3D; name;
-    this.age &#x3D; age;
-  &#125;
+  Person.setInfo(this.name, this.age);
 
   void printInfo() &#123;
     print(&#39;Person2：$&#123;this.name&#125;---$&#123;this.age&#125;&#39;);
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-重命名一个库"><a href="#3-重命名一个库" class="headerlink" title="(3) 重命名一个库"></a>(3) 重命名一个库</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;lib&#x2F;person1.dart&#39;;
 import &#39;lib&#x2F;person2.dart&#39; as lib;
 
@@ -1387,7 +1383,7 @@ void main() async &#123;
   &#x2F;&#x2F; 通过类型关键字定义变量
   String str2 &#x3D; &#39;类型关键字定义变量&#39;;
   print(str2);
-  int num2 &#x3D; 12345;
+  int num2 &#x3D; 123;
   print(&#39;类型关键字定义变量：$num2&#39;);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="5-常量类型"><a href="#5-常量类型" class="headerlink" title="5 常量类型"></a>5 常量类型</h1><ul>
@@ -1398,8 +1394,8 @@ void main() async &#123;
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">main() &#123;
   String str &#x3D; &#39;变量值1&#39;;
   &#x2F;&#x2F; 变量可以改变值
-  str &#x3D; &#39;变量值2&#39;;
-  print(&#39;定义变量：$str&#39;);
+  str &#x3D; &#39;变量值3&#39;;
+  print(&#39;string关键字定义变量：$str&#39;);
 
   &#x2F;&#x2F; const关键字定义常量
   const PI1 &#x3D; 3.14159;
@@ -1415,7 +1411,7 @@ void main() async &#123;
   &#x2F;&#x2F; final关键字是运行时常量
   final time1 &#x3D; new DateTime.now();
   print(time1);
-  
+
   &#x2F;&#x2F; const关键字是编译时常量
   &#x2F;&#x2F; const time2 &#x3D; new DateTime.now();
   &#x2F;&#x2F; print(time2);
