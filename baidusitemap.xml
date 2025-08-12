@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://wwwbsf.github.io/posts/dart@01.html</loc>
-    <lastmod>2025-06-03</lastmod>
+    <loc>https://wwwbsf.github.io/posts/dart@03.html</loc>
+    <lastmod>2025-08-12</lastmod>
   </url>
   <url>
-    <loc>https://wwwbsf.github.io/posts/dart@03.html</loc>
-    <lastmod>2025-03-01</lastmod>
+    <loc>https://wwwbsf.github.io/posts/dart@02.html</loc>
+    <lastmod>2025-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://wwwbsf.github.io/posts/dart@01.html</loc>
+    <lastmod>2025-06-03</lastmod>
   </url>
   <url>
     <loc>https://wwwbsf.github.io/posts/flutter@06.html</loc>
@@ -42,10 +46,6 @@
   </url>
   <url>
     <loc>https://wwwbsf.github.io/posts/dart@04.html</loc>
-    <lastmod>2025-02-08</lastmod>
-  </url>
-  <url>
-    <loc>https://wwwbsf.github.io/posts/dart@02.html</loc>
     <lastmod>2025-02-08</lastmod>
   </url>
   <url>
