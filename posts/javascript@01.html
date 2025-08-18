@@ -1156,7 +1156,7 @@ h3:hover {
 <li>D3版本下载：<a target="_blank" rel="noopener" href="https://github.com/d3/d3/releases">https://github.com/d3/d3/releases</a>、<a target="_blank" rel="noopener" href="https://d3js.org">https://d3js.org</a>。</li>
 <li>GitHub下载的ZIP包只是未进行编译的D3源代码文件，不能直接使用。</li>
 <li>选择元素(选择集)、绑定数据是D3最基础的内容，通常需要一起使用。<ul>
-<li>选择元素：<code>d3.select()</code>(选所有指定元素的第一个)、<code>d3.selectAll()</code>(选指定的全部元素)。</li>
+<li>选择元素：<code>d3.select()</code> (选所有指定元素的第一个)、<code>d3.selectAll()</code> (选指定的全部元素)。</li>
 <li>绑定数据：<code>datum()</code>(绑定数据到选择集)、<code>data()</code>(绑定数组到选择集，各项值对应元素绑定)。</li>
 </ul>
 </li>
@@ -1331,8 +1331,8 @@ h3:hover {
 <h1 id="2-矩形图"><a href="#2-矩形图" class="headerlink" title="2 矩形图"></a>2 矩形图</h1><ul>
 <li>HTML5提供了SVG和Canvas两种强有力的画布。</li>
 <li>SVG：D3提供了众多的SVG图形生成器，都只支持SVG，建议使用该画布。<ul>
-<li>SVG绘制的是矢量图，将图像进行放大不会失真，可为每个元素添加JavaScript事件处理器。</li>
-<li>每个图形均视为对象，更改对象属性，图形也将改变，x轴正方向水平向右，y轴则垂直向下。</li>
+<li>SVG绘制的是矢量图，将图像进行放大不会失真，可以为每个元素添加JavaScript事件处理器。</li>
+<li>每个图形均视为对象，更改对象属性，图形也将改变，<code>x</code>轴正方向水平向右，y轴则垂直向下。</li>
 </ul>
 </li>
 <li>Canvas<ul>
@@ -1461,7 +1461,7 @@ h3:hover {
 <li>比例尺就是一个数据映射函数，例如线性比例尺可实现类似<code>y = ax + b</code>的变换。</li>
 <li>D3共有三类比例尺：数量型、序数型(序数、颜色比例尺)、时间型(时间比例尺)。</li>
 <li>数量型：线性、恒等、乘方、对数、量化比例尺、分位数比例尺、临界值比例尺。</li>
-<li>D3中的比例尺，有定义域和值域，分别被称为domain和range。</li>
+<li>D3中的比例尺，有定义域和值域，分别被称为<code>domain</code>和<code>range</code>。</li>
 <li>常用的比例尺<ul>
 <li>线性比例尺：能将一个连续的区间，映射到另一区间。</li>
 <li>序数比例尺：定义域和值域不一定连续，属于离散值。</li>
@@ -2024,25 +2024,25 @@ h3:hover {
 <h2 id="3-3-数量关系处理"><a href="#3-3-数量关系处理" class="headerlink" title="3-3 数量关系处理"></a>3-3 数量关系处理</h2><ul>
 <li>update()、enter()、exit()是D3处理选择集和数据之间数量关系不确定的重要函数。</li>
 <li>update()<ul>
-<li>绑定数据数量 = 对应元素，实际并不存在这样的一个函数。</li>
+<li>绑定数据数量 = 对应元素，实际上并不存在这样的1个函数。</li>
 <li>但是对应的元素正好满足时，直接操作即可，后面跟style等。</li>
 </ul>
 </li>
 <li>enter()<ul>
-<li>绑定数据数量 &gt; 对应元素，即：对应的元素数量不足。</li>
-<li>需添加元素，使之与绑定数据的数量相等，常跟append。</li>
+<li>绑定数据数量 &gt; 对应元素，即:对应的元素数量不足。</li>
+<li>需添加元素使之与绑定数据的数量相等，常跟append。</li>
 </ul>
 </li>
 <li>exit()<ul>
-<li>绑定数据数量 &lt; 对应元素，即：对应的元素数量过多。</li>
-<li>需删除元素，使之与绑定数据的数量相等，常跟remove。</li>
+<li>绑定数据数量 &lt; 对应元素，即:对应的元素数量过多。</li>
+<li>需删除元素使之与绑定数据的数量相等，常跟remove。</li>
 </ul>
 </li>
 </ul>
 <h2 id="3-4-图表交互操作"><a href="#3-4-图表交互操作" class="headerlink" title="3-4 图表交互操作"></a>3-4 图表交互操作</h2><ul>
 <li>交互操作，指在图形元素上设置一个或多个监听器，当事件发生时，做出相应的反应。</li>
 <li>用户用于交互的工具：鼠标、键盘、触屏。<ul>
-<li>鼠标事件：click、dblclick、mouseover、mouseout、mousemove、mousedown、mouseup。</li>
+<li>鼠标事件：click、dblclick、mouseover、mouseout、mousemove、mousedown、mouseup等。</li>
 <li>键盘事件：keydown(按任意键)、keypress(按字符键)、keyup(释放键，不区分字母大小写)。</li>
 <li>触屏事件：touchstart(触摸点放在屏上)、touchmove(触摸点移动)、touchend(触摸点移开)。</li>
 </ul>
@@ -2189,7 +2189,7 @@ h3:hover {
 <li>D3常用的布局<ul>
 <li>弦图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/chord-diagram">Chord</a>)、饼状图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/pie-chart-component">Pie</a>)、直方图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/histogram">Histogram</a>)。</li>
 <li>捆图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/hierarchical-edge-bundling">Bundle</a>)、堆栈图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/streamgraph-transitions">Stack</a>)、力导向图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/force-directed-graph-component">Force</a>)。</li>
-<li>层级图(Hierarchy)：不能直接使用，扩展图有五个。</li>
+<li>层级图(Hierarchy)：不能直接使用，扩展图共有五个。</li>
 <li>树状图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/tree-component">Tree</a>)、打包图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/pack-component">Pack</a>)、分区图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/sunburst-component">Partition</a>)、集群图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/cluster">Cluster</a>)、矩阵树图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/treemap-component">Treemap</a>)。</li>
 </ul>
 </li>
@@ -3886,43 +3886,6 @@ h3:hover {
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('10000')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: bsf<br />'
-            + '文章作者: bsf<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- highlight设置，关闭highlight，开启prismjs才生效，好奇怪？？？cdn版本也不能改，一改就会异常！！！ -->

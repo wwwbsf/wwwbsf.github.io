@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://wwwbsf.github.io/posts/javascript@02.html</loc>
+    <lastmod>2025-08-18</lastmod>
+  </url>
+  <url>
+    <loc>https://wwwbsf.github.io/posts/javascript@01.html</loc>
+    <lastmod>2025-08-18</lastmod>
+  </url>
+  <url>
+    <loc>https://wwwbsf.github.io/posts/dart@06.html</loc>
+    <lastmod>2025-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://wwwbsf.github.io/posts/dart@04.html</loc>
+    <lastmod>2025-08-14</lastmod>
+  </url>
+  <url>
     <loc>https://wwwbsf.github.io/posts/dart@03.html</loc>
     <lastmod>2025-08-12</lastmod>
   </url>
@@ -37,24 +53,8 @@
     <lastmod>2025-02-08</lastmod>
   </url>
   <url>
-    <loc>https://wwwbsf.github.io/posts/dart@06.html</loc>
-    <lastmod>2025-02-08</lastmod>
-  </url>
-  <url>
     <loc>https://wwwbsf.github.io/posts/dart@05.html</loc>
     <lastmod>2025-02-08</lastmod>
-  </url>
-  <url>
-    <loc>https://wwwbsf.github.io/posts/dart@04.html</loc>
-    <lastmod>2025-02-08</lastmod>
-  </url>
-  <url>
-    <loc>https://wwwbsf.github.io/posts/javascript@01.html</loc>
-    <lastmod>2024-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://wwwbsf.github.io/posts/javascript@02.html</loc>
-    <lastmod>2024-10-31</lastmod>
   </url>
   <url>
     <loc>https://wwwbsf.github.io/posts/ubuntu@01.html</loc>

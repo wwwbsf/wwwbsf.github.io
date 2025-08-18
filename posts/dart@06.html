@@ -1427,7 +1427,7 @@ void main() &#123;
   print(&#39;面积：$&#123;r.getArea()&#125;&#39;);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-5-类中的静态成员"><a href="#4-5-类中的静态成员" class="headerlink" title="4-5 类中的静态成员"></a>4-5 类中的静态成员</h2><ul>
-<li>通过使用static关键字，来实现类级别的变量以及函数。</li>
+<li>通过使用 static 关键字，来实现类级别的变量以及函数。</li>
 <li>静态属性与静态方法通过类名访问，而非类的实例访问。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
@@ -1445,7 +1445,7 @@ main() &#123;
   Person.show();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-6-静态非静态比较"><a href="#4-6-静态非静态比较" class="headerlink" title="4-6 静态非静态比较"></a>4-6 静态非静态比较</h2><ul>
-<li>非静态方法可以直接访问静态成员、静态方法，以及非静态成员。</li>
+<li>两区别：非静态方法可以直接访问静态成员、静态方法，以及非静态成员。</li>
 <li>静态方法能访问静态成员和静态方法，不能访问非静态成员和非静态方法。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
@@ -1486,7 +1486,7 @@ main() &#123;
   Person.printUserInfo();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="5-类的继承"><a href="#5-类的继承" class="headerlink" title="5 类的继承"></a>5 类的继承</h1><ul>
-<li>子类使用extends关键词来继承父类，子类能复写父类的方法。</li>
+<li>子类使用 extends 关键词来继承父类，子类能复写父类的方法。</li>
 <li>子类会继承父类里面可见的属性和方法，但不会继承构造函数。</li>
 </ul>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
@@ -1650,7 +1650,7 @@ main() &#123;
 <li>抽象类主要通过abstract关键词用于定义标准，子类可继承抽象类，也可实现抽象类接口。<ul>
 <li>抽象类不能被实例化，只有继承它的子类可以。</li>
 <li>如果子类继承抽象类，必须实现它的抽象方法。</li>
-<li>没有方法体的方法称之为抽象方法，不能用abstract关键词来声明。</li>
+<li>没有方法体的方法称之为抽象方法，不能用 abstract 关键词来声明。</li>
 <li>若把抽象类当接口实现，须先实现抽象类中定义的所有属性和方法。</li>
 </ul>
 </li>
@@ -1751,7 +1751,7 @@ main() &#123;
   c.eat();
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-3-接口"><a href="#6-3-接口" class="headerlink" title="6-3 接口"></a>6-3 接口</h2><ul>
-<li>Dart的接口没用interface关键字定义，普通类或抽象类都可作为接口，使用implements关键字实现。<ul>
+<li>Dart的接口没使用interface定义，普通类或抽象类都可作为接口，使用implements关键字实现。<ul>
 <li>如果实现接口的类是普通类，那么Dart会将普通类和抽象类里面属性的方法全部覆写一遍。</li>
 <li>抽象类可定义抽象方法，普通类不可，要实现类似于Java接口的方式，一般都会用抽象类。</li>
 </ul>
@@ -1874,14 +1874,14 @@ void main() &#123;
 <li>使用的条件伴随着Dart版本的变化一直在改变，这里用的是Dart 2.x中使用mixins的条件。</li>
 <li>一个类可以mixins多个mixins类，mixins绝不是继承，也不是接口，而是一种全新的特性。</li>
 </ul>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class A &#123;
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">mixin A &#123;
   String info &#x3D; &#39;这是A&#39;;
   void printA() &#123;
     print(&#39;A&#39;);
   &#125;
 &#125;
 
-class B &#123;
+mixin B &#123;
   void printB() &#123;
     print(&#39;B&#39;);
   &#125;
@@ -1895,10 +1895,8 @@ void main() &#123;
   c.printB();
   print(c.info);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-继承自Object"><a href="#1-继承自Object" class="headerlink" title="(1) 继承自Object"></a>(1) 继承自Object</h3><ul>
-<li>作为mixins的类只能继承自Object，不能继承其他类。</li>
-</ul>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
+<h3 id="1-继承自Object"><a href="#1-继承自Object" class="headerlink" title="(1) 继承自Object"></a>(1) 继承自Object</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 作为mixins的类只能继承自Object，不能继承其他类
+class Person &#123;
   printInfo() &#123;
     print(&#39;Person类&#39;);
   &#125;
@@ -1920,18 +1918,16 @@ class B &#123;
 &#x2F;&#x2F; 这里A类继承了Person类，C类mixinsA类时会报错
 &#x2F;&#x2F; class C with A, B &#123;&#125;
 
-void main() &#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-不能有构造函数"><a href="#2-不能有构造函数" class="headerlink" title="(2) 不能有构造函数"></a>(2) 不能有构造函数</h3><ul>
-<li>作为mixins的类不能有构造函数。</li>
-</ul>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class A &#123;
+void main() &#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-不能有构造函数"><a href="#2-不能有构造函数" class="headerlink" title="(2) 不能有构造函数"></a>(2) 不能有构造函数</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 作为mixins的类不能有构造函数
+mixin A &#123;
   String info &#x3D; &#39;这是A&#39;;
   void printA() &#123;
     print(&#39;A&#39;);
   &#125;
 &#125;
 
-class B &#123;
+mixin B &#123;
   &#x2F;&#x2F; 写构造函数会报错
   &#x2F;&#x2F; B() &#123;&#125;;
   void printB() &#123;
@@ -1946,11 +1942,9 @@ void main() &#123;
   c.printA();
   c.printB();
   print(c.info);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-继承与mixins一起"><a href="#3-继承与mixins一起" class="headerlink" title="(3) 继承与mixins一起"></a>(3) 继承与mixins一起</h3><ul>
-<li>继承与mixins一起写的方法。</li>
-</ul>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-继承与mixins一起"><a href="#3-继承与mixins一起" class="headerlink" title="(3) 继承与mixins一起"></a>(3) 继承与mixins一起</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 继承与mixins一起写的方法
+class Person &#123;
   String name;
   Object age;
   Person(this.name, this.age);
@@ -1959,14 +1953,14 @@ void main() &#123;
   &#125;
 &#125;
 
-class A &#123;
+mixin A &#123;
   String info &#x3D; &#39;这是A&#39;;
   void printA() &#123;
     print(&#39;A&#39;);
   &#125;
 &#125;
 
-class B &#123;
+mixin B &#123;
   void printB() &#123;
     print(&#39;B&#39;);
   &#125;
@@ -1982,11 +1976,9 @@ class C extends Person with A, B &#123;
 void main() &#123;
   var c &#x3D; new C(&#39;张三&#39;, 21);
   c.printInfo();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-顺序不同结果不同"><a href="#4-顺序不同结果不同" class="headerlink" title="(4) 顺序不同结果不同"></a>(4) 顺序不同结果不同</h3><ul>
-<li>注意<code>with A, B</code>或<code>with B, A</code>的顺序，打印出来的内容不一样，后面替换前面。</li>
-</ul>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">class Person &#123;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-顺序不同结果不同"><a href="#4-顺序不同结果不同" class="headerlink" title="(4) 顺序不同结果不同"></a>(4) 顺序不同结果不同</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 注意with A, B或with B, A的顺序，打印出来的内容不一样，后面替换前面
+class Person &#123;
   String name;
   Object age;
   Person(this.name, this.age);
@@ -2000,7 +1992,7 @@ void main() &#123;
   &#125;
 &#125;
 
-class A &#123;
+mixin A &#123;
   String info &#x3D; &#39;这是A&#39;;
   void printA() &#123;
     print(&#39;A&#39;);
@@ -2011,7 +2003,7 @@ class A &#123;
   &#125;
 &#125;
 
-class B &#123;
+mixin B &#123;
   void printB() &#123;
     print(&#39;B&#39;);
   &#125;
@@ -2029,26 +2021,23 @@ class C extends Person with A, B &#123;
 void main() &#123;
   var c &#x3D; new C(&#39;张三&#39;, 21);
   c.run();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="5-mixins的实例类型"><a href="#5-mixins的实例类型" class="headerlink" title="(5) mixins的实例类型"></a>(5) mixins的实例类型</h3><ul>
-<li>mixins的实例类型就是其超类的子类型。</li>
-</ul>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; ignore_for_file: unnecessary_type_check
-
-class A &#123;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-mixins的实例类型"><a href="#5-mixins的实例类型" class="headerlink" title="(5) mixins的实例类型"></a>(5) mixins的实例类型</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; mixins的实例类型就是其超类的子类型
+mixin A &#123;
   String info &#x3D; &#39;这是A&#39;;
   void printA() &#123;
     print(&#39;A&#39;);
   &#125;
 &#125;
 
-class B &#123;
+mixin B &#123;
   void printB() &#123;
     print(&#39;B&#39;);
   &#125;
 &#125;
 
 class C with A, B &#123;&#125;
+class D with A &#123;&#125;
 
 void main() &#123;
   var c &#x3D; new C();
@@ -2056,8 +2045,8 @@ void main() &#123;
   print(c is B);
   print(c is C);
 
-  var a &#x3D; new A();
-  print(a is Object);
+  var a &#x3D; new D();
+  print(a.info);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-7-泛型方法"><a href="#6-7-泛型方法" class="headerlink" title="6-7 泛型方法"></a>6-7 泛型方法</h2><ul>
 <li>泛型即解决类、接口、方法的复用性，以及对不特定数据类型的支持(类型校验)。</li>
@@ -2958,43 +2947,6 @@ void main() &#123;
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('10000')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: bsf<br />'
-            + '文章作者: bsf<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- highlight设置，关闭highlight，开启prismjs才生效，好奇怪？？？cdn版本也不能改，一改就会异常！！！ -->

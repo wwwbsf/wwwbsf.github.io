@@ -2736,31 +2736,31 @@ h3:hover {
 &lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="6-JSON加载"><a href="#6-JSON加载" class="headerlink" title="6 JSON加载"></a>6 JSON加载</h1><ul>
 <li>径向树<ul>
-<li>Radial Tree，以中心节点为起点，向外延伸的方式展示树结构的可视化形式。</li>
-<li>适合展示较大或对称的层次结构，以中心向外方式显示，强调整体结构的美观。</li>
+<li><code>Radial Tree</code>，以中心节点为起点，向外延伸的方式展示树结构的可视化形式。</li>
+<li>适合展示较大或对称的层次结构，以中心向外方式显示， 强调整体结构的美观。</li>
 </ul>
 </li>
 <li>树状图<ul>
-<li>Tree Diagram，最常见的层次结构图形，一般自上而下，或左右展示节点关系。</li>
+<li><code>Tree Diagram</code>，最常见的层次结构图形，一般自上而下或左右展示节点关系。</li>
 <li>直观展示层级关系，简单容易理解，比较适合小到中型数据集，通常用于静态。</li>
 </ul>
 </li>
 <li>折叠树<ul>
-<li>Collapsible Tree，基于传统树状图的动态可视化形式，允许用户进行交互操作。</li>
-<li>节省空间，提高数据可读性，适合大型数据集，可通过交互选择需要查看的部分。</li>
+<li><code>Collapsible Tree</code>，基于传统树状图的动态可视化形式，允许用户进行交互操作。</li>
+<li>节省空间，提高数据可读性，适合大型数据集，可以通过交互选择需要查看的部分。</li>
 </ul>
 </li>
 <li>冰柱图<ul>
-<li>Icicle Plot，用于展示分层数据的矩形状态图，每个矩形指一层数据。</li>
-<li>适合展现各层级的相对贡献或者结构，通常用于表示复杂的分类数据。</li>
+<li><code>Icicle Plot</code>，用于展示分层数据的矩形状态图，每个矩形指一层数据。</li>
+<li>适合展现各个层级的相对贡献或者结构， 通常用于表示复杂的分类数据。</li>
 </ul>
 </li>
 <li>矩形树<ul>
-<li>TreeMap，一种树结构，用于根据层次结构可视化数据，显示数据关系。</li>
-<li>其中，每个节点包含一个子树和一系列关系，这些关系由线性布局决定。</li>
+<li><code>TreeMap</code>，一种树结构，用于根据层次结构可视化数据，显示数据关系。</li>
+<li>其中每个节点都包含一个子树和一系列关系， 这些关系由线性布局决定。</li>
 </ul>
 </li>
-<li>避免跨域问题，使用VSCode的Live Server插件在本地启动一个HTTP服务器进行查看。</li>
+<li>避免跨域问题， 使用VSCode的Live Server插件在本地启动一个HTTP服务器进行查看。</li>
 <li>在当前路径创建一个file文件夹，并在file目录中创建一个tree.json文件，供JSON加载。</li>
 </ul>
 <pre class="line-numbers language-JSON" data-language="JSON"><code class="language-JSON">&#123;
@@ -3488,7 +3488,7 @@ h3:hover {
 &lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-4-冰柱图"><a href="#6-4-冰柱图" class="headerlink" title="6-4 冰柱图"></a>6-4 冰柱图</h2><ul>
 <li>冰柱图使用了D3的分区布局来实现，主要用来展现数据的层次和包含关系。</li>
-<li>实际使用笛卡尔排列的分区布局数据绘制即冰柱图，径向排列则是旭日图。</li>
+<li>实际使用笛卡尔排列的分区布局数据绘制即冰柱图， 径向排列则是旭日图。</li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
 &lt;html lang&#x3D;&#39;en&#39;&gt;
@@ -3585,7 +3585,7 @@ h3:hover {
 
 &lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-5-矩形树"><a href="#6-5-矩形树" class="headerlink" title="6-5 矩形树"></a>6-5 矩形树</h2><ul>
-<li>TreeMap，Ben Shneiderman于1991年推出，递归细分面积成矩形。</li>
+<li><code>TreeMap</code>，Ben Shneiderman于1991年推出，递归细分面积成矩形。</li>
 <li>矩形树使用颜色进行区分类别，用嵌套的方形表示层次关系的布局。</li>
 </ul>
 <pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
@@ -4600,43 +4600,6 @@ h3:hover {
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('10000')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: bsf<br />'
-            + '文章作者: bsf<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- highlight设置，关闭highlight，开启prismjs才生效，好奇怪？？？cdn版本也不能改，一改就会异常！！！ -->
