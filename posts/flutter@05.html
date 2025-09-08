@@ -1148,18 +1148,19 @@ h3:hover {
             <div id="articleContent">
                 <div class="note info">Flutter中的路由即页面跳转，通过Navigator组件管理路由导航并提供管理堆栈的方法，例如Navigator.push和Navigator.pop。</div>
 
-<h1 id="1-普通路由基本使用"><a href="#1-普通路由基本使用" class="headerlink" title="1 普通路由基本使用"></a>1 普通路由基本使用</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“自定义底部导航”的“实现页面切换”代码
+<h1 id="1-普通路由基本使用"><a href="#1-普通路由基本使用" class="headerlink" title="1 普通路由基本使用"></a>1 普通路由基本使用</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下
+# 修改“自定义底部导航”的“实现页面切换”代码
 # 新增form.dart、search.dart
 - pages&#x2F;
   - tabs&#x2F;
     - user.dart
-    - home.dart【✔】
+    - home.dart【🖊】
     - setting.dart
-    - category.dart【✔】
-  - tabs.dart【✔】
-  - form.dart【✔】
-  - search.dart【✔】
-- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    - category.dart【🖊】
+  - tabs.dart【🖊】
+  - form.dart【+】
+  - search.dart【+】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-1-tabs-dart"><a href="#1-1-tabs-dart" class="headerlink" title="1-1 tabs.dart"></a>1-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -1176,13 +1177,16 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;普通路由基本使用&quot;)),
+      appBar: AppBar(title: const Text(&#39;普通路由基本使用&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -1194,7 +1198,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -1203,28 +1207,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-2-form-dart"><a href="#1-2-form-dart" class="headerlink" title="1-2 form.dart"></a>1-2 form.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class FormPage extends StatefulWidget &#123;
@@ -1238,15 +1230,11 @@ class _FormPageState extends State&lt;FormPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(&quot;表单&quot;),
-      ),
-      body: const Center(
-        child: Text(&quot;表单页面&quot;),
-      ),
+      appBar: AppBar(title: const Text(&#39;表单&#39;)),
+      body: const Center(child: Text(&#39;表单页面&#39;)),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-3-home-dart"><a href="#1-3-home-dart" class="headerlink" title="1-3 home.dart"></a>1-3 home.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;form.dart&#39;;
 import &#39;..&#x2F;search.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
@@ -1265,30 +1253,40 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: ()&#123;
-            &#x2F;&#x2F; 跳转路由
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) &#123;
-                &#x2F;&#x2F; 首页跳转搜索页面
-                return const SearchPage();
-              &#125;)
-            );
-          &#125;, child: const Text(&quot;搜索&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              &#x2F;&#x2F; 跳转路由
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) &#123;
+                    &#x2F;&#x2F; 首页跳转搜索页面
+                    return const SearchPage();
+                  &#125;,
+                ),
+              );
+            &#125;,
+            child: const Text(&#39;搜索&#39;),
+          ),
           const SizedBox(height: 20),
-          ElevatedButton(onPressed: ()&#123;
-            &#x2F;&#x2F; 跳转路由
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) &#123;
-                &#x2F;&#x2F; 首页跳转表单页面
-                return const FormPage();
-              &#125;)
-            );
-          &#125;, child: const Text(&quot;跳转到表单页面&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              &#x2F;&#x2F; 跳转路由
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) &#123;
+                    &#x2F;&#x2F; 首页跳转表单页面
+                    return const FormPage();
+                  &#125;,
+                ),
+              );
+            &#125;,
+            child: const Text(&#39;跳转到表单页面&#39;),
+          ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-4-search-dart"><a href="#1-4-search-dart" class="headerlink" title="1-4 search.dart"></a>1-4 search.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class SearchPage extends StatefulWidget &#123;
@@ -1302,15 +1300,11 @@ class _SearchPageState extends State&lt;SearchPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(&quot;搜索&quot;),
-      ),
-      body: const Center(
-        child: Text(&quot;搜索页面&quot;),
-      ),
+      appBar: AppBar(title: const Text(&#39;搜索&#39;)),
+      body: const Center(child: Text(&#39;搜索页面&#39;)),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-5-category-dart"><a href="#1-5-category-dart" class="headerlink" title="1-5 category.dart"></a>1-5 category.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;search.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -1328,29 +1322,34 @@ class _CategoryPageState extends State&lt;CategoryPage&gt; &#123;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: ()&#123;
-            &#x2F;&#x2F; 跳转路由
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) &#123;
-                &#x2F;&#x2F; 分类跳转搜索页面
-                return const SearchPage();
-              &#125;)
-            );
-          &#125;, child: const Text(&quot;搜索&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              &#x2F;&#x2F; 跳转路由
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) &#123;
+                    &#x2F;&#x2F; 分类跳转搜索页面
+                    return const SearchPage();
+                  &#125;,
+                ),
+              );
+            &#125;,
+            child: const Text(&#39;搜索&#39;),
+          ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="2-普通路由跳转传值"><a href="#2-普通路由跳转传值" class="headerlink" title="2 普通路由跳转传值"></a>2 普通路由跳转传值</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“普通路由基本使用”代码
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="2-普通路由跳转传值"><a href="#2-普通路由跳转传值" class="headerlink" title="2 普通路由跳转传值"></a>2 普通路由跳转传值</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“普通路由基本使用”代码，新增news.dart
 - pages&#x2F;
   - tabs&#x2F;
     - user.dart
-    - home.dart【✔】
+    - home.dart【🖊】
     - setting.dart
     - category.dart
-  - tabs.dart【✔】
-  - news.dart【✔】
+  - tabs.dart【🖊】
+  - news.dart【+】
   - form.dart
   - search.dart
 - main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1370,13 +1369,16 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;普通路由跳转传值&quot;)),
+      appBar: AppBar(title: const Text(&#39;普通路由跳转传值&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -1388,7 +1390,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -1397,34 +1399,24 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-2-news-dart"><a href="#2-2-news-dart" class="headerlink" title="2-2 news.dart"></a>2-2 news.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 &#x2F;&#x2F; 新闻页面接收上个页面传来的参数
 class NewsPage extends StatefulWidget &#123;
-  final String title; final int aid;
-  const NewsPage(&#123;Key? key, this.title&#x3D;&quot;新闻&quot;, required this.aid&#125;) : super(key: key);
+  final String title;
+  final int aid;
+  const NewsPage(&#123;Key? key, this.title &#x3D; &#39;新闻&#39;, required this.aid&#125;)
+    : super(key: key);
 
   @override
   State&lt;NewsPage&gt; createState() &#x3D;&gt; _NewsPageState();
@@ -1433,7 +1425,9 @@ class NewsPage extends StatefulWidget &#123;
 class _NewsPageState extends State&lt;NewsPage&gt; &#123;
   @override
   void initState() &#123;
-    super.initState(); print(widget.aid); print(widget.title);
+    super.initState();
+    print(widget.aid);
+    print(widget.title);
   &#125;
 
   @override
@@ -1441,15 +1435,17 @@ class _NewsPageState extends State&lt;NewsPage&gt; &#123;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         &#x2F;&#x2F; 返回到上一页
-        onPressed: () &#123;Navigator.pop(context);&#125;,
+        onPressed: () &#123;
+          Navigator.pop(context);
+        &#125;,
         child: const Icon(Icons.home),
       ),
       &#x2F;&#x2F; 获取NewsPage里面定义的title
       appBar: AppBar(title: Text(widget.title)),
-      body: const Center(child: Text(&quot;新闻页面&quot;)),
+      body: const Center(child: Text(&#39;新闻页面&#39;)),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-3-home-dart"><a href="#2-3-home-dart" class="headerlink" title="2-3 home.dart"></a>2-3 home.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;news.dart&#39;;
 import &#39;..&#x2F;form.dart&#39;;
 import &#39;..&#x2F;search.dart&#39;;
@@ -1469,51 +1465,66 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: ()&#123;
-            &#x2F;&#x2F; 跳转路由
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) &#123;
-                &#x2F;&#x2F; 首页跳转搜索页面
-                return const SearchPage();
-              &#125;)
-            );
-          &#125;, child: const Text(&quot;搜索&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              &#x2F;&#x2F; 跳转路由
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) &#123;
+                    &#x2F;&#x2F; 首页跳转搜索页面
+                    return const SearchPage();
+                  &#125;,
+                ),
+              );
+            &#125;,
+            child: const Text(&#39;搜索&#39;),
+          ),
           const SizedBox(height: 20),
-          ElevatedButton(onPressed: ()&#123;
-            &#x2F;&#x2F; 跳转路由
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) &#123;
-                &#x2F;&#x2F; 首页跳转表单页面
-                return const FormPage();
-              &#125;)
-            );
-          &#125;, child: const Text(&quot;跳转到表单页面&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              &#x2F;&#x2F; 跳转路由
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) &#123;
+                    &#x2F;&#x2F; 首页跳转表单页面
+                    return const FormPage();
+                  &#125;,
+                ),
+              );
+            &#125;,
+            child: const Text(&#39;跳转到表单页面&#39;),
+          ),
           const SizedBox(height: 20),
-          ElevatedButton(onPressed: ()&#123;
-            &#x2F;&#x2F; 跳转路由
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) &#123;
-                return const NewsPage(title: &quot;我是标题&quot;, aid: 12);
-              &#125;)
-            );
-          &#125;, child: const Text(&quot;跳转传值&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              &#x2F;&#x2F; 跳转路由
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) &#123;
+                    return const NewsPage(title: &#39;我是标题&#39;, aid: 12);
+                  &#125;,
+                ),
+              );
+            &#125;,
+            child: const Text(&#39;跳转传值&#39;),
+          ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="3-命名路由基本使用"><a href="#3-命名路由基本使用" class="headerlink" title="3 命名路由基本使用"></a>3 命名路由基本使用</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“普通路由基本使用”代码，并添加news.dart文件
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="3-命名路由基本使用"><a href="#3-命名路由基本使用" class="headerlink" title="3 命名路由基本使用"></a>3 命名路由基本使用</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“普通路由跳转传值”代码
 - pages&#x2F;
   - tabs&#x2F;
     - user.dart
-    - home.dart【✔】
+    - home.dart【🖊】
     - setting.dart
-    - category.dart【✔】
-  - tabs.dart【✔】
-  - news.dart【✔】
+    - category.dart【🖊】
+  - tabs.dart【🖊】
+  - news.dart【🖊】
   - form.dart
   - search.dart
-- main.dart【✔】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+- main.dart【🖊】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-1-tabs-dart"><a href="#3-1-tabs-dart" class="headerlink" title="3-1 tabs.dart"></a>3-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -1530,13 +1541,16 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;命名路由基本使用&quot;)),
+      appBar: AppBar(title: const Text(&#39;命名路由基本使用&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -1548,7 +1562,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -1557,28 +1571,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-2-main-dart"><a href="#3-2-main-dart" class="headerlink" title="3-2 main.dart"></a>3-2 main.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;.&#x2F;pages&#x2F;news.dart&#39;;
 import &#39;.&#x2F;pages&#x2F;form.dart&#39;;
@@ -1599,13 +1601,13 @@ class MyApp extends StatelessWidget &#123;
       theme: ThemeData(primarySwatch: Colors.blue),
       &#x2F;&#x2F; home: const Tabs(),
       &#x2F;&#x2F; 初始化路由
-      initialRoute: &quot;&#x2F;&quot;,
+      initialRoute: &#39;&#x2F;&#39;,
       &#x2F;&#x2F; 配置路由
       routes: &#123;
-        &quot;&#x2F;&quot;: (context) &#x3D;&gt; const Tabs(),
-        &quot;&#x2F;news&quot;: (context) &#x3D;&gt; const NewsPage(),
-        &quot;&#x2F;form&quot;: (context) &#x3D;&gt; const FormPage(),
-        &quot;&#x2F;search&quot;: (context) &#123;
+        &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+        &#39;&#x2F;news&#39;: (context) &#x3D;&gt; const NewsPage(),
+        &#39;&#x2F;form&#39;: (context) &#x3D;&gt; const FormPage(),
+        &#39;&#x2F;search&#39;: (context) &#123;
           return const SearchPage();
         &#125;,
       &#125;,
@@ -1625,15 +1627,11 @@ class _NewsPageState extends State&lt;NewsPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(&quot;新闻&quot;),
-      ),
-      body: const Center(
-        child: Text(&quot;新闻页面&quot;),
-      ),
+      appBar: AppBar(title: const Text(&#39;新闻&#39;)),
+      body: const Center(child: Text(&#39;新闻页面&#39;)),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-4-home-dart"><a href="#3-4-home-dart" class="headerlink" title="3-4 home.dart"></a>3-4 home.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;search.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -1651,24 +1649,32 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: ()&#123;
-            &#x2F;&#x2F; 跳转路由
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) &#123;
-                &#x2F;&#x2F; 首页跳转搜索页面
-                return const SearchPage();
-              &#125;)
-            );
-          &#125;, child: const Text(&quot;基本路由跳转，引入组件search.dart&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              &#x2F;&#x2F; 跳转路由
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) &#123;
+                    &#x2F;&#x2F; 首页跳转搜索页面
+                    return const SearchPage();
+                  &#125;,
+                ),
+              );
+            &#125;,
+            child: const Text(&#39;基本路由跳转，引入组件search.dart&#39;),
+          ),
           const SizedBox(height: 20),
-          ElevatedButton(onPressed: ()&#123;
-            Navigator.pushNamed(context, &quot;&#x2F;news&quot;);
-          &#125;, child: const Text(&quot;命令路由跳转，main.dart中配置路由&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;news&#39;);
+            &#125;,
+            child: const Text(&#39;命令路由跳转，main.dart中配置路由&#39;),
+          ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-5-category-dart"><a href="#3-5-category-dart" class="headerlink" title="3-5 category.dart"></a>3-5 category.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class CategoryPage extends StatefulWidget &#123;
@@ -1685,14 +1691,17 @@ class _CategoryPageState extends State&lt;CategoryPage&gt; &#123;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: ()&#123;
-            Navigator.pushNamed(context, &quot;&#x2F;search&quot;);
-          &#125;, child: const Text(&quot;命名路由跳转到search&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;search&#39;);
+            &#125;,
+            child: const Text(&#39;命名路由跳转到search&#39;),
+          ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="4-命名路由传值操作"><a href="#4-命名路由传值操作" class="headerlink" title="4 命名路由传值操作"></a>4 命名路由传值操作</h1><ul>
 <li>命名路由传值需将路由配置移到外面，首先定义Map类型的routes，调用onGenerateRoute处理。</li>
 <li>然后在对应的页面进行接收传值，在页面中定义arguments用于传值，最后再跳转页面实现传参。</li>
@@ -1701,15 +1710,15 @@ class _CategoryPageState extends State&lt;CategoryPage&gt; &#123;
 - pages&#x2F;
   - tabs&#x2F;
     - user.dart
-    - home.dart【✔】
+    - home.dart【🖊】
     - setting.dart
     - category.dart
-  - tabs.dart【✔】
+  - tabs.dart【🖊】
   - news.dart
-  - form.dart【✔】
-  - shop.dart【✔】
+  - form.dart【🖊】
+  - shop.dart【+】
   - search.dart
-- main.dart【✔】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+- main.dart【🖊】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-1-tabs-dart"><a href="#4-1-tabs-dart" class="headerlink" title="4-1 tabs.dart"></a>4-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -1726,13 +1735,16 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;命名路由传值操作&quot;)),
+      appBar: AppBar(title: const Text(&#39;命名路由传值操作&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -1744,7 +1756,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -1753,28 +1765,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-2-shop-dart"><a href="#4-2-shop-dart" class="headerlink" title="4-2 shop.dart"></a>4-2 shop.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class ShopPage extends StatefulWidget &#123;
@@ -1796,15 +1796,11 @@ class _ShopPageState extends State&lt;ShopPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(&quot;商店&quot;),
-      ),
-      body: const Center(
-        child: Text(&quot;商店页面&quot;),
-      ),
+      appBar: AppBar(title: const Text(&#39;商店&#39;)),
+      body: const Center(child: Text(&#39;商店页面&#39;)),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-3-form-dart"><a href="#4-3-form-dart" class="headerlink" title="4-3 form.dart"></a>4-3 form.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 &#x2F;&#x2F; 其他页面跳转到form页面
@@ -1828,15 +1824,11 @@ class _FormPageState extends State&lt;FormPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(&quot;表单&quot;),
-      ),
-      body: const Center(
-        child: Text(&quot;表单页面&quot;),
-      ),
+      appBar: AppBar(title: const Text(&#39;表单&#39;)),
+      body: const Center(child: Text(&#39;表单页面&#39;)),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-4-main-dart"><a href="#4-4-main-dart" class="headerlink" title="4-4 main.dart"></a>4-4 main.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;.&#x2F;pages&#x2F;news.dart&#39;;
 import &#39;.&#x2F;pages&#x2F;form.dart&#39;;
@@ -1851,13 +1843,13 @@ void main() &#123;
 class MyApp extends StatelessWidget &#123;
   &#x2F;&#x2F; 定义一个Map类型的路由
   Map routes &#x3D; &#123;
-    &quot;&#x2F;&quot;: (context) &#x3D;&gt; const Tabs(),
-    &quot;&#x2F;news&quot;: (context) &#x3D;&gt; const NewsPage(),
-    &quot;&#x2F;form&quot;: (context, &#123;arguments&#125;) &#x3D;&gt; FormPage(arguments: arguments),
-    &quot;&#x2F;shop&quot;: (context, &#123;arguments&#125;) &#123;
+    &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+    &#39;&#x2F;news&#39;: (context) &#x3D;&gt; const NewsPage(),
+    &#39;&#x2F;form&#39;: (context, &#123;arguments&#125;) &#x3D;&gt; FormPage(arguments: arguments),
+    &#39;&#x2F;shop&#39;: (context, &#123;arguments&#125;) &#123;
       return ShopPage(arguments: arguments);
     &#125;,
-    &quot;&#x2F;search&quot;: (context) &#123;
+    &#39;&#x2F;search&#39;: (context) &#123;
       return const SearchPage();
     &#125;,
   &#125;;
@@ -1871,7 +1863,7 @@ class MyApp extends StatelessWidget &#123;
       theme: ThemeData(primarySwatch: Colors.blue),
       &#x2F;&#x2F; home: const Tabs(),
       &#x2F;&#x2F; 初始化路由
-      initialRoute: &quot;&#x2F;&quot;,
+      initialRoute: &#39;&#x2F;&#39;,
       &#x2F;&#x2F; 固定写法，配置onGenerateRoute
       onGenerateRoute: (RouteSettings settings) &#123;
         print(settings);
@@ -1885,14 +1877,16 @@ class MyApp extends StatelessWidget &#123;
         if (pageContentBuilder !&#x3D; null) &#123;
           if (settings.arguments !&#x3D; null) &#123;
             final Route route &#x3D; MaterialPageRoute(
-              builder: (context) &#x3D;&gt; pageContentBuilder(
-                context, arguments: settings.arguments
-              )
+              builder:
+                  (context) &#x3D;&gt; pageContentBuilder(
+                    context,
+                    arguments: settings.arguments,
+                  ),
             );
             return route;
           &#125; else &#123;
             final Route route &#x3D; MaterialPageRoute(
-              builder: (context) &#x3D;&gt; pageContentBuilder(context)
+              builder: (context) &#x3D;&gt; pageContentBuilder(context),
             );
             return route;
           &#125;
@@ -1901,7 +1895,7 @@ class MyApp extends StatelessWidget &#123;
       &#125;,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-5-home-dart"><a href="#4-5-home-dart" class="headerlink" title="4-5 home.dart"></a>4-5 home.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;search.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -1919,53 +1913,69 @@ class _HomePageState extends State&lt;HomePage&gt; &#123;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: ()&#123;
-            &#x2F;&#x2F; 跳转路由
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) &#123;
-                &#x2F;&#x2F; 首页跳转搜索页面
-                return const SearchPage();
-              &#125;)
-            );
-          &#125;, child: const Text(&quot;基本路由跳转，引入组件search.dart&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              &#x2F;&#x2F; 跳转路由
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) &#123;
+                    &#x2F;&#x2F; 首页跳转搜索页面
+                    return const SearchPage();
+                  &#125;,
+                ),
+              );
+            &#125;,
+            child: const Text(&#39;基本路由跳转，引入组件search.dart&#39;),
+          ),
           const SizedBox(height: 20),
-          ElevatedButton(onPressed: ()&#123;
-            Navigator.pushNamed(context, &quot;&#x2F;news&quot;);
-          &#125;, child: const Text(&quot;命令路由跳转，main.dart中配置路由&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;news&#39;);
+            &#125;,
+            child: const Text(&#39;命令路由跳转，main.dart中配置路由&#39;),
+          ),
           const SizedBox(height: 20),
-          ElevatedButton(onPressed: ()&#123;
-            Navigator.pushNamed(context, &quot;&#x2F;form&quot;, arguments: &#123;
-              &quot;title&quot;: &quot;命名路由传值&quot;,
-              &quot;aid&quot;: 20
-            &#125;);
-          &#125;, child: const Text(&quot;命令路由传值操作，跳转到form页面&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(
+                context,
+                &#39;&#x2F;form&#39;,
+                arguments: &#123;&#39;title&#39;: &#39;命名路由传值&#39;, &#39;aid&#39;: 20&#125;,
+              );
+            &#125;,
+            child: const Text(&#39;命令路由传值操作，跳转到form页面&#39;),
+          ),
           const SizedBox(height: 20),
-          ElevatedButton(onPressed: ()&#123;
-            Navigator.pushNamed(context, &quot;&#x2F;shop&quot;, arguments: &#123;
-              &quot;title&quot;: &quot;命名路由传值&quot;,
-              &quot;aid&quot;: 30
-            &#125;);
-          &#125;, child: const Text(&quot;命令路由传值操作，跳转到shop页面&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(
+                context,
+                &#39;&#x2F;shop&#39;,
+                arguments: &#123;&#39;title&#39;: &#39;命名路由传值&#39;, &#39;aid&#39;: 30&#125;,
+              );
+            &#125;,
+            child: const Text(&#39;命令路由传值操作，跳转到shop页面&#39;),
+          ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="5-命名路由代码抽离"><a href="#5-命名路由代码抽离" class="headerlink" title="5 命名路由代码抽离"></a>5 命名路由代码抽离</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“命名路由传值操作”代码，并添加routes.dart文件
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="5-命名路由代码抽离"><a href="#5-命名路由代码抽离" class="headerlink" title="5 命名路由代码抽离"></a>5 命名路由代码抽离</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“命名路由传值操作”代码，新增routes.dart
 - pages&#x2F;
   - tabs&#x2F;
     - user.dart
     - home.dart
     - setting.dart
     - category.dart
-  - tabs.dart【✔】
+  - tabs.dart【🖊】
   - news.dart
   - form.dart
   - shop.dart
   - search.dart
 - routes
-  - routes.dart【✔】
-- main.dart【✔】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  - routes.dart【+】
+- main.dart【🖊】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-1-tabs-dart"><a href="#5-1-tabs-dart" class="headerlink" title="5-1 tabs.dart"></a>5-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -1982,13 +1992,16 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;命名路由代码抽离&quot;)),
+      appBar: AppBar(title: const Text(&#39;命名路由代码抽离&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -2000,7 +2013,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -2009,28 +2022,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5-2-main-dart"><a href="#5-2-main-dart" class="headerlink" title="5-2 main.dart"></a>5-2 main.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;routes&#x2F;routes.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -2048,7 +2049,7 @@ class MyApp extends StatelessWidget &#123;
       theme: ThemeData(primarySwatch: Colors.blue),
       &#x2F;&#x2F; home: const Tabs(),
       &#x2F;&#x2F; 初始化路由
-      initialRoute: &quot;&#x2F;&quot;,
+      initialRoute: &#39;&#x2F;&#39;,
       &#x2F;&#x2F; 固定写法，配置onGenerateRoute
       onGenerateRoute: onGenerateRoute,
     );
@@ -2063,13 +2064,13 @@ import &#39;package:flutter&#x2F;material.dart&#39;;
 
 &#x2F;&#x2F; 定义一个Map类型的路由
 Map routes &#x3D; &#123;
-  &quot;&#x2F;&quot;: (context) &#x3D;&gt; const Tabs(),
-  &quot;&#x2F;news&quot;: (context) &#x3D;&gt; const NewsPage(),
-  &quot;&#x2F;form&quot;: (context, &#123;arguments&#125;) &#x3D;&gt; FormPage(arguments: arguments),
-  &quot;&#x2F;shop&quot;: (context, &#123;arguments&#125;) &#123;
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;news&#39;: (context) &#x3D;&gt; const NewsPage(),
+  &#39;&#x2F;form&#39;: (context, &#123;arguments&#125;) &#x3D;&gt; FormPage(arguments: arguments),
+  &#39;&#x2F;shop&#39;: (context, &#123;arguments&#125;) &#123;
     return ShopPage(arguments: arguments);
   &#125;,
-  &quot;&#x2F;search&quot;: (context) &#123;
+  &#39;&#x2F;search&#39;: (context) &#123;
     return const SearchPage();
   &#125;,
 &#125;;
@@ -2088,14 +2089,14 @@ var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
   if (pageContentBuilder !&#x3D; null) &#123;
     if (settings.arguments !&#x3D; null) &#123;
       final Route route &#x3D; MaterialPageRoute(
-        builder: (context) &#x3D;&gt; pageContentBuilder(
-          context, arguments: settings.arguments
-        )
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
       );
       return route;
     &#125; else &#123;
       final Route route &#x3D; MaterialPageRoute(
-        builder: (context) &#x3D;&gt; pageContentBuilder(context)
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
       );
       return route;
     &#125;
@@ -2131,13 +2132,16 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;返回到上一级路由&quot;)),
+      appBar: AppBar(title: const Text(&#39;返回到上一级路由&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -2149,7 +2153,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -2158,28 +2162,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-2-user-dart"><a href="#6-2-user-dart" class="headerlink" title="6-2 user.dart"></a>6-2 user.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class UserPage extends StatefulWidget &#123;
@@ -2196,18 +2188,20 @@ class _UserPageState extends State&lt;UserPage&gt; &#123;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: () &#123;
-            print(&quot;执行跳转&quot;);
-            Navigator.pushNamed(context, &quot;&#x2F;login&quot;);
-          &#125;, child: const Text(&quot;登录&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              print(&#39;执行跳转&#39;);
+              Navigator.pushNamed(context, &#39;&#x2F;login&#39;);
+            &#125;,
+            child: const Text(&#39;登录&#39;),
+          ),
           const SizedBox(height: 40),
-          ElevatedButton(onPressed: () &#123;
-          &#125;, child: const Text(&quot;注册&quot;)),
+          ElevatedButton(onPressed: () &#123;&#125;, child: const Text(&#39;注册&#39;)),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-3-main-dart"><a href="#6-3-main-dart" class="headerlink" title="6-3 main.dart"></a>6-3 main.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;routes&#x2F;routes.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -2225,7 +2219,7 @@ class MyApp extends StatelessWidget &#123;
       theme: ThemeData(primarySwatch: Colors.blue),
       &#x2F;&#x2F; home: const Tabs(),
       &#x2F;&#x2F; 初始化路由
-      initialRoute: &quot;&#x2F;&quot;,
+      initialRoute: &#39;&#x2F;&#39;,
       &#x2F;&#x2F; 固定写法，配置onGenerateRoute
       onGenerateRoute: onGenerateRoute,
     );
@@ -2244,23 +2238,26 @@ class _LoginPageState extends State&lt;LoginPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;登录页面&quot;)),
+      appBar: AppBar(title: const Text(&#39;登录页面&#39;)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(&quot;登录跳转演示，执行登录后返回到上一个页面&quot;),
+            const Text(&#39;登录跳转演示，执行登录后返回到上一个页面&#39;),
             const SizedBox(height: 40),
-            ElevatedButton(onPressed: () &#123;
-              &#x2F;&#x2F; 返回到上一级页面
-              Navigator.of(context).pop();
-            &#125;, child: const Text(&quot;执行登录&quot;)),
+            ElevatedButton(
+              onPressed: () &#123;
+                &#x2F;&#x2F; 返回到上一级页面
+                Navigator.of(context).pop();
+              &#125;,
+              child: const Text(&#39;执行登录&#39;),
+            ),
           ],
         ),
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-5-home-dart"><a href="#6-5-home-dart" class="headerlink" title="6-5 home.dart"></a>6-5 home.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class HomePage extends StatefulWidget &#123;
@@ -2273,19 +2270,17 @@ class HomePage extends StatefulWidget &#123;
 class _HomePageState extends State&lt;HomePage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
-    return const Center(
-      child: Text(&quot;首页展示&quot;),
-    );
+    return const Center(child: Text(&#39;首页展示&#39;));
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-6-routes-dart"><a href="#6-6-routes-dart" class="headerlink" title="6-6 routes.dart"></a>6-6 routes.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;..&#x2F;pages&#x2F;user&#x2F;login.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
 &#x2F;&#x2F; 定义一个Map类型的路由
 Map routes &#x3D; &#123;
-  &quot;&#x2F;&quot;: (context) &#x3D;&gt; const Tabs(),
-  &quot;&#x2F;login&quot;: (context) &#x3D;&gt; const LoginPage(),
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;login&#39;: (context) &#x3D;&gt; const LoginPage(),
 &#125;;
 
 &#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
@@ -2297,14 +2292,14 @@ var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
   if (pageContentBuilder !&#x3D; null) &#123;
     if (settings.arguments !&#x3D; null) &#123;
       final Route route &#x3D; MaterialPageRoute(
-        builder: (context) &#x3D;&gt; pageContentBuilder(
-          context, arguments: settings.arguments
-        )
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
       );
       return route;
     &#125; else &#123;
       final Route route &#x3D; MaterialPageRoute(
-        builder: (context) &#x3D;&gt; pageContentBuilder(context)
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
       );
       return route;
     &#125;
@@ -2323,11 +2318,9 @@ class SettingPage extends StatefulWidget &#123;
 class _SettingPageState extends State&lt;SettingPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
-    return const Center(
-      child: Text(&quot;系统设置&quot;),
-    );
+    return const Center(child: Text(&#39;系统设置&#39;));
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-8-category-dart"><a href="#6-8-category-dart" class="headerlink" title="6-8 category.dart"></a>6-8 category.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class CategoryPage extends StatefulWidget &#123;
@@ -2340,11 +2333,9 @@ class CategoryPage extends StatefulWidget &#123;
 class _CategoryPageState extends State&lt;CategoryPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
-    return const Center(
-      child: Text(&quot;分类页面&quot;),
-    );
+    return const Center(child: Text(&#39;分类页面&#39;));
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="7-Flutter中替换路由"><a href="#7-Flutter中替换路由" class="headerlink" title="7 Flutter中替换路由"></a>7 Flutter中替换路由</h1><ul>
 <li>比如：registerFirst &gt; registerSecond &gt; registerThird &gt; registerFirst。</li>
 <li>registerSecond页，通过pushReplacementNamed()跳转到registerThird页。</li>
@@ -2352,21 +2343,22 @@ class _CategoryPageState extends State&lt;CategoryPage&gt; &#123;
 <li>registerThird页，通过点击registerThird的返回按钮，返回registerFirst页。</li>
 </ul>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“返回到上一级路由”代码
+# 新增registerFirst.dart、registerSecond.dart、registerThird.dart
 - pages&#x2F;
   - tabs&#x2F;
-    - user.dart【✔】
+    - user.dart【🖊】
     - home.dart
     - setting.dart
     - category.dart
   - user&#x2F;
     - login.dart
-    - registerFirst.dart【✔】
-    - registerSecond.dart【✔】
-    - registerThird.dart【✔】
-  - tabs.dart【✔】
+    - registerFirst.dart【+】
+    - registerSecond.dart【+】
+    - registerThird.dart【+】
+  - tabs.dart【🖊】
 - routes
-  - routes.dart【✔】
-- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  - routes.dart【🖊】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-1-tabs-dart"><a href="#7-1-tabs-dart" class="headerlink" title="7-1 tabs.dart"></a>7-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -2383,13 +2375,16 @@ class Tabs extends StatefulWidget &#123;
 class _TabsState extends State&lt;Tabs&gt; &#123;
   int _currentIndex &#x3D; 0;
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;Flutter中替换路由&quot;)),
+      appBar: AppBar(title: const Text(&#39;Flutter中替换路由&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -2401,7 +2396,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -2410,28 +2405,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-2-user-dart"><a href="#7-2-user-dart" class="headerlink" title="7-2 user.dart"></a>7-2 user.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class UserPage extends StatefulWidget &#123;
@@ -2448,19 +2431,25 @@ class _UserPageState extends State&lt;UserPage&gt; &#123;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: () &#123;
-            print(&quot;执行跳转&quot;);
-            Navigator.pushNamed(context, &quot;&#x2F;login&quot;);
-          &#125;, child: const Text(&quot;登录&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              print(&#39;执行跳转&#39;);
+              Navigator.pushNamed(context, &#39;&#x2F;login&#39;);
+            &#125;,
+            child: const Text(&#39;登录&#39;),
+          ),
           const SizedBox(height: 40),
-          ElevatedButton(onPressed: () &#123;
-            Navigator.pushNamed(context, &quot;&#x2F;registerFirst&quot;);
-          &#125;, child: const Text(&quot;注册&quot;)),
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;registerFirst&#39;);
+            &#125;,
+            child: const Text(&#39;注册&#39;),
+          ),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-3-routes-dart"><a href="#7-3-routes-dart" class="headerlink" title="7-3 routes.dart"></a>7-3 routes.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;..&#x2F;pages&#x2F;user&#x2F;login.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
@@ -2470,11 +2459,11 @@ import &#39;..&#x2F;pages&#x2F;user&#x2F;registerSecond.dart&#39;;
 
 &#x2F;&#x2F; 定义一个Map类型的路由
 Map routes &#x3D; &#123;
-  &quot;&#x2F;&quot;: (context) &#x3D;&gt; const Tabs(),
-  &quot;&#x2F;login&quot;: (context) &#x3D;&gt; const LoginPage(),
-  &quot;&#x2F;registerThird&quot;: (context) &#x3D;&gt; const RegisterThirdPage(),
-  &quot;&#x2F;registerFirst&quot;: (context) &#x3D;&gt; const RegisterFirstPage(),
-  &quot;&#x2F;registerSecond&quot;: (context) &#x3D;&gt; const RegisterSecondPage(),
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;login&#39;: (context) &#x3D;&gt; const LoginPage(),
+  &#39;&#x2F;registerThird&#39;: (context) &#x3D;&gt; const RegisterThirdPage(),
+  &#39;&#x2F;registerFirst&#39;: (context) &#x3D;&gt; const RegisterFirstPage(),
+  &#39;&#x2F;registerSecond&#39;: (context) &#x3D;&gt; const RegisterSecondPage(),
 &#125;;
 
 &#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
@@ -2486,14 +2475,14 @@ var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
   if (pageContentBuilder !&#x3D; null) &#123;
     if (settings.arguments !&#x3D; null) &#123;
       final Route route &#x3D; MaterialPageRoute(
-        builder: (context) &#x3D;&gt; pageContentBuilder(
-          context, arguments: settings.arguments
-        )
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
       );
       return route;
     &#125; else &#123;
       final Route route &#x3D; MaterialPageRoute(
-        builder: (context) &#x3D;&gt; pageContentBuilder(context)
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
       );
       return route;
     &#125;
@@ -2513,22 +2502,25 @@ class _RegisterFirstPageState extends State&lt;RegisterFirstPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;注册第一步&quot;)),
+      appBar: AppBar(title: const Text(&#39;注册第一步&#39;)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(&quot;注册第一步&quot;),
+            const Text(&#39;注册第一步&#39;),
             const SizedBox(height: 40),
-            ElevatedButton(onPressed: () &#123;
-              Navigator.pushNamed(context, &quot;&#x2F;registerSecond&quot;);
-            &#125;, child: const Text(&quot;下一步&quot;)),
+            ElevatedButton(
+              onPressed: () &#123;
+                Navigator.pushNamed(context, &#39;&#x2F;registerSecond&#39;);
+              &#125;,
+              child: const Text(&#39;下一步&#39;),
+            ),
           ],
         ),
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-5-registerThird-dart"><a href="#7-5-registerThird-dart" class="headerlink" title="7-5 registerThird.dart"></a>7-5 registerThird.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class RegisterThirdPage extends StatefulWidget &#123;
@@ -2542,21 +2534,20 @@ class _RegisterThirdPageState extends State&lt;RegisterThirdPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;注册第三步&quot;)),
+      appBar: AppBar(title: const Text(&#39;注册第三步&#39;)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(&quot;注册第三步&quot;),
+            const Text(&#39;注册第三步&#39;),
             const SizedBox(height: 40),
-            ElevatedButton(onPressed: () &#123;
-            &#125;, child: const Text(&quot;完成注册&quot;)),
+            ElevatedButton(onPressed: () &#123;&#125;, child: const Text(&#39;完成注册&#39;)),
           ],
         ),
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-6-registerSecond-dart"><a href="#7-6-registerSecond-dart" class="headerlink" title="7-6 registerSecond.dart"></a>7-6 registerSecond.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class RegisterSecondPage extends StatefulWidget &#123;
@@ -2570,25 +2561,28 @@ class _RegisterSecondPageState extends State&lt;RegisterSecondPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;注册第二步&quot;)),
+      appBar: AppBar(title: const Text(&#39;注册第二步&#39;)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(&quot;注册第二步&quot;),
+            const Text(&#39;注册第二步&#39;),
             const SizedBox(height: 40),
-            ElevatedButton(onPressed: () &#123;
-              &#x2F;&#x2F; 命名路由跳转
-              &#x2F;&#x2F; Navigator.pushNamed(context, &quot;&#x2F;registerThird&quot;);
-              &#x2F;&#x2F; 替换路由跳转
-              Navigator.of(context).pushReplacementNamed(&quot;&#x2F;registerThird&quot;);
-            &#125;, child: const Text(&quot;下一步&quot;)),
+            ElevatedButton(
+              onPressed: () &#123;
+                &#x2F;&#x2F; 命名路由跳转
+                &#x2F;&#x2F; Navigator.pushNamed(context, &#39;&#x2F;registerThird&#39;);
+                &#x2F;&#x2F; 替换路由跳转
+                Navigator.of(context).pushReplacementNamed(&#39;&#x2F;registerThird&#39;);
+              &#125;,
+              child: const Text(&#39;下一步&#39;),
+            ),
           ],
         ),
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="8-返回到根路由方法"><a href="#8-返回到根路由方法" class="headerlink" title="8 返回到根路由方法"></a>8 返回到根路由方法</h1><ul>
 <li>用户中心 &gt; registerFirst &gt; registerSecond &gt; registerThird &gt; 用户中心。</li>
 <li>registerThird注册成功后返回用户中心，此时需要用返回到根路由的方法。</li>
@@ -2604,11 +2598,11 @@ class _RegisterSecondPageState extends State&lt;RegisterSecondPage&gt; &#123;
     - login.dart
     - registerFirst.dart
     - registerSecond.dart
-    - registerThird.dart【✔】
-  - tabs.dart【✔】
+    - registerThird.dart【🖊】
+  - tabs.dart【🖊】
 - routes
   - routes.dart
-- main.dart【✔】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+- main.dart【🖊】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="8-1-tabs-dart"><a href="#8-1-tabs-dart" class="headerlink" title="8-1 tabs.dart"></a>8-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -2617,7 +2611,7 @@ import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class Tabs extends StatefulWidget &#123;
   final int index;
-  const Tabs(&#123;Key? key, this.index&#x3D;0&#125;) : super(key: key);
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
 
   @override
   State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
@@ -2628,16 +2622,20 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
   @override
   void initState() &#123;
     super.initState();
-    _currentIndex&#x3D;widget.index;
+    _currentIndex &#x3D; widget.index;
   &#125;
+
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;返回到根路由方法&quot;)),
+      appBar: AppBar(title: const Text(&#39;返回到根路由方法&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -2649,7 +2647,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -2658,28 +2656,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="8-2-main-dart"><a href="#8-2-main-dart" class="headerlink" title="8-2 main.dart"></a>8-2 main.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;routes&#x2F;routes.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -2697,7 +2683,7 @@ class MyApp extends StatelessWidget &#123;
       theme: ThemeData(primarySwatch: Colors.blue),
       &#x2F;&#x2F; home: const Tabs(),
       &#x2F;&#x2F; 初始化路由，首次运行加载登录页
-      initialRoute: &quot;&#x2F;login&quot;,
+      initialRoute: &#39;&#x2F;login&#39;,
       &#x2F;&#x2F; 固定写法，配置onGenerateRoute
       onGenerateRoute: onGenerateRoute,
     );
@@ -2717,28 +2703,34 @@ class _RegisterThirdPageState extends State&lt;RegisterThirdPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;注册第三步&quot;)),
+      appBar: AppBar(title: const Text(&#39;注册第三步&#39;)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(&quot;注册第三步&quot;),
+            const Text(&#39;注册第三步&#39;),
             const SizedBox(height: 40),
-            ElevatedButton(onPressed: () &#123;
-              &#x2F;&#x2F; 返回到根页面
-              Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (BuildContext context) &#123;
-                  &#x2F;&#x2F; index指定返回的页面
-                  return const Tabs(index: 3);
-                &#125;), (route) &#x3D;&gt; false
-              );
-            &#125;, child: const Text(&quot;完成注册&quot;)),
+            ElevatedButton(
+              onPressed: () &#123;
+                &#x2F;&#x2F; 返回到根页面
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) &#123;
+                      &#x2F;&#x2F; index指定返回的页面
+                      return const Tabs(index: 3);
+                    &#125;,
+                  ),
+                  (route) &#x3D;&gt; false,
+                );
+              &#125;,
+              child: const Text(&#39;完成注册&#39;),
+            ),
           ],
         ),
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="9-同风格的路由跳转"><a href="#9-同风格的路由跳转" class="headerlink" title="9 同风格的路由跳转"></a>9 同风格的路由跳转</h1><ul>
 <li>MaterialPageRoute组件可以使用和平台风格一致的路由切换动画。</li>
 <li>例如在iOS上会左右滑动切换，而在Android上则会上下滑动切换。</li>
@@ -2758,10 +2750,10 @@ class _RegisterThirdPageState extends State&lt;RegisterThirdPage&gt; &#123;
     - registerFirst.dart
     - registerSecond.dart
     - registerThird.dart
-  - tabs.dart【✔】
+  - tabs.dart【🖊】
 - routes
-  - routes.dart【✔】
-- main.dart【✔】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  - routes.dart【🖊】
+- main.dart【🖊】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="9-1-tabs-dart"><a href="#9-1-tabs-dart" class="headerlink" title="9-1 tabs.dart"></a>9-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -2770,7 +2762,7 @@ import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class Tabs extends StatefulWidget &#123;
   final int index;
-  const Tabs(&#123;Key? key, this.index&#x3D;0&#125;) : super(key: key);
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
 
   @override
   State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
@@ -2781,16 +2773,20 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
   @override
   void initState() &#123;
     super.initState();
-    _currentIndex&#x3D;widget.index;
+    _currentIndex &#x3D; widget.index;
   &#125;
+
   final List&lt;Widget&gt; _pages &#x3D; const [
-    HomePage(), CategoryPage(), SettingPage(), UserPage(),
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
   ];
 
   @override
   Widget build(BuildContext context) &#123;
     return Scaffold(
-      appBar: AppBar(title: const Text(&quot;同风格的路由跳转&quot;)),
+      appBar: AppBar(title: const Text(&#39;同风格的路由跳转&#39;)),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         &#x2F;&#x2F; 选中的颜色
@@ -2802,7 +2798,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
         &#x2F;&#x2F; 默认选中分类(第二个)
         &#x2F;&#x2F; currentIndex: 1,
         currentIndex: _currentIndex,
-        onTap: (index)&#123;
+        onTap: (index) &#123;
           &#x2F;&#x2F; 获取点击的索引值
           &#x2F;&#x2F; print(index);
           &#x2F;&#x2F; 注意调用setState
@@ -2811,28 +2807,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon:Icon(Icons.home),
-            label: &quot;首页&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.category),
-            label: &quot;分类&quot;,
-          ),
-          BottomNavigationBarItem(
-            icon:Icon(Icons.settings),
-            label: &quot;设置&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon:Icon(Icons.people),
-            label: &quot;用户&quot;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="9-2-main-dart"><a href="#9-2-main-dart" class="headerlink" title="9-2 main.dart"></a>9-2 main.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;routes&#x2F;routes.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -2854,12 +2838,12 @@ class MyApp extends StatelessWidget &#123;
         &#x2F;&#x2F; 全局配置主题
         appBarTheme: const AppBarTheme(
           &#x2F;&#x2F; 主题标题全部居中显示
-          centerTitle: true
+          centerTitle: true,
         ),
       ),
       &#x2F;&#x2F; home: const Tabs(),
       &#x2F;&#x2F; 初始化路由，首次运行加载登录页
-      initialRoute: &quot;&#x2F;login&quot;,
+      initialRoute: &#39;&#x2F;login&#39;,
       &#x2F;&#x2F; 固定写法，配置onGenerateRoute
       onGenerateRoute: onGenerateRoute,
     );
@@ -2876,11 +2860,11 @@ import &#39;..&#x2F;pages&#x2F;user&#x2F;registerSecond.dart&#39;;
 
 &#x2F;&#x2F; 定义一个Map类型的路由
 Map routes &#x3D; &#123;
-  &quot;&#x2F;&quot;: (context) &#x3D;&gt; const Tabs(),
-  &quot;&#x2F;login&quot;: (context) &#x3D;&gt; const LoginPage(),
-  &quot;&#x2F;registerThird&quot;: (context) &#x3D;&gt; const RegisterThirdPage(),
-  &quot;&#x2F;registerFirst&quot;: (context) &#x3D;&gt; const RegisterFirstPage(),
-  &quot;&#x2F;registerSecond&quot;: (context) &#x3D;&gt; const RegisterSecondPage(),
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;login&#39;: (context) &#x3D;&gt; const LoginPage(),
+  &#39;&#x2F;registerThird&#39;: (context) &#x3D;&gt; const RegisterThirdPage(),
+  &#39;&#x2F;registerFirst&#39;: (context) &#x3D;&gt; const RegisterFirstPage(),
+  &#39;&#x2F;registerSecond&#39;: (context) &#x3D;&gt; const RegisterSecondPage(),
 &#125;;
 
 &#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
@@ -2894,15 +2878,15 @@ var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
       &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
       &#x2F;&#x2F; 替换MaterialPageRoute
       final Route route &#x3D; CupertinoPageRoute(
-        builder: (context) &#x3D;&gt; pageContentBuilder(
-          context, arguments: settings.arguments
-        )
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
       );
       return route;
     &#125; else &#123;
       &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
       final Route route &#x3D; CupertinoPageRoute(
-        builder: (context) &#x3D;&gt; pageContentBuilder(context)
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
       );
       return route;
     &#125;

@@ -1450,23 +1450,14 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: &#39;首页&#39;,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: &#39;分类&#39;,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: &#39;设置&#39;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-2-实现页面切换"><a href="#2-2-实现页面切换" class="headerlink" title="2-2 实现页面切换"></a>2-2 实现页面切换</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下
 - pages&#x2F;
   - tabs&#x2F;
@@ -1488,11 +1479,9 @@ class UserPage extends StatefulWidget &#123;
 class _UserPageState extends State&lt;UserPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
-    return const Center(
-      child: Text(&#39;用户信息&#39;),
-    );
+    return const Center(child: Text(&#39;用户信息&#39;));
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-tabs-dart"><a href="#2-tabs-dart" class="headerlink" title="(2) tabs.dart"></a>(2) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
 import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
@@ -1539,28 +1528,16 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: &#39;首页&#39;,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: &#39;分类&#39;,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: &#39;设置&#39;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: &#39;用户&#39;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-main-dart"><a href="#3-main-dart" class="headerlink" title="(3) main.dart"></a>(3) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -1592,11 +1569,9 @@ class HomePage extends StatefulWidget &#123;
 class _HomePageState extends State&lt;HomePage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
-    return const Center(
-      child: Text(&#39;首页&#39;),
-    );
+    return const Center(child: Text(&#39;首页&#39;));
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="5-setting-dart"><a href="#5-setting-dart" class="headerlink" title="(5) setting.dart"></a>(5) setting.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class SettingPage extends StatefulWidget &#123;
@@ -1609,11 +1584,9 @@ class SettingPage extends StatefulWidget &#123;
 class _SettingPageState extends State&lt;SettingPage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
-    return const Center(
-      child: Text(&#39;系统设置&#39;),
-    );
+    return const Center(child: Text(&#39;系统设置&#39;));
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="6-category-dart"><a href="#6-category-dart" class="headerlink" title="(6) category.dart"></a>(6) category.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class CategoryPage extends StatefulWidget &#123;
@@ -1705,27 +1678,12 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
           &#125;);
         &#125;,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: &#39;首页&#39;,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: &#39;分类&#39;,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: &#39;消息&#39;,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: &#39;设置&#39;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: &#39;消息&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
           &#x2F;&#x2F; 没有type菜单图标会被挤掉
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: &#39;用户&#39;,
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
         ],
       ),
       floatingActionButton: Container(
@@ -1754,7 +1712,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-2-message-dart"><a href="#3-2-message-dart" class="headerlink" title="3-2 message.dart"></a>3-2 message.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class MessagePage extends StatefulWidget &#123;
@@ -1767,11 +1725,9 @@ class MessagePage extends StatefulWidget &#123;
 class _MessagePageState extends State&lt;MessagePage&gt; &#123;
   @override
   Widget build(BuildContext context) &#123;
-    return const Center(
-      child: Text(&#39;消息&#39;),
-    );
+    return const Center(child: Text(&#39;消息&#39;));
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="4-Drawer抽屉视图"><a href="#4-Drawer抽屉视图" class="headerlink" title="4 Drawer抽屉视图"></a>4 Drawer抽屉视图</h1><ul>
 <li>Scaffold组件中传入drawer参数可定义左侧边栏，传入endDrawer可定义右侧边栏。</li>
 <li>侧边栏默认是隐藏的，可通过手指滑动显示侧边栏，也可通过点击按钮显示侧边栏。</li>
@@ -1887,7 +1843,9 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       ),
       &#x2F;&#x2F; 调整FloatingActionButton的大小
       floatingActionButton: Container(
-        height: 60, width: 60, padding: const EdgeInsets.all(5),
+        height: 60,
+        width: 60,
+        padding: const EdgeInsets.all(5),
         &#x2F;&#x2F; 调整FloatingActionButton的位置
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
@@ -1908,7 +1866,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-2-账户抽屉头部"><a href="#4-2-账户抽屉头部" class="headerlink" title="4-2 账户抽屉头部"></a>4-2 账户抽屉头部</h2><ul>
 <li>UserAccountsDrawerHeader常见属性<ul>
 <li>currentAccountPicture(账户头像)、otherAccountsPictures(用来设置当前账户的其他账户头像)。</li>
@@ -2030,7 +1988,9 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       ),
       &#x2F;&#x2F; 调整FloatingActionButton的大小
       floatingActionButton: Container(
-        height: 60, width: 60, padding: const EdgeInsets.all(5),
+        height: 60,
+        width: 60,
+        padding: const EdgeInsets.all(5),
         &#x2F;&#x2F; 调整FloatingActionButton的位置
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
@@ -2051,7 +2011,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="5-自定义顶部按钮"><a href="#5-自定义顶部按钮" class="headerlink" title="5 自定义顶部按钮"></a>5 自定义顶部按钮</h1><ul>
 <li>AppBar自定义顶部按钮图标、颜色，属性如下。<ul>
 <li>actions(通常使用IconButton来表示，可以放按钮组件)、iconTheme(图标样式)。</li>
@@ -2380,7 +2340,9 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       ),
       &#x2F;&#x2F; 调整FloatingActionButton的大小
       floatingActionButton: Container(
-        height: 60, width: 60, padding: const EdgeInsets.all(5),
+        height: 60,
+        width: 60,
+        padding: const EdgeInsets.all(5),
         &#x2F;&#x2F; 调整FloatingActionButton的位置
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
@@ -2401,7 +2363,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-main-dart"><a href="#2-main-dart" class="headerlink" title="(2) main.dart"></a>(2) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;tabs.dart&#39;;
 import &#39;package:flutter&#x2F;material.dart&#39;;
 
@@ -2480,28 +2442,30 @@ class _HomePageState extends State&lt;HomePage&gt;
       body: TabBarView(
         controller: _tabController,
         children: [
-          ListView(children: const [
-            ListTile(title: Text(&#39;关注列表01&#39;)),
-            ListTile(title: Text(&#39;关注列表02&#39;)),
-            ListTile(title: Text(&#39;关注列表03&#39;)),
-            ListTile(title: Text(&#39;关注列表04&#39;)),
-            ListTile(title: Text(&#39;关注列表05&#39;)),
-            ListTile(title: Text(&#39;关注列表06&#39;)),
-            ListTile(title: Text(&#39;关注列表07&#39;)),
-            ListTile(title: Text(&#39;关注列表08&#39;)),
-            ListTile(title: Text(&#39;关注列表09&#39;)),
-            ListTile(title: Text(&#39;关注列表10&#39;)),
-            ListTile(title: Text(&#39;关注列表11&#39;)),
-            ListTile(title: Text(&#39;关注列表12&#39;)),
-            ListTile(title: Text(&#39;关注列表13&#39;)),
-            ListTile(title: Text(&#39;关注列表14&#39;)),
-            ListTile(title: Text(&#39;关注列表15&#39;)),
-            ListTile(title: Text(&#39;关注列表16&#39;)),
-            ListTile(title: Text(&#39;关注列表17&#39;)),
-            ListTile(title: Text(&#39;关注列表18&#39;)),
-            ListTile(title: Text(&#39;关注列表19&#39;)),
-            ListTile(title: Text(&#39;关注列表20&#39;)),
-          ]),
+          ListView(
+            children: const [
+              ListTile(title: Text(&#39;关注列表01&#39;)),
+              ListTile(title: Text(&#39;关注列表02&#39;)),
+              ListTile(title: Text(&#39;关注列表03&#39;)),
+              ListTile(title: Text(&#39;关注列表04&#39;)),
+              ListTile(title: Text(&#39;关注列表05&#39;)),
+              ListTile(title: Text(&#39;关注列表06&#39;)),
+              ListTile(title: Text(&#39;关注列表07&#39;)),
+              ListTile(title: Text(&#39;关注列表08&#39;)),
+              ListTile(title: Text(&#39;关注列表09&#39;)),
+              ListTile(title: Text(&#39;关注列表10&#39;)),
+              ListTile(title: Text(&#39;关注列表11&#39;)),
+              ListTile(title: Text(&#39;关注列表12&#39;)),
+              ListTile(title: Text(&#39;关注列表13&#39;)),
+              ListTile(title: Text(&#39;关注列表14&#39;)),
+              ListTile(title: Text(&#39;关注列表15&#39;)),
+              ListTile(title: Text(&#39;关注列表16&#39;)),
+              ListTile(title: Text(&#39;关注列表17&#39;)),
+              ListTile(title: Text(&#39;关注列表18&#39;)),
+              ListTile(title: Text(&#39;关注列表19&#39;)),
+              ListTile(title: Text(&#39;关注列表20&#39;)),
+            ],
+          ),
           const Text(&#39;热门&#39;),
           const Text(&#39;生活&#39;),
           const Text(&#39;娱乐&#39;),
@@ -2513,7 +2477,7 @@ class _HomePageState extends State&lt;HomePage&gt;
       ),
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-2-自定义的缓存组件"><a href="#6-2-自定义的缓存组件" class="headerlink" title="6-2 自定义的缓存组件"></a>6-2 自定义的缓存组件</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，新增KeepAliveWrapper.dart
 # 更改tabs.dart、home.dart内容，其他不变
 - pages&#x2F;
@@ -2644,7 +2608,9 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       ),
       &#x2F;&#x2F; 调整FloatingActionButton的大小
       floatingActionButton: Container(
-        height: 60, width: 60, padding: const EdgeInsets.all(5),
+        height: 60,
+        width: 60,
+        padding: const EdgeInsets.all(5),
         &#x2F;&#x2F; 调整FloatingActionButton的位置
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
@@ -2665,7 +2631,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-home-dart"><a href="#2-home-dart" class="headerlink" title="(2) home.dart"></a>(2) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 import &#39;..&#x2F;..&#x2F;tools&#x2F;KeepAliveWrapper.dart&#39;;
 
@@ -2762,9 +2728,11 @@ class _HomePageState extends State&lt;HomePage&gt;
 <h3 id="3-KeepAliveWrapper-dart"><a href="#3-KeepAliveWrapper-dart" class="headerlink" title="(3) KeepAliveWrapper.dart"></a>(3) KeepAliveWrapper.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 
 class KeepAliveWrapper extends StatefulWidget &#123;
-  const KeepAliveWrapper(
-      &#123;Key? key, @required this.child, this.keepAlive &#x3D; true&#125;)
-      : super(key: key);
+  const KeepAliveWrapper(&#123;
+    Key? key,
+    @required this.child,
+    this.keepAlive &#x3D; true,
+  &#125;) : super(key: key);
 
   final Widget? child;
   final bool keepAlive;
@@ -2791,7 +2759,7 @@ class _KeepAliveWrapperState extends State&lt;KeepAliveWrapper&gt;
     &#125;
     super.didUpdateWidget(oldWidget);
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="6-3-获取选项卡索引值"><a href="#6-3-获取选项卡索引值" class="headerlink" title="6-3 获取选项卡索引值"></a>6-3 获取选项卡索引值</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，更改tabs.dart、home.dart内容，其他不变
 - pages&#x2F;
   - tabs&#x2F;
@@ -2921,7 +2889,9 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       ),
       &#x2F;&#x2F; 调整FloatingActionButton的大小
       floatingActionButton: Container(
-        height: 60, width: 60, padding: const EdgeInsets.all(5),
+        height: 60,
+        width: 60,
+        padding: const EdgeInsets.all(5),
         &#x2F;&#x2F; 调整FloatingActionButton的位置
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
@@ -2942,7 +2912,7 @@ class _TabsState extends State&lt;Tabs&gt; &#123;
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-home-dart-1"><a href="#2-home-dart-1" class="headerlink" title="(2) home.dart"></a>(2) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
 import &#39;..&#x2F;..&#x2F;tools&#x2F;KeepAliveWrapper.dart&#39;;
 
