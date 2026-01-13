@@ -1,0 +1,2825 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="Flutter介绍, bsf">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-8VjAnGhv8m" />
+    <meta name="google-site-verification" content="An02eAw6rCWBVutF85tRr02GvZox5D4Pqd9PKFRzvBs" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Flutter介绍 | bsf</title>
+    
+    <script>
+        // 隐藏
+        // 右键
+        // document.oncontextmenu = function (event){
+        //     if(window.event){
+        //     event = window.event;
+        //     }try{
+        //     var the = event.srcElement;
+        //     if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        //     return false;
+        //     }
+        //     return true;
+        //     }catch (e){
+        //     return false;
+        //     }
+        // }
+
+        // debugger部分
+            // setInterval(function() {
+            // check();
+            // }, 500);
+            // var check = function() {
+            //     function doCheck(a) {
+            //     if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+            //         (function() {}['constructor']('debugger')());
+            //     } else {
+            //         (function() {}['constructor']('debugger')());
+            //     }
+            //     doCheck(++a);
+            //     }
+            //     try {
+            //     doCheck(0);
+            //     } catch (err) {}
+            // };
+            // check();
+
+            // ctrl+s保存
+            // document.onkeydown = function() {
+            //     if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+            //         return false;
+            //     }
+            // }
+            // window.addEventListener("keydown", function(e) {
+            //     //可以判断是不是mac，如果是mac,ctrl变为花键
+            //     //event.preventDefault() 方法阻止元素发生默认的行为。
+            //     if((e.key=='s'||e.key=='S')&&(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)){
+            //         e.preventDefault();
+            //     }
+            // }, false);
+            // F12
+            // document.onkeydown = function(){
+            //     if(window.event && window.event.keyCode == 123) {
+            //         event.keyCode=0;
+            //         event.returnValue=false;
+            //     }
+            //     if(window.event && window.event.keyCode == 13) {
+            //         window.event.keyCode = 505;
+            //     }
+            //     if(window.event && window.event.keyCode == 8) {
+            //         window.event.returnValue=false;
+            //     }
+            // }
+        // 宽高
+        // var threshold = 160; // 打开控制台的宽或高阈值  
+        // // 每秒检查一次  
+        // window.setInterval(function() {  
+        //     if (window.outerWidth - window.innerWidth > threshold ||   
+        //     window.outerHeight - window.innerHeight > threshold) {  
+        //         // 如果打开控制台，则刷新页面  
+        //         window.location.reload();  
+        //     }  
+        // }, 1e3);
+
+        // debug调试时跳转页面
+        // var element = new Image();
+        // Object.defineProperty(element,'id',{get:function(){window.location.href="/tenfour/homepage/"}});
+        // console.log(element);
+    </script>
+
+    <!-- <style>
+        /*  @import "/libs/prism/prism-coy.css";
+         @import "/libs/prism/prism-okaidia.css";
+         @import "/libs/prism/prism-solarizedlight.css"; */
+         @import "/libs/prism/prism-tomorrow.css";
+     </style> -->
+    <!-- <link rel="stylesheet" href="/libs/prism/prism.css">
+    <script src="/js/prism/prism.js"></script> -->
+
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"/>
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <!-- <script src="/js/foropensource.js"></script> -->
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+           bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else{
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<!-- 提示：若要开启春节或者圣诞主题样式，直接给body标签添加一个class为
+class="themespring" -->
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 网站全局深色模式设置开始 -->
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+        document.body.classList.add('dark');
+        }
+        //  else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        // document.body.classList.add('dark');
+        // } 
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        }
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
+    </a>
+    <!-- 网站全局深色模式设置结束 -->
+
+    <!-- 网站主题切换模式开始 -->
+    <!-- 中国节日按钮开始 -->
+    <script>
+        if (localStorage.getItem('themespring') === '1') {
+            document.body.classList.add('themespring');
+        }
+        else if (matchMedia('(prefers-color-scheme: themespring)').matches) {
+            document.body.classList.add('themespring');
+        }
+    </script>
+    <div onclick="switchSpringThemes()" id="switchspring">
+        <img class="chunjiepic" src="/medias/spring-img/denglong.png" title="节日主题" />
+    </div>
+    <!-- 中国节日按钮结束  -->
+    <!-- 网站主题切换模式结束 -->
+
+    <!-- header模块开始 -->
+<header class="navbar-fixed" id="header-active">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <!-- 大屏幕下logo字体 -->
+                    <span class="bigwidth">bsf&emsp;</span>
+                    <!-- 小屏幕下logo字体 -->
+                    <span class="smallwidth">bsf&emsp;</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>文章</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/count">
+          
+          <span>统计</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tagsnet">
+          
+          <span>关系网</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>链接库</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/friends">
+          
+          <span>友情链接</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/collection">
+          
+          <span>网址收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/donate">
+          
+          <span>打赏记录</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/ticktack">
+          
+          <span>滴答滴答</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">bsf</div>
+        <div class="logo-desc">
+            
+              光而不耀，静水流深。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			文章
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:50px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:50px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/count " style="margin-left:50px">
+				  
+		          <span>统计</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tagsnet " style="margin-left:50px">
+				  
+		          <span>关系网</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			链接库
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/friends " style="margin-left:50px">
+				  
+		          <span>友情链接</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/collection " style="margin-left:50px">
+				  
+		          <span>网址收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/donate " style="margin-left:50px">
+				  
+		          <span>打赏记录</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/ticktack " style="margin-left:50px">
+				  
+		          <span>滴答滴答</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+        <style>
+          .brand-logo .waves-effect {
+            font-size: 24px;
+            /* font-style: oblique; */
+            /* color: #fadca6; */
+          }
+        </style>
+        
+        <!-- 新增，导航底部波浪线 -->
+        <div class="wavelineheader wavelineshow">
+            <style>
+                .wavelineshow {
+                    background: url(/medias/wave.png) 0 0 repeat-x;
+                    height: 3px;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+                    background-size: 10px 3px;
+                    transform: rotate(180deg);
+                }
+            </style>
+        </div>
+    </nav>
+</header>
+<!-- header模块结束 -->
+
+<!-- 春节主题模式样式开始 -->
+<style>
+    .denglong {
+        display: none;
+    }
+    body.themespring .denglong {
+        display: block;
+    }
+    @media only screen and (min-width: 1124px) {
+        .nav-menu {
+            padding-right: 0px;
+        }
+        body.themespring .nav-menu {
+            padding-right: 96px;
+        }
+    }
+    @media only screen and (max-width: 760px) {
+        .deng-box, .deng-box1 {
+            width: 40%;
+        }
+        /* 点开主题，会影响到移动端的翻页按钮 */
+        /* body.themespring .right {
+            float: left!important;
+        } */
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        /* .right {
+            float: left!important;
+        } */
+    }
+    .deng-box {
+        position: fixed;
+        top: -40px;
+        right: -20px;
+        z-index: 999;
+    }
+    .deng-box1 {
+        position: fixed;
+        top: -30px;
+        right: 10px;
+        z-index: 999;
+    }
+    .deng-box1 .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 5s infinite ease-in-out;
+        box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+    }
+    .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3s infinite ease-in-out;
+        box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+    }
+    .deng-a {
+        width: 100px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: 12px 8px 8px 10px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .deng-b {
+        width: 45px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: -4px 8px 8px 26px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .xian {
+        position: absolute;
+        top: -20px;
+        left: 60px;
+        width: 2px;
+        height: 20px;
+        background: #dc8f03;
+    }
+    .shui-a {
+        position: relative;
+        width: 5px;
+        height: 20px;
+        margin: -5px 0 0 59px;
+        -webkit-animation: swing 4s infinite ease-in-out;
+        -webkit-transform-origin: 50% -45px;
+        background: #ffa500;
+        border-radius: 0 0 5px 5px;
+    }
+    .shui-b {
+        position: absolute;
+        top: 14px;
+        left: -2px;
+        width: 10px;
+        height: 10px;
+        background: #dc8f03;
+        border-radius: 50%;
+    }
+    .shui-c {
+        position: absolute;
+        top: 18px;
+        left: -2px;
+        width: 10px;
+        height: 35px;
+        background: #ffa500;
+        border-radius: 0 0 0 5px;
+    }
+    .deng:before {
+        position: absolute;
+        top: -7px;
+        left: 29px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        z-index: 999;
+        border-radius: 5px 5px 0 0;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    .deng:after {
+        position: absolute;
+        bottom: -7px;
+        left: 10px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        margin-left: 20px;
+        border-radius: 0 0 5px 5px;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    @font-face {
+        font-family: "Aa漫语手写体";
+        src: url('/fonts/Aa漫语手写体.ttf');
+    }
+    .deng-t {
+        font-family: Aa漫语手写体;
+        font-size: 26px;
+        color: #dc8f03;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+    }
+    .night .deng-t,
+    .night .deng-box,
+    .night .deng-box1 {
+        background: transparent !important;
+    }
+    @-moz-keyframes swing {
+        0% {
+                -moz-transform: rotate(-10deg)
+        }
+        50% {
+             -moz-transform: rotate(10deg)
+        }
+        100% {
+                -moz-transform: rotate(-10deg)
+        }
+    }
+    @-webkit-keyframes swing {
+        0% {
+                -webkit-transform: rotate(-10deg)
+        }
+        50% {
+                -webkit-transform: rotate(10deg)
+        }
+        100% {
+                -webkit-transform: rotate(-10deg)
+        }
+    }
+</style>
+<div class="denglong">
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t" id="dtone">喜迎</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t" id="dttwo">春节</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+</div>
+<!-- 春节主题模式样式结束 -->
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/toc-banner/flutter/flutter@01.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Flutter介绍</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+    
+        <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        /* overflow: auto; */
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+    .suibis[data-spmid="随笔"] {
+        width: 100%!important;
+    }
+    .toc-widget[data-spmid="随笔"],
+    #floating-toc-btn[data-spmid="随笔"]
+    {
+        display: none!important;
+    }
+</style>
+
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9 suibis">
+        <style>
+    #switchspring {
+        bottom: 215px!important;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 165px!important;
+        }
+    }
+    #switchchristmas {
+        bottom: 281px!important;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchchristmas {
+            bottom: 235px!important;
+        }
+    }
+    .ititle {
+        margin: 15px 0;
+        text-align:center;
+        font-family: 'Architects Daughter', cursive;
+    }
+    .ipage {
+        line-height: 30px;
+        margin: 0 auto;
+        padding: 15px 32px 29px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
+        -moz-border-radius-bottomleft: 20px 500px;
+        -moz-border-radius-bottomright: 500px 30px;
+        -moz-border-radius-topright: 5px 100px;	
+        -webkit-border-bottom-left-radius: 20px 500px;
+        -webkit-border-bottom-right-radius: 64px 10px;
+        -webkit-border-top-right-radius: 5px 100px;    
+        border-bottom-left-radius: 20px 500px;
+        border-bottom-right-radius: 64px 10px;
+        border-top-right-radius: 5px 100px;           
+        -webkit-background-size: 100% 30px;
+        -moz-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 1px 0 #F6EF97;
+        position: relative;
+    }
+.izhengwen {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: auto;
+    background: repeating-linear-gradient(to bottom, #f9f9f9, #f9f9f9 31px, #6BA2D8 1px, #f9f9f9);
+    background-size: 100% 32px;
+}
+.izhengwen p {
+    letter-spacing: .1rem;
+}
+#articleContent p {
+    margin: 0
+}
+.ititle {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.45rem!important;
+    padding: 10px auto;
+}
+.izhengwen p {
+    position: relative;
+    line-height: 2.2rem!important;
+    text-indent: 2em;
+    font-family: 'Architects Daughter', cursive!important;
+    font-size: 1.45rem!important;
+}
+.ipage::before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    right: 52px;
+    z-index: 4;
+    width: 4px;
+    height: 100%;
+    border-left: 1px solid #fca1a1;
+}
+.izhengwen p:nth-child(odd):before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -16px;
+    z-index: 3;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
+}
+.ipage:after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 52px;
+    z-index: 3;
+    width: 4px;
+    height: 100%;
+    border-left: 4px double #fca1a1;
+}
+.ipage p {
+    padding: 0 2em;
+    color: #333!important;
+}
+body.dark .ipage {
+    opacity: 0.85;
+}
+/*小屏幕下(手机类)的样式*/
+@media only screen and (max-width: 600px) {
+    .ipage {
+        padding: 15px 23px 29px;
+    }
+    .ipage:after {
+        left: 36px;
+    }
+    .ipage::before {
+        right: 36px;    
+    }
+    .ipage p, .ititle {
+        padding: 0 0.9em;
+    }
+
+}
+h3 {
+    font-size: 1.32rem;
+    font-weight: 400;
+    color: #101012;
+    transition: 0.8s;
+    cursor: pointer;
+}
+h3:hover {
+    transform: translateX(15px);
+}
+</style>
+
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">        
+                <div class="guguxian wenzhangxian">
+                    <img class="caishenpic gugus" src="/medias/spring-img/caishen.png" />
+                </div>              
+            </div>
+            <!-- 圣诞按钮 -->
+            <div class="shengdandeng">        
+                <div class="shengdanxian" style="left: 50%;">
+                    <img class="shengdanpic fudai" src="/medias/christmas-img/shengdanren4.png" />
+                </div>              
+            </div>
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Dart/">
+                                <span class="chip bg-color">Dart</span>
+                            </a>
+                        
+                            <a href="/tags/Scaffold/">
+                                <span class="chip bg-color">Scaffold</span>
+                            </a>
+                        
+                            <a href="/tags/MaterialApp/">
+                                <span class="chip bg-color">MaterialApp</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <!-- <i class="fas fa-bookmark fa-fw icon-category"></i> -->📚
+                        
+                            <a href="/categories/Flutter/" class="post-category">
+                                Flutter
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-07-09
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <div class="note info">Flutter横跨Android、iOS、MacOS、Windows、Linux等多个系统，使用Dart语言，并通过热重载功能实现快速开发和迭代。</div>
+
+<h1 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1 环境搭建"></a>1 环境搭建</h1><ul>
+<li>虚拟机下Win10企业版(<a href="ed2k://|file|cn_windows_10_business_editions_version_1909_x64_dvd_0ca83907.iso|5275090944|9BCD5FA6C8009E4D0260E4B23008BD47|/">Win10-1909-Business-Editions-DVD-x64</a>)、Chrome。</li>
+<li>下载安装Flutter依赖的命令行工具Git For Windows：<a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.37.1.windows.1/Git-2.37.1-64-bit.exe">Git-2.37.1-64-bit.exe</a>。</li>
+<li>Flutter SDK下载：<a target="_blank" rel="noopener" href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.0.5-stable.zip">Flutter-Windows-3.0.5-Stable.zip</a>。<ul>
+<li>解压到指定位置，找到文件夹中的flutter_console.bat文件，双击运行。</li>
+<li>注意：不要将Flutter SDK安装到高权限路径下，例如C盘路径(系统盘)。</li>
+</ul>
+</li>
+<li>添加环境变量：控制面板—&gt;用户账户—&gt;更改我的环境变量—&gt;环境变量。<ul>
+<li>新建变量名<code>PUB_HOSTED_URL</code>：变量值<code>https://pub.flutter-io.cn/</code>。</li>
+<li>新建变量名<code>FLUTTER_STORAGE_BASE_URL</code>：变量值<code>https://storage.flutter-io.cn/</code>。</li>
+<li>在变量Path中添加：变量值<code>C:\Program\Flutter\bin</code>(Flutter SDK安装路径的bin目录)。</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-编辑器的安装"><a href="#2-编辑器的安装" class="headerlink" title="2 编辑器的安装"></a>2 编辑器的安装</h1><ul>
+<li>安装Visual Studio：<a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Professional&amp;channel=Release&amp;version=VS2022&amp;source=VSLandingPage&amp;cid=2030&amp;passive=false">VisualStudioSetup.exe</a>，使用C++的桌面工具。<ul>
+<li>勾选<code>用于Windows的C++ CMake工具</code>。</li>
+<li>勾选<code>Windows 10 SDK(10.0.19041.0)</code>。</li>
+<li>勾选<code>MSVC v143-VS 2022 C++ x64/86生成工具(最新)</code>。</li>
+</ul>
+</li>
+<li>安装Android Studio：<a target="_blank" rel="noopener" href="https://redirector.gvt1.com/edgedl/android/studio/install/2021.2.1.15/android-studio-2021.2.1.15-windows.exe">Android-Studio-2021.2.1.15-Windows.exe</a>，可能需要使用梯子。<ul>
+<li>添加环境变量<code>ANDROID_SDK_HOME</code>：变量值<code>C:\Program\Avd</code> (即模拟器存放的位置)。</li>
+<li>设置Android模拟器：虚拟机貌似无法启动模拟器，建议将环境搭建在Pc主机上操作。<ul>
+<li>Android Studio—&gt;More Actions—&gt;Virtual Device Manager—&gt;Create device。</li>
+<li>Phone·Pixel—&gt;Next—&gt;镜像 R—&gt;Download—&gt;Next—&gt;验证配置—&gt;Finish。</li>
+</ul>
+</li>
+<li>安装插件：Android Studio—&gt;Plugins—&gt;Marketplace—&gt;搜Flutter和Dart—&gt;Install。<ul>
+<li>Flutter插件：支持Flutter开发工作流(运行、调试、热重载等)。</li>
+<li>Dart插件：提供代码分析(输入代码时进行验证、代码补全等)。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-flutter-doctor"><a href="#3-flutter-doctor" class="headerlink" title="3 flutter doctor"></a>3 flutter doctor</h1><ul>
+<li>文件夹下鼠标右键<code>Git Bash Here</code>，命令窗口模式输入<code>flutter doctor</code>进行查看。</li>
+<li><code>cmdline-tools component is missing</code>：Android Studio缺少cmdline-tools工具。<ul>
+<li>启动Android Studio—&gt;More Actions—&gt;SDK Manager—&gt;SDK Tools。</li>
+<li>Android SDK Command-line Tools (latest)—&gt;Apply—&gt;Finish—&gt;OK。</li>
+</ul>
+</li>
+<li><code>Android license status unknown.</code>：说明该环境需要添加Android license。<ul>
+<li>搜索<code>cmd</code>，以管理员身份运行，命令窗口下执行<code>flutter doctor --android-licenses</code>。</li>
+<li>在提示是否接受许可时，输入<code>y</code>进行回车确认，最后重新输入<code>flutter doctor</code>进行查看。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ flutter doctor
+Flutter assets will be downloaded from https:&#x2F;&#x2F;storage.flutter-io.cn&#x2F;. 
+Make sure you trust this source!
+Doctor summary (to see all details, run flutter doctor -v):
+[√] Flutter 
+    (Channel stable, 3.0.5, on Microsoft Windows [版本 10.xxx], locale zh-CN)
+[!] Android toolchain - develop for Android devices (Android SDK version 33.0.0)
+    X cmdline-tools component is missing
+      Run &#96;path&#x2F;to&#x2F;sdkmanager --install &quot;cmdline-tools;latest&quot;&#96;
+      See https:&#x2F;&#x2F;developer.android.com&#x2F;studio&#x2F;command-line for more details.
+    X Android license status unknown.
+      Run &#96;flutter doctor --android-licenses&#96; to accept the SDK licenses.
+      See https:&#x2F;&#x2F;flutter.dev&#x2F;docs&#x2F;get-started&#x2F;install&#x2F;windows
+      # android-setup for more details.
+[√] Chrome - develop for the web
+[√] Visual Studio - develop for Windows (Visual Studio Community 2022 17.3.0)
+[√] Android Studio (version 2021.2)
+[√] Connected device (2 available)
+[√] HTTP Host Availability
+
+! Doctor found issues in 1 categories.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="4-首次创建项目"><a href="#4-首次创建项目" class="headerlink" title="4 首次创建项目"></a>4 首次创建项目</h1><ul>
+<li>首次创建项目<ul>
+<li>启动Android Studio —&gt; New Flutter Project —&gt; Flutter —&gt; Flutter SDK Path。</li>
+<li>Flutter SDK Path即Flutter SDK的安装路径 —&gt; Next —&gt; Project Name项目命名。</li>
+<li>将Project Name命名为<code>myflutter</code> (即Organization包名) —&gt; Finish —&gt; Create。</li>
+</ul>
+</li>
+<li>在该项目上运行程序：File—&gt;Open—&gt;定位到该项目的Android目录—&gt;选中—&gt;OK—&gt;将其打开。</li>
+<li>Sync project with Gradle Files下载：项目打开Android目录时自动下载(位于Android Studio-&gt;File中)。</li>
+<li>No Device Selected：找不到运行设备，两调试方式(命令窗口下<code>flutter devices</code>检测当前可用设备)。<ul>
+<li>Android真机调试<ul>
+<li>手机使用USB数据线连接电脑，开启调试模式，Android Studio安装与手机对应的SDK版本。</li>
+<li>Android Studio—&gt;Tools—&gt;SDK Manager—&gt;SDK Platforms—&gt;勾选对应版本SDK—&gt;OK。</li>
+<li>当No Device Selected变为对应手机型号名称时，Run—&gt;Run‘app’即可在手机中运行程序。</li>
+</ul>
+</li>
+<li>模拟器调试：Android Studio—&gt;Tools—&gt;Device Manager—&gt;启动之前设置好的Android模拟器。</li>
+</ul>
+</li>
+<li>多台设备同时兼容性调试，命令窗口进入对应项目<code>myflutter</code>中输入<code>flutter run -d all</code>执行程序。</li>
+<li>改完代码之后，不需要重新输入命令执行程序，以下通用快捷键可帮助日常开发。<ul>
+<li>使用热加载<code>Shift + R</code>或<code>r</code>，重新加载程序。</li>
+<li>若热加载没生效，则使用命令<code>R</code>进行热重启。</li>
+<li>命令<code>p</code>显示网格，可以很好地掌握布局情况。</li>
+<li>命令<code>o</code>支持切换Android以及iOS的预览模式。</li>
+<li>命令<code>q</code>退出调试预览模式，相当于<code>Ctrl + C</code>。</li>
+</ul>
+</li>
+</ul>
+<h1 id="5-项目简单介绍"><a href="#5-项目简单介绍" class="headerlink" title="5 项目简单介绍"></a>5 项目简单介绍</h1><ul>
+<li>创建Flutter项目的两种方式<ul>
+<li>Android Studio(正式项目建议使用编辑器来创建)。</li>
+<li>通过命令<code>flutter create &lt;project-name&gt;</code>创建。</li>
+</ul>
+</li>
+<li>目录结构<ul>
+<li>test：用于存放测试代码。</li>
+<li>android、ios、web、windows等：各个平台的资源文件。</li>
+<li>lib：flutter相关代码，开发的所有代码都放在该目录下。</li>
+<li>pubspec.yaml：存放项目第三方依赖、版本号和配置信息等。</li>
+<li>analysis_options.yaml：分析Dart语法的文件，老项目升级新项目时若有警告信息，可删除此文件。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-1-入口方法"><a href="#5-1-入口方法" class="headerlink" title="5-1 入口方法"></a>5-1 入口方法</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">&#x2F;&#x2F; 引入material主题
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+&#x2F;&#x2F; 入口方法
+void main() &#123;
+  &#x2F;&#x2F; Center组件，让内容居中
+  runApp(
+    const Center(
+      &#x2F;&#x2F; 查看底层代码使用“Ctrl+鼠标左键”
+      child: Text(
+        &#39;Hello Flutter!&#39;,
+        &#x2F;&#x2F; ltr从右向左
+        textDirection: TextDirection.ltr,
+        &#x2F;&#x2F; 改变文本样式
+        style: TextStyle(
+          &#x2F;&#x2F; color: Colors.red,
+          color: Color.fromRGBO(80, 120, 35, 1),
+          fontSize: 27,
+        ),
+      ),
+    ),
+  );
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-2-必须组件"><a href="#5-2-必须组件" class="headerlink" title="5-2 必须组件"></a>5-2 必须组件</h2><ul>
+<li>开发中必须使用的装饰组件：MaterialApp(一般作为顶层Widget使用)、Scaffold(布局结构的基本实现)。</li>
+<li>MaterialApp组件的常用属性：home(主页)、title(标题)、color(颜色)、theme(主题)、routes(路由)等。</li>
+<li>Scaffold组件的常用属性<ul>
+<li>appBar：显示在界面顶部的标题栏。</li>
+<li>body：当前界面所显示的主要内容。</li>
+<li>drawer：抽屉菜单控件，例如左拉、右拉、弹出对话框等。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+void main() &#123;
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;必须组件&#39;)),
+        body: const Center(
+          child: Text(
+            &#39;Hello Flutter!&#39;,
+            textDirection: TextDirection.ltr,
+            style: TextStyle(
+              color: Colors.red,
+              &#x2F;&#x2F; color: Color.fromRGBO(80, 120, 35, 1),
+              fontSize: 27,
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-3-内容抽离"><a href="#5-3-内容抽离" class="headerlink" title="5-3 内容抽离"></a>5-3 内容抽离</h2><ul>
+<li>Flutter自定义组件即一个类，需集成StatelessWidget或StatefulWidget。</li>
+<li>StatelessWidget是无状态组件，状态不可变的Widget，前期接触比较多。</li>
+<li>StatefulWidget是有状态组件，持有的状态可能在Widget生命周期中改变。</li>
+</ul>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+void main() &#123;
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text(&#39;内容抽离&#39;)),
+        &#x2F;&#x2F; 调用MyApp组件
+        body: const MyApp(),
+      ),
+    ),
+  );
+&#125;
+
+class MyApp extends StatelessWidget &#123;
+  &#x2F;&#x2F; 常量构造函数
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return const Center(
+      child: Text(
+        &#39;Flutter自定义组件&#39;,
+        textDirection: TextDirection.ltr,
+        style: TextStyle(
+          &#x2F;&#x2F; color: Colors.red,
+          color: Color.fromRGBO(80, 120, 35, 1),
+          fontSize: 27,
+        ),
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-user"> -->
+                    <span>
+                        文章作者:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wwwbsf.github.io" rel="external nofollow noreferrer">bsf</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-link"> -->
+                    <span>
+                        文章链接:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wwwbsf.github.io/posts/flutter@01.html">https://wwwbsf.github.io/posts/flutter@01.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-copyright"> -->
+                    <span>
+                        版权声明:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://wwwbsf.github.io" target="_blank">bsf</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Dart/">
+                                    <span class="chip bg-color">Dart</span>
+                                </a>
+                            
+                                <a href="/tags/Scaffold/">
+                                    <span class="chip bg-color">Scaffold</span>
+                                </a>
+                            
+                                <a href="/tags/MaterialApp/">
+                                    <span class="chip bg-color">MaterialApp</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">来都来了，赏一个呗！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微&ensp;&ensp;信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+    .v[data-class=v] .emoji, .v[data-class=v] .vemoji {
+        max-height: 20px;
+        overflow: hidden;
+        max-width: 20px!important;
+    }
+    .v[data-class=v] .vwrap .vemojis {
+        text-align: center;
+    }
+    .roboterbb {
+        position: absolute;
+        right: 87px;
+        padding-top: 3px;
+    }
+    .robot-check-text:hover {
+        color: #26a69a;
+    }
+    .roboter:hover .robot-check-text::before {
+        border: 2px solid #5a5a5a;
+    }
+    .robotxian {
+        background: #5a5a5a;
+        top: 21px;
+        left: 11px!important;
+        transform-origin: 50% -17px;
+        animation: swing 3.5s infinite ease-in-out;
+        -webkit-transform-origin: 50% -17px;
+        -webkit-animation: swing 2.85s infinite ease-in-out;
+    }
+    .v[data-class=v] .vwrap {
+        /* padding-bottom: 23px; */
+        padding-bottom: 30px;
+    }
+    .robotimg {
+        width: 28px!important;
+        height: 28px!important;
+        top: 14px!important;
+        left: -13px!important;
+        max-width: none!important;
+        z-index: 99;
+        cursor: none!important;
+    }
+    .v[data-class=v] .vbtn:disabled {
+        color: #b2b2b5;
+        border-color: #b2b2b5;
+    }
+    .v[data-class=v] .vbtn:disabled {
+        background-color: transparent;
+    }
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+    .v[data-class=v] .vwrap {
+        border-radius: 8px;
+    }
+    /* #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    } */
+    #vcomments textarea {
+        background: url(/medias/comment_bg.webp) no-repeat;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" id="vcomments-top">
+
+    <!-- 福袋按钮 -->
+    <div class="caishendeng">        
+        <div class="caishenxian fudaixian">
+            <img class="caishenpic fudao" src="/medias/spring-img/fudao.png" />
+        </div>              
+    </div>
+   
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评 论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        enableQQ: true,
+        boolean: true,
+        appId: 'Grv3UQKKLVVKB70yDqY6C5ez-gzGzoHsz',
+        appKey: 'HEBFnyeROkIQCr9ysXSiOZQM',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        // avatar: '/medias/robot.png',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '评论前记得点击下方机器人验证按钮噢 ~ ',    
+
+        adminEmailMd5: '',
+
+        // master: [""],
+        // friends: [""],
+        // tagMeta: ["博主", "小伙伴", "访客"],
+        tagMeta: '博主,小伙伴,访客',
+        master: '',
+        friends: '',
+        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest"]
+    });
+</script>
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
+
+
+<!-- 评论机器人验证 -->
+<script>
+    $('.roboter').on('click',function(){
+        $('.robot-check-text').html('·&nbsp;&nbsp;&nbsp;验证成功！');
+        $('.roboter:hover .robot-check-text::before').css('border','2px solid #26a69a');
+        $('.robotxian').css('background','#26a69a');
+        $('.robotimg').attr('src','/medias/robot.png');
+        $('.robot-check-text').css('color','#26a69a');
+    });
+    
+    if(!$('.robot-check').checked) {
+        // alert("请勾选机器人验证后再发表评论！");
+        $('.vsubmit').attr('disabled',true).attr('title','评论前勾选机器人验证按钮');
+    } 
+    $('.robot-check').on('click',function(){
+        $('.vsubmit').attr('disabled',false).attr('title','欢迎畅所欲言');
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/flutter@02.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/toc-banner/flutter/flutter@02.jpg" class="responsive-img" alt="基础结构">
+                        
+                        <!-- 福袋按钮 -->
+                        <div class="caishendeng">        
+                            <div class="caishenxian wenzhangxian">
+                                <img class="caishenpic lala" src="/medias/spring-img/fish.png" />
+                            </div>              
+                        </div>
+                        <span class="card-title">
+                          <!-- 文章卡片hover线条效果 -->
+                          <span class="titlesline"></span>
+                          基础结构
+                        </span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Flutter项目结构通常包含lib、android、ios等目录，其中lib目录存放Dart代码，android和ios目录分别存放平台相关的代码。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-08-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ListView/">
+                        <span class="chip bg-color">ListView</span>
+                    </a>
+                    
+                    <a href="/tags/GridView/">
+                        <span class="chip bg-color">GridView</span>
+                    </a>
+                    
+                    <a href="/tags/Container/">
+                        <span class="chip bg-color">Container</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/dart@06.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/toc-banner/dart/dart@06.jpg" class="responsive-img" alt="面向对象">
+                        
+                        <!-- 福袋按钮 -->
+                        <div class="caishendeng">        
+                            <div class="caishenxian wenzhangxian">
+                                <img class="caishenpic lala" src="/medias/spring-img/fish.png" />
+                            </div>              
+                        </div>
+                        <span class="card-title">
+                          <!-- 文章卡片hover线条效果 -->
+                          <span class="titlesline"></span>
+                          面向对象
+                        </span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Dart面向对象编程(OOP)是一种将代码组织成对象的编程范式，每个对象都包含数据和行为，类似于现实世界中的实体。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-06-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Dart/" class="post-category">
+                                    Dart
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%B1%BB/">
+                        <span class="chip bg-color">类</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">对象</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BB%A7%E6%89%BF/">
+                        <span class="chip bg-color">继承</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%9A%E6%80%81/">
+                        <span class="chip bg-color">多态</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B0%81%E8%A3%85/">
+                        <span class="chip bg-color">封装</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+<style>
+  .articles .row .article {
+    position: relative;
+  }
+</style>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('1024')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: bsf<br />'
+            + '文章作者: bsf<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- highlight设置，关闭highlight，开启prismjs才生效，好奇怪？？？cdn版本也不能改，一改就会异常！！！ -->
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.0/styles/docco.min.css" rel="stylesheet"> -->
+<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+
+<!-- <script src="https://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<!-- <script src="/js/prism/prism-coy.js" async></script> -->
+<!-- <script src="/js/prism/prism-okaidia.js" async></script> -->
+<!-- <script src="/js/prism/prism-tomorrow.js" async></script> -->
+<!-- <script src="/js/prism/prism-solarizedlight.js" async></script> -->
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">
+                <i class="far fa-list-alt"></i>
+                &nbsp;&nbsp;目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Dart">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Scaffold">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="MaterialApp">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+    
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4, h5, h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5, h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+</main>
+
+
+
+
+    <style>
+  footer {
+    position: relative;
+  }
+
+  .page-footer {
+    padding-top: 23px;
+    padding-bottom: 1px;
+  }
+</style>
+<footer class="page-footer bg-color">
+  
+
+  <div class="container row center-align"
+    style="margin-bottom: 15px !important;">
+    <!-- 访客地图 -->
+    <div class="col s12 m3 l3 social-link" id="visitmap">
+      <!-- <a target="_blank" rel="noopener" href="https://clustrmaps.com/site/1bd51" title="访客地图"><img src="/medias/map-visit.png" /></a> -->
+      <a target="_blank" rel="noopener" href="https://clustrmaps.com/site/1bz3d" title="Visit tracker">
+        <img src="/medias/map-visit.png" />
+      </a>
+    </div>
+    <!-- 版权信息 -->
+    <div class="col s12 m6 l6 copy-right">
+      Copyright&nbsp;&copy;
+      <span id="year">2024</span>&nbsp;
+      <!-- <a href="/about" target="_blank">bsf</a>
+      &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      &nbsp;Theme&nbsp;<a href="https://github.com/nekodeng/hexo-theme-itsneko" target="_blank">itsNeko</a> -->
+      |&nbsp;&nbsp;Powered by&nbsp;<a>bsf</a>
+      <br>
+
+      
+      <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
+      &nbsp;<i class="fas fa-chart-area"></i>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">80.8k</span>&nbsp;字&nbsp;🌼<br>
+      
+      
+      
+      
+      
+      
+      <span id="busuanzi_container_site_pv">
+        <!-- <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp; -->
+        <i class="far"></i>&nbsp;📊 总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次&nbsp;&nbsp;|
+      </span>
+      
+      
+      <span id="busuanzi_container_site_uv">
+        <!-- <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp; -->
+        <i class="fas"></i>&nbsp;总访客数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人&nbsp;📈
+      </span>
+      
+      <br>
+      
+      <span id="sitetime">running time</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2024";
+          var startMonth = "1";
+          var startDate = "1";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+          var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor((diff / days) - diffYears * 365);
+          var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+          var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+            minutes);
+          var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+            diffMinutes * minutes) / seconds);
+          if (startYear == todayYear) {
+            /* document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML = "The site has been running for " + 
+              "<span class= 'white-color'>" + diffDays + "</span>" + " d " + "<span class= 'white-color'>" + diffHours +
+              "</span>" +
+              " h " + "<span class= 'white-color'>" + diffMinutes + "</span>" + " m " + "<span class= 'white-color'>" +
+              diffSeconds + "</span>" + " s"; */
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML = "本站已安全运行 " +
+              "<span class= 'white-color'>" + diffDays + "</span>" + " 天 " + "<span class= 'white-color'>" + diffHours +
+                "</span>" +
+                " 小时 " + "<span class= 'white-color'>" + diffMinutes + "</span>" + " 分钟 " + "<span class= 'white-color'>" +
+                diffSeconds + "</span>" + " 秒";
+          } else {
+            /* document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML = "The site has been running for " +
+              "<span class= 'white-color'>" + diffYears + "</span>" + " years " + "<span class= 'white-color'>" + diffDays +
+              "</span>" +
+              " days " + "<span class= 'white-color'>" + diffHours + "</span>" + " hours " + "<span class= 'white-color'>" +
+              diffMinutes + "</span>" + " minutes " + "<span class= 'white-color'>" + diffSeconds + "</span>" + " seconds"; */
+            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML = "本站已安全运行 " +
+                "<span class= 'white-color'>" + diffYears + "</span>" + " 年 " + "<span class= 'white-color'>" + diffDays +
+                "</span>" +
+                " 天 " + "<span class= 'white-color'>" + diffHours + "</span>" + " 小时 " + "<span class= 'white-color'>" +
+                diffMinutes + "</span>" + " 分钟 " + "<span class= 'white-color'>" + diffSeconds + "</span>" + " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br>
+      
+    </div>
+    <div class="col s12 m3 l3 social-link social-statis"><!--  -->
+
+<!-- 
+    <a href="mailto:Siren1996@qq.com" class="tooltipped" target="_blank" data-tooltip="Siren1996@qq.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+ -->
+
+<!-- 
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2338638343" class="tooltipped" target="_blank" data-tooltip="2338638343" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+ -->
+
+
+    <a href="mailto:Siren1996@qq.com" class="tooltipped" target="_blank" data-tooltip="邮箱：Siren1996@qq.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2338638343" class="tooltipped" target="_blank" data-tooltip="QQ: 2338638343" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="/medias/wechat.png" class="tooltipped" target="_blank" data-tooltip="微信联系我\(￣︶￣*\))" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+</div>
+  </div>
+  <!-- 波浪条waveline -->
+  <div class="wavelinefooter">
+    <style>
+      .wavelinefooter {
+        background: url(/medias/wave.png) 0 0 repeat-x;
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: -3px;
+        background-size: 10px 3px;
+      }
+    </style>
+  </div>
+</footer>
+
+<!-- 底部进度条 -->
+<div class="progress-bar" style="z-index: 999"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<style>
+#searchInput::-webkit-input-placeholder { /* WebKit browsers */ 
+    font-size:16px;
+} 
+#searchInput:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+    font-size:16px;
+} 
+#searchInput::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+    font-size:16px;
+} 
+#searchInput:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+    font-size:16px;
+} 
+#searchInput {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    text-indent: 4px;
+    font-size: 14px;
+}
+</style>
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;站内搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="autofocus" />
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+<!-- 点击搜索按钮后input框自动获取焦点 -->
+
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="javascript(0)">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--动态线条背景-->
+    <script type="text/javascript" color="122 103 158" opacity='0.12' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+    </script>
+ 
+    <script type="text/javascript" src="/js/click_show_text.js"></script>
+    <script src="/js/linkcard.js"></script>
+
+    <script src="/js/activate-power-mode.js"></script>
+    <script>
+        POWERMODE.colorful = true; // make power mode colorful
+        POWERMODE.shake = false; // turn off shake
+        document.body.addEventListener('input', POWERMODE);
+    </script>
+
+    <!-- 百度统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!----------节日判断，进行网站修饰，比如春节圣诞或变灰色的清明等----- -->
+    <script>
+        // 判断今天是哪个节假日或特殊纪念日进行网站修饰，比如春节圣诞或变灰色的清明等
+        var curMonth = new Date().getMonth() + 1;   // 月
+        var curDate = new Date().getDate();         // 日
+        function cancelguajian() {
+            // 判断如果是变灰色的纪念日则将小挂件隐藏
+            var guajianone = document.getElementsByClassName('caishendeng');
+            var guajiantwo = document.getElementsByClassName('labelmz');
+            var guajianthree = document.getElementsByClassName('friendmz');
+            var denglong = document.getElementsByClassName('denglong');
+            for(var i = 0; i < guajianone.length; i++) {
+                guajianone[i].style.display = "none"
+            };
+            for(var j = 0; j < guajiantwo.length; j++) {
+                guajiantwo[j].style.display = "none"
+            }
+            for(var k = 0; k < guajianthree.length; k++) {
+                guajianthree[k].style.display = "none"
+            };
+            for(var x = 0; x < denglong.length; x++) {
+                denglong[x].style.display = "none"
+            };
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            document.getElementById('xiaomaozitx').style.display = "none";
+        }
+        // --------------以下节日为公历，每年固定--------------
+        if(curMonth == 1 && curDate == 1) {
+            // 1月1日为元旦节
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "元旦";
+        }
+        // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
+        else if(curMonth == 5 && curDate == 22) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            document.body.classList.add('dark');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "地震";
+            document.getElementById('dttwo').innerHTML = "袁老";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        else if(curMonth == 9 && curDate == 30) {
+            // 9月30日为全国烈士纪念日，设在国庆前一天
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "缅怀";
+            document.getElementById('dttwo').innerHTML = "烈士";
+            document.getElementById('jinianci').innerHTML = "今天是“ 9月30日 ”，“ 全国烈士纪念日 ”。定为每年的9月30日，正好是国庆前一天，让全国人民永远不要忘记先有无数先烈的前赴后继、奋勇献身，才有我们国家今天的繁荣富强、文明进步。"
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        // 10月1日为国庆节
+        else if(
+          curMonth == 10 && curDate == 1
+          || curMonth == 10 && curDate == 2
+          || curMonth == 10 && curDate == 3
+          || curMonth == 10 && curDate == 4
+          || curMonth == 10 && curDate == 5
+          || curMonth == 10 && curDate == 6
+          || curMonth == 10 && curDate == 7) {
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "欢度";
+            document.getElementById('dttwo').innerHTML = "国庆";
+            document.getElementById('index-video').src = "https://txmov2.a.yximgs.com/upic/2021/09/30/15/BMjAyMTA5MzAxNTE5MDhfMTg1ODk2MDg4N181ODA5MjQ1NDkyMV8xXzM=_b_Bef514871cf947c46c11bc54a3ed3faa9.mp4?pkey=AAWo-kOQESq9j_AMCO-BT6jTPS090PuVHWtyuSQ8cddkgMmI3V-P9uWMDY13QrPuCjtWVbch_01wRcj6Rtm5w0AkLhgVTMSceLLiRYjlWUfLDNNLX3jISKEscl9uNXUnYcM&tag=1-1632986688-xpcwebprofile-0-ongrobirtl-58c917acab52d13f&clientCacheKey=3xajcj9u8fubzm4_b.mp4";
+            document.getElementById('jinianci').style.textAlign = "center";
+            document.getElementById('jinianci').innerHTML = "《 国庆日🚩 》<br> 十月惊雷震九重，国富民强聩耳聋。<br>城头城下聚农工，神州处处花潮涌。<br>而今白鹿奋清风，山长水远不知踪。"
+            document.getElementById('popupbb').style.display = "block"
+            document.getElementById('tujis').style.display = "block";
+            // document.getElementById('fights').style.display = "none";
+        }
+        // 12月13日为国家公祭日
+        else if(curMonth == 12 && curDate == 13) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "国家";
+            document.getElementById('dttwo').innerHTML = "公祭";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 12月13日 ”，南京大屠杀死难者 “ 国家公祭日 ”。国行公祭，法立典章。铸兹宝鼎，祀我国殇。永矢弗谖，祈愿和平。中华圆梦，民族复兴。";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        // 12月25日为圣诞节
+        else if(curMonth == 12 && curDate == 25) {
+            document.body.classList.add('themechris');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "圣诞";
+        }
+        // --------------以下节日为农历，每年不固定，需要手动改（后续看是否可使用API）--------------
+        else if(curMonth == 4 && curDate == 4) {
+            // 2025年4月4日为清明节
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "安康";
+            document.getElementById('dttwo').innerHTML = "清明";
+            document.getElementById('jinianci').innerHTML = "今天是“ 4月4日 ”，“ 清明节 ”，正是郊外踏青春游与行清墓祭的好时节。燕子来时新社，梨花落后清明。"
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        else if(curMonth == 1 && curDate == 28) {
+            // 2025春节除夕为1月28日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "除夕";
+        }
+        else if(curMonth == 1) {
+            // 2025春节为1月29日开始
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "春节";
+        }
+        else if(curMonth == 5 && curDate == 31) {
+            // 2025端午节为5月31日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "安康";
+            document.getElementById('dttwo').innerHTML = "端午";
+        }
+        else if(curMonth == 10 && curDate == 6) {
+            // 2025中秋节为10月6日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "团圆";
+            document.getElementById('dttwo').innerHTML = "中秋";
+        }
+        else {
+            // 平常时间
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "平安";
+            document.getElementById('dttwo').innerHTML = "喜乐";
+        }
+    </script>
+
+    <!-- 实现tab切换点击标题显示下划线和颜色改变效果 -->
+    <script>
+        $(function () {
+            var nowUrl = window.location.href;
+            // 控制台调试，获取不到tagsnet的地址连接
+            // console.log("Current URL:", nowUrl);
+            var homeTab = $('nav ul li a[href="/"] span'),
+                categoriesTab = $('nav ul li a[href="/categories"] span'),
+                tagsTab = $('nav ul li a[href="/tags"] span'),
+                archivesTab = $('nav ul li a[href="/archives"] span'),
+                countTab = $('nav ul li a[href="/count"] span'),
+                tagsnetTab = $('nav ul li a[href="/tagsnet"] span'),
+                aboutTab = $('nav ul li a[href="/about"] span'),
+                galleryTab = $('nav ul li a[href="/gallery"] span'),
+                videosTab = $('nav ul li a[href="/videos"] span'),
+                musicsTab = $('nav ul li a[href="/musics"] span'),
+                booksTab = $('nav ul li a[href="/books"] span'),
+                contactTab = $('nav ul li a[href="/contact"] span'),
+                friendsTab = $('nav ul li a[href="/friends"] span'),
+                collectionTab = $('nav ul li a[href="/collection"] span'),
+                projectTab = $('nav ul li a[href="/project"] span'),
+                donateTab = $('nav ul li a[href="/donate"] span'),
+                ticktackTab = $('nav ul li a[href="/ticktack"] span'),
+                // 获取二级菜单项
+                ArticlesTab = $('nav .nav-menu .nav-item:nth-of-type(2) > a > span'),
+                ListTab = $('nav .nav-menu .nav-item:nth-of-type(4) > a > span'),
+                LinksTab = $('nav .nav-menu .nav-item:nth-of-type(6) > a > span');
+                LaboratoryTab = $('nav .nav-menu .nav-item:nth-of-type(7) > a > span');
+
+            if (nowUrl.indexOf("posts") >= 0) {
+                homeTab.removeClass("aitems")
+            } else if (nowUrl.indexOf("categories") >= 0) {
+                categoriesTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("tags") >= 0) {
+                tagsTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("archives") >= 0) {
+                archivesTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("count") >= 0) {
+                countTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            // } else if (nowUrl.indexOf("tagsnet") >= 0) {
+            } else if (nowUrl.indexOf("tagsnet") >= 0) {
+                tagsnetTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("about") >= 0) {
+                aboutTab.addClass("aitems")
+            } else if (nowUrl.indexOf("gallery") >= 0) {
+                galleryTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("videos") >= 0) {
+                videosTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("musics") >= 0) {
+                musicsTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("books") >= 0) {
+                booksTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("contact") >= 0) {
+                contactTab.addClass("aitems")
+            } else if (nowUrl.indexOf("friends") >= 0) {
+                friendsTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("collection") >= 0) {
+                collectionTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("project") >= 0) {
+                projectTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("donate") >= 0) {
+                donateTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("ticktack") >= 0) {
+                ticktackTab.addClass("aitems")
+                LaboratoryTab.addClass("erjiitems")
+            } else {
+                homeTab.addClass("aitems")
+            }
+        });
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

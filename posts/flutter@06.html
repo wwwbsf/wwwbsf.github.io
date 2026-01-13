@@ -1,0 +1,4543 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="弹窗与轮动图, bsf">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-8VjAnGhv8m" />
+    <meta name="google-site-verification" content="An02eAw6rCWBVutF85tRr02GvZox5D4Pqd9PKFRzvBs" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>弹窗与轮动图 | bsf</title>
+    
+    <script>
+        // 隐藏
+        // 右键
+        // document.oncontextmenu = function (event){
+        //     if(window.event){
+        //     event = window.event;
+        //     }try{
+        //     var the = event.srcElement;
+        //     if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        //     return false;
+        //     }
+        //     return true;
+        //     }catch (e){
+        //     return false;
+        //     }
+        // }
+
+        // debugger部分
+            // setInterval(function() {
+            // check();
+            // }, 500);
+            // var check = function() {
+            //     function doCheck(a) {
+            //     if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+            //         (function() {}['constructor']('debugger')());
+            //     } else {
+            //         (function() {}['constructor']('debugger')());
+            //     }
+            //     doCheck(++a);
+            //     }
+            //     try {
+            //     doCheck(0);
+            //     } catch (err) {}
+            // };
+            // check();
+
+            // ctrl+s保存
+            // document.onkeydown = function() {
+            //     if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+            //         return false;
+            //     }
+            // }
+            // window.addEventListener("keydown", function(e) {
+            //     //可以判断是不是mac，如果是mac,ctrl变为花键
+            //     //event.preventDefault() 方法阻止元素发生默认的行为。
+            //     if((e.key=='s'||e.key=='S')&&(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)){
+            //         e.preventDefault();
+            //     }
+            // }, false);
+            // F12
+            // document.onkeydown = function(){
+            //     if(window.event && window.event.keyCode == 123) {
+            //         event.keyCode=0;
+            //         event.returnValue=false;
+            //     }
+            //     if(window.event && window.event.keyCode == 13) {
+            //         window.event.keyCode = 505;
+            //     }
+            //     if(window.event && window.event.keyCode == 8) {
+            //         window.event.returnValue=false;
+            //     }
+            // }
+        // 宽高
+        // var threshold = 160; // 打开控制台的宽或高阈值  
+        // // 每秒检查一次  
+        // window.setInterval(function() {  
+        //     if (window.outerWidth - window.innerWidth > threshold ||   
+        //     window.outerHeight - window.innerHeight > threshold) {  
+        //         // 如果打开控制台，则刷新页面  
+        //         window.location.reload();  
+        //     }  
+        // }, 1e3);
+
+        // debug调试时跳转页面
+        // var element = new Image();
+        // Object.defineProperty(element,'id',{get:function(){window.location.href="/tenfour/homepage/"}});
+        // console.log(element);
+    </script>
+
+    <!-- <style>
+        /*  @import "/libs/prism/prism-coy.css";
+         @import "/libs/prism/prism-okaidia.css";
+         @import "/libs/prism/prism-solarizedlight.css"; */
+         @import "/libs/prism/prism-tomorrow.css";
+     </style> -->
+    <!-- <link rel="stylesheet" href="/libs/prism/prism.css">
+    <script src="/js/prism/prism.js"></script> -->
+
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"/>
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <!-- <script src="/js/foropensource.js"></script> -->
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+           bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else{
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<!-- 提示：若要开启春节或者圣诞主题样式，直接给body标签添加一个class为
+class="themespring" -->
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 网站全局深色模式设置开始 -->
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+        document.body.classList.add('dark');
+        }
+        //  else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        // document.body.classList.add('dark');
+        // } 
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        }
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
+    </a>
+    <!-- 网站全局深色模式设置结束 -->
+
+    <!-- 网站主题切换模式开始 -->
+    <!-- 中国节日按钮开始 -->
+    <script>
+        if (localStorage.getItem('themespring') === '1') {
+            document.body.classList.add('themespring');
+        }
+        else if (matchMedia('(prefers-color-scheme: themespring)').matches) {
+            document.body.classList.add('themespring');
+        }
+    </script>
+    <div onclick="switchSpringThemes()" id="switchspring">
+        <img class="chunjiepic" src="/medias/spring-img/denglong.png" title="节日主题" />
+    </div>
+    <!-- 中国节日按钮结束  -->
+    <!-- 网站主题切换模式结束 -->
+
+    <!-- header模块开始 -->
+<header class="navbar-fixed" id="header-active">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <!-- 大屏幕下logo字体 -->
+                    <span class="bigwidth">bsf&emsp;</span>
+                    <!-- 小屏幕下logo字体 -->
+                    <span class="smallwidth">bsf&emsp;</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>文章</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/count">
+          
+          <span>统计</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tagsnet">
+          
+          <span>关系网</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>链接库</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/friends">
+          
+          <span>友情链接</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/collection">
+          
+          <span>网址收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/donate">
+          
+          <span>打赏记录</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/ticktack">
+          
+          <span>滴答滴答</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">bsf</div>
+        <div class="logo-desc">
+            
+              光而不耀，静水流深。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			文章
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:50px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:50px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/count " style="margin-left:50px">
+				  
+		          <span>统计</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tagsnet " style="margin-left:50px">
+				  
+		          <span>关系网</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			链接库
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/friends " style="margin-left:50px">
+				  
+		          <span>友情链接</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/collection " style="margin-left:50px">
+				  
+		          <span>网址收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/donate " style="margin-left:50px">
+				  
+		          <span>打赏记录</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/ticktack " style="margin-left:50px">
+				  
+		          <span>滴答滴答</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+        <style>
+          .brand-logo .waves-effect {
+            font-size: 24px;
+            /* font-style: oblique; */
+            /* color: #fadca6; */
+          }
+        </style>
+        
+        <!-- 新增，导航底部波浪线 -->
+        <div class="wavelineheader wavelineshow">
+            <style>
+                .wavelineshow {
+                    background: url(/medias/wave.png) 0 0 repeat-x;
+                    height: 3px;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+                    background-size: 10px 3px;
+                    transform: rotate(180deg);
+                }
+            </style>
+        </div>
+    </nav>
+</header>
+<!-- header模块结束 -->
+
+<!-- 春节主题模式样式开始 -->
+<style>
+    .denglong {
+        display: none;
+    }
+    body.themespring .denglong {
+        display: block;
+    }
+    @media only screen and (min-width: 1124px) {
+        .nav-menu {
+            padding-right: 0px;
+        }
+        body.themespring .nav-menu {
+            padding-right: 96px;
+        }
+    }
+    @media only screen and (max-width: 760px) {
+        .deng-box, .deng-box1 {
+            width: 40%;
+        }
+        /* 点开主题，会影响到移动端的翻页按钮 */
+        /* body.themespring .right {
+            float: left!important;
+        } */
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        /* .right {
+            float: left!important;
+        } */
+    }
+    .deng-box {
+        position: fixed;
+        top: -40px;
+        right: -20px;
+        z-index: 999;
+    }
+    .deng-box1 {
+        position: fixed;
+        top: -30px;
+        right: 10px;
+        z-index: 999;
+    }
+    .deng-box1 .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 5s infinite ease-in-out;
+        box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+    }
+    .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3s infinite ease-in-out;
+        box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+    }
+    .deng-a {
+        width: 100px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: 12px 8px 8px 10px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .deng-b {
+        width: 45px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: -4px 8px 8px 26px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .xian {
+        position: absolute;
+        top: -20px;
+        left: 60px;
+        width: 2px;
+        height: 20px;
+        background: #dc8f03;
+    }
+    .shui-a {
+        position: relative;
+        width: 5px;
+        height: 20px;
+        margin: -5px 0 0 59px;
+        -webkit-animation: swing 4s infinite ease-in-out;
+        -webkit-transform-origin: 50% -45px;
+        background: #ffa500;
+        border-radius: 0 0 5px 5px;
+    }
+    .shui-b {
+        position: absolute;
+        top: 14px;
+        left: -2px;
+        width: 10px;
+        height: 10px;
+        background: #dc8f03;
+        border-radius: 50%;
+    }
+    .shui-c {
+        position: absolute;
+        top: 18px;
+        left: -2px;
+        width: 10px;
+        height: 35px;
+        background: #ffa500;
+        border-radius: 0 0 0 5px;
+    }
+    .deng:before {
+        position: absolute;
+        top: -7px;
+        left: 29px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        z-index: 999;
+        border-radius: 5px 5px 0 0;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    .deng:after {
+        position: absolute;
+        bottom: -7px;
+        left: 10px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        margin-left: 20px;
+        border-radius: 0 0 5px 5px;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    @font-face {
+        font-family: "Aa漫语手写体";
+        src: url('/fonts/Aa漫语手写体.ttf');
+    }
+    .deng-t {
+        font-family: Aa漫语手写体;
+        font-size: 26px;
+        color: #dc8f03;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+    }
+    .night .deng-t,
+    .night .deng-box,
+    .night .deng-box1 {
+        background: transparent !important;
+    }
+    @-moz-keyframes swing {
+        0% {
+                -moz-transform: rotate(-10deg)
+        }
+        50% {
+             -moz-transform: rotate(10deg)
+        }
+        100% {
+                -moz-transform: rotate(-10deg)
+        }
+    }
+    @-webkit-keyframes swing {
+        0% {
+                -webkit-transform: rotate(-10deg)
+        }
+        50% {
+                -webkit-transform: rotate(10deg)
+        }
+        100% {
+                -webkit-transform: rotate(-10deg)
+        }
+    }
+</style>
+<div class="denglong">
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t" id="dtone">喜迎</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t" id="dttwo">春节</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+</div>
+<!-- 春节主题模式样式结束 -->
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/toc-banner/flutter/flutter@06.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">弹窗与轮动图</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+    
+        <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        /* overflow: auto; */
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+    .suibis[data-spmid="随笔"] {
+        width: 100%!important;
+    }
+    .toc-widget[data-spmid="随笔"],
+    #floating-toc-btn[data-spmid="随笔"]
+    {
+        display: none!important;
+    }
+</style>
+
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9 suibis">
+        <style>
+    #switchspring {
+        bottom: 215px!important;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 165px!important;
+        }
+    }
+    #switchchristmas {
+        bottom: 281px!important;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchchristmas {
+            bottom: 235px!important;
+        }
+    }
+    .ititle {
+        margin: 15px 0;
+        text-align:center;
+        font-family: 'Architects Daughter', cursive;
+    }
+    .ipage {
+        line-height: 30px;
+        margin: 0 auto;
+        padding: 15px 32px 29px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
+        -moz-border-radius-bottomleft: 20px 500px;
+        -moz-border-radius-bottomright: 500px 30px;
+        -moz-border-radius-topright: 5px 100px;	
+        -webkit-border-bottom-left-radius: 20px 500px;
+        -webkit-border-bottom-right-radius: 64px 10px;
+        -webkit-border-top-right-radius: 5px 100px;    
+        border-bottom-left-radius: 20px 500px;
+        border-bottom-right-radius: 64px 10px;
+        border-top-right-radius: 5px 100px;           
+        -webkit-background-size: 100% 30px;
+        -moz-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 1px 0 #F6EF97;
+        position: relative;
+    }
+.izhengwen {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: auto;
+    background: repeating-linear-gradient(to bottom, #f9f9f9, #f9f9f9 31px, #6BA2D8 1px, #f9f9f9);
+    background-size: 100% 32px;
+}
+.izhengwen p {
+    letter-spacing: .1rem;
+}
+#articleContent p {
+    margin: 0
+}
+.ititle {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.45rem!important;
+    padding: 10px auto;
+}
+.izhengwen p {
+    position: relative;
+    line-height: 2.2rem!important;
+    text-indent: 2em;
+    font-family: 'Architects Daughter', cursive!important;
+    font-size: 1.45rem!important;
+}
+.ipage::before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    right: 52px;
+    z-index: 4;
+    width: 4px;
+    height: 100%;
+    border-left: 1px solid #fca1a1;
+}
+.izhengwen p:nth-child(odd):before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -16px;
+    z-index: 3;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
+}
+.ipage:after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 52px;
+    z-index: 3;
+    width: 4px;
+    height: 100%;
+    border-left: 4px double #fca1a1;
+}
+.ipage p {
+    padding: 0 2em;
+    color: #333!important;
+}
+body.dark .ipage {
+    opacity: 0.85;
+}
+/*小屏幕下(手机类)的样式*/
+@media only screen and (max-width: 600px) {
+    .ipage {
+        padding: 15px 23px 29px;
+    }
+    .ipage:after {
+        left: 36px;
+    }
+    .ipage::before {
+        right: 36px;    
+    }
+    .ipage p, .ititle {
+        padding: 0 0.9em;
+    }
+
+}
+h3 {
+    font-size: 1.32rem;
+    font-weight: 400;
+    color: #101012;
+    transition: 0.8s;
+    cursor: pointer;
+}
+h3:hover {
+    transform: translateX(15px);
+}
+</style>
+
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">        
+                <div class="guguxian wenzhangxian">
+                    <img class="caishenpic gugus" src="/medias/spring-img/caishen.png" />
+                </div>              
+            </div>
+            <!-- 圣诞按钮 -->
+            <div class="shengdandeng">        
+                <div class="shengdanxian" style="left: 50%;">
+                    <img class="shengdanpic fudai" src="/medias/christmas-img/shengdanren4.png" />
+                </div>              
+            </div>
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Timer/">
+                                <span class="chip bg-color">Timer</span>
+                            </a>
+                        
+                            <a href="/tags/Dialog/">
+                                <span class="chip bg-color">Dialog</span>
+                            </a>
+                        
+                            <a href="/tags/PageView/">
+                                <span class="chip bg-color">PageView</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <!-- <i class="fas fa-bookmark fa-fw icon-category"></i> -->📚
+                        
+                            <a href="/categories/Flutter/" class="post-category">
+                                Flutter
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-12-04
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    43 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <div class="note info">Dialog弹窗，用于显示信息、提示用户或获取用户输入，PageView则是一个可滑动的页面视图，用于展示多页面切换效果。</div>
+
+<h1 id="1-Dialog弹出窗口"><a href="#1-Dialog弹出窗口" class="headerlink" title="1 Dialog弹出窗口"></a>1 Dialog弹出窗口</h1><ul>
+<li>AlertDialog(弹窗提示信息)、SimpleDialog(弹窗选择信息)、showModalBottomSheet(底部弹出窗口)。</li>
+<li>下载包：到pubspec.yaml的<code>dependencies</code>中加入<code>fluttertoast: ^8.2.4</code>，保存后点<code>Pub get</code>下载。</li>
+<li>如果报错，参看：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/71495205/uses-sdkminsdkversion-16-cannot-be-smaller-than-version-19-declared-in-library">uses-sdk:minSdkVersion 16 cannot be smaller than version 19 declared in library</a>。</li>
+</ul>
+<h2 id="1-1-内置的Dialog"><a href="#1-1-内置的Dialog" class="headerlink" title="1-1 内置的Dialog"></a>1-1 内置的Dialog</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart
+    - setting.dart
+    - category.dart
+  - tabs.dart
+  - dialog.dart
+  - routes&#x2F;
+    - routes.dart
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-user-dart"><a href="#1-user-dart" class="headerlink" title="(1) user.dart"></a>(1) user.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class UserPage extends StatefulWidget &#123;
+  const UserPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;UserPage&gt; createState() &#x3D;&gt; _UserPageState();
+&#125;
+
+class _UserPageState extends State&lt;UserPage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return const Center(child: Text(&#39;用户信息&#39;));
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-tabs-dart"><a href="#2-tabs-dart" class="headerlink" title="(2) tabs.dart"></a>(2) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  final int index;
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  late int _currentIndex;
+  @override
+  void initState() &#123;
+    super.initState();
+    _currentIndex &#x3D; widget.index;
+  &#125;
+
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;内置的Dialog&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-main-dart"><a href="#3-main-dart" class="headerlink" title="(3) main.dart"></a>(3) main.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;pages&#x2F;routes&#x2F;routes.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+void main() &#123;
+  runApp(const MyApp());
+&#125;
+
+class MyApp extends StatelessWidget &#123;
+  const MyApp(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return MaterialApp(
+      &#x2F;&#x2F; 去掉右上角debug图标
+      debugShowCheckedModeBanner: false,
+      title: &#39;Flutter Demo&#39;,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        &#x2F;&#x2F; 全局配置主题
+        appBarTheme: const AppBarTheme(
+          &#x2F;&#x2F; 主题标题全部居中显示
+          centerTitle: true,
+        ),
+      ),
+      &#x2F;&#x2F; home: const Tabs(),
+      &#x2F;&#x2F; 初始化路由
+      initialRoute: &#39;&#x2F;&#39;,
+      &#x2F;&#x2F; 固定写法，配置onGenerateRoute
+      onGenerateRoute: onGenerateRoute,
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-home-dart"><a href="#4-home-dart" class="headerlink" title="(4) home.dart"></a>(4) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class HomePage extends StatefulWidget &#123;
+  const HomePage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
+&#125;
+
+class _HomePageState extends State&lt;HomePage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;dialog&#39;);
+            &#125;,
+            child: const Text(&#39;Dialog演示&#39;),
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-dialog-dart"><a href="#5-dialog-dart" class="headerlink" title="(5) dialog.dart"></a>(5) dialog.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+import &#39;package:fluttertoast&#x2F;fluttertoast.dart&#39;;
+
+class DialogPage extends StatefulWidget &#123;
+  const DialogPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;DialogPage&gt; createState() &#x3D;&gt; _DialogPageState();
+&#125;
+
+class _DialogPageState extends State&lt;DialogPage&gt; &#123;
+  void _alertDialog() async &#123;
+    &#x2F;&#x2F; print(&#39;_alertDialog&#39;);
+    var result &#x3D; await showDialog(
+      context: context,
+      builder: (context) &#123;
+        return AlertDialog(
+          title: const Text(&#39;提示信息！&#39;),
+          content: const Text(&#39;您确定要删除吗？&#39;),
+          actions: [
+            TextButton(
+              onPressed: () &#123;
+                print(&#39;OK&#39;);
+                &#x2F;&#x2F; 点击按钮关闭窗口
+                Navigator.of(context).pop(&#39;OK&#39;);
+              &#125;,
+              child: const Text(&#39;确定&#39;),
+            ),
+            TextButton(
+              onPressed: () &#123;
+                print(&#39;Cancel&#39;);
+                &#x2F;&#x2F; 外层result打印信息
+                Navigator.of(context).pop(&#39;Cancel&#39;);
+              &#125;,
+              child: const Text(&#39;取消&#39;),
+            ),
+          ],
+        );
+      &#125;,
+    );
+    print(result);
+  &#125;
+
+  void _simpleDialog() async &#123;
+    &#x2F;&#x2F; barrierDismissible
+    &#x2F;&#x2F; print(&#39;_simpleDialog&#39;);
+    &#x2F;&#x2F; 点灰色背景，弹窗不消失
+    var result &#x3D; await showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) &#123;
+        return SimpleDialog(
+          title: const Text(&#39;请选择语言：&#39;),
+          children: [
+            SimpleDialogOption(
+              &#x2F;&#x2F; Navigator.of().pop()方法一
+              onPressed: () &#123;
+                print(&#39;汉语&#39;);
+                Navigator.of(context).pop(&#39;汉语&#39;);
+              &#125;,
+              child: const Text(&#39;汉语&#39;),
+            ),
+            const Divider(),
+            SimpleDialogOption(
+              &#x2F;&#x2F; Navigator.pop()方法二
+              onPressed: () &#123;
+                print(&#39;英语&#39;);
+                Navigator.pop(context, &#39;英语&#39;);
+              &#125;,
+              child: const Text(&#39;英语&#39;),
+            ),
+            const Divider(),
+            SimpleDialogOption(
+              &#x2F;&#x2F; pop不传第二个参数值返回null
+              onPressed: () &#123;
+                print(&#39;日语&#39;);
+                Navigator.pop(context, &#39;日语&#39;);
+              &#125;,
+              child: const Text(&#39;日语&#39;),
+            ),
+            const Divider(),
+          ],
+        );
+      &#125;,
+    );
+    print(&#39;----&#39;);
+    print(result);
+  &#125;
+
+  void _modelBottomSheet() async &#123;
+    &#x2F;&#x2F; print(&#39;_modelBottomSheet&#39;);
+    var result &#x3D; await showModalBottomSheet(
+      context: context,
+      builder: (context) &#123;
+        return SizedBox(
+          height: 200,
+          child: Column(
+            children: [
+              ListTile(
+                title: const Text(&#39;分享&#39;),
+                onTap: () &#123;
+                  print(&#39;分享&#39;);
+                  Navigator.pop(context, &#39;分享&#39;);
+                &#125;,
+              ),
+              const Divider(),
+              ListTile(
+                title: const Text(&#39;收藏&#39;),
+                onTap: () &#123;
+                  print(&#39;收藏&#39;);
+                  Navigator.pop(context, &#39;收藏&#39;);
+                &#125;,
+              ),
+              const Divider(),
+              ListTile(
+                title: const Text(&#39;取消&#39;),
+                onTap: () &#123;
+                  print(&#39;取消&#39;);
+                  Navigator.pop(context, &#39;取消&#39;);
+                &#125;,
+              ),
+            ],
+          ),
+        );
+      &#125;,
+    );
+    print(&#39;****&#39;);
+    print(result);
+  &#125;
+
+  void _toast() &#123;
+    &#x2F;&#x2F; print(&#39;_toast&#39;);
+    &#x2F;&#x2F; 使用该功能，需要重新flutter run
+    Fluttertoast.showToast(
+      msg: &#39;提示信息&#39;,
+      &#x2F;&#x2F; 值针对Android平台，1秒消失
+      toastLength: Toast.LENGTH_SHORT,
+      &#x2F;&#x2F; 5秒消失
+      &#x2F;&#x2F; toastLength: Toast.LENGTH_LONG,
+      &#x2F;&#x2F; 调整方位
+      gravity: ToastGravity.TOP,
+      &#x2F;&#x2F; 提示时间，针对iOS和Web
+      timeInSecForIosWeb: 1,
+      &#x2F;&#x2F; 背景颜色
+      backgroundColor: Colors.black,
+      &#x2F;&#x2F; 文本颜色
+      textColor: Colors.white,
+      &#x2F;&#x2F; 文本字体大小
+      fontSize: 16.0,
+    );
+  &#125;
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;Dialog&#39;)),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: &lt;Widget&gt;[
+            ElevatedButton(
+              onPressed: _alertDialog,
+              child: const Text(&#39;弹窗提示信息：AlertDialog&#39;),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _simpleDialog,
+              child: const Text(&#39;弹窗选择信息：SimpleDialog&#39;),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _modelBottomSheet,
+              child: const Text(&#39;底部弹窗：showModalBottomSheet&#39;),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(onPressed: _toast, child: const Text(&#39;Toast&#39;)),
+          ],
+        ),
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="6-routes-dart"><a href="#6-routes-dart" class="headerlink" title="(6) routes.dart"></a>(6) routes.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;tabs.dart&#39;;
+import &#39;..&#x2F;dialog.dart&#39;;
+&#x2F;&#x2F; 配置iOS风格的路由，引入库
+import &#39;package:flutter&#x2F;cupertino.dart&#39;;
+&#x2F;&#x2F; import &#39;package:flutter&#x2F;material.dart&#39;;
+
+&#x2F;&#x2F; 定义一个Map类型的路由
+Map routes &#x3D; &#123;
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;dialog&#39;: (context) &#x3D;&gt; const DialogPage(),
+&#125;;
+
+&#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
+&#x2F;&#x2F; ignore: prefer_function_declarations_over_variables
+var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
+  &#x2F;&#x2F; 统一处理
+  final String? name &#x3D; settings.name;
+  final Function? pageContentBuilder &#x3D; routes[name];
+  if (pageContentBuilder !&#x3D; null) &#123;
+    if (settings.arguments !&#x3D; null) &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      &#x2F;&#x2F; 替换MaterialPageRoute
+      final Route route &#x3D; CupertinoPageRoute(
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
+      );
+      return route;
+    &#125; else &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      final Route route &#x3D; CupertinoPageRoute(
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
+      );
+      return route;
+    &#125;
+  &#125;
+  return null;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="7-setting-dart"><a href="#7-setting-dart" class="headerlink" title="(7) setting.dart"></a>(7) setting.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class SettingPage extends StatefulWidget &#123;
+  const SettingPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;SettingPage&gt; createState() &#x3D;&gt; _SettingPageState();
+&#125;
+
+class _SettingPageState extends State&lt;SettingPage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return const Center(child: Text(&#39;系统设置&#39;));
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-category-dart"><a href="#8-category-dart" class="headerlink" title="(8) category.dart"></a>(8) category.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class CategoryPage extends StatefulWidget &#123;
+  const CategoryPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;CategoryPage&gt; createState() &#x3D;&gt; _CategoryPageState();
+&#125;
+
+class _CategoryPageState extends State&lt;CategoryPage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return const Center(child: Text(&#39;分类页面&#39;));
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-2-自定义Dialog"><a href="#1-2-自定义Dialog" class="headerlink" title="1-2 自定义Dialog"></a>1-2 自定义Dialog</h2><ul>
+<li>自定义Dialog需继承Dialog类，它所提供的child用于编写视图界面，可能达不到想要的效果。</li>
+<li>因为默认的Dialog背景框是满屏展示的，如果想要完全自定义界面，就必须得重写build函数。</li>
+</ul>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“内置的Dialog”代码，新增myDialog.dart
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart
+    - setting.dart
+    - category.dart
+  - tabs.dart【🖊】
+  - dialog.dart【🖊】
+  - routes&#x2F;
+    - routes.dart
+  - widget&#x2F;
+    - myDialog.dart【+】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-tabs-dart"><a href="#1-tabs-dart" class="headerlink" title="(1) tabs.dart"></a>(1) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  final int index;
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  late int _currentIndex;
+  @override
+  void initState() &#123;
+    super.initState();
+    _currentIndex &#x3D; widget.index;
+  &#125;
+
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;自定义Dialog&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-dialog-dart"><a href="#2-dialog-dart" class="headerlink" title="(2) dialog.dart"></a>(2) dialog.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;widget&#x2F;myDialog.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class DialogPage extends StatefulWidget &#123;
+  const DialogPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;DialogPage&gt; createState() &#x3D;&gt; _DialogPageState();
+&#125;
+
+class _DialogPageState extends State&lt;DialogPage&gt; &#123;
+  void _myDialog() async &#123;
+    &#x2F;&#x2F; print(&#39;_myDialog&#39;);
+    var result &#x3D; await showDialog(
+      &#x2F;&#x2F; 点灰色背景，弹窗不消失
+      barrierDismissible: false,
+      context: context,
+      builder: (context) &#123;
+        return MyDialog(
+          title: &#39;提示！&#39;,
+          content:
+              &#39;采采流水，蓬蓬远春。窈窕深谷，时见美人。\n&#39;
+              &#39;碧桃满树，风日水滨。柳阴路曲，流莺比邻。\n&#39;
+              &#39;乘之愈往，识之愈真。如将不尽，与古为新。&#39;,
+          opTap: () &#123;
+            print(&#39;关闭&#39;);
+            Navigator.of(context).pop(&#39;关闭按钮事件&#39;);
+          &#125;,
+        );
+      &#125;,
+    );
+    print(result);
+  &#125;
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;Dialog&#39;)),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: &lt;Widget&gt;[
+            ElevatedButton(
+              &#x2F;&#x2F; 不加括号表示注册方法
+              onPressed: _myDialog,
+              &#x2F;&#x2F; 加括号表示调用方法
+              &#x2F;&#x2F; onPressed: _myDialog(),
+              child: const Text(&#39;自定义Dialog&#39;),
+            ),
+          ],
+        ),
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-myDialog-dart"><a href="#3-myDialog-dart" class="headerlink" title="(3) myDialog.dart"></a>(3) myDialog.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+&#x2F;&#x2F; 继承Dialog类
+class MyDialog extends Dialog &#123;
+  &#x2F;&#x2F; 外部传值设置
+  final String title;
+  final String content;
+  final Function()? opTap;
+
+  const MyDialog(&#123;
+    Key? key,
+    required this.title,
+    required this.content,
+    required this.opTap,
+  &#125;) : super(key: key);
+
+  @override
+  &#x2F;&#x2F; 实现build方法
+  Widget build(BuildContext context) &#123;
+    return Material(
+      &#x2F;&#x2F; 设置背景透明
+      type: MaterialType.transparency,
+      &#x2F;&#x2F; 用于包裹组件，否则全屏展示
+      child: Center(
+        child: Container(
+          height: 200,
+          width: 320,
+          color: Colors.white,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(title, style: const TextStyle(fontSize: 18)),
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      &#x2F;&#x2F; child: Icon(Icons.close),
+                      child: InkWell(
+                        child: const Icon(Icons.close),
+                        &#x2F;&#x2F; onTap: () &#123;print(&#39;close&#39;); Navigator.pop(context);&#125;,
+                        onTap: opTap,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(),
+              Container(
+                padding: const EdgeInsets.all(20),
+                width: double.infinity,
+                child: Text(content, style: const TextStyle(fontSize: 13)),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="2-PageView的使用"><a href="#2-PageView的使用" class="headerlink" title="2 PageView的使用"></a>2 PageView的使用</h1><ul>
+<li>Flutter中的轮动图以及上下滑页切换视频功能等，都可以通过PageView实现。</li>
+<li>常见属性<ul>
+<li>children(配置子元素)、scrollDirection(Axis.horizonta水平方向，Axis.vertical垂直方向)。</li>
+<li>onPageChanged(page改变的时候触发)、allowImpLicitScrolling(缓存当前页面的前后两页)。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“内置的Dialog”代码
+# 新增pageView.dart，去掉dialog.dart
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart【🖊】
+    - setting.dart
+    - category.dart
+  - tabs.dart【🖊】
+  - pageView.dart【+】
+  - routes&#x2F;
+    - routes.dart【🖊】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-1-tabs-dart"><a href="#2-1-tabs-dart" class="headerlink" title="2-1 tabs.dart"></a>2-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  final int index;
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  late int _currentIndex;
+  @override
+  void initState() &#123;
+    super.initState();
+    _currentIndex &#x3D; widget.index;
+  &#125;
+
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;PageView的使用&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-2-home-dart"><a href="#2-2-home-dart" class="headerlink" title="2-2 home.dart"></a>2-2 home.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class HomePage extends StatefulWidget &#123;
+  const HomePage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
+&#125;
+
+class _HomePageState extends State&lt;HomePage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;pageView&#39;);
+            &#125;,
+            child: const Text(&#39;PageView演示&#39;),
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-3-routes-dart"><a href="#2-3-routes-dart" class="headerlink" title="2-3 routes.dart"></a>2-3 routes.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;tabs.dart&#39;;
+import &#39;..&#x2F;pageView.dart&#39;;
+&#x2F;&#x2F; 配置iOS风格的路由，引入库
+import &#39;package:flutter&#x2F;cupertino.dart&#39;;
+&#x2F;&#x2F; import &#39;package:flutter&#x2F;material.dart&#39;;
+
+&#x2F;&#x2F; 定义一个Map类型的路由
+Map routes &#x3D; &#123;
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;pageView&#39;: (context) &#x3D;&gt; const PageViewPage(),
+&#125;;
+
+&#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
+&#x2F;&#x2F; ignore: prefer_function_declarations_over_variables
+var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
+  &#x2F;&#x2F; 统一处理
+  final String? name &#x3D; settings.name;
+  final Function? pageContentBuilder &#x3D; routes[name];
+  if (pageContentBuilder !&#x3D; null) &#123;
+    if (settings.arguments !&#x3D; null) &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      &#x2F;&#x2F; 替换MaterialPageRoute
+      final Route route &#x3D; CupertinoPageRoute(
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
+      );
+      return route;
+    &#125; else &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      final Route route &#x3D; CupertinoPageRoute(
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
+      );
+      return route;
+    &#125;
+  &#125;
+  return null;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-4-pageView-dart"><a href="#2-4-pageView-dart" class="headerlink" title="2-4 pageView.dart"></a>2-4 pageView.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class PageViewPage extends StatefulWidget &#123;
+  const PageViewPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;PageViewPage&gt; createState() &#x3D;&gt; _PageViewPageState();
+&#125;
+
+class _PageViewPageState extends State&lt;PageViewPage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;屏幕标题&#39;)),
+      body: PageView(
+        &#x2F;&#x2F; 配置PageView垂直滑动，默认滑动方向是水平滑动
+        scrollDirection: Axis.vertical,
+        children: [
+          Center(
+            child: Text(
+              &#39;第1屏&#39;,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          ),
+          Center(
+            child: Text(
+              &#39;第2屏&#39;,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          ),
+          Center(
+            child: Text(
+              &#39;第3屏&#39;,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          ),
+          Center(
+            child: Text(
+              &#39;第4屏&#39;,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          ),
+          Center(
+            child: Text(
+              &#39;第5屏&#39;,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          ),
+          Center(
+            child: Text(
+              &#39;第6屏&#39;,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          ),
+          Center(
+            child: Text(
+              &#39;第7屏&#39;,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="3-PageView-builder"><a href="#3-PageView-builder" class="headerlink" title="3 PageView.builder"></a>3 PageView.builder</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“内置的Dialog”代码
+# 新增pageViewBuilder.dart，去掉dialog.dart
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart【🖊】
+    - setting.dart
+    - category.dart
+  - tabs.dart【🖊】
+  - pageViewBuilder.dart【+】
+  - routes&#x2F;
+    - routes.dart【🖊】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-1-tabs-dart"><a href="#3-1-tabs-dart" class="headerlink" title="3-1 tabs.dart"></a>3-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  final int index;
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  late int _currentIndex;
+  @override
+  void initState() &#123;
+    super.initState();
+    _currentIndex &#x3D; widget.index;
+  &#125;
+
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;PageView.builder&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-2-home-dart"><a href="#3-2-home-dart" class="headerlink" title="3-2 home.dart"></a>3-2 home.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class HomePage extends StatefulWidget &#123;
+  const HomePage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
+&#125;
+
+class _HomePageState extends State&lt;HomePage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;pageViewBuilder&#39;);
+            &#125;,
+            child: const Text(&#39;PageViewBuilder演示&#39;),
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-3-routes-dart"><a href="#3-3-routes-dart" class="headerlink" title="3-3 routes.dart"></a>3-3 routes.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;tabs.dart&#39;;
+import &#39;..&#x2F;pageViewBuilder.dart&#39;;
+&#x2F;&#x2F; 配置iOS风格的路由，引入库
+import &#39;package:flutter&#x2F;cupertino.dart&#39;;
+&#x2F;&#x2F; import &#39;package:flutter&#x2F;material.dart&#39;;
+
+&#x2F;&#x2F; 定义一个Map类型的路由
+Map routes &#x3D; &#123;
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;pageViewBuilder&#39;: (context) &#x3D;&gt; const PageViewBuilderPage(),
+&#125;;
+
+&#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
+&#x2F;&#x2F; ignore: prefer_function_declarations_over_variables
+var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
+  &#x2F;&#x2F; 统一处理
+  final String? name &#x3D; settings.name;
+  final Function? pageContentBuilder &#x3D; routes[name];
+  if (pageContentBuilder !&#x3D; null) &#123;
+    if (settings.arguments !&#x3D; null) &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      &#x2F;&#x2F; 替换MaterialPageRoute
+      final Route route &#x3D; CupertinoPageRoute(
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
+      );
+      return route;
+    &#125; else &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      final Route route &#x3D; CupertinoPageRoute(
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
+      );
+      return route;
+    &#125;
+  &#125;
+  return null;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-4-pageViewBuilder-dart"><a href="#3-4-pageViewBuilder-dart" class="headerlink" title="3-4 pageViewBuilder.dart"></a>3-4 pageViewBuilder.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class PageViewBuilderPage extends StatefulWidget &#123;
+  const PageViewBuilderPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;PageViewBuilderPage&gt; createState() &#x3D;&gt; _PageViewBuilderPageState();
+&#125;
+
+class _PageViewBuilderPageState extends State&lt;PageViewBuilderPage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;屏幕标题&#39;)),
+      body: PageView.builder(
+        &#x2F;&#x2F; 垂直
+        scrollDirection: Axis.vertical,
+        itemCount: 10,
+        itemBuilder: (context, index) &#123;
+          return Center(
+            child: Text(
+              &#39;第$&#123;index + 1&#125;层&#39;,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+          );
+        &#125;,
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="4-实现上拉无限加载"><a href="#4-实现上拉无限加载" class="headerlink" title="4 实现上拉无限加载"></a>4 实现上拉无限加载</h1><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“内置的Dialog”代码
+# 新增pageViewFullPage.dart，去掉dialog.dart
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart【🖊】
+    - setting.dart
+    - category.dart
+  - tabs.dart【🖊】
+  - pageViewFullPage.dart【+】
+  - routes&#x2F;
+    - routes.dart【🖊】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-1-tabs-dart"><a href="#4-1-tabs-dart" class="headerlink" title="4-1 tabs.dart"></a>4-1 tabs.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  final int index;
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  late int _currentIndex;
+  @override
+  void initState() &#123;
+    super.initState();
+    _currentIndex &#x3D; widget.index;
+  &#125;
+
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;实现上拉无限加载&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-2-home-dart"><a href="#4-2-home-dart" class="headerlink" title="4-2 home.dart"></a>4-2 home.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class HomePage extends StatefulWidget &#123;
+  const HomePage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
+&#125;
+
+class _HomePageState extends State&lt;HomePage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;pageViewFullPage&#39;);
+            &#125;,
+            child: const Text(&#39;PageView上拉无限加载演示&#39;),
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-3-routes-dart"><a href="#4-3-routes-dart" class="headerlink" title="4-3 routes.dart"></a>4-3 routes.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;tabs.dart&#39;;
+import &#39;..&#x2F;pageViewFullPage.dart&#39;;
+&#x2F;&#x2F; 配置iOS风格的路由，引入库
+import &#39;package:flutter&#x2F;cupertino.dart&#39;;
+&#x2F;&#x2F; import &#39;package:flutter&#x2F;material.dart&#39;;
+
+&#x2F;&#x2F; 定义一个Map类型的路由
+Map routes &#x3D; &#123;
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;pageViewFullPage&#39;: (context) &#x3D;&gt; const PageViewFullPage(),
+&#125;;
+
+&#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
+&#x2F;&#x2F; ignore: prefer_function_declarations_over_variables
+var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
+  &#x2F;&#x2F; 统一处理
+  final String? name &#x3D; settings.name;
+  final Function? pageContentBuilder &#x3D; routes[name];
+  if (pageContentBuilder !&#x3D; null) &#123;
+    if (settings.arguments !&#x3D; null) &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      &#x2F;&#x2F; 替换MaterialPageRoute
+      final Route route &#x3D; CupertinoPageRoute(
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
+      );
+      return route;
+    &#125; else &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      final Route route &#x3D; CupertinoPageRoute(
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
+      );
+      return route;
+    &#125;
+  &#125;
+  return null;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-4-pageViewFullPage-dart"><a href="#4-4-pageViewFullPage-dart" class="headerlink" title="4-4 pageViewFullPage.dart"></a>4-4 pageViewFullPage.dart</h2><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class PageViewFullPage extends StatefulWidget &#123;
+  const PageViewFullPage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;PageViewFullPage&gt; createState() &#x3D;&gt; _PageViewFullPageState();
+&#125;
+
+class _PageViewFullPageState extends State&lt;PageViewFullPage&gt; &#123;
+  List&lt;Widget&gt; list &#x3D; [];
+
+  @override
+  void initState() &#123;
+    super.initState();
+    for (var i &#x3D; 0; i &lt; 10; i++) &#123;
+      list.add(
+        Center(child: Text(&#39;第$&#123;i + 1&#125;屏&#39;, style: const TextStyle(fontSize: 60))),
+      );
+    &#125;
+  &#125;
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;屏幕标题&#39;)),
+      body: PageView(
+        scrollDirection: Axis.vertical,
+        onPageChanged: (index) &#123;
+          print(index);
+          if (index + 2 &#x3D;&#x3D; list.length) &#123;
+            setState(() &#123;
+              for (var i &#x3D; 0; i &lt; 10; i++) &#123;
+                list.add(
+                  Center(
+                    child: Text(
+                      &#39;第$&#123;i + 1&#125;屏&#39;,
+                      style: const TextStyle(fontSize: 60),
+                    ),
+                  ),
+                );
+              &#125;
+            &#125;);
+          &#125;
+        &#125;,
+        children: list,
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="5-实现图片无限轮播"><a href="#5-实现图片无限轮播" class="headerlink" title="5 实现图片无限轮播"></a>5 实现图片无限轮播</h1><ul>
+<li>Flutter中实现一个带有自动轮播功能的图片无限轮播组件，通常需要用到以下方法。</li>
+<li><code>PageView.builder</code>构造页面列表，支持手势滑动，足够大的初始页码<code>initialPage</code>来模拟无限加载。</li>
+<li>取模运算循环显示图片，<code>PageController.animateToPage</code>控制页面切换，配合定时器实现自动换页。</li>
+<li><code>Timer.periodic</code>则用于定时触发页面自动切换。</li>
+</ul>
+<h2 id="5-1-实现图片手动轮播"><a href="#5-1-实现图片手动轮播" class="headerlink" title="5-1 实现图片手动轮播"></a>5-1 实现图片手动轮播</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“内置的Dialog”代码
+# 新增pageViewSwiper.dart、image.dart，去掉dialog.dart
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart【🖊】
+    - setting.dart
+    - category.dart
+  - tabs.dart【🖊】
+  - pageViewSwiper.dart【+】
+  - routes&#x2F;
+    - routes.dart【🖊】
+  - widget&#x2F;
+    - image.dart【+】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-tabs-dart-1"><a href="#1-tabs-dart-1" class="headerlink" title="(1) tabs.dart"></a>(1) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  final int index;
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  late int _currentIndex;
+  @override
+  void initState() &#123;
+    super.initState();
+    _currentIndex &#x3D; widget.index;
+  &#125;
+
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;实现图片无限轮播&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-home-dart"><a href="#2-home-dart" class="headerlink" title="(2) home.dart"></a>(2) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class HomePage extends StatefulWidget &#123;
+  const HomePage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
+&#125;
+
+class _HomePageState extends State&lt;HomePage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;pageViewSwiper&#39;);
+            &#125;,
+            child: const Text(&#39;PageViewSwiper&#39;),
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-image-dart"><a href="#3-image-dart" class="headerlink" title="(3) image.dart"></a>(3) image.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class ImagePage extends StatelessWidget &#123;
+  final double width;
+  final double height;
+  final String src;
+
+  const ImagePage(&#123;
+    Key? key,
+    this.width &#x3D; double.infinity,
+    this.height &#x3D; 200,
+    required this.src,
+  &#125;) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Image.network(src, fit: BoxFit.cover),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-routes-dart"><a href="#4-routes-dart" class="headerlink" title="(4) routes.dart"></a>(4) routes.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;tabs.dart&#39;;
+import &#39;..&#x2F;pageViewSwiper.dart&#39;;
+&#x2F;&#x2F; 配置iOS风格的路由，引入库
+import &#39;package:flutter&#x2F;cupertino.dart&#39;;
+&#x2F;&#x2F; import &#39;package:flutter&#x2F;material.dart&#39;;
+
+&#x2F;&#x2F; 定义一个Map类型的路由
+Map routes &#x3D; &#123;
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;pageViewSwiper&#39;: (context) &#x3D;&gt; const PageViewSwiper(),
+&#125;;
+
+&#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
+&#x2F;&#x2F; ignore: prefer_function_declarations_over_variables
+var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
+  &#x2F;&#x2F; 统一处理
+  final String? name &#x3D; settings.name;
+  final Function? pageContentBuilder &#x3D; routes[name];
+  if (pageContentBuilder !&#x3D; null) &#123;
+    if (settings.arguments !&#x3D; null) &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      &#x2F;&#x2F; 替换MaterialPageRoute
+      final Route route &#x3D; CupertinoPageRoute(
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
+      );
+      return route;
+    &#125; else &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      final Route route &#x3D; CupertinoPageRoute(
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
+      );
+      return route;
+    &#125;
+  &#125;
+  return null;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-pageViewSwiper-dart"><a href="#5-pageViewSwiper-dart" class="headerlink" title="(5) pageViewSwiper.dart"></a>(5) pageViewSwiper.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;widget&#x2F;image.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class PageViewSwiper extends StatefulWidget &#123;
+  const PageViewSwiper(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;PageViewSwiper&gt; createState() &#x3D;&gt; _PageViewSwiperState();
+&#125;
+
+class _PageViewSwiperState extends State&lt;PageViewSwiper&gt; &#123;
+  List&lt;Widget&gt; list &#x3D; [];
+  int _currentIndex &#x3D; 0;
+
+  @override
+  void initState() &#123;
+    super.initState();
+    list &#x3D; const [
+      ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rq&#39;),
+      ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rr&#39;),
+      ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rs&#39;),
+      ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rt&#39;),
+      ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Ru&#39;),
+      ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rv&#39;),
+    ];
+  &#125;
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;PageViewSwiper&#39;)),
+      body: Stack(
+        children: [
+          SizedBox(
+            height: 630,
+            child: PageView.builder(
+              onPageChanged: (index) &#123;
+                &#x2F;&#x2F; 刚开始   _currentIndex&#x3D;0
+                setState(() &#123;
+                  &#x2F;&#x2F; index&#x3D;1---1 ... index&#x3D;6---0
+                  _currentIndex &#x3D; index % list.length;
+                &#125;);
+              &#125;,
+              itemCount: 1000,
+              &#x2F;&#x2F; index值为0-1000
+              itemBuilder: (context, index) &#123;
+                return list[index % list.length];
+              &#125;,
+            ),
+          ),
+          Positioned(
+            &#x2F;&#x2F; left和right为0，占满整行
+            left: 0,
+            right: 0,
+            bottom: 2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:
+                  List.generate(list.length, (index) &#123;
+                    return Container(
+                      margin: const EdgeInsets.all(5),
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color:
+                            _currentIndex &#x3D;&#x3D; index ? Colors.white : Colors.grey,
+                        &#x2F;&#x2F; 同borderRadius
+                        shape: BoxShape.circle,
+                        &#x2F;&#x2F; borderRadius: BorderRadius.circular(5),
+                      ),
+                    );
+                  &#125;).toList(),
+            ),
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-2-Flutter实现定时器"><a href="#5-2-Flutter实现定时器" class="headerlink" title="5-2 Flutter实现定时器"></a>5-2 Flutter实现定时器</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“内置的Dialog”代码
+# 新增pageViewSwiper.dart、swiper.dart，去掉dialog.dart
+# 创建定时器每3秒打印一次，图片手动翻页效果
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart【🖊】
+    - setting.dart
+    - category.dart
+  - tabs.dart【🖊】
+  - pageViewSwiper.dart【+】
+  - routes&#x2F;
+    - routes.dart【🖊】
+  - widget&#x2F;
+    - swiper.dart【+】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-tabs-dart-2"><a href="#1-tabs-dart-2" class="headerlink" title="(1) tabs.dart"></a>(1) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  final int index;
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  late int _currentIndex;
+  @override
+  void initState() &#123;
+    super.initState();
+    _currentIndex &#x3D; widget.index;
+  &#125;
+
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;Flutter实现定时器&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-home-dart-1"><a href="#2-home-dart-1" class="headerlink" title="(2) home.dart"></a>(2) home.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class HomePage extends StatefulWidget &#123;
+  const HomePage(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;HomePage&gt; createState() &#x3D;&gt; _HomePageState();
+&#125;
+
+class _HomePageState extends State&lt;HomePage&gt; &#123;
+  @override
+  Widget build(BuildContext context) &#123;
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () &#123;
+              Navigator.pushNamed(context, &#39;&#x2F;pageViewSwiper&#39;);
+            &#125;,
+            child: const Text(&#39;PageViewSwiper&#39;),
+          ),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-routes-dart"><a href="#3-routes-dart" class="headerlink" title="(3) routes.dart"></a>(3) routes.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;..&#x2F;tabs.dart&#39;;
+import &#39;..&#x2F;pageViewSwiper.dart&#39;;
+&#x2F;&#x2F; 配置iOS风格的路由，引入库
+import &#39;package:flutter&#x2F;cupertino.dart&#39;;
+&#x2F;&#x2F; import &#39;package:flutter&#x2F;material.dart&#39;;
+
+&#x2F;&#x2F; 定义一个Map类型的路由
+Map routes &#x3D; &#123;
+  &#39;&#x2F;&#39;: (context) &#x3D;&gt; const Tabs(),
+  &#39;&#x2F;pageViewSwiper&#39;: (context) &#x3D;&gt; const PageViewSwiper(),
+&#125;;
+
+&#x2F;&#x2F; 配置onGenerateRoute，固定写法，该方法相当于一个中间件，可以做权限判断
+&#x2F;&#x2F; ignore: prefer_function_declarations_over_variables
+var onGenerateRoute &#x3D; (RouteSettings settings) &#123;
+  &#x2F;&#x2F; 统一处理
+  final String? name &#x3D; settings.name;
+  final Function? pageContentBuilder &#x3D; routes[name];
+  if (pageContentBuilder !&#x3D; null) &#123;
+    if (settings.arguments !&#x3D; null) &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      &#x2F;&#x2F; 替换MaterialPageRoute
+      final Route route &#x3D; CupertinoPageRoute(
+        builder:
+            (context) &#x3D;&gt;
+                pageContentBuilder(context, arguments: settings.arguments),
+      );
+      return route;
+    &#125; else &#123;
+      &#x2F;&#x2F; final Route route &#x3D; MaterialPageRoute(
+      final Route route &#x3D; CupertinoPageRoute(
+        builder: (context) &#x3D;&gt; pageContentBuilder(context),
+      );
+      return route;
+    &#125;
+  &#125;
+  return null;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-swiper-dart"><a href="#4-swiper-dart" class="headerlink" title="(4) swiper.dart"></a>(4) swiper.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Swiper extends StatefulWidget &#123;
+  final double width;
+  final double height;
+  final List&lt;String&gt; list;
+  const Swiper(&#123;
+    Key? key,
+    this.width &#x3D; double.infinity,
+    this.height &#x3D; 200,
+    required this.list,
+  &#125;) : super(key: key);
+
+  @override
+  State&lt;Swiper&gt; createState() &#x3D;&gt; _SwiperState();
+&#125;
+
+class _SwiperState extends State&lt;Swiper&gt; &#123;
+  int _currentIndex &#x3D; 0;
+  List&lt;Widget&gt; pageList &#x3D; [];
+
+  @override
+  void initState() &#123;
+    super.initState();
+    for (var i &#x3D; 0; i &lt; widget.list.length; i++) &#123;
+      pageList.add(
+        ImagePage(
+          width: widget.width,
+          height: widget.height,
+          src: widget.list[i],
+        ),
+      );
+    &#125;
+  &#125;
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Stack(
+      children: [
+        SizedBox(
+          height: 605,
+          child: PageView.builder(
+            onPageChanged: (index) &#123;
+              &#x2F;&#x2F; 刚开始   _currentIndex&#x3D;0
+              setState(() &#123;
+                &#x2F;&#x2F; index&#x3D;1---1 ... index&#x3D;6---0
+                _currentIndex &#x3D; index % pageList.length;
+              &#125;);
+            &#125;,
+            itemCount: 1000,
+            &#x2F;&#x2F; index值为0-1000
+            itemBuilder: (context, index) &#123;
+              return pageList[index % pageList.length];
+            &#125;,
+          ),
+        ),
+        Positioned(
+          &#x2F;&#x2F; left和right为0，占满整行
+          left: 0,
+          right: 0,
+          bottom: 2,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:
+                List.generate(pageList.length, (index) &#123;
+                  return Container(
+                    margin: const EdgeInsets.all(5),
+                    width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      color:
+                          _currentIndex &#x3D;&#x3D; index ? Colors.white : Colors.grey,
+                      &#x2F;&#x2F; 同borderRadius
+                      shape: BoxShape.circle,
+                      &#x2F;&#x2F; borderRadius: BorderRadius.circular(5),
+                    ),
+                  );
+                &#125;).toList(),
+          ),
+        ),
+      ],
+    );
+  &#125;
+&#125;
+
+class ImagePage extends StatelessWidget &#123;
+  final double width;
+  final double height;
+  final String src;
+  const ImagePage(&#123;
+    Key? key,
+    this.width &#x3D; double.infinity,
+    this.height &#x3D; 200,
+    required this.src,
+  &#125;) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Image.network(src, fit: BoxFit.cover),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-pageViewSwiper-dart-1"><a href="#5-pageViewSwiper-dart-1" class="headerlink" title="(5) pageViewSwiper.dart"></a>(5) pageViewSwiper.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;dart:async&#39;;
+import &#39;.&#x2F;widget&#x2F;swiper.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class PageViewSwiper extends StatefulWidget &#123;
+  const PageViewSwiper(&#123;Key? key&#125;) : super(key: key);
+
+  @override
+  State&lt;PageViewSwiper&gt; createState() &#x3D;&gt; _PageViewSwiperState();
+&#125;
+
+class _PageViewSwiperState extends State&lt;PageViewSwiper&gt; &#123;
+  &#x2F;&#x2F; List&lt;Widget&gt; list&#x3D;[];
+  List&lt;String&gt; list &#x3D; [];
+
+  @override
+  void initState() &#123;
+    super.initState();
+    list &#x3D; const [
+      &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rq&#39;, &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rr&#39;,
+      &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rs&#39;, &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rt&#39;,
+      &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Ru&#39;, &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rv&#39;,
+      &#x2F;&#x2F; ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rq&#39;),
+      &#x2F;&#x2F; ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rr&#39;),
+      &#x2F;&#x2F; ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rs&#39;),
+      &#x2F;&#x2F; ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rt&#39;),
+      &#x2F;&#x2F; ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Ru&#39;),
+      &#x2F;&#x2F; ImagePage(src: &#39;https:&#x2F;&#x2F;t.hk.uy&#x2F;b8Rv&#39;),
+    ];
+    &#x2F;&#x2F; 创建定时器，每隔3秒钟打印一句“执行”
+    Timer t &#x3D; Timer.periodic(const Duration(seconds: 3), (timer) &#123;
+      print(&#39;执行&#39;);
+      &#x2F;&#x2F; timer.cancel();
+    &#125;);
+    &#x2F;&#x2F; t.cancel();
+  &#125;
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;PageViewSwiper&#39;)),
+      body: ListView(children: [Swiper(list: list)]),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-3-实现图片动态轮播"><a href="#5-3-实现图片动态轮播" class="headerlink" title="5-3 实现图片动态轮播"></a>5-3 实现图片动态轮播</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"># myflutter(项目名)目录结构如下，修改“Flutter实现定时器”代码
+- pages&#x2F;
+  - tabs&#x2F;
+    - user.dart
+    - home.dart
+    - setting.dart
+    - category.dart
+  - tabs.dart【🖊】
+  - pageViewSwiper.dart
+  - routes&#x2F;
+    - routes.dart
+  - widget&#x2F;
+    - swiper.dart【🖊】
+- main.dart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-tabs-dart-3"><a href="#1-tabs-dart-3" class="headerlink" title="(1) tabs.dart"></a>(1) tabs.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;.&#x2F;tabs&#x2F;user.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;home.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;setting.dart&#39;;
+import &#39;.&#x2F;tabs&#x2F;category.dart&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Tabs extends StatefulWidget &#123;
+  final int index;
+  const Tabs(&#123;Key? key, this.index &#x3D; 0&#125;) : super(key: key);
+
+  @override
+  State&lt;Tabs&gt; createState() &#x3D;&gt; _TabsState();
+&#125;
+
+class _TabsState extends State&lt;Tabs&gt; &#123;
+  late int _currentIndex;
+  @override
+  void initState() &#123;
+    super.initState();
+    _currentIndex &#x3D; widget.index;
+  &#125;
+
+  final List&lt;Widget&gt; _pages &#x3D; const [
+    HomePage(),
+    CategoryPage(),
+    SettingPage(),
+    UserPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Scaffold(
+      appBar: AppBar(title: const Text(&#39;实现图片动态轮播&#39;)),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        &#x2F;&#x2F; 选中的颜色
+        fixedColor: Colors.red,
+        &#x2F;&#x2F; 配置底部菜单大小
+        iconSize: 40,
+        &#x2F;&#x2F; 4个以上菜单需配置此项
+        type: BottomNavigationBarType.fixed,
+        &#x2F;&#x2F; 默认选中分类(第二个)
+        &#x2F;&#x2F; currentIndex: 1,
+        currentIndex: _currentIndex,
+        onTap: (index) &#123;
+          &#x2F;&#x2F; 获取点击的索引值
+          &#x2F;&#x2F; print(index);
+          &#x2F;&#x2F; 注意调用setState
+          setState(() &#123;
+            _currentIndex &#x3D; index;
+          &#125;);
+        &#125;,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: &#39;首页&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: &#39;分类&#39;),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: &#39;设置&#39;),
+          &#x2F;&#x2F; 没有type菜单图标会被挤掉
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: &#39;用户&#39;),
+        ],
+      ),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-swiper-dart"><a href="#2-swiper-dart" class="headerlink" title="(2) swiper.dart"></a>(2) swiper.dart</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">import &#39;dart:async&#39;;
+import &#39;package:flutter&#x2F;material.dart&#39;;
+
+class Swiper extends StatefulWidget &#123;
+  final double width;
+  final double height;
+  final List&lt;String&gt; list;
+  const Swiper(&#123;
+    Key? key,
+    this.width &#x3D; double.infinity,
+    this.height &#x3D; 200,
+    required this.list,
+  &#125;) : super(key: key);
+
+  @override
+  State&lt;Swiper&gt; createState() &#x3D;&gt; _SwiperState();
+&#125;
+
+class _SwiperState extends State&lt;Swiper&gt; &#123;
+  int _currentIndex &#x3D; 0;
+  List&lt;Widget&gt; pageList &#x3D; [];
+  late PageController _pageController;
+  late Timer timer;
+
+  @override
+  void initState() &#123;
+    super.initState();
+    &#x2F;&#x2F; 数据
+    for (var i &#x3D; 0; i &lt; widget.list.length; i++) &#123;
+      pageList.add(
+        ImagePage(
+          width: widget.width,
+          height: widget.height,
+          src: widget.list[i],
+        ),
+      );
+    &#125;
+    &#x2F;&#x2F; PageController
+    _pageController &#x3D; PageController(initialPage: 0);
+    timer &#x3D; Timer.periodic(const Duration(seconds: 5), (t) &#123;
+      &#x2F;&#x2F; 实现图片5秒动态轮播
+      _pageController.animateToPage(
+        (_currentIndex + 1) % pageList.length,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.linear,
+      );
+    &#125;);
+  &#125;
+
+  @override
+  void dispose() &#123;
+    super.dispose();
+    timer.cancel();
+    _pageController.dispose();
+  &#125;
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return Stack(
+      children: [
+        SizedBox(
+          height: 605,
+          child: PageView.builder(
+            controller: _pageController,
+            onPageChanged: (index) &#123;
+              &#x2F;&#x2F; 刚开始   _currentIndex&#x3D;0
+              setState(() &#123;
+                &#x2F;&#x2F; index&#x3D;1---1 ... index&#x3D;6---0
+                _currentIndex &#x3D; index % pageList.length;
+              &#125;);
+            &#125;,
+            itemCount: 1000,
+            &#x2F;&#x2F; index值为0-1000
+            itemBuilder: (context, index) &#123;
+              return pageList[index % pageList.length];
+            &#125;,
+          ),
+        ),
+        Positioned(
+          &#x2F;&#x2F; left和right为0，占满整行
+          left: 0,
+          right: 0,
+          bottom: 2,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:
+                List.generate(pageList.length, (index) &#123;
+                  return Container(
+                    margin: const EdgeInsets.all(5),
+                    width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      color:
+                          _currentIndex &#x3D;&#x3D; index ? Colors.white : Colors.grey,
+                      &#x2F;&#x2F; 同borderRadius
+                      shape: BoxShape.circle,
+                      &#x2F;&#x2F; borderRadius: BorderRadius.circular(5),
+                    ),
+                  );
+                &#125;).toList(),
+          ),
+        ),
+      ],
+    );
+  &#125;
+&#125;
+
+class ImagePage extends StatelessWidget &#123;
+  final double width;
+  final double height;
+  final String src;
+  const ImagePage(&#123;
+    Key? key,
+    this.width &#x3D; double.infinity,
+    this.height &#x3D; 200,
+    required this.src,
+  &#125;) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) &#123;
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Image.network(src, fit: BoxFit.cover),
+    );
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="6-缓存PageView页面"><a href="#6-缓存PageView页面" class="headerlink" title="6 缓存PageView页面"></a>6 缓存PageView页面</h1><p>+ </p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-user"> -->
+                    <span>
+                        文章作者:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wwwbsf.github.io" rel="external nofollow noreferrer">bsf</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-link"> -->
+                    <span>
+                        文章链接:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wwwbsf.github.io/posts/flutter@06.html">https://wwwbsf.github.io/posts/flutter@06.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-copyright"> -->
+                    <span>
+                        版权声明:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://wwwbsf.github.io" target="_blank">bsf</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Timer/">
+                                    <span class="chip bg-color">Timer</span>
+                                </a>
+                            
+                                <a href="/tags/Dialog/">
+                                    <span class="chip bg-color">Dialog</span>
+                                </a>
+                            
+                                <a href="/tags/PageView/">
+                                    <span class="chip bg-color">PageView</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">来都来了，赏一个呗！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微&ensp;&ensp;信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+    .v[data-class=v] .emoji, .v[data-class=v] .vemoji {
+        max-height: 20px;
+        overflow: hidden;
+        max-width: 20px!important;
+    }
+    .v[data-class=v] .vwrap .vemojis {
+        text-align: center;
+    }
+    .roboterbb {
+        position: absolute;
+        right: 87px;
+        padding-top: 3px;
+    }
+    .robot-check-text:hover {
+        color: #26a69a;
+    }
+    .roboter:hover .robot-check-text::before {
+        border: 2px solid #5a5a5a;
+    }
+    .robotxian {
+        background: #5a5a5a;
+        top: 21px;
+        left: 11px!important;
+        transform-origin: 50% -17px;
+        animation: swing 3.5s infinite ease-in-out;
+        -webkit-transform-origin: 50% -17px;
+        -webkit-animation: swing 2.85s infinite ease-in-out;
+    }
+    .v[data-class=v] .vwrap {
+        /* padding-bottom: 23px; */
+        padding-bottom: 30px;
+    }
+    .robotimg {
+        width: 28px!important;
+        height: 28px!important;
+        top: 14px!important;
+        left: -13px!important;
+        max-width: none!important;
+        z-index: 99;
+        cursor: none!important;
+    }
+    .v[data-class=v] .vbtn:disabled {
+        color: #b2b2b5;
+        border-color: #b2b2b5;
+    }
+    .v[data-class=v] .vbtn:disabled {
+        background-color: transparent;
+    }
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+    .v[data-class=v] .vwrap {
+        border-radius: 8px;
+    }
+    /* #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    } */
+    #vcomments textarea {
+        background: url(/medias/comment_bg.webp) no-repeat;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" id="vcomments-top">
+
+    <!-- 福袋按钮 -->
+    <div class="caishendeng">        
+        <div class="caishenxian fudaixian">
+            <img class="caishenpic fudao" src="/medias/spring-img/fudao.png" />
+        </div>              
+    </div>
+   
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评 论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        enableQQ: true,
+        boolean: true,
+        appId: 'Grv3UQKKLVVKB70yDqY6C5ez-gzGzoHsz',
+        appKey: 'HEBFnyeROkIQCr9ysXSiOZQM',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        // avatar: '/medias/robot.png',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '评论前记得点击下方机器人验证按钮噢 ~ ',    
+
+        adminEmailMd5: '',
+
+        // master: [""],
+        // friends: [""],
+        // tagMeta: ["博主", "小伙伴", "访客"],
+        tagMeta: '博主,小伙伴,访客',
+        master: '',
+        friends: '',
+        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest"]
+    });
+</script>
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
+
+
+<!-- 评论机器人验证 -->
+<script>
+    $('.roboter').on('click',function(){
+        $('.robot-check-text').html('·&nbsp;&nbsp;&nbsp;验证成功！');
+        $('.roboter:hover .robot-check-text::before').css('border','2px solid #26a69a');
+        $('.robotxian').css('background','#26a69a');
+        $('.robotimg').attr('src','/medias/robot.png');
+        $('.robot-check-text').css('color','#26a69a');
+    });
+    
+    if(!$('.robot-check').checked) {
+        // alert("请勾选机器人验证后再发表评论！");
+        $('.vsubmit').attr('disabled',true).attr('title','评论前勾选机器人验证按钮');
+    } 
+    $('.robot-check').on('click',function(){
+        $('.vsubmit').attr('disabled',false).attr('title','欢迎畅所欲言');
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/docker@02.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/toc-banner/docker/docker@02.jpg" class="responsive-img" alt="Docker Desktop界面空白问题">
+                        
+                        <!-- 福袋按钮 -->
+                        <div class="caishendeng">        
+                            <div class="caishenxian wenzhangxian">
+                                <img class="caishenpic lala" src="/medias/spring-img/fish.png" />
+                            </div>              
+                        </div>
+                        <span class="card-title">
+                          <!-- 文章卡片hover线条效果 -->
+                          <span class="titlesline"></span>
+                          Docker Desktop界面空白问题
+                        </span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Win10安装Docker Desktop后，左侧模块一直处于加载状态，空白不显示，底部图标显示“Docker Desktop stopped”。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-12-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                    <a href="/tags/Images/">
+                        <span class="chip bg-color">Images</span>
+                    </a>
+                    
+                    <a href="/tags/Windows/">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                    <a href="/tags/Containers/">
+                        <span class="chip bg-color">Containers</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/flutter@05.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/toc-banner/flutter/flutter@05.jpg" class="responsive-img" alt="路由详解">
+                        
+                        <!-- 福袋按钮 -->
+                        <div class="caishendeng">        
+                            <div class="caishenxian wenzhangxian">
+                                <img class="caishenpic lala" src="/medias/spring-img/fish.png" />
+                            </div>              
+                        </div>
+                        <span class="card-title">
+                          <!-- 文章卡片hover线条效果 -->
+                          <span class="titlesline"></span>
+                          路由详解
+                        </span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Flutter中的路由即页面跳转，通过Navigator组件管理路由导航并提供管理堆栈的方法，例如Navigator.push和Navigator.pop。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-11-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Pop/">
+                        <span class="chip bg-color">Pop</span>
+                    </a>
+                    
+                    <a href="/tags/Push/">
+                        <span class="chip bg-color">Push</span>
+                    </a>
+                    
+                    <a href="/tags/Routes/">
+                        <span class="chip bg-color">Routes</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+<style>
+  .articles .row .article {
+    position: relative;
+  }
+</style>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('1024')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: bsf<br />'
+            + '文章作者: bsf<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- highlight设置，关闭highlight，开启prismjs才生效，好奇怪？？？cdn版本也不能改，一改就会异常！！！ -->
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.0/styles/docco.min.css" rel="stylesheet"> -->
+<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+
+<!-- <script src="https://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<!-- <script src="/js/prism/prism-coy.js" async></script> -->
+<!-- <script src="/js/prism/prism-okaidia.js" async></script> -->
+<!-- <script src="/js/prism/prism-tomorrow.js" async></script> -->
+<!-- <script src="/js/prism/prism-solarizedlight.js" async></script> -->
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">
+                <i class="far fa-list-alt"></i>
+                &nbsp;&nbsp;目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Timer">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Dialog">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="PageView">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+    
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4, h5, h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5, h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+</main>
+
+
+
+
+    <style>
+  footer {
+    position: relative;
+  }
+
+  .page-footer {
+    padding-top: 23px;
+    padding-bottom: 1px;
+  }
+</style>
+<footer class="page-footer bg-color">
+  
+
+  <div class="container row center-align"
+    style="margin-bottom: 15px !important;">
+    <!-- 访客地图 -->
+    <div class="col s12 m3 l3 social-link" id="visitmap">
+      <!-- <a target="_blank" rel="noopener" href="https://clustrmaps.com/site/1bd51" title="访客地图"><img src="/medias/map-visit.png" /></a> -->
+      <a target="_blank" rel="noopener" href="https://clustrmaps.com/site/1bz3d" title="Visit tracker">
+        <img src="/medias/map-visit.png" />
+      </a>
+    </div>
+    <!-- 版权信息 -->
+    <div class="col s12 m6 l6 copy-right">
+      Copyright&nbsp;&copy;
+      <span id="year">2024</span>&nbsp;
+      <!-- <a href="/about" target="_blank">bsf</a>
+      &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      &nbsp;Theme&nbsp;<a href="https://github.com/nekodeng/hexo-theme-itsneko" target="_blank">itsNeko</a> -->
+      |&nbsp;&nbsp;Powered by&nbsp;<a>bsf</a>
+      <br>
+
+      
+      <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
+      &nbsp;<i class="fas fa-chart-area"></i>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">80.8k</span>&nbsp;字&nbsp;🌼<br>
+      
+      
+      
+      
+      
+      
+      <span id="busuanzi_container_site_pv">
+        <!-- <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp; -->
+        <i class="far"></i>&nbsp;📊 总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次&nbsp;&nbsp;|
+      </span>
+      
+      
+      <span id="busuanzi_container_site_uv">
+        <!-- <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp; -->
+        <i class="fas"></i>&nbsp;总访客数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人&nbsp;📈
+      </span>
+      
+      <br>
+      
+      <span id="sitetime">running time</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2024";
+          var startMonth = "1";
+          var startDate = "1";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+          var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor((diff / days) - diffYears * 365);
+          var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+          var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+            minutes);
+          var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+            diffMinutes * minutes) / seconds);
+          if (startYear == todayYear) {
+            /* document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML = "The site has been running for " + 
+              "<span class= 'white-color'>" + diffDays + "</span>" + " d " + "<span class= 'white-color'>" + diffHours +
+              "</span>" +
+              " h " + "<span class= 'white-color'>" + diffMinutes + "</span>" + " m " + "<span class= 'white-color'>" +
+              diffSeconds + "</span>" + " s"; */
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML = "本站已安全运行 " +
+              "<span class= 'white-color'>" + diffDays + "</span>" + " 天 " + "<span class= 'white-color'>" + diffHours +
+                "</span>" +
+                " 小时 " + "<span class= 'white-color'>" + diffMinutes + "</span>" + " 分钟 " + "<span class= 'white-color'>" +
+                diffSeconds + "</span>" + " 秒";
+          } else {
+            /* document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML = "The site has been running for " +
+              "<span class= 'white-color'>" + diffYears + "</span>" + " years " + "<span class= 'white-color'>" + diffDays +
+              "</span>" +
+              " days " + "<span class= 'white-color'>" + diffHours + "</span>" + " hours " + "<span class= 'white-color'>" +
+              diffMinutes + "</span>" + " minutes " + "<span class= 'white-color'>" + diffSeconds + "</span>" + " seconds"; */
+            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML = "本站已安全运行 " +
+                "<span class= 'white-color'>" + diffYears + "</span>" + " 年 " + "<span class= 'white-color'>" + diffDays +
+                "</span>" +
+                " 天 " + "<span class= 'white-color'>" + diffHours + "</span>" + " 小时 " + "<span class= 'white-color'>" +
+                diffMinutes + "</span>" + " 分钟 " + "<span class= 'white-color'>" + diffSeconds + "</span>" + " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br>
+      
+    </div>
+    <div class="col s12 m3 l3 social-link social-statis"><!--  -->
+
+<!-- 
+    <a href="mailto:Siren1996@qq.com" class="tooltipped" target="_blank" data-tooltip="Siren1996@qq.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+ -->
+
+<!-- 
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2338638343" class="tooltipped" target="_blank" data-tooltip="2338638343" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+ -->
+
+
+    <a href="mailto:Siren1996@qq.com" class="tooltipped" target="_blank" data-tooltip="邮箱：Siren1996@qq.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2338638343" class="tooltipped" target="_blank" data-tooltip="QQ: 2338638343" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="/medias/wechat.png" class="tooltipped" target="_blank" data-tooltip="微信联系我\(￣︶￣*\))" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+</div>
+  </div>
+  <!-- 波浪条waveline -->
+  <div class="wavelinefooter">
+    <style>
+      .wavelinefooter {
+        background: url(/medias/wave.png) 0 0 repeat-x;
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: -3px;
+        background-size: 10px 3px;
+      }
+    </style>
+  </div>
+</footer>
+
+<!-- 底部进度条 -->
+<div class="progress-bar" style="z-index: 999"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<style>
+#searchInput::-webkit-input-placeholder { /* WebKit browsers */ 
+    font-size:16px;
+} 
+#searchInput:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+    font-size:16px;
+} 
+#searchInput::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+    font-size:16px;
+} 
+#searchInput:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+    font-size:16px;
+} 
+#searchInput {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    text-indent: 4px;
+    font-size: 14px;
+}
+</style>
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;站内搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="autofocus" />
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+<!-- 点击搜索按钮后input框自动获取焦点 -->
+
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="javascript(0)">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--动态线条背景-->
+    <script type="text/javascript" color="122 103 158" opacity='0.12' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+    </script>
+ 
+    <script type="text/javascript" src="/js/click_show_text.js"></script>
+    <script src="/js/linkcard.js"></script>
+
+    <script src="/js/activate-power-mode.js"></script>
+    <script>
+        POWERMODE.colorful = true; // make power mode colorful
+        POWERMODE.shake = false; // turn off shake
+        document.body.addEventListener('input', POWERMODE);
+    </script>
+
+    <!-- 百度统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!----------节日判断，进行网站修饰，比如春节圣诞或变灰色的清明等----- -->
+    <script>
+        // 判断今天是哪个节假日或特殊纪念日进行网站修饰，比如春节圣诞或变灰色的清明等
+        var curMonth = new Date().getMonth() + 1;   // 月
+        var curDate = new Date().getDate();         // 日
+        function cancelguajian() {
+            // 判断如果是变灰色的纪念日则将小挂件隐藏
+            var guajianone = document.getElementsByClassName('caishendeng');
+            var guajiantwo = document.getElementsByClassName('labelmz');
+            var guajianthree = document.getElementsByClassName('friendmz');
+            var denglong = document.getElementsByClassName('denglong');
+            for(var i = 0; i < guajianone.length; i++) {
+                guajianone[i].style.display = "none"
+            };
+            for(var j = 0; j < guajiantwo.length; j++) {
+                guajiantwo[j].style.display = "none"
+            }
+            for(var k = 0; k < guajianthree.length; k++) {
+                guajianthree[k].style.display = "none"
+            };
+            for(var x = 0; x < denglong.length; x++) {
+                denglong[x].style.display = "none"
+            };
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            document.getElementById('xiaomaozitx').style.display = "none";
+        }
+        // --------------以下节日为公历，每年固定--------------
+        if(curMonth == 1 && curDate == 1) {
+            // 1月1日为元旦节
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "元旦";
+        }
+        // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
+        else if(curMonth == 5 && curDate == 22) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            document.body.classList.add('dark');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "地震";
+            document.getElementById('dttwo').innerHTML = "袁老";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        else if(curMonth == 9 && curDate == 30) {
+            // 9月30日为全国烈士纪念日，设在国庆前一天
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "缅怀";
+            document.getElementById('dttwo').innerHTML = "烈士";
+            document.getElementById('jinianci').innerHTML = "今天是“ 9月30日 ”，“ 全国烈士纪念日 ”。定为每年的9月30日，正好是国庆前一天，让全国人民永远不要忘记先有无数先烈的前赴后继、奋勇献身，才有我们国家今天的繁荣富强、文明进步。"
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        // 10月1日为国庆节
+        else if(
+          curMonth == 10 && curDate == 1
+          || curMonth == 10 && curDate == 2
+          || curMonth == 10 && curDate == 3
+          || curMonth == 10 && curDate == 4
+          || curMonth == 10 && curDate == 5
+          || curMonth == 10 && curDate == 6
+          || curMonth == 10 && curDate == 7) {
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "欢度";
+            document.getElementById('dttwo').innerHTML = "国庆";
+            document.getElementById('index-video').src = "https://txmov2.a.yximgs.com/upic/2021/09/30/15/BMjAyMTA5MzAxNTE5MDhfMTg1ODk2MDg4N181ODA5MjQ1NDkyMV8xXzM=_b_Bef514871cf947c46c11bc54a3ed3faa9.mp4?pkey=AAWo-kOQESq9j_AMCO-BT6jTPS090PuVHWtyuSQ8cddkgMmI3V-P9uWMDY13QrPuCjtWVbch_01wRcj6Rtm5w0AkLhgVTMSceLLiRYjlWUfLDNNLX3jISKEscl9uNXUnYcM&tag=1-1632986688-xpcwebprofile-0-ongrobirtl-58c917acab52d13f&clientCacheKey=3xajcj9u8fubzm4_b.mp4";
+            document.getElementById('jinianci').style.textAlign = "center";
+            document.getElementById('jinianci').innerHTML = "《 国庆日🚩 》<br> 十月惊雷震九重，国富民强聩耳聋。<br>城头城下聚农工，神州处处花潮涌。<br>而今白鹿奋清风，山长水远不知踪。"
+            document.getElementById('popupbb').style.display = "block"
+            document.getElementById('tujis').style.display = "block";
+            // document.getElementById('fights').style.display = "none";
+        }
+        // 12月13日为国家公祭日
+        else if(curMonth == 12 && curDate == 13) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "国家";
+            document.getElementById('dttwo').innerHTML = "公祭";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 12月13日 ”，南京大屠杀死难者 “ 国家公祭日 ”。国行公祭，法立典章。铸兹宝鼎，祀我国殇。永矢弗谖，祈愿和平。中华圆梦，民族复兴。";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        // 12月25日为圣诞节
+        else if(curMonth == 12 && curDate == 25) {
+            document.body.classList.add('themechris');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "圣诞";
+        }
+        // --------------以下节日为农历，每年不固定，需要手动改（后续看是否可使用API）--------------
+        else if(curMonth == 4 && curDate == 4) {
+            // 2025年4月4日为清明节
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "安康";
+            document.getElementById('dttwo').innerHTML = "清明";
+            document.getElementById('jinianci').innerHTML = "今天是“ 4月4日 ”，“ 清明节 ”，正是郊外踏青春游与行清墓祭的好时节。燕子来时新社，梨花落后清明。"
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        else if(curMonth == 1 && curDate == 28) {
+            // 2025春节除夕为1月28日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "除夕";
+        }
+        else if(curMonth == 1) {
+            // 2025春节为1月29日开始
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "春节";
+        }
+        else if(curMonth == 5 && curDate == 31) {
+            // 2025端午节为5月31日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "安康";
+            document.getElementById('dttwo').innerHTML = "端午";
+        }
+        else if(curMonth == 10 && curDate == 6) {
+            // 2025中秋节为10月6日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "团圆";
+            document.getElementById('dttwo').innerHTML = "中秋";
+        }
+        else {
+            // 平常时间
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "平安";
+            document.getElementById('dttwo').innerHTML = "喜乐";
+        }
+    </script>
+
+    <!-- 实现tab切换点击标题显示下划线和颜色改变效果 -->
+    <script>
+        $(function () {
+            var nowUrl = window.location.href;
+            // 控制台调试，获取不到tagsnet的地址连接
+            // console.log("Current URL:", nowUrl);
+            var homeTab = $('nav ul li a[href="/"] span'),
+                categoriesTab = $('nav ul li a[href="/categories"] span'),
+                tagsTab = $('nav ul li a[href="/tags"] span'),
+                archivesTab = $('nav ul li a[href="/archives"] span'),
+                countTab = $('nav ul li a[href="/count"] span'),
+                tagsnetTab = $('nav ul li a[href="/tagsnet"] span'),
+                aboutTab = $('nav ul li a[href="/about"] span'),
+                galleryTab = $('nav ul li a[href="/gallery"] span'),
+                videosTab = $('nav ul li a[href="/videos"] span'),
+                musicsTab = $('nav ul li a[href="/musics"] span'),
+                booksTab = $('nav ul li a[href="/books"] span'),
+                contactTab = $('nav ul li a[href="/contact"] span'),
+                friendsTab = $('nav ul li a[href="/friends"] span'),
+                collectionTab = $('nav ul li a[href="/collection"] span'),
+                projectTab = $('nav ul li a[href="/project"] span'),
+                donateTab = $('nav ul li a[href="/donate"] span'),
+                ticktackTab = $('nav ul li a[href="/ticktack"] span'),
+                // 获取二级菜单项
+                ArticlesTab = $('nav .nav-menu .nav-item:nth-of-type(2) > a > span'),
+                ListTab = $('nav .nav-menu .nav-item:nth-of-type(4) > a > span'),
+                LinksTab = $('nav .nav-menu .nav-item:nth-of-type(6) > a > span');
+                LaboratoryTab = $('nav .nav-menu .nav-item:nth-of-type(7) > a > span');
+
+            if (nowUrl.indexOf("posts") >= 0) {
+                homeTab.removeClass("aitems")
+            } else if (nowUrl.indexOf("categories") >= 0) {
+                categoriesTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("tags") >= 0) {
+                tagsTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("archives") >= 0) {
+                archivesTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("count") >= 0) {
+                countTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            // } else if (nowUrl.indexOf("tagsnet") >= 0) {
+            } else if (nowUrl.indexOf("tagsnet") >= 0) {
+                tagsnetTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("about") >= 0) {
+                aboutTab.addClass("aitems")
+            } else if (nowUrl.indexOf("gallery") >= 0) {
+                galleryTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("videos") >= 0) {
+                videosTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("musics") >= 0) {
+                musicsTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("books") >= 0) {
+                booksTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("contact") >= 0) {
+                contactTab.addClass("aitems")
+            } else if (nowUrl.indexOf("friends") >= 0) {
+                friendsTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("collection") >= 0) {
+                collectionTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("project") >= 0) {
+                projectTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("donate") >= 0) {
+                donateTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("ticktack") >= 0) {
+                ticktackTab.addClass("aitems")
+                LaboratoryTab.addClass("erjiitems")
+            } else {
+                homeTab.addClass("aitems")
+            }
+        });
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

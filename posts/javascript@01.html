@@ -1,0 +1,4599 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="可视化D3(一), bsf">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-8VjAnGhv8m" />
+    <meta name="google-site-verification" content="An02eAw6rCWBVutF85tRr02GvZox5D4Pqd9PKFRzvBs" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>可视化D3(一) | bsf</title>
+    
+    <script>
+        // 隐藏
+        // 右键
+        // document.oncontextmenu = function (event){
+        //     if(window.event){
+        //     event = window.event;
+        //     }try{
+        //     var the = event.srcElement;
+        //     if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        //     return false;
+        //     }
+        //     return true;
+        //     }catch (e){
+        //     return false;
+        //     }
+        // }
+
+        // debugger部分
+            // setInterval(function() {
+            // check();
+            // }, 500);
+            // var check = function() {
+            //     function doCheck(a) {
+            //     if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+            //         (function() {}['constructor']('debugger')());
+            //     } else {
+            //         (function() {}['constructor']('debugger')());
+            //     }
+            //     doCheck(++a);
+            //     }
+            //     try {
+            //     doCheck(0);
+            //     } catch (err) {}
+            // };
+            // check();
+
+            // ctrl+s保存
+            // document.onkeydown = function() {
+            //     if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+            //         return false;
+            //     }
+            // }
+            // window.addEventListener("keydown", function(e) {
+            //     //可以判断是不是mac，如果是mac,ctrl变为花键
+            //     //event.preventDefault() 方法阻止元素发生默认的行为。
+            //     if((e.key=='s'||e.key=='S')&&(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)){
+            //         e.preventDefault();
+            //     }
+            // }, false);
+            // F12
+            // document.onkeydown = function(){
+            //     if(window.event && window.event.keyCode == 123) {
+            //         event.keyCode=0;
+            //         event.returnValue=false;
+            //     }
+            //     if(window.event && window.event.keyCode == 13) {
+            //         window.event.keyCode = 505;
+            //     }
+            //     if(window.event && window.event.keyCode == 8) {
+            //         window.event.returnValue=false;
+            //     }
+            // }
+        // 宽高
+        // var threshold = 160; // 打开控制台的宽或高阈值  
+        // // 每秒检查一次  
+        // window.setInterval(function() {  
+        //     if (window.outerWidth - window.innerWidth > threshold ||   
+        //     window.outerHeight - window.innerHeight > threshold) {  
+        //         // 如果打开控制台，则刷新页面  
+        //         window.location.reload();  
+        //     }  
+        // }, 1e3);
+
+        // debug调试时跳转页面
+        // var element = new Image();
+        // Object.defineProperty(element,'id',{get:function(){window.location.href="/tenfour/homepage/"}});
+        // console.log(element);
+    </script>
+
+    <!-- <style>
+        /*  @import "/libs/prism/prism-coy.css";
+         @import "/libs/prism/prism-okaidia.css";
+         @import "/libs/prism/prism-solarizedlight.css"; */
+         @import "/libs/prism/prism-tomorrow.css";
+     </style> -->
+    <!-- <link rel="stylesheet" href="/libs/prism/prism.css">
+    <script src="/js/prism/prism.js"></script> -->
+
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"/>
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <!-- <script src="/js/foropensource.js"></script> -->
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+           bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else{
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="bsf" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<!-- 提示：若要开启春节或者圣诞主题样式，直接给body标签添加一个class为
+class="themespring" -->
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 网站全局深色模式设置开始 -->
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+        document.body.classList.add('dark');
+        }
+        //  else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        // document.body.classList.add('dark');
+        // } 
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        }
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
+    </a>
+    <!-- 网站全局深色模式设置结束 -->
+
+    <!-- 网站主题切换模式开始 -->
+    <!-- 中国节日按钮开始 -->
+    <script>
+        if (localStorage.getItem('themespring') === '1') {
+            document.body.classList.add('themespring');
+        }
+        else if (matchMedia('(prefers-color-scheme: themespring)').matches) {
+            document.body.classList.add('themespring');
+        }
+    </script>
+    <div onclick="switchSpringThemes()" id="switchspring">
+        <img class="chunjiepic" src="/medias/spring-img/denglong.png" title="节日主题" />
+    </div>
+    <!-- 中国节日按钮结束  -->
+    <!-- 网站主题切换模式结束 -->
+
+    <!-- header模块开始 -->
+<header class="navbar-fixed" id="header-active">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <!-- 大屏幕下logo字体 -->
+                    <span class="bigwidth">bsf&emsp;</span>
+                    <!-- 小屏幕下logo字体 -->
+                    <span class="smallwidth">bsf&emsp;</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>文章</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/count">
+          
+          <span>统计</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tagsnet">
+          
+          <span>关系网</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>链接库</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/friends">
+          
+          <span>友情链接</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/collection">
+          
+          <span>网址收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/donate">
+          
+          <span>打赏记录</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/ticktack">
+          
+          <span>滴答滴答</span>
+        </a>
+      </li>
+      
+      <!-- 波浪wave条 -->
+      <div class="wavelineerji">
+        <style>
+          .wavelineerji {
+            background: url(/medias/wave.png) 0 0 repeat-x;
+            height: 3px;
+            width: 85%;
+            position: absolute;
+            left: 10px;
+            bottom: -3px;
+            background-size: 10px 3px;
+            transform: rotate(180deg);
+          }
+        </style>
+      </div>
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">bsf</div>
+        <div class="logo-desc">
+            
+              光而不耀，静水流深。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			文章
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:50px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:50px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:50px">
+				  
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/count " style="margin-left:50px">
+				  
+		          <span>统计</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tagsnet " style="margin-left:50px">
+				  
+		          <span>关系网</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			链接库
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/friends " style="margin-left:50px">
+				  
+		          <span>友情链接</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/collection " style="margin-left:50px">
+				  
+		          <span>网址收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/donate " style="margin-left:50px">
+				  
+		          <span>打赏记录</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fas fa-fw"></i>
+			
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/ticktack " style="margin-left:50px">
+				  
+		          <span>滴答滴答</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+        <style>
+          .brand-logo .waves-effect {
+            font-size: 24px;
+            /* font-style: oblique; */
+            /* color: #fadca6; */
+          }
+        </style>
+        
+        <!-- 新增，导航底部波浪线 -->
+        <div class="wavelineheader wavelineshow">
+            <style>
+                .wavelineshow {
+                    background: url(/medias/wave.png) 0 0 repeat-x;
+                    height: 3px;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+                    background-size: 10px 3px;
+                    transform: rotate(180deg);
+                }
+            </style>
+        </div>
+    </nav>
+</header>
+<!-- header模块结束 -->
+
+<!-- 春节主题模式样式开始 -->
+<style>
+    .denglong {
+        display: none;
+    }
+    body.themespring .denglong {
+        display: block;
+    }
+    @media only screen and (min-width: 1124px) {
+        .nav-menu {
+            padding-right: 0px;
+        }
+        body.themespring .nav-menu {
+            padding-right: 96px;
+        }
+    }
+    @media only screen and (max-width: 760px) {
+        .deng-box, .deng-box1 {
+            width: 40%;
+        }
+        /* 点开主题，会影响到移动端的翻页按钮 */
+        /* body.themespring .right {
+            float: left!important;
+        } */
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        /* .right {
+            float: left!important;
+        } */
+    }
+    .deng-box {
+        position: fixed;
+        top: -40px;
+        right: -20px;
+        z-index: 999;
+    }
+    .deng-box1 {
+        position: fixed;
+        top: -30px;
+        right: 10px;
+        z-index: 999;
+    }
+    .deng-box1 .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 5s infinite ease-in-out;
+        box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+    }
+    .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3s infinite ease-in-out;
+        box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+    }
+    .deng-a {
+        width: 100px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: 12px 8px 8px 10px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .deng-b {
+        width: 45px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: -4px 8px 8px 26px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .xian {
+        position: absolute;
+        top: -20px;
+        left: 60px;
+        width: 2px;
+        height: 20px;
+        background: #dc8f03;
+    }
+    .shui-a {
+        position: relative;
+        width: 5px;
+        height: 20px;
+        margin: -5px 0 0 59px;
+        -webkit-animation: swing 4s infinite ease-in-out;
+        -webkit-transform-origin: 50% -45px;
+        background: #ffa500;
+        border-radius: 0 0 5px 5px;
+    }
+    .shui-b {
+        position: absolute;
+        top: 14px;
+        left: -2px;
+        width: 10px;
+        height: 10px;
+        background: #dc8f03;
+        border-radius: 50%;
+    }
+    .shui-c {
+        position: absolute;
+        top: 18px;
+        left: -2px;
+        width: 10px;
+        height: 35px;
+        background: #ffa500;
+        border-radius: 0 0 0 5px;
+    }
+    .deng:before {
+        position: absolute;
+        top: -7px;
+        left: 29px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        z-index: 999;
+        border-radius: 5px 5px 0 0;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    .deng:after {
+        position: absolute;
+        bottom: -7px;
+        left: 10px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        margin-left: 20px;
+        border-radius: 0 0 5px 5px;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    @font-face {
+        font-family: "Aa漫语手写体";
+        src: url('/fonts/Aa漫语手写体.ttf');
+    }
+    .deng-t {
+        font-family: Aa漫语手写体;
+        font-size: 26px;
+        color: #dc8f03;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+    }
+    .night .deng-t,
+    .night .deng-box,
+    .night .deng-box1 {
+        background: transparent !important;
+    }
+    @-moz-keyframes swing {
+        0% {
+                -moz-transform: rotate(-10deg)
+        }
+        50% {
+             -moz-transform: rotate(10deg)
+        }
+        100% {
+                -moz-transform: rotate(-10deg)
+        }
+    }
+    @-webkit-keyframes swing {
+        0% {
+                -webkit-transform: rotate(-10deg)
+        }
+        50% {
+                -webkit-transform: rotate(10deg)
+        }
+        100% {
+                -webkit-transform: rotate(-10deg)
+        }
+    }
+</style>
+<div class="denglong">
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t" id="dtone">喜迎</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t" id="dttwo">春节</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+</div>
+<!-- 春节主题模式样式结束 -->
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/toc-banner/javascript/javascript@01.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">可视化D3(一)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+    
+        <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        /* overflow: auto; */
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+    .suibis[data-spmid="随笔"] {
+        width: 100%!important;
+    }
+    .toc-widget[data-spmid="随笔"],
+    #floating-toc-btn[data-spmid="随笔"]
+    {
+        display: none!important;
+    }
+</style>
+
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9 suibis">
+        <style>
+    #switchspring {
+        bottom: 215px!important;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 165px!important;
+        }
+    }
+    #switchchristmas {
+        bottom: 281px!important;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchchristmas {
+            bottom: 235px!important;
+        }
+    }
+    .ititle {
+        margin: 15px 0;
+        text-align:center;
+        font-family: 'Architects Daughter', cursive;
+    }
+    .ipage {
+        line-height: 30px;
+        margin: 0 auto;
+        padding: 15px 32px 29px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
+        -moz-border-radius-bottomleft: 20px 500px;
+        -moz-border-radius-bottomright: 500px 30px;
+        -moz-border-radius-topright: 5px 100px;	
+        -webkit-border-bottom-left-radius: 20px 500px;
+        -webkit-border-bottom-right-radius: 64px 10px;
+        -webkit-border-top-right-radius: 5px 100px;    
+        border-bottom-left-radius: 20px 500px;
+        border-bottom-right-radius: 64px 10px;
+        border-top-right-radius: 5px 100px;           
+        -webkit-background-size: 100% 30px;
+        -moz-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 1px 0 #F6EF97;
+        position: relative;
+    }
+.izhengwen {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: auto;
+    background: repeating-linear-gradient(to bottom, #f9f9f9, #f9f9f9 31px, #6BA2D8 1px, #f9f9f9);
+    background-size: 100% 32px;
+}
+.izhengwen p {
+    letter-spacing: .1rem;
+}
+#articleContent p {
+    margin: 0
+}
+.ititle {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.45rem!important;
+    padding: 10px auto;
+}
+.izhengwen p {
+    position: relative;
+    line-height: 2.2rem!important;
+    text-indent: 2em;
+    font-family: 'Architects Daughter', cursive!important;
+    font-size: 1.45rem!important;
+}
+.ipage::before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    right: 52px;
+    z-index: 4;
+    width: 4px;
+    height: 100%;
+    border-left: 1px solid #fca1a1;
+}
+.izhengwen p:nth-child(odd):before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -16px;
+    z-index: 3;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.26);
+}
+.ipage:after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 52px;
+    z-index: 3;
+    width: 4px;
+    height: 100%;
+    border-left: 4px double #fca1a1;
+}
+.ipage p {
+    padding: 0 2em;
+    color: #333!important;
+}
+body.dark .ipage {
+    opacity: 0.85;
+}
+/*小屏幕下(手机类)的样式*/
+@media only screen and (max-width: 600px) {
+    .ipage {
+        padding: 15px 23px 29px;
+    }
+    .ipage:after {
+        left: 36px;
+    }
+    .ipage::before {
+        right: 36px;    
+    }
+    .ipage p, .ititle {
+        padding: 0 0.9em;
+    }
+
+}
+h3 {
+    font-size: 1.32rem;
+    font-weight: 400;
+    color: #101012;
+    transition: 0.8s;
+    cursor: pointer;
+}
+h3:hover {
+    transform: translateX(15px);
+}
+</style>
+
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">        
+                <div class="guguxian wenzhangxian">
+                    <img class="caishenpic gugus" src="/medias/spring-img/caishen.png" />
+                </div>              
+            </div>
+            <!-- 圣诞按钮 -->
+            <div class="shengdandeng">        
+                <div class="shengdanxian" style="left: 50%;">
+                    <img class="shengdanpic fudai" src="/medias/christmas-img/shengdanren4.png" />
+                </div>              
+            </div>
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Web/">
+                                <span class="chip bg-color">Web</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B8%83%E5%B1%80/">
+                                <span class="chip bg-color">布局</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%AF%94%E4%BE%8B%E5%B0%BA/">
+                                <span class="chip bg-color">比例尺</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9D%90%E6%A0%87%E8%BD%B4/">
+                                <span class="chip bg-color">坐标轴</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <!-- <i class="fas fa-bookmark fa-fw icon-category"></i> -->📚
+                        
+                            <a href="/categories/Web/" class="post-category">
+                                Web
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-09-21
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    12.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    66 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <div class="note info">D3是一个JavaScript函数库，用于创建动态、交互式数据可视化，支持各种图表、地图和复杂的视觉表现，广泛应用于展示。</div>
+
+<h1 id="1-D3概述"><a href="#1-D3概述" class="headerlink" title="1 D3概述"></a>1 D3概述</h1><ul>
+<li>D3版本下载：<a target="_blank" rel="noopener" href="https://github.com/d3/d3/releases">https://github.com/d3/d3/releases</a>、<a target="_blank" rel="noopener" href="https://d3js.org">https://d3js.org</a>。</li>
+<li>GitHub下载的ZIP包只是未进行编译的D3源代码文件，不能直接使用。</li>
+<li>选择元素(选择集)、绑定数据是D3最基础的内容，通常需要一起使用。<ul>
+<li>选择元素：<code>d3.select()</code> (选所有指定元素的第一个)、<code>d3.selectAll()</code> (选指定的全部元素)。</li>
+<li>绑定数据：<code>datum()</code>(绑定数据到选择集)、<code>data()</code>(绑定数组到选择集，各项值对应元素绑定)。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;D3概述&lt;&#x2F;title&gt;
+
+    &lt;!-- 使用官网链接的引入，需要梯子 --&gt;
+    &lt;!-- &lt;script src&#x3D;&#39;http:&#x2F;&#x2F;d3js.org&#x2F;d3.v3.min.js&#39; charset&#x3D;&#39;utf-8&#39;&gt; --&gt;
+    &lt;!-- &lt;&#x2F;script&gt; --&gt;
+
+    &lt;!-- 使用CDN节点的链接引入 --&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body style&#x3D;&#39;text-align: center&#39;&gt;&lt;br &#x2F;&gt;
+    &lt;p&gt;&lt;&#x2F;p&gt;
+    &lt;p&gt;&lt;&#x2F;p&gt;
+    &lt;p&gt;&lt;&#x2F;p&gt;&lt;br &#x2F;&gt;
+
+    &lt;h3&gt;&lt;&#x2F;h3&gt;
+    &lt;h3&gt;&lt;&#x2F;h3&gt;
+    &lt;h3&gt;&lt;&#x2F;h3&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; datum()
+        var str &#x3D; &#39;datum()&#39;;
+
+        &#x2F;&#x2F; 选择元素
+        var body &#x3D; d3.select(&#39;body&#39;);
+        var p &#x3D; body.selectAll(&#39;p&#39;);
+        
+        &#x2F;&#x2F; 绑定数据
+        p.datum(str);
+        p.text(function (x, y) &#123;
+            return &#39;第 &#39; + y + &#39; 个元素绑定的数据是 &#39; + x;
+        &#125;);
+
+        &#x2F;&#x2F; data()
+        var dataset &#x3D; [&#39;耐心&#39;, &#39;坚持&#39;, &#39;勇敢&#39;];
+        var body &#x3D; d3.select(&#39;body&#39;);
+        var h &#x3D; body.selectAll(&#39;h3&#39;);
+        h.data(dataset)
+            .text(function (x, y) &#123;
+                return &#39;我要&#39; + x + &#39;！&#39;;
+            &#125;);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-1-选择元素"><a href="#1-1-选择元素" class="headerlink" title="1-1 选择元素"></a>1-1 选择元素</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;选择元素&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body style&#x3D;&#39;text-align: center&#39;&gt;&lt;br &#x2F;&gt;
+    &lt;p id&#x3D;&#39;p1&#39; class&#x3D;&#39;c1&#39;&gt;富强&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p2&#39; class&#x3D;&#39;c2&#39;&gt;民主&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p3&#39; class&#x3D;&#39;c3&#39;&gt;文明&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p4&#39; class&#x3D;&#39;c4&#39;&gt;和谐&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p5&#39; class&#x3D;&#39;c5&#39;&gt;自由&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p6&#39; class&#x3D;&#39;c6&#39;&gt;平等&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p7&#39; class&#x3D;&#39;c6&#39;&gt;公正&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p8&#39; class&#x3D;&#39;c6&#39;&gt;法治&lt;&#x2F;p&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; 选择所有元素
+        d3.select(&#39;body&#39;)
+            .selectAll(&#39;p&#39;)
+            .style(&#39;color&#39;, &#39;blue&#39;);
+
+        &#x2F;&#x2F; 选择第一个元素
+        d3.select(&#39;body&#39;)
+            .select(&#39;p&#39;)
+            .style(&#39;color&#39;, &#39;red&#39;);
+
+        &#x2F;&#x2F; 选择第二个元素
+        d3.select(&#39;#p2&#39;)
+            .style(&#39;color&#39;, &#39;green&#39;);
+
+        &#x2F;&#x2F; 选择后三个元素
+        d3.selectAll(&#39;.c6&#39;)
+            .style(&#39;color&#39;, &#39;orange&#39;);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-2-插入元素"><a href="#1-2-插入元素" class="headerlink" title="1-2 插入元素"></a>1-2 插入元素</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;插入元素&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body style&#x3D;&#39;text-align: center&#39;&gt;&lt;br &#x2F;&gt;
+    &lt;p id&#x3D;&#39;p1&#39; class&#x3D;&#39;c1&#39;&gt;富强&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p2&#39; class&#x3D;&#39;c2&#39;&gt;民主&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p3&#39; class&#x3D;&#39;c3&#39;&gt;文明&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p4&#39; class&#x3D;&#39;c4&#39;&gt;和谐&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p5&#39; class&#x3D;&#39;c5&#39;&gt;自由&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p6&#39; class&#x3D;&#39;c6&#39;&gt;平等&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p7&#39; class&#x3D;&#39;c6&#39;&gt;公正&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p8&#39; class&#x3D;&#39;c6&#39;&gt;法治&lt;&#x2F;p&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; insert()：在选择集前面插入元素
+        d3.select(&#39;body&#39;)
+            .insert(&#39;p&#39;, &#39;#p1&#39;)
+            .text(&#39;社会主义核心价值观&#39;);
+
+        &#x2F;&#x2F; append()：在选择集末尾插入元素
+        d3.select(&#39;body&#39;)
+            .append(&#39;p&#39;)
+            .text(&#39;爱国&#39;);
+
+        d3.select(&#39;body&#39;)
+            .append(&#39;p&#39;)
+            .text(&#39;敬业&#39;);
+
+        d3.select(&#39;body&#39;)
+            .append(&#39;p&#39;)
+            .text(&#39;诚信&#39;);
+
+        d3.select(&#39;body&#39;)
+            .append(&#39;p&#39;)
+            .text(&#39;友善&#39;);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-3-删除元素"><a href="#1-3-删除元素" class="headerlink" title="1-3 删除元素"></a>1-3 删除元素</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;删除元素&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body style&#x3D;&#39;text-align: center&#39;&gt;&lt;br &#x2F;&gt;
+    &lt;p id&#x3D;&#39;p1&#39; class&#x3D;&#39;c1&#39;&gt;富强&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p2&#39; class&#x3D;&#39;c2&#39;&gt;民主&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p3&#39; class&#x3D;&#39;c3&#39;&gt;文明&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p4&#39; class&#x3D;&#39;c4&#39;&gt;和谐&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p5&#39; class&#x3D;&#39;c5&#39;&gt;自由&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p6&#39; class&#x3D;&#39;c6&#39;&gt;平等&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p7&#39; class&#x3D;&#39;c6&#39;&gt;公正&lt;&#x2F;p&gt;
+    &lt;p id&#x3D;&#39;p8&#39; class&#x3D;&#39;c6&#39;&gt;法治&lt;&#x2F;p&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; remove()：删除一个元素
+        d3.select(&#39;#p8&#39;)
+            .remove();
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="2-矩形图"><a href="#2-矩形图" class="headerlink" title="2 矩形图"></a>2 矩形图</h1><ul>
+<li>HTML5提供了SVG和Canvas两种强有力的画布。</li>
+<li>SVG：D3提供了众多的SVG图形生成器，都只支持SVG，建议使用该画布。<ul>
+<li>SVG绘制的是矢量图，将图像进行放大不会失真，可以为每个元素添加JavaScript事件处理器。</li>
+<li>每个图形均视为对象，更改对象属性，图形也将改变，<code>x</code>轴正方向水平向右，y轴则垂直向下。</li>
+</ul>
+</li>
+<li>Canvas<ul>
+<li>一旦图形被绘制完成，就不会继续得到浏览器的关注。</li>
+<li>如果位置发生了变化，那么整个场景也需要重新绘制。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-1-横向矩形"><a href="#2-1-横向矩形" class="headerlink" title="2-1 横向矩形"></a>2-1 横向矩形</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;横向矩形&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 数据：矩形的宽度
+        var dataset &#x3D; [280, 210, 170, 130, 90, 160, 110];
+
+        &#x2F;&#x2F; 添加画布：画布的宽度
+        var width &#x3D; 300;
+
+        &#x2F;&#x2F; 添加画布：画布的高度
+        var height &#x3D; 300;
+        
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
+        &#x2F;&#x2F; 每个矩形所占的像素高度(包括空白)
+        var rectHeight &#x3D; 25;
+
+        &#x2F;&#x2F; 绘制横向矩形
+        svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(&#39;x&#39;, 20)
+            .attr(&#39;y&#39;, function (d, i) &#123;
+                return i * rectHeight;
+            &#125;)
+            .attr(&#39;width&#39;, function (d) &#123;
+                return d;
+            &#125;)
+            .attr(&#39;height&#39;, rectHeight - 2)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-2-纵向矩形"><a href="#2-2-纵向矩形" class="headerlink" title="2-2 纵向矩形"></a>2-2 纵向矩形</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;纵向矩形&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 数据：矩形的宽度
+        var dataset &#x3D; [280, 210, 170, 130, 90, 160, 110];
+
+        &#x2F;&#x2F; 添加画布：画布的宽度
+        var width &#x3D; 300;
+
+        &#x2F;&#x2F; 添加画布：画布的高度
+        var height &#x3D; 300;
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
+        &#x2F;&#x2F; 每个矩形所占的像素高度(包括空白)
+        var rectHeight &#x3D; 25;
+
+        &#x2F;&#x2F; 绘制纵向矩形
+        svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(&#39;y&#39;, function (d, i) &#123;
+                return height - d;
+            &#125;)
+            .attr(&#39;x&#39;, function (d, i) &#123;
+                return i * rectHeight;
+            &#125;)
+            .attr(&#39;height&#39;, function (d) &#123;
+                return d;
+            &#125;)
+            .attr(&#39;width&#39;, rectHeight - 2)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-3-常用比例尺"><a href="#2-3-常用比例尺" class="headerlink" title="2-3 常用比例尺"></a>2-3 常用比例尺</h2><ul>
+<li>比例尺就是一个数据映射函数，例如线性比例尺可实现类似<code>y = ax + b</code>的变换。</li>
+<li>D3共有三类比例尺：数量型、序数型(序数、颜色比例尺)、时间型(时间比例尺)。</li>
+<li>数量型：线性、恒等、乘方、对数、量化比例尺、分位数比例尺、临界值比例尺。</li>
+<li>D3中的比例尺，有定义域和值域，分别被称为<code>domain</code>和<code>range</code>。</li>
+<li>常用的比例尺<ul>
+<li>线性比例尺：能将一个连续的区间，映射到另一区间。</li>
+<li>序数比例尺：定义域和值域不一定连续，属于离散值。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-线性比例尺"><a href="#1-线性比例尺" class="headerlink" title="(1) 线性比例尺"></a>(1) 线性比例尺</h3><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;线性比例尺&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        var dataset &#x3D; [1.2, 2.3, 0.9, 1.5, 3.3];
+        var min &#x3D; d3.min(dataset);
+        var max &#x3D; d3.max(dataset);
+
+        &#x2F;&#x2F; 将dataset中最小的值映射成0，最大的值映射成300
+        var linear &#x3D; d3.scaleLinear()
+            .domain([min, max])
+            .range([0, 300]);
+
+        console.log(linear(0.9));
+        console.log(linear(2.3));
+        console.log(linear(3.3));
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-序数比例尺"><a href="#2-序数比例尺" class="headerlink" title="(2) 序数比例尺"></a>(2) 序数比例尺</h3><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;序数比例尺&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        var index &#x3D; [0, 1, 2, 3, 4, 5, 6];
+        var color &#x3D; [
+            &#39;red&#39;, &#39;orange&#39;, &#39;yellow&#39;,
+            &#39;green&#39;, &#39;cyan&#39;, &#39;blue&#39;, &#39;purple&#39;
+        ];
+
+        &#x2F;&#x2F; 0对应颜色red，1对应orange，以此类推
+        var ordinal &#x3D; d3.scaleOrdinal()
+            .domain(index)
+            .range(color);
+
+        console.log(ordinal(0));
+        console.log(ordinal(2));
+        console.log(ordinal(6));
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-4-添加比例尺"><a href="#2-4-添加比例尺" class="headerlink" title="2-4 添加比例尺"></a>2-4 添加比例尺</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;添加比例尺&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        var dataset &#x3D; [1.2, 2.3, 0.9, 1.5, 3.3];
+        var min &#x3D; d3.min(dataset);
+        var max &#x3D; d3.max(dataset);
+
+        &#x2F;&#x2F; 将dataset中最小的值设为0
+        var linear &#x3D; d3.scaleLinear()
+            .domain([0, max])
+            &#x2F;&#x2F; 最大的值映射成300
+            .range([0, 300]);
+
+        &#x2F;&#x2F; 添加画布：画布的宽度
+        var width &#x3D; 300;
+
+        &#x2F;&#x2F; 添加画布：画布的高度
+        var height &#x3D; 300;
+        
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
+        &#x2F;&#x2F; 每个矩形所占的像素高度(包括空白)
+        var rectHeight &#x3D; 25;
+
+        &#x2F;&#x2F; 绘制横向矩形
+        svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(&#39;x&#39;, 20)
+            .attr(&#39;y&#39;, function (d, i) &#123;
+                return i * rectHeight;
+            &#125;)
+            .attr(&#39;width&#39;, function (d) &#123;
+                &#x2F;&#x2F; 使用比例尺
+                return linear(d);
+            &#125;)
+            .attr(&#39;height&#39;, rectHeight - 2)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-5-定义坐标轴"><a href="#2-5-定义坐标轴" class="headerlink" title="2-5 定义坐标轴"></a>2-5 定义坐标轴</h2><ul>
+<li>要生成坐标轴，则需要用到比例尺，二者经常一起使用。</li>
+</ul>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;定义坐标轴&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+
+        .axis path,
+        .axis line &#123;
+            fill: none;
+            stroke: black;
+            shape-rendering: crispEdges;
+        &#125;
+
+        .axis text &#123;
+            font-family: sans-serif;
+            font-size: 11px;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 数据
+        var dataset &#x3D; [1.2, 2.3, 0.9, 1.5, 3.3];
+
+        &#x2F;&#x2F; 定义比例尺
+        var linear &#x3D; d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([0, 300]);
+
+        &#x2F;&#x2F; 定义坐标轴
+        var axis &#x3D; d3.axisBottom(linear)
+            &#x2F;&#x2F; 指定刻度数量
+            .ticks(7);
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, 300)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, 300);
+
+        &#x2F;&#x2F; 每个矩形所占的像素高度(包括空白)
+        var rectHeight &#x3D; 25;
+
+        &#x2F;&#x2F; 绘制横向矩形
+        svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(&#39;x&#39;, 20)
+            .attr(&#39;y&#39;, function (d, i) &#123;
+                return i * rectHeight;
+            &#125;)
+            .attr(&#39;width&#39;, function (d) &#123;
+                &#x2F;&#x2F; 使用比例尺
+                return linear(d);
+            &#125;)
+            .attr(&#39;height&#39;, rectHeight - 2)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
+
+        &#x2F;&#x2F; 添加坐标轴
+        svg.append(&#39;g&#39;)
+            .call(axis)
+            &#x2F;&#x2F; 默认的样式不美观，在head中增加style样式
+            .attr(&#39;transform&#39;, &#39;translate(20,130)&#39;)
+            .call(axis);;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-6-完整矩形图"><a href="#2-6-完整矩形图" class="headerlink" title="2-6 完整矩形图"></a>2-6 完整矩形图</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;完整矩形图&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 添加SVG画布，设置画布大小
+        width &#x3D; 300;
+        height &#x3D; 300;
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
+        &#x2F;&#x2F; 画布周边的空白
+        var padding &#x3D; &#123;
+            left: 30,
+            right: 30,
+            top: 30,
+            bottom: 30
+        &#125;;
+
+        &#x2F;&#x2F; 定义一个数组
+        var dataset &#x3D; [10, 30, 50, 70, 33, 24, 17, 9];
+
+        &#x2F;&#x2F; 定义x轴比例尺
+        var xScale &#x3D; d3.scaleBand()
+            .domain(d3.range(dataset.length))
+            .range([0, width - padding.left - padding.right]);
+
+        &#x2F;&#x2F; 定义y轴比例尺
+        var yScale &#x3D; d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([height - padding.top - padding.bottom, 0]);
+
+        &#x2F;&#x2F; 定义x轴
+        var xAxis &#x3D; d3.axisBottom(xScale);
+
+        &#x2F;&#x2F; 定义y轴
+        var yAxis &#x3D; d3.axisLeft(yScale);
+
+        &#x2F;&#x2F; 矩形之间的空白
+        var rectPadding &#x3D; 5;
+
+        &#x2F;&#x2F; 添加矩形元素
+        var rects &#x3D; svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            )
+            .attr(&#39;x&#39;, function (d, i) &#123;
+                return xScale(i) + rectPadding &#x2F; 2;
+            &#125;)
+            .attr(&#39;y&#39;, function (d) &#123;
+                return yScale(d);
+            &#125;)
+            .attr(&#39;width&#39;, xScale.bandwidth() - rectPadding)
+            .attr(&#39;height&#39;, function (d) &#123;
+                return height - padding.top - padding.bottom - yScale(d);
+            &#125;)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
+
+        &#x2F;&#x2F; 添加文字
+        var texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;text&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            )
+            .attr(&#39;x&#39;, function (d, i) &#123;
+                return xScale(i) + (xScale.bandwidth() - rectPadding) &#x2F; 2;
+            &#125;)
+            .attr(&#39;y&#39;, function (d) &#123;
+                return yScale(d) - 5;
+            &#125;)
+            .attr(&#39;dx&#39;, &#39;0.1em&#39;)
+            .attr(&#39;dy&#39;, &#39;1.5em&#39;)
+            .text(function (d) &#123;
+                return d;
+            &#125;)
+            .style(&#39;fill&#39;, &#39;#FFF&#39;)
+            .style(&#39;text-anchor&#39;, &#39;middle&#39;);
+
+        &#x2F;&#x2F; 添加x轴
+        svg.append(&#39;g&#39;)
+            .call(xAxis)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39;
+                + (height - padding.bottom) + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; 添加y轴
+        svg.append(&#39;g&#39;)
+            .call(yAxis)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            );
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="3-动态效果"><a href="#3-动态效果" class="headerlink" title="3 动态效果"></a>3 动态效果</h1><ul>
+<li>D3提供了4种方法用于实现图形的过渡，即动态效果，代表从状态A变成了状态B。</li>
+<li>transition()：启动过渡效果，前后是图形变化前后的状态(形状、位置、颜色等)。</li>
+<li>duration()：指定过渡的持续时间，单位为毫秒。</li>
+<li>ease()：指定过渡的方式，常用方式有以下几种。<ul>
+<li>线性变化(d3.easeLinear)、弹性变化(d3.easeElastic)。</li>
+<li>弹跳变化(d3.easeBounce)、圆形变化(d3.easeCircle)。</li>
+</ul>
+</li>
+<li>delay()：指定延迟时间，表示一定时间后才开始转变，可对整体或个别指定延迟。</li>
+</ul>
+<h2 id="3-1-简单动态效果"><a href="#3-1-简单动态效果" class="headerlink" title="3-1 简单动态效果"></a>3-1 简单动态效果</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;简单动态效果&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg width&#x3D;&#39;410&#39; height&#x3D;&#39;410&#39;&gt;
+        &lt;circle id&#x3D;&#39;c1&#39;&gt;&lt;&#x2F;circle&gt;
+        &lt;circle id&#x3D;&#39;c2&#39;&gt;&lt;&#x2F;circle&gt;
+        &lt;circle id&#x3D;&#39;c3&#39;&gt;&lt;&#x2F;circle&gt;
+    &lt;&#x2F;svg&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; 获取SVG画布
+        var svg &#x3D; d3.select(&#39;svg&#39;);
+
+        &#x2F;&#x2F; 第一个圆移动x坐标
+        var circle1 &#x3D; svg.select(&#39;#c1&#39;)
+            .attr(&#39;cx&#39;, 100)
+            .attr(&#39;cy&#39;, 100)
+            .attr(&#39;r&#39;, 20)
+            .style(&#39;fill&#39;, &#39;green&#39;);
+
+        &#x2F;&#x2F; 在1秒(1000毫秒)内将圆心坐标由100变为300
+        circle1.transition()
+            .duration(1000)
+            .attr(&#39;cx&#39;, 300);
+
+        &#x2F;&#x2F; 第二个圆移动x坐标，并改变颜色
+        var circle2 &#x3D; svg.select(&#39;#c2&#39;)
+            .attr(&#39;cx&#39;, 100)
+            .attr(&#39;cy&#39;, 200)
+            .attr(&#39;r&#39;, 20)
+            .style(&#39;fill&#39;, &#39;green&#39;);
+
+        &#x2F;&#x2F; 在1.5秒(1500毫秒)内将圆心坐标由100变为300
+        circle2.transition()
+            .duration(1500)
+            .attr(&#39;cx&#39;, 300)
+            &#x2F;&#x2F; 将颜色从绿色变为橘色
+            .style(&#39;fill&#39;, &#39;orange&#39;);
+
+        &#x2F;&#x2F; 第三个圆移动x坐标
+        var circle3 &#x3D; svg.select(&#39;#c3&#39;)
+            .attr(&#39;cx&#39;, 100)
+            .attr(&#39;cy&#39;, 300)
+            &#x2F;&#x2F; 改变颜色和半径
+            .attr(&#39;r&#39;, 20)
+            .style(&#39;fill&#39;, &#39;green&#39;);
+            
+        &#x2F;&#x2F; 在2秒(2000毫秒)内将圆心坐标由100变为300
+        circle3.transition()
+            &#x2F;&#x2F; 并将颜色从绿色变为橘色
+            .duration(2000)
+            .ease(d3.easeBounce)
+            .attr(&#39;cx&#39;, 300)
+            .style(&#39;fill&#39;, &#39;orange&#39;)
+            &#x2F;&#x2F; 半径从20变成35
+            .attr(&#39;r&#39;, 35);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-2-矩形动态效果"><a href="#3-2-矩形动态效果" class="headerlink" title="3-2 矩形动态效果"></a>3-2 矩形动态效果</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;矩形动态效果&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 添加SVG画布，设置画布大小
+        width &#x3D; 300;
+        height &#x3D; 300;
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
+        &#x2F;&#x2F; 画布周边的空白
+        var padding &#x3D; &#123;
+            left: 30,
+            right: 30,
+            top: 30,
+            bottom: 30
+        &#125;;
+
+        &#x2F;&#x2F; 定义一个数组
+        var dataset &#x3D; [10, 30, 50, 70, 33, 24, 17, 9];
+
+        &#x2F;&#x2F; 定义x轴比例尺
+        var xScale &#x3D; d3.scaleBand()
+            .domain(d3.range(dataset.length))
+            .range([0, width - padding.left - padding.right]);
+
+        &#x2F;&#x2F; 定义y轴比例尺
+        var yScale &#x3D; d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([height - padding.top - padding.bottom, 0]);
+
+        &#x2F;&#x2F; 定义x轴
+        var xAxis &#x3D; d3.axisBottom(xScale);
+
+        &#x2F;&#x2F; 定义y轴
+        var yAxis &#x3D; d3.axisLeft(yScale);
+
+        &#x2F;&#x2F; 矩形之间的空白
+        var rectPadding &#x3D; 5;
+
+        &#x2F;&#x2F; 添加矩形元素
+        var rects &#x3D; svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            )
+            .attr(&#39;x&#39;, function (d, i) &#123;
+                return xScale(i) + rectPadding &#x2F; 2;
+            &#125;)
+            .attr(&#39;y&#39;, function (d) &#123;
+                return yScale(d);
+            &#125;)
+            .attr(&#39;width&#39;, xScale.bandwidth() - rectPadding)
+            .attr(&#39;height&#39;, function (d) &#123;
+                return height - padding.top - padding.bottom - yScale(d);
+            &#125;)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;);
+
+        &#x2F;&#x2F; 添加文字
+        var texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;text&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            )
+            .attr(&#39;x&#39;, function (d, i) &#123;
+                return xScale(i) + (xScale.bandwidth() - rectPadding) &#x2F; 2;
+            &#125;)
+            &#x2F;&#x2F; y轴文字稍作修改
+            .attr(&#39;y&#39;, function (d) &#123;
+                var min &#x3D; yScale.domain()[0];
+                return yScale(min);
+            &#125;)
+            .transition()
+            .delay(function (d, i) &#123;
+                return i * 200;
+            &#125;)
+            .duration(2000)
+            .ease(d3.easeBounce)
+            .attr(&#39;y&#39;, function (d) &#123;
+                return yScale(d) - 5;
+            &#125;)
+            .attr(&#39;dx&#39;, &#39;0.1em&#39;)
+            .attr(&#39;dy&#39;, &#39;1.5em&#39;)
+            .text(function (d) &#123;
+                return d;
+            &#125;)
+            .style(&#39;fill&#39;, &#39;#FFF&#39;)
+            .style(&#39;text-anchor&#39;, &#39;middle&#39;);
+
+        &#x2F;&#x2F; 添加x轴
+        svg.append(&#39;g&#39;)
+            .call(xAxis)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39;
+                + (height - padding.bottom) + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; 添加y轴
+        svg.append(&#39;g&#39;)
+            .call(yAxis)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            );
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-3-数量关系处理"><a href="#3-3-数量关系处理" class="headerlink" title="3-3 数量关系处理"></a>3-3 数量关系处理</h2><ul>
+<li>update()、enter()、exit()是D3处理选择集和数据之间数量关系不确定的重要函数。</li>
+<li>update()<ul>
+<li>绑定数据数量 = 对应元素，实际上并不存在这样的1个函数。</li>
+<li>但是对应的元素正好满足时，直接操作即可，后面跟style等。</li>
+</ul>
+</li>
+<li>enter()<ul>
+<li>绑定数据数量 &gt; 对应元素，即:对应的元素数量不足。</li>
+<li>需添加元素使之与绑定数据的数量相等，常跟append。</li>
+</ul>
+</li>
+<li>exit()<ul>
+<li>绑定数据数量 &lt; 对应元素，即:对应的元素数量过多。</li>
+<li>需删除元素使之与绑定数据的数量相等，常跟remove。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-4-图表交互操作"><a href="#3-4-图表交互操作" class="headerlink" title="3-4 图表交互操作"></a>3-4 图表交互操作</h2><ul>
+<li>交互操作，指在图形元素上设置一个或多个监听器，当事件发生时，做出相应的反应。</li>
+<li>用户用于交互的工具：鼠标、键盘、触屏。<ul>
+<li>鼠标事件：click、dblclick、mouseover、mouseout、mousemove、mousedown、mouseup等。</li>
+<li>键盘事件：keydown(按任意键)、keypress(按字符键)、keyup(释放键，不区分字母大小写)。</li>
+<li>触屏事件：touchstart(触摸点放在屏上)、touchmove(触摸点移动)、touchend(触摸点移开)。</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;图表交互操作&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;script&gt;
+        &#x2F;&#x2F; 添加SVG画布，设置画布大小
+        width &#x3D; 300;
+        height &#x3D; 300;
+
+        &#x2F;&#x2F; 选择文档中的body元素
+        var svg &#x3D; d3.select(&#39;body&#39;)
+            &#x2F;&#x2F; 添加一个svg元素
+            .append(&#39;svg&#39;)
+            &#x2F;&#x2F; 设定宽度
+            .attr(&#39;width&#39;, width)
+            &#x2F;&#x2F; 设定高度
+            .attr(&#39;height&#39;, height);
+
+        &#x2F;&#x2F; 画布周边的空白
+        var padding &#x3D; &#123;
+            left: 30,
+            right: 30,
+            top: 30,
+            bottom: 30
+        &#125;;
+
+        &#x2F;&#x2F; 定义一个数组
+        var dataset &#x3D; [10, 30, 50, 70, 33, 24, 17, 9];
+
+        &#x2F;&#x2F; 定义x轴比例尺
+        var xScale &#x3D; d3.scaleBand()
+            .domain(d3.range(dataset.length))
+            .range([0, width - padding.left - padding.right]);
+
+        &#x2F;&#x2F; 定义y轴比例尺
+        var yScale &#x3D; d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([height - padding.top - padding.bottom, 0]);
+
+        &#x2F;&#x2F; 定义x轴
+        var xAxis &#x3D; d3.axisBottom(xScale);
+
+        &#x2F;&#x2F; 定义y轴
+        var yAxis &#x3D; d3.axisLeft(yScale);
+
+        &#x2F;&#x2F; 矩形之间的空白
+        var rectPadding &#x3D; 5;
+
+        &#x2F;&#x2F; 添加矩形元素
+        var rects &#x3D; svg.selectAll(&#39;rect&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;rect&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            )
+            .attr(&#39;x&#39;, function (d, i) &#123;
+                return xScale(i) + rectPadding &#x2F; 2;
+            &#125;)
+            .attr(&#39;y&#39;, function (d) &#123;
+                return yScale(d);
+            &#125;)
+            .attr(&#39;width&#39;, xScale.bandwidth() - rectPadding)
+            .attr(&#39;height&#39;, function (d) &#123;
+                return height - padding.top - padding.bottom - yScale(d);
+            &#125;)
+            .attr(&#39;fill&#39;, &#39;steelblue&#39;)
+            &#x2F;&#x2F; 鼠标移至矩形条，更改颜色
+            .on(&#39;mouseover&#39;, function (d, i) &#123;
+                d3.select(this)
+                    .attr(&#39;fill&#39;, &#39;purple&#39;);
+            &#125;)
+            .on(&#39;mouseout&#39;, function (d, i) &#123;
+                d3.select(this)
+                    .transition()
+                    .duration(500)
+                    .attr(&#39;fill&#39;, &#39;steelblue&#39;);
+            &#125;);
+
+        &#x2F;&#x2F; 添加文字
+        var texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(dataset)
+            .enter()
+            .append(&#39;text&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            )
+            .attr(&#39;x&#39;, function (d, i) &#123;
+                return xScale(i) + (xScale.bandwidth() - rectPadding) &#x2F; 2;
+            &#125;)
+            .attr(&#39;y&#39;, function (d) &#123;
+                return yScale(d) - 5;
+            &#125;)
+            .attr(&#39;dx&#39;, &#39;0.1em&#39;)
+            .attr(&#39;dy&#39;, &#39;1.5em&#39;)
+            .text(function (d) &#123;
+                return d;
+            &#125;)
+            .style(&#39;fill&#39;, &#39;#FFF&#39;)
+            .style(&#39;text-anchor&#39;, &#39;middle&#39;);
+
+        &#x2F;&#x2F; 添加x轴
+        svg.append(&#39;g&#39;)
+            .call(xAxis)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39;
+                + (height - padding.bottom) + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; 添加y轴
+        svg.append(&#39;g&#39;)
+            .call(yAxis)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + padding.left + &#39;,&#39; + padding.top + &#39;)&#39;
+            );
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="4-布局详解"><a href="#4-布局详解" class="headerlink" title="4 布局详解"></a>4 布局详解</h1><ul>
+<li>Layout，将不适合用于绘图的数据转换成了适合用于绘图的数据(数据转换)。</li>
+<li>D3常用的布局<ul>
+<li>弦图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/chord-diagram">Chord</a>)、饼状图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/pie-chart-component">Pie</a>)、直方图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/histogram">Histogram</a>)。</li>
+<li>捆图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/hierarchical-edge-bundling">Bundle</a>)、堆栈图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/streamgraph-transitions">Stack</a>)、力导向图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/force-directed-graph-component">Force</a>)。</li>
+<li>层级图(Hierarchy)：不能直接使用，扩展图共有五个。</li>
+<li>树状图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/tree-component">Tree</a>)、打包图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/pack-component">Pack</a>)、分区图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/sunburst-component">Partition</a>)、集群图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/cluster">Cluster</a>)、矩阵树图(<a target="_blank" rel="noopener" href="https://observablehq.com/@d3/treemap-component">Treemap</a>)。</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://observablehq.com/@d3/gallery" target="_blank" title="Force-directed graph by D3" style="display: inline-flex; flex-direction: column; align-items: start; font: 400 .75rem var(--sans-serif); color: #1b1e23; width: 100%;"><br>  <div style="border: 1px solid rgb(232, 232, 232); border-radius: 4px; box-sizing: border-box; width: 100%; padding-top: 62.5%; background-size: cover; background-image: url(&quot;https://static.observableusercontent.com/thumbnail/daca6197a1592e5582e904387074d40ce144606eb639222eb9306ce38ba32623.jpg&quot;);"></div>
+  <div style="width: 100%; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; text-align: center;">布局详解</div>
+</a></p>
+<h1 id="5-饼状图形"><a href="#5-饼状图形" class="headerlink" title="5 饼状图形"></a>5 饼状图形</h1><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;饼状图形&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 500;
+        var height &#x3D; 500;
+        var radius &#x3D; Math.min(width, height) &#x2F; 2;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;, 
+                &#39;translate(&#39; + width &#x2F; 2 + &#39;,&#39; + height &#x2F; 2 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; 数据
+        var dataset &#x3D; [30, 10, 43, 55, 13];
+
+        &#x2F;&#x2F; 定义一个布局
+        var pie &#x3D; d3.pie();
+
+        &#x2F;&#x2F; 数据转换
+        var piedata &#x3D; pie(dataset);
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 绘制图形，这里绘制的是饼图，需要使用弧生成器，设置外半径和内半径
+        var outerRadius &#x3D; 100;
+
+        &#x2F;&#x2F; 内半径，为0则中间没有空白
+        var innerRadius &#x3D; 70;
+
+        &#x2F;&#x2F; 弧生成器，设置外半径和内半径
+        var arc &#x3D; d3.arc()
+            .innerRadius(innerRadius)
+            .outerRadius(outerRadius);
+
+        &#x2F;&#x2F; 在SVG中添加图形元素
+        var arcs &#x3D; svg.selectAll(&#39;g&#39;)
+            &#x2F;&#x2F; 添加足够数量的分组元素(5个)
+            .data(piedata)
+            .enter()
+            .append(&#39;g&#39;)
+            &#x2F;&#x2F; 每个分组用于存放一段弧的相关元素
+            .attr(&#39;class&#39;, &#39;arc&#39;);
+            
+        &#x2F;&#x2F; 对每个g元素添加path
+        arcs.append(&#39;path&#39;)
+            .attr(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            .attr(&#39;d&#39;, function (d) &#123;
+                &#x2F;&#x2F; 调用弧生成器，得到路径值，参数d是被绑定的数据
+                return arc(d);
+            &#125;);
+
+        &#x2F;&#x2F; 在每个弧线中心添加文本
+        arcs.append(&#39;text&#39;)
+            .attr(&#39;transform&#39;, function (d) &#123;
+                &#x2F;&#x2F; arc.centroid(d)能算出弧线的中心
+                return &#39;translate(&#39; + arc.centroid(d) + &#39;)&#39;;
+            &#125;)
+            .attr(&#39;text-anchor&#39;, &#39;middle&#39;)
+            &#x2F;&#x2F; text()返回的是d.data，被绑定的数据是对象
+            &#x2F;&#x2F; 包含d.startAngle、d.endAngle、d.data等
+            .text(function (d) &#123;
+                return d.data;
+            &#125;);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="6-力导向图"><a href="#6-力导向图" class="headerlink" title="6 力导向图"></a>6 力导向图</h1><ul>
+<li>力导向图，英文叫Force-Directed Graph，是绘图的一种算法。</li>
+<li>在二维或三维空间里配置节点，节点之间用线连接，称为连线。</li>
+<li>节点之间的各个连线长度几乎都相等，并且会尽可能地不相交。</li>
+<li>节点和连线都被施加了力的作用，而力则根据节点和连线的相对位置计算。</li>
+<li>nodes(节点)和edges(边)都是必备属性，节点和边数组都可以有额外属性。</li>
+<li>nodes数据是一个表示节点的对象数组，而edges是一个表示边的对象数组。</li>
+<li>其中，source和target子属性也是必备的，其值代表了nodes数组中的索引。</li>
+</ul>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;力导向图&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 800;
+        height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 4 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 初始数据
+        var nodes &#x3D; [
+            &#123; name: &#39;福建&#39; &#125;, &#123; name: &#39;广东&#39; &#125;,
+            &#123; name: &#39;福州&#39; &#125;, &#123; name: &#39;莆田&#39; &#125;,
+            &#123; name: &#39;广州&#39; &#125;, &#123; name: &#39;茂名&#39; &#125;, &#123; name: &#39;深圳&#39; &#125;
+        ];
+        var edges &#x3D; [
+            &#123; source: 0, target: 1 &#125;, &#123; source: 0, target: 2 &#125;,
+            &#123; source: 0, target: 3 &#125;, &#123; source: 1, target: 4 &#125;,
+            &#123; source: 1, target: 5 &#125;, &#123; source: 1, target: 6 &#125;
+        ];
+
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        var simulation &#x3D; d3.forceSimulation(nodes)
+            .force(&#39;link&#39;, d3.forceLink().links(edges).distance(150))
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-500))
+            .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
+
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
+            .data(edges)
+            .enter()
+            .append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;)
+            .style(&#39;stroke-width&#39;, 1);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(nodes)
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, 15)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            &#x2F;&#x2F; 确保使用新的拖动API
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(nodes)
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.name;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
+                .attr(&#39;y1&#39;, function (d) &#123; return d.source.y; &#125;)
+                .attr(&#39;x2&#39;, function (d) &#123; return d.target.x; &#125;)
+                .attr(&#39;y2&#39;, function (d) &#123; return d.target.y; &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-1-分子式"><a href="#6-1-分子式" class="headerlink" title="6-1 分子式"></a>6-1 分子式</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;分子式&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 800;
+        height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 数据
+        var graph &#x3D; &#123;
+            &#39;nodes&#39;: [
+                &#123; &#39;atom&#39;: &#39;福建&#39;, &#39;size&#39;: 30 &#125;,
+                &#123; &#39;atom&#39;: &#39;福州&#39;, &#39;size&#39;: 10 &#125;,
+                &#123; &#39;atom&#39;: &#39;莆田&#39;, &#39;size&#39;: 10 &#125;,
+                &#123; &#39;atom&#39;: &#39;广东&#39;, &#39;size&#39;: 30 &#125;,
+                &#123; &#39;atom&#39;: &#39;广州&#39;, &#39;size&#39;: 10 &#125;,
+                &#123; &#39;atom&#39;: &#39;茂名&#39;, &#39;size&#39;: 10 &#125;,
+                &#123; &#39;atom&#39;: &#39;深圳&#39;, &#39;size&#39;: 10 &#125;
+            ],
+            &#39;links&#39;: [
+                &#123; &#39;source&#39;: 0, &#39;target&#39;: 0, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 0, &#39;target&#39;: 1, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 0, &#39;target&#39;: 2, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 0, &#39;target&#39;: 3, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 3, &#39;target&#39;: 3, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 3, &#39;target&#39;: 4, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 3, &#39;target&#39;: 5, &#39;bond&#39;: 1 &#125;,
+                &#123; &#39;source&#39;: 3, &#39;target&#39;: 6, &#39;bond&#39;: 1 &#125;
+            ]
+        &#125;
+
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力
+        var simulation &#x3D; d3.forceSimulation(graph.nodes)
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-100))
+            .force(&#39;link&#39;, d3.forceLink(graph.links).distance(function (d) &#123;
+                &#x2F;&#x2F; 根据大小调整距离
+                return 20 + 2 * (d.source.size + d.target.size);
+            &#125;));
+
+        &#x2F;&#x2F; 定义一个半径比例尺
+        var radius &#x3D; d3.scaleSqrt()
+            .range([0, 10])
+            .domain([1, 20]);
+
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
+            .data(graph.links)
+            .enter()
+            .append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;)
+            .style(&#39;stroke-width&#39;, 1);
+
+        svg_edges.filter(function (d) &#123; return d.bond &gt; 1; &#125;)
+            .append(&#39;line&#39;)
+            .attr(&#39;class&#39;, &#39;separator&#39;);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(graph.nodes)
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, function (d) &#123; return radius(d.size); &#125;)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            &#x2F;&#x2F; 确保使用新的拖动API
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(graph.nodes)
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.atom;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
+                .attr(&#39;y1&#39;, function (d) &#123; return d.source.y; &#125;)
+                .attr(&#39;x2&#39;, function (d) &#123; return d.target.x; &#125;)
+                .attr(&#39;y2&#39;, function (d) &#123; return d.target.y; &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-2-带文字"><a href="#6-2-带文字" class="headerlink" title="6-2 带文字"></a>6-2 带文字</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;带文字&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 800;
+        height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 初始数据，链接数组
+        var links &#x3D; [
+            &#123; source: &#39;福建&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;福州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;莆田&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广东&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
+        ];
+
+        &#x2F;&#x2F; 初始化一个空的节点对象映射
+        var nodes &#x3D; &#123;&#125;;
+
+        &#x2F;&#x2F; 从链接中分离出不同的节点
+        links.forEach(function (link) &#123;
+            link.source &#x3D; nodes[link.source]
+                || (nodes[link.source] &#x3D; &#123; name: link.source &#125;);
+            link.target &#x3D; nodes[link.target]
+                || (nodes[link.target] &#x3D; &#123; name: link.target &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        var simulation &#x3D; d3.forceSimulation(Object.values(nodes))
+            .force(&#39;link&#39;, d3.forceLink().links(links).distance(150))
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-500))
+            .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
+
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
+            .data(links)
+            .enter()
+            .append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;)
+            .style(&#39;stroke-width&#39;, 1);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, 15)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            &#x2F;&#x2F; 确保使用新的拖动API
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.name;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
+                .attr(&#39;y1&#39;, function (d) &#123; return d.source.y; &#125;)
+                .attr(&#39;x2&#39;, function (d) &#123; return d.target.x; &#125;)
+                .attr(&#39;y2&#39;, function (d) &#123; return d.target.y; &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-3-弧箭头"><a href="#6-3-弧箭头" class="headerlink" title="6-3 弧箭头*"></a>6-3 弧箭头*</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;弧箭头&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 800;
+        height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 初始数据，链接数组
+        var links &#x3D; [
+            &#123; source: &#39;福建&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;福州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;莆田&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广东&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
+        ];
+        
+        &#x2F;&#x2F; 初始化一个空的节点对象映射
+        var nodes &#x3D; &#123;&#125;;
+
+        &#x2F;&#x2F; 从链接中分离出不同的节点
+        links.forEach(function (link) &#123;
+            link.source &#x3D; nodes[link.source]
+                || (nodes[link.source] &#x3D; &#123; name: link.source &#125;);
+            link.target &#x3D; nodes[link.target]
+                || (nodes[link.target] &#x3D; &#123; name: link.target &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        var simulation &#x3D; d3.forceSimulation(Object.values(nodes))
+            .force(&#39;link&#39;, d3.forceLink().links(links).distance(150))
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-500))
+            .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
+
+        &#x2F;&#x2F; 创建箭头
+        svg.append(&#39;svg:defs&#39;)
+            .selectAll(&#39;marker&#39;)
+            .data([&#39;suit&#39;])
+            .enter()
+            .append(&#39;svg:marker&#39;)
+            &#x2F;&#x2F; 确保ID与引用时使用的字符串匹配
+            .attr(&#39;id&#39;, &#39;suit&#39;)
+            .attr(&#39;viewBox&#39;, &#39;0 -5 10 10&#39;)
+            .attr(&#39;refX&#39;, 15)
+            .attr(&#39;refY&#39;, -1.5)
+            .attr(&#39;markerWidth&#39;, 6)
+            .attr(&#39;markerHeight&#39;, 6)
+            .attr(&#39;orient&#39;, &#39;auto&#39;)
+            .append(&#39;svg:path&#39;)
+            &#x2F;&#x2F; M0,-5表示路径的起点，坐标(0, -5)
+            &#x2F;&#x2F; L10,0表示从上一步的起点绘制一条直线到坐标(10, 0)的点
+            &#x2F;&#x2F; L0,5表示从上一步的点绘制一条直线到坐标(0, 5)的点
+            .attr(&#39;d&#39;, &#39;M0,-5L10,0L0,5&#39;);
+
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;.link&#39;)
+            .data(links)
+            .enter()
+            .append(&#39;svg:path&#39;)
+            .attr(&#39;class&#39;, function (d) &#123;
+                return &#39;link &#39; + d.type;
+            &#125;)
+            &#x2F;&#x2F; 使用默认的箭头标记
+            .attr(&#39;marker-end&#39;, function (d) &#123;
+                return &#39;url(#&#39; + d.type + &#39;)&#39;;
+            &#125;)
+            &#x2F;&#x2F; 调整线宽，使其更细
+            .style(&#39;stroke-width&#39;, 1)
+            &#x2F;&#x2F; 添加虚线效果
+            .style(&#39;stroke-dasharray&#39;, &#39;0,2 1&#39;);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, 15)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            &#x2F;&#x2F; 确保使用新的拖动API
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.name;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;d&#39;, function (d) &#123;
+                var dx &#x3D; d.target.x - d.source.x,
+                    dy &#x3D; d.target.y - d.source.y,
+                    &#x2F;&#x2F; 计算距离
+                    dr &#x3D; Math.sqrt(dx * dx + dy * dy);
+                &#x2F;&#x2F; 增大系数，使弧线更弯曲
+                &#x2F;&#x2F; 系数越大好像越接近直线，非箭头连线，设置没效果？？？
+                dr &#x3D; dr * 0.5 + 100;
+                &#x2F;&#x2F; dr + &#39; 0 0,1 &#39;，第一个0指弧线的大弧形或小弧形
+                &#x2F;&#x2F; 第二个0，指弧线的扫掠方向，0代表顺时针，1代表逆时针
+                &#x2F;&#x2F; 第三个1，指弧线结束于起点顺时针旋转超过180度的位置
+                return &#39;M&#39; + d.source.x + &#39;,&#39; + d.source.y + &#39;A&#39; + dr + &#39;,&#39;
+                    + dr + &#39; 0 0,1 &#39; + d.target.x + &#39;,&#39; + d.target.y;
+            &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-4-带图片"><a href="#6-4-带图片" class="headerlink" title="6-4 带图片*"></a>6-4 带图片*</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;带图片&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+
+    &lt;script&gt;
+        &#x2F;&#x2F; 画布
+        var width &#x3D; 800;
+        height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height)
+            .append(&#39;g&#39;)
+            .attr(
+                &#39;transform&#39;,
+                &#39;translate(&#39; + width &#x2F; 4 + &#39;,&#39; + height &#x2F; 3 + &#39;)&#39;
+            );
+
+        &#x2F;&#x2F; color颜色比例尺，能根据传入的索引号获取相应的颜色值
+        var color &#x3D; d3.scaleOrdinal(d3.schemeCategory10);
+
+        &#x2F;&#x2F; 初始数据，链接数组
+        var links &#x3D; [
+            &#123; source: &#39;福建&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;福州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;福建&#39;, target: &#39;莆田&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;福建&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广东&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;广州&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;茂名&#39;, type: &#39;node&#39;, weight: 1 &#125;,
+            &#123; source: &#39;广东&#39;, target: &#39;深圳&#39;, type: &#39;node&#39;, weight: 1 &#125;
+        ];
+
+        &#x2F;&#x2F; 初始化一个空的节点对象映射
+        var nodes &#x3D; &#123;&#125;;
+
+        &#x2F;&#x2F; 从链接中分离出不同的节点
+        links.forEach(function (link) &#123;
+            link.source &#x3D; nodes[link.source]
+                || (nodes[link.source] &#x3D; &#123; name: link.source &#125;);
+            link.target &#x3D; nodes[link.target]
+                || (nodes[link.target] &#x3D; &#123; name: link.target &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 定义一个力导向图的布局，连接力，排斥力，中心力
+        var simulation &#x3D; d3.forceSimulation(Object.values(nodes))
+            .force(&#39;link&#39;, d3.forceLink().links(links).distance(150))
+            .force(&#39;charge&#39;, d3.forceManyBody().strength(-500))
+            .force(&#39;center&#39;, d3.forceCenter(width &#x2F; 5, height &#x2F; 5));
+
+        &#x2F;&#x2F; 绘制连线
+        var svg_edges &#x3D; svg.selectAll(&#39;line&#39;)
+            .data(links)
+            .enter()
+            .append(&#39;line&#39;)
+            .style(&#39;stroke&#39;, &#39;#ccc&#39;)
+            .style(&#39;stroke-width&#39;, 1);
+
+        &#x2F;&#x2F; 添加节点 
+        var svg_nodes &#x3D; svg.selectAll(&#39;circle&#39;)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;circle&#39;)
+            .attr(&#39;r&#39;, 15)
+            .style(&#39;fill&#39;, function (d, i) &#123;
+                return color(i);
+            &#125;)
+            .call(
+                d3.drag()
+                    .on(&#39;start&#39;, dragstarted)
+                    .on(&#39;drag&#39;, dragged)
+                    .on(&#39;end&#39;, dragended)
+            );
+
+        &#x2F;&#x2F; 添加图片
+        &#x2F;&#x2F; svg_nodes.append(&#39;image&#39;)
+        &#x2F;&#x2F;     .attr(&#39;xlink:href&#39;, &#39;.&#x2F;file&#x2F;avater1.png&#39;)
+        &#x2F;&#x2F;     .attr(&#39;x&#39;, -8)
+        &#x2F;&#x2F;     .attr(&#39;y&#39;, -8)
+        &#x2F;&#x2F;     .attr(&#39;width&#39;, 16)
+        &#x2F;&#x2F;     .attr(&#39;height&#39;, 16);
+
+        &#x2F;&#x2F; 为不同节点设置不同图片，图片效果出不来？？？
+        svg_nodes.append(&#39;image&#39;)
+            .attr(&#39;xlink:href&#39;, function (d) &#123;
+                &#x2F;&#x2F; 根据节点数据返回不同的图片URL
+                return d.name &#x3D;&#x3D;&#x3D; &#39;福建&#39; ? &#39;.&#x2F;file&#x2F;avater2.png&#39; :
+                    d.name &#x3D;&#x3D;&#x3D; &#39;广东&#39; ? &#39;.&#x2F;file&#x2F;avater3.png&#39; :
+                        &#39;.&#x2F;file&#x2F;avater1.png&#39;;
+            &#125;)
+            .attr(&#39;x&#39;, -8)
+            .attr(&#39;y&#39;, -8)
+            .attr(&#39;width&#39;, 16)
+            .attr(&#39;height&#39;, 16);
+
+        &#x2F;&#x2F; 添加提示，这里和添加文字是否有区别？？？
+        svg_nodes.append(&#39;title&#39;)
+            .text(function (d) &#123; return d.name; &#125;);
+
+        &#x2F;&#x2F; 添加文字
+        var svg_texts &#x3D; svg.selectAll(&#39;text&#39;)
+            .data(Object.values(nodes))
+            .enter()
+            .append(&#39;text&#39;)
+            .style(&#39;fill&#39;, &#39;black&#39;)
+            .attr(&#39;dx&#39;, 20)
+            .attr(&#39;dy&#39;, 8)
+            .text(function (d) &#123;
+                return d.name;
+            &#125;);
+
+        &#x2F;&#x2F; 力导向图不断运动，每一时刻都在发生更新，须不断更新节点和连线位置
+        simulation.on(&#39;tick&#39;, function () &#123;
+            &#x2F;&#x2F; 每个tick更新节点和连线的位置
+            svg_edges.attr(&#39;x1&#39;, function (d) &#123; return d.source.x; &#125;)
+                .attr(&#39;y1&#39;, function (d) &#123; return d.source.y; &#125;)
+                .attr(&#39;x2&#39;, function (d) &#123; return d.target.x; &#125;)
+                .attr(&#39;y2&#39;, function (d) &#123; return d.target.y; &#125;);
+
+            svg_nodes.attr(&#39;cx&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;cy&#39;, function (d) &#123; return d.y; &#125;);
+
+            svg_texts.attr(&#39;x&#39;, function (d) &#123; return d.x; &#125;)
+                .attr(&#39;y&#39;, function (d) &#123; return d.y; &#125;);
+        &#125;);
+
+        &#x2F;&#x2F; 拖动的处理函数
+        function dragstarted(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx &#x3D; d.x;
+            d.fy &#x3D; d.y;
+        &#125;
+        function dragged(event, d) &#123;
+            d.fx &#x3D; event.x;
+            d.fy &#x3D; event.y;
+        &#125;
+        function dragended(event, d) &#123;
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx &#x3D; null;
+            d.fy &#x3D; null;
+        &#125;
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="7-可视化地图"><a href="#7-可视化地图" class="headerlink" title="7 可视化地图"></a>7 可视化地图</h1><ul>
+<li>制作地图需要Json文件，将Json格式应用于地理上的文件，叫GeoJson文件。</li>
+</ul>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&#39;en&#39;&gt;
+
+&lt;head&gt;
+    &lt;meta charset&#x3D;&#39;UTF-8&#39; &#x2F;&gt;
+    &lt;title&gt;可视化地图&lt;&#x2F;title&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdnjs.cloudflare.com&#x2F;ajax&#x2F;libs&#x2F;d3&#x2F;7.9.0&#x2F;d3.min.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;!-- 引入TopoJSON --&gt;
+    &lt;script src&#x3D;&#39;https:&#x2F;&#x2F;cdn.bootcdn.net&#x2F;ajax&#x2F;libs&#x2F;topojson&#x2F;3.0.2&#x2F;topojson.js&#39;&gt;
+    &lt;&#x2F;script&gt;
+    &lt;style&gt;
+        svg &#123;
+            display: block;
+            margin: auto;
+        &#125;
+
+        .country &#123;
+            fill: steelblue;
+            stroke: white;
+            stroke-width: 0.5px;
+        &#125;
+
+        .country:hover &#123;
+            fill: orange;
+        &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+
+&lt;body&gt;&lt;br &#x2F;&gt;
+    &lt;svg&gt;&lt;&#x2F;svg&gt;
+    
+    &lt;script&gt;
+        &#x2F;&#x2F; 设置SVG容器
+        var width &#x3D; 960;
+        height &#x3D; 600;
+        var svg &#x3D; d3.select(&#39;svg&#39;)
+            .attr(&#39;width&#39;, width)
+            .attr(&#39;height&#39;, height);
+
+        &#x2F;&#x2F; 投影设置：GeoJson中的地图数据都是三维的经纬度，而网页显示为二维
+        &#x2F;&#x2F; 此时需要设定一个投影函数，用于经纬度转换
+        const projection &#x3D; d3.geoMercator()
+            &#x2F;&#x2F; scale为缩放因子，数值越小缩放效果越大
+            .scale(90)
+            .translate([width &#x2F; 2, height &#x2F; 2]);
+
+        &#x2F;&#x2F; 地理路径生成器
+        const path &#x3D; d3.geoPath()
+            .projection(projection);
+
+        &#x2F;&#x2F; 加载数据
+        d3.json(&#39;https:&#x2F;&#x2F;d3js.org&#x2F;world-110m.v1.json&#39;)
+            .then(data &#x3D;&gt; &#123;
+                &#x2F;&#x2F; 转换TopoJSON数据
+                const countries &#x3D; topojson.feature(
+                    data, data.objects.countries
+                ).features;
+
+                &#x2F;&#x2F; 绘制国家
+                svg.selectAll(&#39;.country&#39;)
+                    .data(countries)
+                    .enter()
+                    .append(&#39;path&#39;)
+                    .attr(&#39;class&#39;, &#39;country&#39;)
+                    .attr(&#39;d&#39;, path)
+                    .attr(&#39;fill&#39;, &#39;steelblue&#39;)
+                    .attr(&#39;stroke&#39;, &#39;white&#39;)
+                    .attr(&#39;stroke-width&#39;, 0.5)
+                    .on(&#39;mouseover&#39;, function (event) &#123;
+                        d3.select(this)
+                            .transition()
+                            .duration(200)
+                            .style(&#39;fill&#39;, &#39;orange&#39;);
+                    &#125;)
+                    .on(&#39;mouseout&#39;, function (event) &#123;
+                        d3.select(this)
+                            .transition()
+                            .duration(200)
+                            .style(&#39;fill&#39;, &#39;steelblue&#39;);
+                    &#125;);
+            &#125;);
+    &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-user"> -->
+                    <span>
+                        文章作者:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wwwbsf.github.io" rel="external nofollow noreferrer">bsf</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-link"> -->
+                    <span>
+                        文章链接:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wwwbsf.github.io/posts/javascript@01.html">https://wwwbsf.github.io/posts/javascript@01.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    ⭐
+                    <!-- <i class="fas fa-copyright"> -->
+                    <span>
+                        版权声明:
+                    </span>
+                    <!-- </i> -->
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://wwwbsf.github.io" target="_blank">bsf</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Web/">
+                                    <span class="chip bg-color">Web</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B8%83%E5%B1%80/">
+                                    <span class="chip bg-color">布局</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%AF%94%E4%BE%8B%E5%B0%BA/">
+                                    <span class="chip bg-color">比例尺</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9D%90%E6%A0%87%E8%BD%B4/">
+                                    <span class="chip bg-color">坐标轴</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq, qzone, wechat" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">来都来了，赏一个呗！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微&ensp;&ensp;信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+    .v[data-class=v] .emoji, .v[data-class=v] .vemoji {
+        max-height: 20px;
+        overflow: hidden;
+        max-width: 20px!important;
+    }
+    .v[data-class=v] .vwrap .vemojis {
+        text-align: center;
+    }
+    .roboterbb {
+        position: absolute;
+        right: 87px;
+        padding-top: 3px;
+    }
+    .robot-check-text:hover {
+        color: #26a69a;
+    }
+    .roboter:hover .robot-check-text::before {
+        border: 2px solid #5a5a5a;
+    }
+    .robotxian {
+        background: #5a5a5a;
+        top: 21px;
+        left: 11px!important;
+        transform-origin: 50% -17px;
+        animation: swing 3.5s infinite ease-in-out;
+        -webkit-transform-origin: 50% -17px;
+        -webkit-animation: swing 2.85s infinite ease-in-out;
+    }
+    .v[data-class=v] .vwrap {
+        /* padding-bottom: 23px; */
+        padding-bottom: 30px;
+    }
+    .robotimg {
+        width: 28px!important;
+        height: 28px!important;
+        top: 14px!important;
+        left: -13px!important;
+        max-width: none!important;
+        z-index: 99;
+        cursor: none!important;
+    }
+    .v[data-class=v] .vbtn:disabled {
+        color: #b2b2b5;
+        border-color: #b2b2b5;
+    }
+    .v[data-class=v] .vbtn:disabled {
+        background-color: transparent;
+    }
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+    .v[data-class=v] .vwrap {
+        border-radius: 8px;
+    }
+    /* #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    } */
+    #vcomments textarea {
+        background: url(/medias/comment_bg.webp) no-repeat;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" id="vcomments-top">
+
+    <!-- 福袋按钮 -->
+    <div class="caishendeng">        
+        <div class="caishenxian fudaixian">
+            <img class="caishenpic fudao" src="/medias/spring-img/fudao.png" />
+        </div>              
+    </div>
+   
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评 论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        enableQQ: true,
+        boolean: true,
+        appId: 'Grv3UQKKLVVKB70yDqY6C5ez-gzGzoHsz',
+        appKey: 'HEBFnyeROkIQCr9ysXSiOZQM',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        // avatar: '/medias/robot.png',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '评论前记得点击下方机器人验证按钮噢 ~ ',    
+
+        adminEmailMd5: '',
+
+        // master: [""],
+        // friends: [""],
+        // tagMeta: ["博主", "小伙伴", "访客"],
+        tagMeta: '博主,小伙伴,访客',
+        master: '',
+        friends: '',
+        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest"]
+    });
+</script>
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
+
+
+<!-- 评论机器人验证 -->
+<script>
+    $('.roboter').on('click',function(){
+        $('.robot-check-text').html('·&nbsp;&nbsp;&nbsp;验证成功！');
+        $('.roboter:hover .robot-check-text::before').css('border','2px solid #26a69a');
+        $('.robotxian').css('background','#26a69a');
+        $('.robotimg').attr('src','/medias/robot.png');
+        $('.robot-check-text').css('color','#26a69a');
+    });
+    
+    if(!$('.robot-check').checked) {
+        // alert("请勾选机器人验证后再发表评论！");
+        $('.vsubmit').attr('disabled',true).attr('title','评论前勾选机器人验证按钮');
+    } 
+    $('.robot-check').on('click',function(){
+        $('.vsubmit').attr('disabled',false).attr('title','欢迎畅所欲言');
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/javascript@02.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/toc-banner/javascript/javascript@02.jpg" class="responsive-img" alt="可视化D3(二)">
+                        
+                        <!-- 福袋按钮 -->
+                        <div class="caishendeng">        
+                            <div class="caishenxian wenzhangxian">
+                                <img class="caishenpic lala" src="/medias/spring-img/fish.png" />
+                            </div>              
+                        </div>
+                        <span class="card-title">
+                          <!-- 文章卡片hover线条效果 -->
+                          <span class="titlesline"></span>
+                          可视化D3(二)
+                        </span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            D3可用于创建交互式可视化，允许使用数据操作、转换和呈现，然后将其转换为可在浏览器中显示的SVG、Canvas或HTML。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-10-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web/" class="post-category">
+                                    Web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web/">
+                        <span class="chip bg-color">Web</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%94%BB%E5%B8%83/">
+                        <span class="chip bg-color">画布</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+                        <span class="chip bg-color">数据类型</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD/">
+                        <span class="chip bg-color">文件加载</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/flutter@03.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/toc-banner/flutter/flutter@03.jpg" class="responsive-img" alt="页面布局">
+                        
+                        <!-- 福袋按钮 -->
+                        <div class="caishendeng">        
+                            <div class="caishenxian wenzhangxian">
+                                <img class="caishenpic lala" src="/medias/spring-img/fish.png" />
+                            </div>              
+                        </div>
+                        <span class="card-title">
+                          <!-- 文章卡片hover线条效果 -->
+                          <span class="titlesline"></span>
+                          页面布局
+                        </span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Flutter页面布局主要使用Row和Column两种基本布局组件，可组合使用并结合Expanded、Flex等组件实现更灵活的页面布局。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Flex/">
+                        <span class="chip bg-color">Flex</span>
+                    </a>
+                    
+                    <a href="/tags/Card/">
+                        <span class="chip bg-color">Card</span>
+                    </a>
+                    
+                    <a href="/tags/Stack/">
+                        <span class="chip bg-color">Stack</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+<style>
+  .articles .row .article {
+    position: relative;
+  }
+</style>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('1024')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: bsf<br />'
+            + '文章作者: bsf<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- highlight设置，关闭highlight，开启prismjs才生效，好奇怪？？？cdn版本也不能改，一改就会异常！！！ -->
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.0/styles/docco.min.css" rel="stylesheet"> -->
+<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+
+<!-- <script src="https://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<!-- <script src="/js/prism/prism-coy.js" async></script> -->
+<!-- <script src="/js/prism/prism-okaidia.js" async></script> -->
+<!-- <script src="/js/prism/prism-tomorrow.js" async></script> -->
+<!-- <script src="/js/prism/prism-solarizedlight.js" async></script> -->
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">
+                <i class="far fa-list-alt"></i>
+                &nbsp;&nbsp;目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="Web">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="布局">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="比例尺">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+            <div id="floating-toc-btn" class="hide-on-med-and-down" data-spmid="坐标轴">
+                <a class="btn-floating btn-large bg-color">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            </div>
+        
+    
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4, h5, h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5, h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+</main>
+
+
+
+
+    <style>
+  footer {
+    position: relative;
+  }
+
+  .page-footer {
+    padding-top: 23px;
+    padding-bottom: 1px;
+  }
+</style>
+<footer class="page-footer bg-color">
+  
+
+  <div class="container row center-align"
+    style="margin-bottom: 15px !important;">
+    <!-- 访客地图 -->
+    <div class="col s12 m3 l3 social-link" id="visitmap">
+      <!-- <a target="_blank" rel="noopener" href="https://clustrmaps.com/site/1bd51" title="访客地图"><img src="/medias/map-visit.png" /></a> -->
+      <a target="_blank" rel="noopener" href="https://clustrmaps.com/site/1bz3d" title="Visit tracker">
+        <img src="/medias/map-visit.png" />
+      </a>
+    </div>
+    <!-- 版权信息 -->
+    <div class="col s12 m6 l6 copy-right">
+      Copyright&nbsp;&copy;
+      <span id="year">2024</span>&nbsp;
+      <!-- <a href="/about" target="_blank">bsf</a>
+      &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      &nbsp;Theme&nbsp;<a href="https://github.com/nekodeng/hexo-theme-itsneko" target="_blank">itsNeko</a> -->
+      |&nbsp;&nbsp;Powered by&nbsp;<a>bsf</a>
+      <br>
+
+      
+      <!-- &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp; -->
+      &nbsp;<i class="fas fa-chart-area"></i>
+      &nbsp;🦊 站点总字数:&nbsp;<span class="white-color">80.8k</span>&nbsp;字&nbsp;🌼<br>
+      
+      
+      
+      
+      
+      
+      <span id="busuanzi_container_site_pv">
+        <!-- <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp; -->
+        <i class="far"></i>&nbsp;📊 总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次&nbsp;&nbsp;|
+      </span>
+      
+      
+      <span id="busuanzi_container_site_uv">
+        <!-- <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp; -->
+        <i class="fas"></i>&nbsp;总访客数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人&nbsp;📈
+      </span>
+      
+      <br>
+      
+      <span id="sitetime">running time</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2024";
+          var startMonth = "1";
+          var startDate = "1";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+          var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor((diff / days) - diffYears * 365);
+          var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+          var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+            minutes);
+          var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+            diffMinutes * minutes) / seconds);
+          if (startYear == todayYear) {
+            /* document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML = "The site has been running for " + 
+              "<span class= 'white-color'>" + diffDays + "</span>" + " d " + "<span class= 'white-color'>" + diffHours +
+              "</span>" +
+              " h " + "<span class= 'white-color'>" + diffMinutes + "</span>" + " m " + "<span class= 'white-color'>" +
+              diffSeconds + "</span>" + " s"; */
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML = "本站已安全运行 " +
+              "<span class= 'white-color'>" + diffDays + "</span>" + " 天 " + "<span class= 'white-color'>" + diffHours +
+                "</span>" +
+                " 小时 " + "<span class= 'white-color'>" + diffMinutes + "</span>" + " 分钟 " + "<span class= 'white-color'>" +
+                diffSeconds + "</span>" + " 秒";
+          } else {
+            /* document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML = "The site has been running for " +
+              "<span class= 'white-color'>" + diffYears + "</span>" + " years " + "<span class= 'white-color'>" + diffDays +
+              "</span>" +
+              " days " + "<span class= 'white-color'>" + diffHours + "</span>" + " hours " + "<span class= 'white-color'>" +
+              diffMinutes + "</span>" + " minutes " + "<span class= 'white-color'>" + diffSeconds + "</span>" + " seconds"; */
+            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML = "本站已安全运行 " +
+                "<span class= 'white-color'>" + diffYears + "</span>" + " 年 " + "<span class= 'white-color'>" + diffDays +
+                "</span>" +
+                " 天 " + "<span class= 'white-color'>" + diffHours + "</span>" + " 小时 " + "<span class= 'white-color'>" +
+                diffMinutes + "</span>" + " 分钟 " + "<span class= 'white-color'>" + diffSeconds + "</span>" + " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br>
+      
+    </div>
+    <div class="col s12 m3 l3 social-link social-statis"><!--  -->
+
+<!-- 
+    <a href="mailto:Siren1996@qq.com" class="tooltipped" target="_blank" data-tooltip="Siren1996@qq.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+ -->
+
+<!-- 
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2338638343" class="tooltipped" target="_blank" data-tooltip="2338638343" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+ -->
+
+
+    <a href="mailto:Siren1996@qq.com" class="tooltipped" target="_blank" data-tooltip="邮箱：Siren1996@qq.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2338638343" class="tooltipped" target="_blank" data-tooltip="QQ: 2338638343" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="/medias/wechat.png" class="tooltipped" target="_blank" data-tooltip="微信联系我\(￣︶￣*\))" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+</div>
+  </div>
+  <!-- 波浪条waveline -->
+  <div class="wavelinefooter">
+    <style>
+      .wavelinefooter {
+        background: url(/medias/wave.png) 0 0 repeat-x;
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: -3px;
+        background-size: 10px 3px;
+      }
+    </style>
+  </div>
+</footer>
+
+<!-- 底部进度条 -->
+<div class="progress-bar" style="z-index: 999"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<style>
+#searchInput::-webkit-input-placeholder { /* WebKit browsers */ 
+    font-size:16px;
+} 
+#searchInput:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+    font-size:16px;
+} 
+#searchInput::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+    font-size:16px;
+} 
+#searchInput:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+    font-size:16px;
+} 
+#searchInput {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    text-indent: 4px;
+    font-size: 14px;
+}
+</style>
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;站内搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="autofocus" />
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+<!-- 点击搜索按钮后input框自动获取焦点 -->
+
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="javascript(0)">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--动态线条背景-->
+    <script type="text/javascript" color="122 103 158" opacity='0.12' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+    </script>
+ 
+    <script type="text/javascript" src="/js/click_show_text.js"></script>
+    <script src="/js/linkcard.js"></script>
+
+    <script src="/js/activate-power-mode.js"></script>
+    <script>
+        POWERMODE.colorful = true; // make power mode colorful
+        POWERMODE.shake = false; // turn off shake
+        document.body.addEventListener('input', POWERMODE);
+    </script>
+
+    <!-- 百度统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!----------节日判断，进行网站修饰，比如春节圣诞或变灰色的清明等----- -->
+    <script>
+        // 判断今天是哪个节假日或特殊纪念日进行网站修饰，比如春节圣诞或变灰色的清明等
+        var curMonth = new Date().getMonth() + 1;   // 月
+        var curDate = new Date().getDate();         // 日
+        function cancelguajian() {
+            // 判断如果是变灰色的纪念日则将小挂件隐藏
+            var guajianone = document.getElementsByClassName('caishendeng');
+            var guajiantwo = document.getElementsByClassName('labelmz');
+            var guajianthree = document.getElementsByClassName('friendmz');
+            var denglong = document.getElementsByClassName('denglong');
+            for(var i = 0; i < guajianone.length; i++) {
+                guajianone[i].style.display = "none"
+            };
+            for(var j = 0; j < guajiantwo.length; j++) {
+                guajiantwo[j].style.display = "none"
+            }
+            for(var k = 0; k < guajianthree.length; k++) {
+                guajianthree[k].style.display = "none"
+            };
+            for(var x = 0; x < denglong.length; x++) {
+                denglong[x].style.display = "none"
+            };
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            document.getElementById('xiaomaozitx').style.display = "none";
+        }
+        // --------------以下节日为公历，每年固定--------------
+        if(curMonth == 1 && curDate == 1) {
+            // 1月1日为元旦节
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "元旦";
+        }
+        // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
+        else if(curMonth == 5 && curDate == 22) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            document.body.classList.add('dark');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "地震";
+            document.getElementById('dttwo').innerHTML = "袁老";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 2021年5月22日 ”，杂交水稻之父、共和国勋章获得者袁隆平逝世，享年91岁，记忆中您还是小学课本里的爷爷形象，......还有21日晚云南大理州遭受地震的大家，要好好地...";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        else if(curMonth == 9 && curDate == 30) {
+            // 9月30日为全国烈士纪念日，设在国庆前一天
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "缅怀";
+            document.getElementById('dttwo').innerHTML = "烈士";
+            document.getElementById('jinianci').innerHTML = "今天是“ 9月30日 ”，“ 全国烈士纪念日 ”。定为每年的9月30日，正好是国庆前一天，让全国人民永远不要忘记先有无数先烈的前赴后继、奋勇献身，才有我们国家今天的繁荣富强、文明进步。"
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        // 10月1日为国庆节
+        else if(
+          curMonth == 10 && curDate == 1
+          || curMonth == 10 && curDate == 2
+          || curMonth == 10 && curDate == 3
+          || curMonth == 10 && curDate == 4
+          || curMonth == 10 && curDate == 5
+          || curMonth == 10 && curDate == 6
+          || curMonth == 10 && curDate == 7) {
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "欢度";
+            document.getElementById('dttwo').innerHTML = "国庆";
+            document.getElementById('index-video').src = "https://txmov2.a.yximgs.com/upic/2021/09/30/15/BMjAyMTA5MzAxNTE5MDhfMTg1ODk2MDg4N181ODA5MjQ1NDkyMV8xXzM=_b_Bef514871cf947c46c11bc54a3ed3faa9.mp4?pkey=AAWo-kOQESq9j_AMCO-BT6jTPS090PuVHWtyuSQ8cddkgMmI3V-P9uWMDY13QrPuCjtWVbch_01wRcj6Rtm5w0AkLhgVTMSceLLiRYjlWUfLDNNLX3jISKEscl9uNXUnYcM&tag=1-1632986688-xpcwebprofile-0-ongrobirtl-58c917acab52d13f&clientCacheKey=3xajcj9u8fubzm4_b.mp4";
+            document.getElementById('jinianci').style.textAlign = "center";
+            document.getElementById('jinianci').innerHTML = "《 国庆日🚩 》<br> 十月惊雷震九重，国富民强聩耳聋。<br>城头城下聚农工，神州处处花潮涌。<br>而今白鹿奋清风，山长水远不知踪。"
+            document.getElementById('popupbb').style.display = "block"
+            document.getElementById('tujis').style.display = "block";
+            // document.getElementById('fights').style.display = "none";
+        }
+        // 12月13日为国家公祭日
+        else if(curMonth == 12 && curDate == 13) {
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "国家";
+            document.getElementById('dttwo').innerHTML = "公祭";
+            document.getElementById('jinianci').innerHTML = "今天是 “ 12月13日 ”，南京大屠杀死难者 “ 国家公祭日 ”。国行公祭，法立典章。铸兹宝鼎，祀我国殇。永矢弗谖，祈愿和平。中华圆梦，民族复兴。";
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        // 12月25日为圣诞节
+        else if(curMonth == 12 && curDate == 25) {
+            document.body.classList.add('themechris');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "圣诞";
+        }
+        // --------------以下节日为农历，每年不固定，需要手动改（后续看是否可使用API）--------------
+        else if(curMonth == 4 && curDate == 4) {
+            // 2025年4月4日为清明节
+            document.getElementsByTagName('html')[0].classList.add('gray');
+            // document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "安康";
+            document.getElementById('dttwo').innerHTML = "清明";
+            document.getElementById('jinianci').innerHTML = "今天是“ 4月4日 ”，“ 清明节 ”，正是郊外踏青春游与行清墓祭的好时节。燕子来时新社，梨花落后清明。"
+            document.getElementById('popupbb').style.display = "block";
+            document.getElementById('switchchristmas').style.display = "none";
+            document.getElementById('switchspring').style.display = "none";
+            cancelguajian();
+        }
+        else if(curMonth == 1 && curDate == 28) {
+            // 2025春节除夕为1月28日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "除夕";
+        }
+        else if(curMonth == 1) {
+            // 2025春节为1月29日开始
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "快乐";
+            document.getElementById('dttwo').innerHTML = "春节";
+        }
+        else if(curMonth == 5 && curDate == 31) {
+            // 2025端午节为5月31日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "安康";
+            document.getElementById('dttwo').innerHTML = "端午";
+        }
+        else if(curMonth == 10 && curDate == 6) {
+            // 2025中秋节为10月6日
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "团圆";
+            document.getElementById('dttwo').innerHTML = "中秋";
+        }
+        else {
+            // 平常时间
+            document.body.classList.add('themespring');
+            document.getElementById('dtone').innerHTML = "平安";
+            document.getElementById('dttwo').innerHTML = "喜乐";
+        }
+    </script>
+
+    <!-- 实现tab切换点击标题显示下划线和颜色改变效果 -->
+    <script>
+        $(function () {
+            var nowUrl = window.location.href;
+            // 控制台调试，获取不到tagsnet的地址连接
+            // console.log("Current URL:", nowUrl);
+            var homeTab = $('nav ul li a[href="/"] span'),
+                categoriesTab = $('nav ul li a[href="/categories"] span'),
+                tagsTab = $('nav ul li a[href="/tags"] span'),
+                archivesTab = $('nav ul li a[href="/archives"] span'),
+                countTab = $('nav ul li a[href="/count"] span'),
+                tagsnetTab = $('nav ul li a[href="/tagsnet"] span'),
+                aboutTab = $('nav ul li a[href="/about"] span'),
+                galleryTab = $('nav ul li a[href="/gallery"] span'),
+                videosTab = $('nav ul li a[href="/videos"] span'),
+                musicsTab = $('nav ul li a[href="/musics"] span'),
+                booksTab = $('nav ul li a[href="/books"] span'),
+                contactTab = $('nav ul li a[href="/contact"] span'),
+                friendsTab = $('nav ul li a[href="/friends"] span'),
+                collectionTab = $('nav ul li a[href="/collection"] span'),
+                projectTab = $('nav ul li a[href="/project"] span'),
+                donateTab = $('nav ul li a[href="/donate"] span'),
+                ticktackTab = $('nav ul li a[href="/ticktack"] span'),
+                // 获取二级菜单项
+                ArticlesTab = $('nav .nav-menu .nav-item:nth-of-type(2) > a > span'),
+                ListTab = $('nav .nav-menu .nav-item:nth-of-type(4) > a > span'),
+                LinksTab = $('nav .nav-menu .nav-item:nth-of-type(6) > a > span');
+                LaboratoryTab = $('nav .nav-menu .nav-item:nth-of-type(7) > a > span');
+
+            if (nowUrl.indexOf("posts") >= 0) {
+                homeTab.removeClass("aitems")
+            } else if (nowUrl.indexOf("categories") >= 0) {
+                categoriesTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("tags") >= 0) {
+                tagsTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("archives") >= 0) {
+                archivesTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("count") >= 0) {
+                countTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            // } else if (nowUrl.indexOf("tagsnet") >= 0) {
+            } else if (nowUrl.indexOf("tagsnet") >= 0) {
+                tagsnetTab.addClass("aitems")
+                ArticlesTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("about") >= 0) {
+                aboutTab.addClass("aitems")
+            } else if (nowUrl.indexOf("gallery") >= 0) {
+                galleryTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("videos") >= 0) {
+                videosTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("musics") >= 0) {
+                musicsTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("books") >= 0) {
+                booksTab.addClass("aitems")
+                ListTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("contact") >= 0) {
+                contactTab.addClass("aitems")
+            } else if (nowUrl.indexOf("friends") >= 0) {
+                friendsTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("collection") >= 0) {
+                collectionTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("project") >= 0) {
+                projectTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("donate") >= 0) {
+                donateTab.addClass("aitems")
+                LinksTab.addClass("erjiitems")
+            } else if (nowUrl.indexOf("ticktack") >= 0) {
+                ticktackTab.addClass("aitems")
+                LaboratoryTab.addClass("erjiitems")
+            } else {
+                homeTab.addClass("aitems")
+            }
+        });
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
