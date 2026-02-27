@@ -1,0 +1,67 @@
+/* 1. 定义字体 - 必须使用部署后的真实直连地址 */
+@font-face {
+    font-family: "Aa漫语手写体";
+    /* 注意：原 tree/main 链接是网页，下方的链接才是文件直连 */
+    src: url("https://wwwbsf.github.io/fonts/Aa漫语手写体.ttf") format("truetype");
+    font-display: swap;
+}
+
+/* 2. 基础样式与字体应用 */
+main, 
+.gsc-main, 
+.gsc-comment-box-textarea, 
+.gsc-comment-content,
+.gsc-reply-content,
+.gsc-header,
+.gsc-reactions-count,
+.gsc-tabs button {
+    font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+/* 3. 隐藏 Powered by giscus */
+.gsc-footer {
+    display: none !important;
+}
+
+/* ==========================================
+   4. 核心修正：暗黑模式文字颜色适配
+   ========================================== */
+
+/* 当系统或浏览器处于暗黑模式时 */
+@media (prefers-color-scheme: dark) {
+    /* 设置全局文字颜色为白色/浅灰色 */
+    main, 
+    .gsc-main,
+    .gsc-comment-content, 
+    .gsc-header, 
+    .gsc-reply-content,
+    .gsc-tabs button,
+    .gsc-social-reaction-summary-item {
+        color: #f0f6fc !important;
+    }
+
+    /* 输入框适配 */
+    .gsc-comment-box-textarea {
+        background-color: #0d1117 !important; /* 深色背景 */
+        color: #f0f6fc !important;            /* 白色文字 */
+        border: 1px solid #30363d !important;
+    }
+
+    /* 尚未输入的提示文字颜色 */
+    .gsc-comment-box-textarea::placeholder {
+        color: #8b949e !important;
+    }
+
+    /* 底部一些次要文字 */
+    .gsc-header {
+        border-bottom-color: #30363d !important;
+    }
+}
+
+/* 如果是浅色模式，确保文字是深色的 */
+@media (prefers-color-scheme: light) {
+    main {
+        color: #24292f !important;
+    }
+}

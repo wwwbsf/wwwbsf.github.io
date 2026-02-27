@@ -244,7 +244,7 @@ class="themespring" -->
       </li>
       
       <li>
-        <a href="/tagsnet">
+        <a href="/tagsnet/">
           
           <span>关系网</span>
         </a>
@@ -455,7 +455,7 @@ class="themespring" -->
               
                 <li>
 
-                  <a href="/tagsnet " style="margin-left:50px">
+                  <a href="/tagsnet/ " style="margin-left:50px">
 				  
 		          <span>关系网</span>
                   </a>
@@ -1086,372 +1086,6 @@ class="themespring" -->
             
 
             
-            <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-    .v[data-class=v] .emoji, .v[data-class=v] .vemoji {
-        max-height: 20px;
-        overflow: hidden;
-        max-width: 20px!important;
-    }
-    .v[data-class=v] .vwrap .vemojis {
-        text-align: center;
-    }
-    .roboterbb {
-        position: absolute;
-        right: 87px;
-        padding-top: 3px;
-    }
-    .robot-check-text:hover {
-        color: #26a69a;
-    }
-    .roboter:hover .robot-check-text::before {
-        border: 2px solid #5a5a5a;
-    }
-    .robotxian {
-        background: #5a5a5a;
-        top: 21px;
-        left: 11px!important;
-        transform-origin: 50% -17px;
-        animation: swing 3.5s infinite ease-in-out;
-        -webkit-transform-origin: 50% -17px;
-        -webkit-animation: swing 2.85s infinite ease-in-out;
-    }
-    .v[data-class=v] .vwrap {
-        /* padding-bottom: 23px; */
-        padding-bottom: 30px;
-    }
-    .robotimg {
-        width: 28px!important;
-        height: 28px!important;
-        top: 14px!important;
-        left: -13px!important;
-        max-width: none!important;
-        z-index: 99;
-        cursor: none!important;
-    }
-    .v[data-class=v] .vbtn:disabled {
-        color: #b2b2b5;
-        border-color: #b2b2b5;
-    }
-    .v[data-class=v] .vbtn:disabled {
-        background-color: transparent;
-    }
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-    .v[data-class=v] .vwrap {
-        border-radius: 8px;
-    }
-    /* #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    } */
-    #vcomments textarea {
-        background: url(/medias/comment_bg.webp) no-repeat;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: right;
-        background-color: rgba(255,255,255,0);
-        resize: vertical;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #42b983;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" id="vcomments-top">
-
-    <!-- 福袋按钮 -->
-    <div class="caishendeng">        
-        <div class="caishenxian fudaixian">
-            <img class="caishenpic fudao" src="/medias/spring-img/fudao.png" />
-        </div>              
-    </div>
-   
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评 论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid"></div>
-</div>
-
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        enableQQ: true,
-        boolean: true,
-        appId: 'Grv3UQKKLVVKB70yDqY6C5ez-gzGzoHsz',
-        appKey: 'HEBFnyeROkIQCr9ysXSiOZQM',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'monsterid',
-        // avatar: '/medias/robot.png',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '评论前记得点击下方机器人验证按钮噢 ~ ',    
-
-        adminEmailMd5: '',
-
-        // master: [""],
-        // friends: [""],
-        // tagMeta: ["博主", "小伙伴", "访客"],
-        tagMeta: '博主,小伙伴,访客',
-        master: '',
-        friends: '',
-        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest"]
-    });
-</script>
-<!-- 直达评论 -->
-<div id="to_comment" class="comment-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
-        <i class="fas fa-comments"></i>
-    </a>
-</div>
-
-
-<!-- 评论机器人验证 -->
-<script>
-    $('.roboter').on('click',function(){
-        $('.robot-check-text').html('·&nbsp;&nbsp;&nbsp;验证成功！');
-        $('.roboter:hover .robot-check-text::before').css('border','2px solid #26a69a');
-        $('.robotxian').css('background','#26a69a');
-        $('.robotimg').attr('src','/medias/robot.png');
-        $('.robot-check-text').css('color','#26a69a');
-    });
-    
-    if(!$('.robot-check').checked) {
-        // alert("请勾选机器人验证后再发表评论！");
-        $('.vsubmit').attr('disabled',true).attr('title','评论前勾选机器人验证按钮');
-    } 
-    $('.robot-check').on('click',function(){
-        $('.vsubmit').attr('disabled',false).attr('title','欢迎畅所欲言');
-    });
-</script>
-
-            
 			
 			
         </div>
@@ -1511,7 +1145,12 @@ class="themespring" -->
     <!-- 版权信息 -->
     <div class="col s12 m6 l6 copy-right">
       Copyright&nbsp;&copy;
-      <span id="year">2024</span>&nbsp;
+      
+      <!-- <span id="year">2025</span>&nbsp; -->
+      <span id="year">
+        2025 - 2026
+      </span>&nbsp;
+
       <!-- <a href="/about" target="_blank">bsf</a>
       &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
       &nbsp;Theme&nbsp;<a href="https://github.com/nekodeng/hexo-theme-itsneko" target="_blank">itsNeko</a> -->
@@ -1528,16 +1167,30 @@ class="themespring" -->
       
       
       
-      <span id="busuanzi_container_site_pv">
+      <!-- <span id="busuanzi_container_site_pv"> -->
         <!-- <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp; -->
-        <i class="far"></i>&nbsp;📊 总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次&nbsp;&nbsp;|
+        <!-- <i class="far"></i>&nbsp;📊 总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次&nbsp;&nbsp;| -->
+      <!-- </span> -->
+      
+      <!-- 原不蒜子统计替换为 GoatCounter -->
+      <span id="goatcounter_container_site_pv">
+        <i class="far fa-chart-bar"></i>&nbsp;📊 总访问量:&nbsp;
+        <span id="goatcounter_value_site_pv" class="white-color">正在加载...</span>&nbsp;次&nbsp;&nbsp;
       </span>
+
       
-      
-      <span id="busuanzi_container_site_uv">
+
+      <!--  -->
+      <!-- <span id="busuanzi_container_site_uv"> -->
         <!-- <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp; -->
-        <i class="fas"></i>&nbsp;总访客数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人&nbsp;📈
-      </span>
+        <!-- <i class="fas"></i>&nbsp;总访客数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人&nbsp;📈 -->
+      <!-- </span> -->
+      
+      <!-- 注意：GoatCounter 免费版通常只提供总点击(PV)，不区分 UV，所以这里合并为一个显示 -->
+      <!-- <span id="goatcounter_container_site_uv"> -->
+        <!-- <i class="fas"></i>&nbsp;统计源:&nbsp;GoatCounter&nbsp;📈 -->
+      <!-- </span> -->
+
       
       <br>
       
@@ -1550,57 +1203,73 @@ class="themespring" -->
           var days = hours * 24;
           var years = days * 365;
           var today = new Date();
-          var startYear = "2024";
+
+          var startYear = "2025";
           var startMonth = "1";
           var startDate = "1";
           var startHour = "0";
           var startMinute = "0";
           var startSecond = "0";
+
           var todayYear = today.getFullYear();
           var todayMonth = today.getMonth() + 1;
           var todayDate = today.getDate();
           var todayHour = today.getHours();
           var todayMinute = today.getMinutes();
           var todaySecond = today.getSeconds();
+
           var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
           var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
           var diff = t2 - t1;
+
           var diffYears = Math.floor(diff / years);
           var diffDays = Math.floor((diff / days) - diffYears * 365);
           var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-          var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-            minutes);
-          var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
-            diffMinutes * minutes) / seconds);
-          if (startYear == todayYear) {
-            /* document.getElementById("year").innerHTML = todayYear;
-            document.getElementById("sitetime").innerHTML = "The site has been running for " + 
-              "<span class= 'white-color'>" + diffDays + "</span>" + " d " + "<span class= 'white-color'>" + diffHours +
-              "</span>" +
-              " h " + "<span class= 'white-color'>" + diffMinutes + "</span>" + " m " + "<span class= 'white-color'>" +
-              diffSeconds + "</span>" + " s"; */
-            document.getElementById("year").innerHTML = todayYear;
-            document.getElementById("sitetime").innerHTML = "本站已安全运行 " +
-              "<span class= 'white-color'>" + diffDays + "</span>" + " 天 " + "<span class= 'white-color'>" + diffHours +
-                "</span>" +
-                " 小时 " + "<span class= 'white-color'>" + diffMinutes + "</span>" + " 分钟 " + "<span class= 'white-color'>" +
-                diffSeconds + "</span>" + " 秒";
-          } else {
-            /* document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-            document.getElementById("sitetime").innerHTML = "The site has been running for " +
-              "<span class= 'white-color'>" + diffYears + "</span>" + " years " + "<span class= 'white-color'>" + diffDays +
-              "</span>" +
-              " days " + "<span class= 'white-color'>" + diffHours + "</span>" + " hours " + "<span class= 'white-color'>" +
-              diffMinutes + "</span>" + " minutes " + "<span class= 'white-color'>" + diffSeconds + "</span>" + " seconds"; */
-            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-            document.getElementById("sitetime").innerHTML = "本站已安全运行 " +
-                "<span class= 'white-color'>" + diffYears + "</span>" + " 年 " + "<span class= 'white-color'>" + diffDays +
-                "</span>" +
-                " 天 " + "<span class= 'white-color'>" + diffHours + "</span>" + " 小时 " + "<span class= 'white-color'>" +
-                diffMinutes + "</span>" + " 分钟 " + "<span class= 'white-color'>" + diffSeconds + "</span>" + " 秒";
+          var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+          var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+          
+          // 1. 更新版权年份 (固定从 2025 开始)
+          var yearBox = document.getElementById("year");
+          if (yearBox) {
+              // 如果当前年份大于 2025，显示 2025 - 2026，否则只显示 2025
+              yearBox.innerHTML = (todayYear > 2025) ? ("2025 - " + todayYear) : "2025";
+          }
+
+          // 2. 更新运行时间文字
+          var sitetimeBox = document.getElementById("sitetime");
+          if (sitetimeBox) {
+              var timeHtml = "本站已安全运行 ";
+              // 只有当运行超过 1 年时，才显示 “X 年”
+              if (diffYears > 0) {
+                  timeHtml += "<span class='white-color'>" + diffYears + "</span> 年 ";
+              }
+              timeHtml += "<span class='white-color'>" + diffDays + "</span> 天 " +
+                          "<span class='white-color'>" + diffHours + "</span> 小时 " +
+                          "<span class='white-color'>" + diffMinutes + "</span> 分 " +
+                          "<span class='white-color'>" + diffSeconds + "</span> 秒";
+              sitetimeBox.innerHTML = timeHtml;
           }
         }
+
+        // 立即执行一次，防止 1 秒空白
+        siteTime(); 
         setInterval(siteTime, 1000);
+
+        // 3. GoatCounter 总访问量抓取逻辑 (如果你之前加了占位符 ID)
+        window.addEventListener('load', function() {
+          var totalViewEl = document.getElementById('goatcounter_value_site_pv');
+          if (totalViewEl) {
+              var r = new XMLHttpRequest();
+              r.onreadystatechange = function() {
+                  if (r.readyState == 4 && r.status == 200) {
+                      var res = JSON.parse(r.responseText);
+                      totalViewEl.innerText = res.count.toLocaleString(); // 加上千分位逗号
+                  }
+              };
+              r.open('GET', 'https://bsf.goatcounter.com/counter/TOTAL.json', true);
+              r.send();
+          }
+        });
       </script>
       
       <br>
@@ -1657,6 +1326,43 @@ class="themespring" -->
 
 <!-- 底部进度条 -->
 <div class="progress-bar" style="z-index: 999"></div>
+
+<!-- 1. GoatCounter 追踪脚本：负责记录访问 -->
+<script data-goatcounter="https://bsf.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<!-- 2. 获取总访问量并显示的脚本 -->
+<script>
+    (function() {
+        function fetchTotalViews() {
+            var el = document.getElementById('goatcounter_value_site_pv');
+            if (!el) return;
+
+            // 获取全站总计的 API 地址
+            // 注意：TOTAL.json 是获取全站汇总，确保你在 GoatCounter 后台开启了 Allow adding visitor counts
+            var r = new XMLHttpRequest();
+            r.onreadystatechange = function() {
+                if (r.readyState == 4 && r.status == 200) {
+                    try {
+                        var res = JSON.parse(r.responseText);
+                        // 格式化数字，增加千分位逗号
+                        el.innerText = res.count.toLocaleString();
+                    } catch (e) {
+                        el.innerText = 'N/A';
+                    }
+                }
+            };
+            r.open('GET', 'https://bsf.goatcounter.com/counter/TOTAL.json', true);
+            r.send();
+        }
+
+        // 延迟执行，确保页面加载完成
+        if (document.readyState === 'complete') {
+            fetchTotalViews();
+        } else {
+            window.addEventListener('load', fetchTotalViews);
+        }
+    })();
+</script>
 
 
     <!-- 搜索遮罩框 -->
@@ -1771,8 +1477,13 @@ $(function () {
     <!----------节日判断，进行网站修饰，比如春节圣诞或变灰色的清明等----- -->
     <script>
         // 判断今天是哪个节假日或特殊纪念日进行网站修饰，比如春节圣诞或变灰色的清明等
-        var curMonth = new Date().getMonth() + 1;   // 月
-        var curDate = new Date().getDate();         // 日
+        // var curMonth = new Date().getMonth() + 1;   // 月
+        // var curDate = new Date().getDate();         // 日
+        // 把new Date()只取一次
+        var today = new Date();
+        var curMonth = today.getMonth() + 1;
+        var curDate  = today.getDate();
+
         function cancelguajian() {
             // 判断如果是变灰色的纪念日则将小挂件隐藏
             var guajianone = document.getElementsByClassName('caishendeng');
@@ -1795,12 +1506,75 @@ $(function () {
             document.getElementById('switchspring').style.display = "none";
             document.getElementById('xiaomaozitx').style.display = "none";
         }
+
+        // ======= 新增：农历判断（不使用接口，依赖浏览器Intl）========
+        function getLunarMonthDay(date = new Date()) {
+            try {
+                // 使用 long 模式可以获取更详细的月份信息
+                const fmt = new Intl.DateTimeFormat('zh-u-ca-chinese', { month: 'long', day: 'numeric' });
+                const parts = fmt.formatToParts(date);
+                
+                // 检查是否有闰月标志 (isLeapMonth)
+                // 不同的浏览器实现不同，有的在 type: "month" 的 value 里带 "闰" 字
+                const monthPart = parts.find(p => p.type === 'month').value;
+                const day = parseInt(parts.find(p => p.type === 'day').value, 10);
+                
+                // 如果月份包含“闰”字，返回特殊标识，避免过两次节
+                if (monthPart.includes('闰')) {
+                    return { month: -1, day: -1, isLeap: true }; 
+                }
+
+                const month = parseInt(monthPart, 10);
+                return { month, day, isLeap: false };
+            } catch (e) {
+                // 浏览器不支持
+                return { month: 0, day: 0 };
+            }
+        }
+
+        function getLunarFestival(date = new Date()) {
+            const { month, day } = getLunarMonthDay(date);
+
+            // 农历固定月日节日
+            const map = {
+                '1-1':  '春节',
+                '1-15': '元宵',
+                '5-5':  '端午',
+                '7-7':  '七夕',
+                '8-15': '中秋',
+                '9-9':  '重阳',
+                '12-8': '腊八'
+            };
+
+            // 除夕：明天是正月初一
+            const tomorrow = new Date(date);
+            tomorrow.setDate(date.getDate() + 1);
+            const t = getLunarMonthDay(tomorrow);
+            const isChuxi = (t.month === 1 && t.day === 1) && (month === 12) && (day === 29 || day === 30);
+            if (isChuxi) return '除夕';
+
+            return map[`${month}-${day}`] || '';
+        }
+
+        // 新增：清明节气判断
+        function getQingmingDay(year) {
+            const Y = year % 100;
+            // 1900-1999 / 2000-2099
+            const C = year >= 2000 ? 4.81 : 5.59;
+            return Math.floor(Y * 0.2422 + C) - Math.floor(Y / 4);
+        }
+        function isQingming(date = new Date()) {
+            const m = date.getMonth() + 1;
+            if (m !== 4) return false;
+            return date.getDate() === getQingmingDay(date.getFullYear());
+        }
+
         // --------------以下节日为公历，每年固定--------------
         if(curMonth == 1 && curDate == 1) {
             // 1月1日为元旦节
             document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "快乐";
-            document.getElementById('dttwo').innerHTML = "元旦";
+            document.getElementById('dtone').innerHTML = "肇启";
+            document.getElementById('dttwo').innerHTML = "新元";
         }
         // 2021年5月22日袁隆平院士逝世，云南大理发生6级地震
         else if(curMonth == 5 && curDate == 22) {
@@ -1837,8 +1611,8 @@ $(function () {
           || curMonth == 10 && curDate == 6
           || curMonth == 10 && curDate == 7) {
             document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "欢度";
-            document.getElementById('dttwo').innerHTML = "国庆";
+            document.getElementById('dtone').innerHTML = "国庆";
+            document.getElementById('dttwo').innerHTML = "欢度";
             document.getElementById('index-video').src = "https://txmov2.a.yximgs.com/upic/2021/09/30/15/BMjAyMTA5MzAxNTE5MDhfMTg1ODk2MDg4N181ODA5MjQ1NDkyMV8xXzM=_b_Bef514871cf947c46c11bc54a3ed3faa9.mp4?pkey=AAWo-kOQESq9j_AMCO-BT6jTPS090PuVHWtyuSQ8cddkgMmI3V-P9uWMDY13QrPuCjtWVbch_01wRcj6Rtm5w0AkLhgVTMSceLLiRYjlWUfLDNNLX3jISKEscl9uNXUnYcM&tag=1-1632986688-xpcwebprofile-0-ongrobirtl-58c917acab52d13f&clientCacheKey=3xajcj9u8fubzm4_b.mp4";
             document.getElementById('jinianci').style.textAlign = "center";
             document.getElementById('jinianci').innerHTML = "《 国庆日🚩 》<br> 十月惊雷震九重，国富民强聩耳聋。<br>城头城下聚农工，神州处处花潮涌。<br>而今白鹿奋清风，山长水远不知踪。"
@@ -1850,8 +1624,8 @@ $(function () {
         else if(curMonth == 12 && curDate == 13) {
             document.getElementsByTagName('html')[0].classList.add('gray');
             // document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "国家";
-            document.getElementById('dttwo').innerHTML = "公祭";
+            document.getElementById('dtone').innerHTML = "公祭";
+            document.getElementById('dttwo').innerHTML = "国家";
             document.getElementById('jinianci').innerHTML = "今天是 “ 12月13日 ”，南京大屠杀死难者 “ 国家公祭日 ”。国行公祭，法立典章。铸兹宝鼎，祀我国殇。永矢弗谖，祈愿和平。中华圆梦，民族复兴。";
             document.getElementById('popupbb').style.display = "block";
             document.getElementById('switchchristmas').style.display = "none";
@@ -1865,57 +1639,204 @@ $(function () {
             document.getElementById('dtone').innerHTML = "快乐";
             document.getElementById('dttwo').innerHTML = "圣诞";
         }
+
         // --------------以下节日为农历，每年不固定，需要手动改（后续看是否可使用API）--------------
-        else if(curMonth == 4 && curDate == 4) {
-            // 2025年4月4日为清明节
-            document.getElementsByTagName('html')[0].classList.add('gray');
-            // document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "安康";
-            document.getElementById('dttwo').innerHTML = "清明";
-            document.getElementById('jinianci').innerHTML = "今天是“ 4月4日 ”，“ 清明节 ”，正是郊外踏青春游与行清墓祭的好时节。燕子来时新社，梨花落后清明。"
-            document.getElementById('popupbb').style.display = "block";
-            document.getElementById('switchchristmas').style.display = "none";
-            document.getElementById('switchspring').style.display = "none";
-            cancelguajian();
-        }
-        else if(curMonth == 1 && curDate == 28) {
-            // 2025春节除夕为1月28日
-            document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "快乐";
-            document.getElementById('dttwo').innerHTML = "除夕";
-        }
-        else if(curMonth == 1) {
-            // 2025春节为1月29日开始
-            document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "快乐";
-            document.getElementById('dttwo').innerHTML = "春节";
-        }
-        else if(curMonth == 5 && curDate == 31) {
-            // 2025端午节为5月31日
-            document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "安康";
-            document.getElementById('dttwo').innerHTML = "端午";
-        }
-        else if(curMonth == 10 && curDate == 6) {
-            // 2025中秋节为10月6日
-            document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "团圆";
-            document.getElementById('dttwo').innerHTML = "中秋";
-        }
+        // else if(curMonth == 4 && curDate == 4) {
+        //     // 2025年4月4日为清明节
+        //     document.getElementsByTagName('html')[0].classList.add('gray');
+        //     // document.body.classList.add('themespring');
+        //     document.getElementById('dtone').innerHTML = "安康";
+        //     document.getElementById('dttwo').innerHTML = "清明";
+        //     document.getElementById('jinianci').innerHTML = "今天是“ 4月4日 ”，“ 清明节 ”，正是郊外踏青春游与行清墓祭的好时节。燕子来时新社，梨花落后清明。"
+        //     document.getElementById('popupbb').style.display = "block";
+        //     document.getElementById('switchchristmas').style.display = "none";
+        //     document.getElementById('switchspring').style.display = "none";
+        //     cancelguajian();
+        // }
+        // else if(curMonth == 1 && curDate == 28) {
+        //     // 2025春节除夕为1月28日
+        //     document.body.classList.add('themespring');
+        //     document.getElementById('dtone').innerHTML = "快乐";
+        //     document.getElementById('dttwo').innerHTML = "除夕";
+        // }
+        // else if(curMonth == 1) {
+        //     // 2025春节为1月29日开始
+        //     document.body.classList.add('themespring');
+        //     document.getElementById('dtone').innerHTML = "快乐";
+        //     document.getElementById('dttwo').innerHTML = "春节";
+        // }
+        // else if(curMonth == 5 && curDate == 31) {
+        //     // 2025端午节为5月31日
+        //     document.body.classList.add('themespring');
+        //     document.getElementById('dtone').innerHTML = "安康";
+        //     document.getElementById('dttwo').innerHTML = "端午";
+        // }
+        // else if(curMonth == 10 && curDate == 6) {
+        //     // 2025中秋节为10月6日
+        //     document.body.classList.add('themespring');
+        //     document.getElementById('dtone').innerHTML = "团圆";
+        //     document.getElementById('dttwo').innerHTML = "中秋";
+        // }
+        // else {
+        //     // 平常时间
+        //     document.body.classList.add('themespring');
+        //     document.getElementById('dtone').innerHTML = "平安";
+        //     document.getElementById('dttwo').innerHTML = "喜乐";
+        // }
+
+        // --------------以下节日为农历（自动计算，无需手动改）--------------
         else {
-            // 平常时间
-            document.body.classList.add('themespring');
-            document.getElementById('dtone').innerHTML = "平安";
-            document.getElementById('dttwo').innerHTML = "喜乐";
+            // 清明：节气（优先判断），命中后直接处理，不再走下面农历节日（平常逻辑）
+            if (isQingming(today)) {
+                document.getElementsByTagName('html')[0].classList.add('gray');
+
+                document.getElementById('dtone').innerHTML = "顺遂";
+                document.getElementById('dttwo').innerHTML = "安康";
+                document.getElementById('jinianci').innerHTML = "今天是“ " + curMonth + "月" + curDate + "日 ”，“ 清明节 ”，正是郊外踏青春游与行清墓祭的好时节。燕子来时新社，梨花落后清明。";
+                document.getElementById('popupbb').style.display = "block";
+                document.getElementById('switchchristmas').style.display = "none";
+                document.getElementById('switchspring').style.display = "none";
+                cancelguajian();
+            }
+            else {
+                var lunarFest = getLunarFestival(today);
+
+                if (lunarFest === '除夕') {
+                    document.body.classList.add('themespring');
+                    document.getElementById('dtone').innerHTML = "纳福";
+                    document.getElementById('dttwo').innerHTML = "守岁";
+                }
+                else if (lunarFest === '春节') {
+                    document.body.classList.add('themespring');
+                    document.getElementById('dtone').innerHTML = "迎新";
+                    document.getElementById('dttwo').innerHTML = "辞旧";
+                }
+                else if (lunarFest === '元宵') {
+                    document.body.classList.add('themespring');
+                    document.getElementById('dtone').innerHTML = "结彩";
+                    document.getElementById('dttwo').innerHTML = "张灯";
+                }
+                else if (lunarFest === '端午') {
+                    document.body.classList.add('themespring');
+                    document.getElementById('dtone').innerHTML = "安康";
+                    document.getElementById('dttwo').innerHTML = "端午";
+                }
+                else if (lunarFest === '中秋') {
+                    document.body.classList.add('themespring');
+                    document.getElementById('dtone').innerHTML = "团圆";
+                    document.getElementById('dttwo').innerHTML = "中秋";
+                }
+                else if (lunarFest === '重阳') {
+                    document.body.classList.add('themespring');
+                    document.getElementById('dtone').innerHTML = "康宁";
+                    document.getElementById('dttwo').innerHTML = "福寿";
+                }
+                else if (lunarFest === '七夕') {
+                    document.body.classList.add('themespring');
+                    document.getElementById('dtone').innerHTML = "乞巧";
+                    document.getElementById('dttwo').innerHTML = "七夕";
+                }
+                else {
+                    // 平常时间
+                    document.body.classList.add('themespring');
+                    document.getElementById('dtone').innerHTML = "喜乐";
+                    document.getElementById('dttwo').innerHTML = "平安";
+                }
+            }
         }
     </script>
 
     <!-- 实现tab切换点击标题显示下划线和颜色改变效果 -->
     <script>
+        // $(function () {
+        //     var nowUrl = window.location.href;
+        //     // 控制台调试，获取不到tagsnet的地址连接
+        //     // console.log("Current URL:", nowUrl);
+        //     var homeTab = $('nav ul li a[href="/"] span'),
+        //         categoriesTab = $('nav ul li a[href="/categories"] span'),
+        //         tagsTab = $('nav ul li a[href="/tags"] span'),
+        //         archivesTab = $('nav ul li a[href="/archives"] span'),
+        //         countTab = $('nav ul li a[href="/count"] span'),
+        //         tagsnetTab = $('nav ul li a[href="/tagsnet"] span'),
+        //         aboutTab = $('nav ul li a[href="/about"] span'),
+        //         galleryTab = $('nav ul li a[href="/gallery"] span'),
+        //         videosTab = $('nav ul li a[href="/videos"] span'),
+        //         musicsTab = $('nav ul li a[href="/musics"] span'),
+        //         booksTab = $('nav ul li a[href="/books"] span'),
+        //         contactTab = $('nav ul li a[href="/contact"] span'),
+        //         friendsTab = $('nav ul li a[href="/friends"] span'),
+        //         collectionTab = $('nav ul li a[href="/collection"] span'),
+        //         projectTab = $('nav ul li a[href="/project"] span'),
+        //         donateTab = $('nav ul li a[href="/donate"] span'),
+        //         ticktackTab = $('nav ul li a[href="/ticktack"] span'),
+        //         // 获取二级菜单项
+        //         ArticlesTab = $('nav .nav-menu .nav-item:nth-of-type(2) > a > span'),
+        //         ListTab = $('nav .nav-menu .nav-item:nth-of-type(4) > a > span'),
+        //         LinksTab = $('nav .nav-menu .nav-item:nth-of-type(6) > a > span');
+        //         LaboratoryTab = $('nav .nav-menu .nav-item:nth-of-type(7) > a > span');
+
+        //     if (nowUrl.indexOf("posts") >= 0) {
+        //         homeTab.removeClass("aitems")
+        //     } else if (nowUrl.indexOf("categories") >= 0) {
+        //         categoriesTab.addClass("aitems")
+        //         ArticlesTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("tags") >= 0) {
+        //         tagsTab.addClass("aitems")
+        //         ArticlesTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("archives") >= 0) {
+        //         archivesTab.addClass("aitems")
+        //         ArticlesTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("count") >= 0) {
+        //         countTab.addClass("aitems")
+        //         ArticlesTab.addClass("erjiitems")
+        //     // } else if (nowUrl.indexOf("tagsnet") >= 0) {
+        //     } else if (nowUrl.indexOf("tagsnet") >= 0) {
+        //         tagsnetTab.addClass("aitems")
+        //         ArticlesTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("about") >= 0) {
+        //         aboutTab.addClass("aitems")
+        //     } else if (nowUrl.indexOf("gallery") >= 0) {
+        //         galleryTab.addClass("aitems")
+        //         ListTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("videos") >= 0) {
+        //         videosTab.addClass("aitems")
+        //         ListTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("musics") >= 0) {
+        //         musicsTab.addClass("aitems")
+        //         ListTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("books") >= 0) {
+        //         booksTab.addClass("aitems")
+        //         ListTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("contact") >= 0) {
+        //         contactTab.addClass("aitems")
+        //     } else if (nowUrl.indexOf("friends") >= 0) {
+        //         friendsTab.addClass("aitems")
+        //         LinksTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("collection") >= 0) {
+        //         collectionTab.addClass("aitems")
+        //         LinksTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("project") >= 0) {
+        //         projectTab.addClass("aitems")
+        //         LinksTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("donate") >= 0) {
+        //         donateTab.addClass("aitems")
+        //         LinksTab.addClass("erjiitems")
+        //     } else if (nowUrl.indexOf("ticktack") >= 0) {
+        //         ticktackTab.addClass("aitems")
+        //         LaboratoryTab.addClass("erjiitems")
+        //     } else {
+        //         homeTab.addClass("aitems")
+        //     }
+        // });
+
         $(function () {
-            var nowUrl = window.location.href;
-            // 控制台调试，获取不到tagsnet的地址连接
-            // console.log("Current URL:", nowUrl);
+            // 只用 pathname，避免 query/hash 干扰
+            var path = window.location.pathname.replace(/\/$/, '') || '/';
+
+            // 找到包含 /categories 的那个一级菜单 li，当作“文章”
+            var $articlesItem = $('nav a[href="/categories"]').closest('.nav-item');
+            $articlesItem.addClass('menu-articles');
+
             var homeTab = $('nav ul li a[href="/"] span'),
                 categoriesTab = $('nav ul li a[href="/categories"] span'),
                 tagsTab = $('nav ul li a[href="/tags"] span'),
@@ -1923,74 +1844,63 @@ $(function () {
                 countTab = $('nav ul li a[href="/count"] span'),
                 tagsnetTab = $('nav ul li a[href="/tagsnet"] span'),
                 aboutTab = $('nav ul li a[href="/about"] span'),
-                galleryTab = $('nav ul li a[href="/gallery"] span'),
-                videosTab = $('nav ul li a[href="/videos"] span'),
-                musicsTab = $('nav ul li a[href="/musics"] span'),
-                booksTab = $('nav ul li a[href="/books"] span'),
                 contactTab = $('nav ul li a[href="/contact"] span'),
                 friendsTab = $('nav ul li a[href="/friends"] span'),
                 collectionTab = $('nav ul li a[href="/collection"] span'),
-                projectTab = $('nav ul li a[href="/project"] span'),
                 donateTab = $('nav ul li a[href="/donate"] span'),
                 ticktackTab = $('nav ul li a[href="/ticktack"] span'),
-                // 获取二级菜单项
+
+                // 父级菜单（建议你给父级 li/a 加 class 或 data-menu，会更稳；先按你原来的 nth 写）
                 ArticlesTab = $('nav .nav-menu .nav-item:nth-of-type(2) > a > span'),
-                ListTab = $('nav .nav-menu .nav-item:nth-of-type(4) > a > span'),
-                LinksTab = $('nav .nav-menu .nav-item:nth-of-type(6) > a > span');
+                LinksTab = $('nav .nav-menu .nav-item:nth-of-type(6) > a > span'),
                 LaboratoryTab = $('nav .nav-menu .nav-item:nth-of-type(7) > a > span');
 
-            if (nowUrl.indexOf("posts") >= 0) {
-                homeTab.removeClass("aitems")
-            } else if (nowUrl.indexOf("categories") >= 0) {
-                categoriesTab.addClass("aitems")
-                ArticlesTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("tags") >= 0) {
-                tagsTab.addClass("aitems")
-                ArticlesTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("archives") >= 0) {
-                archivesTab.addClass("aitems")
-                ArticlesTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("count") >= 0) {
-                countTab.addClass("aitems")
-                ArticlesTab.addClass("erjiitems")
-            // } else if (nowUrl.indexOf("tagsnet") >= 0) {
-            } else if (nowUrl.indexOf("tagsnet") >= 0) {
-                tagsnetTab.addClass("aitems")
-                ArticlesTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("about") >= 0) {
-                aboutTab.addClass("aitems")
-            } else if (nowUrl.indexOf("gallery") >= 0) {
-                galleryTab.addClass("aitems")
-                ListTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("videos") >= 0) {
-                videosTab.addClass("aitems")
-                ListTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("musics") >= 0) {
-                musicsTab.addClass("aitems")
-                ListTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("books") >= 0) {
-                booksTab.addClass("aitems")
-                ListTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("contact") >= 0) {
-                contactTab.addClass("aitems")
-            } else if (nowUrl.indexOf("friends") >= 0) {
-                friendsTab.addClass("aitems")
-                LinksTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("collection") >= 0) {
-                collectionTab.addClass("aitems")
-                LinksTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("project") >= 0) {
-                projectTab.addClass("aitems")
-                LinksTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("donate") >= 0) {
-                donateTab.addClass("aitems")
-                LinksTab.addClass("erjiitems")
-            } else if (nowUrl.indexOf("ticktack") >= 0) {
-                ticktackTab.addClass("aitems")
-                LaboratoryTab.addClass("erjiitems")
+            // 1) 先清空所有高亮，避免“默认点亮分类”
+            $('nav span').removeClass('aitems erjiitems');
+
+            // 2) 精确匹配当前页面
+            if (path === '/categories') {
+                categoriesTab.addClass('aitems'); ArticlesTab.addClass('erjiitems');
+            } else if (path === '/tagsnet') {        // 注意：tagsnet 要在 tags 前，或者用精确匹配（这里已精确）
+                tagsnetTab.addClass('aitems'); ArticlesTab.addClass('erjiitems');
+            } else if (path === '/tags') {
+                tagsTab.addClass('aitems'); ArticlesTab.addClass('erjiitems');
+            } else if (path === '/archives') {
+                archivesTab.addClass('aitems'); ArticlesTab.addClass('erjiitems');
+            } else if (path === '/count') {
+                countTab.addClass('aitems'); ArticlesTab.addClass('erjiitems');
+            } else if (path === '/about') {
+                aboutTab.addClass('aitems');
+            } else if (path === '/contact') {
+                contactTab.addClass('aitems');
+            } else if (path === '/friends') {
+                friendsTab.addClass('aitems'); LinksTab.addClass('erjiitems');
+            } else if (path === '/collection') {
+                collectionTab.addClass('aitems'); LinksTab.addClass('erjiitems');
+            } else if (path === '/donate') {
+                donateTab.addClass('aitems'); LinksTab.addClass('erjiitems');
+            } else if (path === '/ticktack') {
+                ticktackTab.addClass('aitems'); LaboratoryTab.addClass('erjiitems');
             } else {
-                homeTab.addClass("aitems")
+                homeTab.addClass('aitems');
             }
+
+            // 3) 点击“文章”父菜单时：只高亮父级，不默认高亮“分类”
+            //    （如果你的父级 a 的 href 就是 javascript:;，用它来定位）
+            $('nav ul li a[href="javascript:;"]').on('click', function () {
+                var $span = $(this).find('span');
+                if ($span.is(ArticlesTab)) {
+                // 清掉二级的 aitems（分类/标签/归档/统计/关系网）
+                categoriesTab.removeClass('aitems');
+                tagsTab.removeClass('aitems');
+                archivesTab.removeClass('aitems');
+                countTab.removeClass('aitems');
+                tagsnetTab.removeClass('aitems');
+
+                // 点亮父级（用你现有的父级高亮类）
+                ArticlesTab.addClass('erjiitems');
+                }
+            });
         });
     </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
