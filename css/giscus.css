@@ -1,47 +1,356 @@
-/* 1. 定义字体 */
+/* ========================================== */
+/* giscus-theme.css                           */
+/* 白色主题（默认）+ 暗黑主题（自动切换）       */
+/* ========================================== */
+
+/* ========== 1. 字体定义 ========== */
 @font-face {
     font-family: "Aa漫语手写体";
     src: url("https://wwwbsf.github.io/fonts/Aa漫语手写体.ttf") format("truetype");
     font-display: swap;
 }
 
-/* ================================ */
-/* 2. 字体应用（仅对页面本身有效）    */
-/* ================================ */
+/* ========== 2. 全局字体 ========== */
 * {
     font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont,
         "Segoe UI", Helvetica, Arial, sans-serif !important;
     font-weight: bold !important;
 }
 
-/* ================================ */
-/* 3. giscus 容器外壳样式            */
-/*   （iframe 外层的 div 包装）       */
-/* ================================ */
-.giscus,
-.giscus-frame {
-    width: 100% !important;
-    border: none !important;
+/* ========== 3. 隐藏 footer ========== */
+.gsc-footer {
+    display: none !important;
 }
 
-/* 白色主题：外壳无需特殊处理 */
+/* ========================================== */
+/* 4. 白色主题（默认）                         */
+/* ========================================== */
+body,
+.gsc-main,
+.gsc-timeline,
+.gsc-comment,
+.gsc-comment-box,
+.gsc-comment-box-tabs,
+.gsc-comment-box-top,
+.gsc-comment-box-bottom,
+.gsc-comment-header {
+    background-color: #ffffff !important;
+    color: #24292f !important;
+}
 
-/* 暗黑主题：外壳背景跟随 */
+*,
+p, span, div, button,
+h1, h2, h3, h4, h5, h6,
+label, li, td, th {
+    color: #24292f !important;
+}
+
+.gsc-comment-box-textarea,
+textarea {
+    background-color: #ffffff !important;
+    color: #24292f !important;
+    border: 1px solid #d0d7de !important;
+    caret-color: #24292f !important;
+}
+
+.gsc-comment-box-textarea::placeholder,
+textarea::placeholder {
+    color: #57606a !important;
+}
+
+.gsc-comment-box-tabs {
+    background-color: #f6f8fa !important;
+    border-bottom: 1px solid #d0d7de !important;
+}
+
+.gsc-comment-box-tabs button {
+    background-color: transparent !important;
+    color: #24292f !important;
+    border-color: #d0d7de !important;
+}
+
+.gsc-comment-box-tabs button[aria-selected="true"] {
+    background-color: #ffffff !important;
+    color: #24292f !important;
+    border-bottom: 2px solid #0969da !important;
+}
+
+.gsc-comment-box-bottom {
+    background-color: #f6f8fa !important;
+    border-top: 1px solid #d0d7de !important;
+}
+
+.gsc-comment-box-md-toolbar button,
+.gsc-comment-box-bottom button {
+    background-color: transparent !important;
+    color: #57606a !important;
+}
+
+.gsc-comment-box-bottom .btn-primary,
+button.btn-primary {
+    background-color: #2da44e !important;
+    color: #ffffff !important;
+    border-color: #2da44e !important;
+}
+
+button.btn-primary:hover {
+    background-color: #2c974b !important;
+}
+
+a {
+    color: #0969da !important;
+}
+
+.gsc-comment-box,
+.gsc-comment,
+.gsc-timeline {
+    border-color: #d0d7de !important;
+}
+
+.gsc-reactions-count,
+.gsc-reactions {
+    background-color: #ffffff !important;
+    color: #24292f !important;
+}
+
+.gsc-reaction-button {
+    background-color: #f6f8fa !important;
+    color: #24292f !important;
+    border-color: #d0d7de !important;
+}
+
+/* ========================================== */
+/* 5. 暗黑主题                                */
+/*    方案A：跟随系统                          */
+/* ========================================== */
 @media (prefers-color-scheme: dark) {
-    .giscus {
-        background-color: #0d1117 !important;
+
+    body,
+    .gsc-main,
+    .gsc-timeline,
+    .gsc-comment,
+    .gsc-comment-box,
+    .gsc-comment-box-tabs,
+    .gsc-comment-box-top,
+    .gsc-comment-box-bottom,
+    .gsc-comment-header {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+    }
+
+    *,
+    p, span, div, button,
+    h1, h2, h3, h4, h5, h6,
+    label, li, td, th {
+        color: #ffffff !important;
+    }
+
+    .gsc-comment-box-textarea,
+    textarea {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border: 1px solid #444444 !important;
+        caret-color: #ffffff !important;
+    }
+
+    .gsc-comment-box-textarea::placeholder,
+    textarea::placeholder {
+        color: #aaaaaa !important;
+    }
+
+    .gsc-comment-box-tabs {
+        background-color: #000000 !important;
+        border-bottom: 1px solid #333333 !important;
+    }
+
+    .gsc-comment-box-tabs button {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border-color: #444444 !important;
+    }
+
+    .gsc-comment-box-tabs button[aria-selected="true"] {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border-bottom: 2px solid #58a6ff !important;
+    }
+
+    .gsc-comment-box-bottom {
+        background-color: #111111 !important;
+        border-top: 1px solid #333333 !important;
+    }
+
+    .gsc-comment-box-md-toolbar button,
+    .gsc-comment-box-bottom button {
+        background-color: #111111 !important;
+        color: #cccccc !important;
+    }
+
+    .gsc-comment-box-bottom .btn-primary,
+    button.btn-primary {
+        background-color: #238636 !important;
+        color: #ffffff !important;
+        border-color: #2ea043 !important;
+    }
+
+    button.btn-primary:hover {
+        background-color: #2ea043 !important;
+    }
+
+    a {
+        color: #58a6ff !important;
+    }
+
+    .gsc-comment-box,
+    .gsc-comment,
+    .gsc-timeline {
+        border-color: #333333 !important;
+    }
+
+    .gsc-reactions-count,
+    .gsc-reactions {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+    }
+
+    .gsc-reaction-button {
+        background-color: #111111 !important;
+        color: #ffffff !important;
+        border-color: #333333 !important;
     }
 }
 
-[data-theme="dark"] .giscus,
-.dark .giscus {
-    background-color: #0d1117 !important;
+/* ========================================== */
+/* 5. 暗黑主题                                */
+/*    方案B：手动切换                          */
+/* ========================================== */
+[data-theme="dark"] body,
+[data-theme="dark"] .gsc-main,
+[data-theme="dark"] .gsc-timeline,
+[data-theme="dark"] .gsc-comment,
+[data-theme="dark"] .gsc-comment-box,
+[data-theme="dark"] .gsc-comment-box-tabs,
+[data-theme="dark"] .gsc-comment-box-top,
+[data-theme="dark"] .gsc-comment-box-bottom,
+[data-theme="dark"] .gsc-comment-header,
+.dark body,
+.dark .gsc-main,
+.dark .gsc-timeline,
+.dark .gsc-comment,
+.dark .gsc-comment-box,
+.dark .gsc-comment-box-tabs,
+.dark .gsc-comment-box-top,
+.dark .gsc-comment-box-bottom,
+.dark .gsc-comment-header {
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
-/* ================================ */
-/* 4. 隐藏 footer（在 iframe 外无效  */
-/*    需在 giscus 自定义CSS中设置）   */
-/* ================================ */
-.gsc-footer {
-    display: none !important;
+[data-theme="dark"] *,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div,
+[data-theme="dark"] button,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] label,
+[data-theme="dark"] li,
+.dark *,
+.dark p,
+.dark span,
+.dark div,
+.dark button,
+.dark label,
+.dark li {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-textarea,
+[data-theme="dark"] textarea,
+.dark .gsc-comment-box-textarea,
+.dark textarea {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+    caret-color: #ffffff !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-textarea::placeholder,
+[data-theme="dark"] textarea::placeholder,
+.dark .gsc-comment-box-textarea::placeholder,
+.dark textarea::placeholder {
+    color: #aaaaaa !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-tabs,
+.dark .gsc-comment-box-tabs {
+    background-color: #000000 !important;
+    border-bottom: 1px solid #333333 !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-tabs button,
+.dark .gsc-comment-box-tabs button {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-tabs button[aria-selected="true"],
+.dark .gsc-comment-box-tabs button[aria-selected="true"] {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-bottom: 2px solid #58a6ff !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-bottom,
+.dark .gsc-comment-box-bottom {
+    background-color: #111111 !important;
+    border-top: 1px solid #333333 !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-md-toolbar button,
+[data-theme="dark"] .gsc-comment-box-bottom button,
+.dark .gsc-comment-box-md-toolbar button,
+.dark .gsc-comment-box-bottom button {
+    background-color: #111111 !important;
+    color: #cccccc !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-bottom .btn-primary,
+[data-theme="dark"] button.btn-primary,
+.dark .gsc-comment-box-bottom .btn-primary,
+.dark button.btn-primary {
+    background-color: #238636 !important;
+    color: #ffffff !important;
+    border-color: #2ea043 !important;
+}
+
+[data-theme="dark"] a,
+.dark a {
+    color: #58a6ff !important;
+}
+
+[data-theme="dark"] .gsc-comment-box,
+[data-theme="dark"] .gsc-comment,
+[data-theme="dark"] .gsc-timeline,
+.dark .gsc-comment-box,
+.dark .gsc-comment,
+.dark .gsc-timeline {
+    border-color: #333333 !important;
+}
+
+[data-theme="dark"] .gsc-reactions-count,
+[data-theme="dark"] .gsc-reactions,
+.dark .gsc-reactions-count,
+.dark .gsc-reactions {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .gsc-reaction-button,
+.dark .gsc-reaction-button {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
 }
