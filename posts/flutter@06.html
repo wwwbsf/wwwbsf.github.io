@@ -3402,7 +3402,7 @@ class ImagePage extends StatelessWidget &#123;
             data-emit-metadata="0"
             data-input-position="bottom"
             /* 重点修改这里：指向你的 CSS 文件地址 */
-            data-theme="https://wwwbsf.github.io/css/giscus.css"
+            data-theme="https://wwwbsf.github.io/css/giscus-light.css"
             data-lang="zh-CN"
             crossorigin="anonymous"
             async>
@@ -3411,41 +3411,57 @@ class ImagePage extends StatelessWidget &#123;
 
 <!-- giscus 主题联动 JS -->
 <script>
-    (function () {
-        var GISCUS_LIGHT = "https://wwwbsf.github.io/css/giscus-light.css";
-        var GISCUS_DARK  = "https://wwwbsf.github.io/css/giscus-dark.css";
+(function () {
+    var GISCUS_LIGHT = "https://wwwbsf.github.io/css/giscus-light.css";
+    var GISCUS_DARK  = "https://wwwbsf.github.io/css/giscus-dark.css";
 
-        /* 向 giscus iframe 发送主题 */
-        function setGiscusTheme(themeUrl) {
-            var iframe = document.querySelector("iframe.giscus-frame");
-            if (!iframe) {
-                setTimeout(function () { setGiscusTheme(themeUrl); }, 300);
-                return;
-            }
-            iframe.contentWindow.postMessage(
-                { giscus: { setConfig: { theme: themeUrl } } },
-                "https://giscus.app"
-            );
+    /* 判断当前主题 */
+    function isDark() {
+        return localStorage.getItem("dark") === "1";
+    }
+
+    /* 向 giscus iframe 发送主题 */
+    function setGiscusTheme(themeUrl) {
+        var iframe = document.querySelector("iframe.giscus-frame");
+        if (!iframe) {
+            setTimeout(function () { setGiscusTheme(themeUrl); }, 200);
+            return;
         }
+        iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: themeUrl } } },
+            "https://giscus.app"
+        );
+    }
 
-        /* 读取 localStorage.dark 判断当前主题 */
-        function isDark() {
-            return localStorage.getItem("dark") === "1";
+    /* 
+     * 关键修复：
+     * giscus 默认加载的是 data-theme 里的 CSS（giscus-light.css）
+     * 但如果用户刷新页面时已经是暗黑模式，需要立即切换
+     */
+    function initTheme() {
+        if (isDark()) {
+            setGiscusTheme(GISCUS_DARK);
         }
+        /* 白色模式不需要切换，因为 data-theme 默认就是 light */
+    }
 
-        /* giscus iframe 加载完成后立即同步主题 */
-        window.addEventListener("message", function handler(e) {
-            if (e.origin !== "https://giscus.app") return;
-            if (e.data && e.data.giscus) {
-                setGiscusTheme(isDark() ? GISCUS_DARK : GISCUS_LIGHT);
-                window.removeEventListener("message", handler);
-            }
-        });
+    /* 等待 giscus iframe 加载完成后初始化主题 */
+    window.addEventListener("message", function handler(e) {
+        if (e.origin !== "https://giscus.app") return;
+        if (e.data && e.data.giscus) {
+            initTheme();
+            window.removeEventListener("message", handler);
+        }
+    });
 
-        /* 拦截博客原有的 switchNightMode 函数 */
+    /* 
+     * 关键修复：等待 switchNightMode 函数定义完成后再拦截
+     * 用 DOMContentLoaded 确保所有 JS 加载完毕
+     */
+    function interceptSwitchNightMode() {
         var _original = window.switchNightMode;
         window.switchNightMode = function () {
-            /* 先执行博客原来的切换逻辑 */
+            /* 执行博客原有切换逻辑 */
             if (typeof _original === "function") {
                 _original.apply(this, arguments);
             }
@@ -3454,7 +3470,17 @@ class ImagePage extends StatelessWidget &#123;
                 setGiscusTheme(isDark() ? GISCUS_DARK : GISCUS_LIGHT);
             }, 100);
         };
-    })();
+    }
+
+    /* 确保在所有脚本加载完成后再拦截 */
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", interceptSwitchNightMode);
+    } else {
+        /* 如果 DOM 已经加载完成，延迟一帧确保其他 JS 执行完 */
+        setTimeout(interceptSwitchNightMode, 0);
+    }
+
+})();
 </script>
 
 <!-- 直达评论 -->
