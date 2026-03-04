@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "Aa漫语手写体";
+    src: url("https://wwwbsf.github.io/fonts/Aa漫语手写体.ttf") format("truetype");
+    font-display: swap;
+}
+
+* {
+    font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Helvetica, Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.gsc-footer {
+    display: none !important;
+}
+
+:root {
+    --color-canvas-default: #000000 !important;
+    --color-canvas-subtle: #111111 !important;
+    --color-border-default: #333333 !important;
+    --color-border-muted: #222222 !important;
+    --color-accent-fg: #58a6ff !important;
+    --color-accent-emphasis: #1f6feb !important;
+    --color-btn-text: #ffffff !important;
+    --color-btn-bg: #111111 !important;
+    --color-btn-primary-text: #ffffff !important;
+    --color-btn-primary-bg: #238636 !important;
+    --color-fg-default: #ffffff !important;
+    --color-fg-muted: #aaaaaa !important;
+    --color-fg-subtle: #888888 !important;
+}
+
+body, .gsc-main, .gsc-comment-content,
+.gsc-reply-content, .gsc-header, .gsc-tabs,
+.gsc-reactions, p, span, div, button, textarea, a {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.gsc-comment-box-textarea, textarea {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+    caret-color: #ffffff !important;
+}
+
+.gsc-comment-box-textarea::placeholder {
+    color: #aaaaaa !important;
+}
+
+.gsc-comment-box-bottom {
+    background-color: #111111 !important;
+    border-top: 1px solid #333333 !important;
+}
+
+.gsc-comment-box-bottom .btn-primary,
+button.btn-primary {
+    background-color: #238636 !important;
+    color: #ffffff !important;
+    border-color: #2ea043 !important;
+}
+
+a {
+    color: #58a6ff !important;
+}

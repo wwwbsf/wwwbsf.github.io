@@ -1557,6 +1557,54 @@ wsl --update<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
     </script>
 </div>
 
+<!-- giscus 主题联动 JS -->
+<script>
+    (function () {
+        var GISCUS_LIGHT = "https://wwwbsf.github.io/css/giscus-light.css";
+        var GISCUS_DARK  = "https://wwwbsf.github.io/css/giscus-dark.css";
+
+        /* 向 giscus iframe 发送主题 */
+        function setGiscusTheme(themeUrl) {
+            var iframe = document.querySelector("iframe.giscus-frame");
+            if (!iframe) {
+                setTimeout(function () { setGiscusTheme(themeUrl); }, 300);
+                return;
+            }
+            iframe.contentWindow.postMessage(
+                { giscus: { setConfig: { theme: themeUrl } } },
+                "https://giscus.app"
+            );
+        }
+
+        /* 读取 localStorage.dark 判断当前主题 */
+        function isDark() {
+            return localStorage.getItem("dark") === "1";
+        }
+
+        /* giscus iframe 加载完成后立即同步主题 */
+        window.addEventListener("message", function handler(e) {
+            if (e.origin !== "https://giscus.app") return;
+            if (e.data && e.data.giscus) {
+                setGiscusTheme(isDark() ? GISCUS_DARK : GISCUS_LIGHT);
+                window.removeEventListener("message", handler);
+            }
+        });
+
+        /* 拦截博客原有的 switchNightMode 函数 */
+        var _original = window.switchNightMode;
+        window.switchNightMode = function () {
+            /* 先执行博客原来的切换逻辑 */
+            if (typeof _original === "function") {
+                _original.apply(this, arguments);
+            }
+            /* 等待 localStorage.dark 更新后同步 giscus */
+            setTimeout(function () {
+                setGiscusTheme(isDark() ? GISCUS_DARK : GISCUS_LIGHT);
+            }, 100);
+        };
+    })();
+</script>
+
 <!-- 直达评论 -->
 <div id="to_comment" class="comment-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
