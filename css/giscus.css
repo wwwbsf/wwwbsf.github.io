@@ -1,89 +1,81 @@
-/* 1. 定义字体 */
+/* 1. 字体定义 */
 @font-face {
     font-family: "Aa漫语手写体";
     src: url("https://wwwbsf.github.io/fonts/Aa漫语手写体.ttf") format("truetype");
     font-display: swap;
 }
 
-/* 2. 基础布局与字体应用（不涉及颜色的部分） */
+/* 2. 全局基础设置 */
 * {
     font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
 }
 
-main, 
-.gsc-main, 
-.gsc-comment-box-textarea, 
-.gsc-comment-content,
-.gsc-reply-content,
-.gsc-header,
-.gsc-reactions-count,
-.gsc-tabs button,
-.gsc-social-reaction-summary-item {
+/* 强制加粗 */
+.gsc-main, .gsc-header, .gsc-comment-content, .gsc-reply-content, 
+.gsc-tabs button, .gsc-comment-box-textarea, .gsc-reactions-count {
     font-weight: bold !important;
 }
 
-/* 隐藏 Powered by giscus */
+/* 隐藏页脚 */
 .gsc-footer {
     display: none !important;
 }
 
 /* ==========================================
-   3. 核心方案：根据主题定义颜色变量
+   3. 自动适配逻辑
    ========================================== */
 
-/* 默认：白色主题 (Light Mode) */
-:root {
-    --giscus-main-text: #24292f;         /* 深色文字 */
-    --giscus-sub-text: #57606a;          /* 次要灰色文字 */
-    --giscus-bg-input: #ffffff;          /* 输入框背景白 */
-    --giscus-border: #d0d7de;            /* 边框颜色 */
-}
-
-/* 自动切换：暗黑主题 (Dark Mode) */
+/* --- 暗黑模式 (Dark Mode) --- */
 @media (prefers-color-scheme: dark) {
-    :root {
-        --giscus-main-text: #f0f6fc;     /* 浅色文字 */
-        --giscus-sub-text: #8b949e;      /* 次要浅灰文字 */
-        --giscus-bg-input: #0d1117;      /* 输入框背景深色 */
-        --giscus-border: #30363d;        /* 深色边框 */
+    /* 主文字颜色：强制变为亮白色/浅灰 */
+    .gsc-header, 
+    .gsc-comments-count, 
+    .gsc-tabs button, 
+    .gsc-comment-content, 
+    .gsc-reply-content, 
+    .gsc-social-reaction-summary-item,
+    .gsc-reactions-count,
+    .gsc-comment-box-textarea,
+    .gsc-main {
+        color: #f0f6fc !important;
+    }
+
+    /* 修正输入框：背景深色，文字亮色 */
+    .gsc-comment-box-textarea {
+        background-color: #0d1117 !important; /* 深黑色背景 */
+        border: 1px solid #30363d !important;
+        color: #f0f6fc !important;
+    }
+
+    /* 修正输入框提示词 (Placeholder) */
+    .gsc-comment-box-textarea::placeholder {
+        color: #8b949e !important;
+    }
+
+    /* 修正未选中的标签页颜色 */
+    .gsc-tabs button:not(.gsc-tabs-selected) {
+        color: #8b949e !important;
+    }
+    
+    /* 修正分割线颜色 */
+    .gsc-header {
+        border-bottom-color: #30363d !important;
     }
 }
 
-/* ==========================================
-   4. 应用颜色变量到具体元素
-   ========================================== */
+/* --- 浅色模式 (Light Mode) --- */
+@media (prefers-color-scheme: light) {
+    /* 确保文字是深色的 */
+    .gsc-header, 
+    .gsc-comments-count, 
+    .gsc-comment-content, 
+    .gsc-comment-box-textarea {
+        color: #24292f !important;
+    }
 
-/* 应用主文字颜色 */
-body,
-.gsc-main,
-.gsc-comment-content,
-.gsc-header,
-.gsc-reply-content,
-.gsc-tabs button,
-.gsc-reactions-count,
-.gsc-social-reaction-summary-item,
-.gsc-comment-box-textarea {
-    color: var(--giscus-main-text) !important;
-}
-
-/* 应用次要文字颜色（如：尚未输入的提示词） */
-.gsc-comment-box-textarea::placeholder,
-.gsc-tabs button:not(.gsc-tabs-selected) {
-    color: var(--giscus-sub-text) !important;
-}
-
-/* 输入框与背景适配 */
-.gsc-comment-box-textarea {
-    background-color: var(--giscus-bg-input) !important;
-    border: 1px solid var(--giscus-border) !important;
-}
-
-/* 头部边框适配 */
-.gsc-header {
-    border-bottom-color: var(--giscus-border) !important;
-}
-
-/* 链接颜色适配（可选） */
-a {
-    color: #58a6ff !important; /* 统一使用一个在深浅色下都清晰的蓝色 */
+    .gsc-comment-box-textarea {
+        background-color: #ffffff !important;
+        border: 1px solid #d0d7de !important;
+        color: #24292f !important;
+    }
 }
