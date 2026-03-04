@@ -1,10 +1,26 @@
 /* ==========================================
-   公共部分：字体定义与基础应用
+   1. 字体定义
    ========================================== */
 @font-face {
     font-family: "Aa漫语手写体";
     src: url("https://wwwbsf.github.io/fonts/Aa漫语手写体.ttf") format("truetype");
     font-display: swap;
+}
+
+/* ==========================================
+   2. 通用基础样式（两种模式共享）
+   ========================================== */
+main,
+.gsc-main,
+.gsc-comment-box-textarea,
+.gsc-comment-content,
+.gsc-reply-content,
+.gsc-header,
+.gsc-reactions-count,
+.gsc-tabs button {
+    font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, 
+                 "Segoe UI", Helvetica, Arial, sans-serif !important;
+    font-weight: bold !important;
 }
 
 /* 隐藏 Powered by giscus */
@@ -13,81 +29,134 @@
 }
 
 /* ==========================================
-   2. 白色主题模式 (Light Mode)
-   完全保留原代码逻辑
+   3. 白色主题模式（Light Mode）
+   默认状态，无需额外类名
    ========================================== */
-@media (prefers-color-scheme: light) {
-    /* 基础样式与字体应用 */
-    main, 
-    .gsc-main, 
-    .gsc-comment-box-textarea, 
-    .gsc-comment-content,
-    .gsc-reply-content,
-    .gsc-header,
-    .gsc-reactions-count,
-    .gsc-tabs button {
-        font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-        font-weight: bold !important;
-        color: #24292f !important; /* 确保浅色模式下文字为深色 */
-    }
+:root {
+    /* 白色模式 CSS 变量 */
+    --color-canvas-default: #ffffff;
+    --color-canvas-subtle: #f6f8fa;
+    --color-border-default: #d0d7de;
+    --color-border-muted: #d8dee4;
+    --color-neutral-muted: rgba(175, 184, 193, 0.2);
+    --color-accent-fg: #0969da;
+    --color-accent-emphasis: #0969da;
+    --color-btn-text: #24292f;
+    --color-btn-bg: #f6f8fa;
+    --color-btn-border: rgba(31, 35, 40, 0.15);
+    --color-btn-primary-text: #ffffff;
+    --color-btn-primary-bg: #2da44e;
+    /* 文字颜色变量 */
+    --color-fg-default: #24292f;
+    --color-fg-muted: #57606a;
+    --color-fg-subtle: #6e7781;
+    /* 自定义过渡动画变量 */
+    --theme-transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    /* 隐藏 Powered by giscus */
-    .gsc-footer {
-        display: none !important;
-    }
+/* 白色模式文字颜色 */
+body,
+.gsc-main,
+.gsc-comment-content,
+.gsc-header,
+.gsc-tabs,
+.gsc-reactions,
+p, span, div, button, textarea, a,
+.gsc-reply-content,
+.gsc-reactions-count {
+    color: #24292f !important;
+}
+
+/* 白色模式输入框 */
+.gsc-comment-box-textarea {
+    background-color: #ffffff !important;
+    color: #24292f !important;
+    border: 1px solid #d0d7de !important;
+}
+
+.gsc-comment-box-textarea::placeholder {
+    color: #57606a !important;
 }
 
 /* ==========================================
-   3. 暗黑主题模式 (Dark Mode)
-   完全保留你修改后的代码逻辑（带变量和强制着色）
+   4. 暗黑主题模式（Dark Mode）
+   通过 body 或 html 上的 data-theme="dark" 触发
+   ========================================== */
+[data-theme="dark"] {
+    /* 覆盖 CSS 变量为暗黑版本 */
+    --color-canvas-default: #0d1117;
+    --color-canvas-subtle: #161b22;
+    --color-border-default: #30363d;
+    --color-border-muted: #21262d;
+    --color-neutral-muted: rgba(110, 118, 129, 0.4);
+    --color-accent-fg: #58a6ff;
+    --color-accent-emphasis: #1f6feb;
+    --color-btn-text: #c9d1d9;
+    --color-btn-bg: #21262d;
+    --color-btn-border: rgba(240, 246, 252, 0.1);
+    --color-btn-primary-text: #ffffff;
+    --color-btn-primary-bg: #238636;
+    /* 文字颜色变量 */
+    --color-fg-default: #f0f6fc;
+    --color-fg-muted: #8b949e;
+    --color-fg-subtle: #6e7681;
+}
+
+/* 暗黑模式字体全覆盖 */
+[data-theme="dark"] * {
+    font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* 暗黑模式强制文字颜色 */
+[data-theme="dark"] body,
+[data-theme="dark"] .gsc-main,
+[data-theme="dark"] .gsc-comment-content,
+[data-theme="dark"] .gsc-header,
+[data-theme="dark"] .gsc-tabs,
+[data-theme="dark"] .gsc-reactions,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div,
+[data-theme="dark"] button,
+[data-theme="dark"] textarea,
+[data-theme="dark"] a,
+[data-theme="dark"] .gsc-reply-content,
+[data-theme="dark"] .gsc-reactions-count {
+    color: #f0f6fc !important;
+    font-weight: bold !important;
+}
+
+/* 暗黑模式输入框 */
+[data-theme="dark"] .gsc-comment-box-textarea {
+    background-color: #0d1117 !important;
+    color: #f0f6fc !important;
+    border: 1px solid #30363d !important;
+}
+
+[data-theme="dark"] .gsc-comment-box-textarea::placeholder {
+    color: #8b949e !important;
+}
+
+/* ==========================================
+   5. 跟随系统主题的兜底（可选保留）
+   当用户没有手动切换时，跟随系统偏好
    ========================================== */
 @media (prefers-color-scheme: dark) {
-    /* 覆盖 giscus 内部 CSS 变量 */
-    :root {
-        --color-canvas-default: #0d1117 !important;
-        --color-canvas-subtle: #161b22 !important;
-        --color-border-default: #30363d !important;
-        --color-border-muted: #21262d !important;
-        --color-neutral-muted: rgba(110,118,129,0.4) !important;
-        --color-accent-fg: #58a6ff !important;
-        --color-accent-emphasis: #1f6feb !important;
-        --color-btn-text: #c9d1d9 !important;
-        --color-btn-bg: #21262d !important;
-        --color-btn-border: rgba(240,246,252,0.1) !important;
-        --color-btn-primary-text: #ffffff !important;
-        --color-btn-primary-bg: #238636 !important;
-        
-        /* 关键：文字颜色变量 */
-        --color-fg-default: #f0f6fc !important;
-        --color-fg-muted: #8b949e !important;
-        --color-fg-subtle: #6e7681 !important;
-    }
-
-    /* 应用字体到暗黑模式所有元素 */
-    * {
-        font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, sans-serif !important;
-    }
-
-    /* 强制所有文字在暗黑模式下可见 (亮色) */
-    body, .gsc-main, .gsc-comment-content, .gsc-header, .gsc-tabs, .gsc-reactions, 
-    p, span, div, button, textarea, a, .gsc-reply-content, .gsc-reactions-count {
-        color: #f0f6fc !important;
-        font-weight: bold !important;
-    }
-
-    /* 输入框适配 */
-    .gsc-comment-box-textarea {
-        background-color: #0d1117 !important;
-        color: #f0f6fc !important;
-        border: 1px solid #30363d !important;
-    }
-
-    .gsc-comment-box-textarea::placeholder {
-        color: #8b949e !important;
-    }
-
-    /* 隐藏 footer */
-    .gsc-footer {
-        display: none !important;
+    :root:not([data-theme="light"]) {
+        --color-canvas-default: #0d1117;
+        --color-canvas-subtle: #161b22;
+        --color-border-default: #30363d;
+        --color-border-muted: #21262d;
+        --color-neutral-muted: rgba(110, 118, 129, 0.4);
+        --color-accent-fg: #58a6ff;
+        --color-accent-emphasis: #1f6feb;
+        --color-btn-text: #c9d1d9;
+        --color-btn-bg: #21262d;
+        --color-btn-border: rgba(240, 246, 252, 0.1);
+        --color-btn-primary-text: #ffffff;
+        --color-btn-primary-bg: #238636;
+        --color-fg-default: #f0f6fc;
+        --color-fg-muted: #8b949e;
+        --color-fg-subtle: #6e7681;
     }
 }
