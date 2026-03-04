@@ -26,61 +26,63 @@ main,
 
 /* ========================================== 4. 核心修正：暗黑模式文字颜色适配 ========================================== */
 /* ========== 覆盖 giscus CSS 变量（暗黑模式）========== */
-:root {
-    --color-canvas-default: #0d1117 !important;
-    --color-canvas-subtle: #161b22 !important;
-    --color-border-default: #30363d !important;
-    --color-border-muted: #21262d !important;
-    --color-neutral-muted: rgba(110, 118, 129, 0.4) !important;
-    --color-accent-fg: #58a6ff !important;
-    --color-accent-emphasis: #1f6feb !important;
-    --color-btn-text: #c9d1d9 !important;
-    --color-btn-bg: #21262d !important;
-    --color-btn-border: rgba(240, 246, 252, 0.1) !important;
-    --color-btn-primary-text: #ffffff !important;
-    --color-btn-primary-bg: #238636 !important;
-    /* 关键：文字颜色变量 */
-    --color-fg-default: #f0f6fc !important;
-    --color-fg-muted: #8b949e !important;
-    --color-fg-subtle: #6e7681 !important;
-}
+@media (prefers-color-scheme: dark) {
+    main {
+        --color-canvas-default: #0d1117 !important;
+        --color-canvas-subtle: #161b22 !important;
+        --color-border-default: #30363d !important;
+        --color-border-muted: #21262d !important;
+        --color-neutral-muted: rgba(110, 118, 129, 0.4) !important;
+        --color-accent-fg: #58a6ff !important;
+        --color-accent-emphasis: #1f6feb !important;
+        --color-btn-text: #c9d1d9 !important;
+        --color-btn-bg: #21262d !important;
+        --color-btn-border: rgba(240, 246, 252, 0.1) !important;
+        --color-btn-primary-text: #ffffff !important;
+        --color-btn-primary-bg: #238636 !important;
+        /* 关键：文字颜色变量 */
+        --color-fg-default: #f0f6fc !important;
+        --color-fg-muted: #8b949e !important;
+        --color-fg-subtle: #6e7681 !important;
+    }
 
-/* 应用字体到所有元素 */
-* {
-    font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, sans-serif !important;
-}
+    /* 应用字体到所有元素 */
+    * {
+        font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
 
-/* 强制所有文字可见 */
-body,
-.gsc-main,
-.gsc-comment-content,
-.gsc-header,
-.gsc-tabs,
-.gsc-reactions,
-p,
-span,
-div,
-button,
-textarea,
-a {
-    color: #f0f6fc !important;
-    font-weight: bold !important;
-}
+    /* 强制所有文字可见 */
+    body,
+    .gsc-main,
+    .gsc-comment-content,
+    .gsc-header,
+    .gsc-tabs,
+    .gsc-reactions,
+    p,
+    span,
+    div,
+    button,
+    textarea,
+    a {
+        color: #f0f6fc !important;
+        font-weight: bold !important;
+    }
 
-/* 输入框 */
-.gsc-comment-box-textarea {
-    background-color: #0d1117 !important;
-    color: #f0f6fc !important;
-    border: 1px solid #30363d !important;
-}
+    /* 输入框 */
+    .gsc-comment-box-textarea {
+        background-color: #0d1117 !important;
+        color: #f0f6fc !important;
+        border: 1px solid #30363d !important;
+    }
 
-.gsc-comment-box-textarea::placeholder {
-    color: #8b949e !important;
-}
+    .gsc-comment-box-textarea::placeholder {
+        color: #8b949e !important;
+    }
 
-/* 隐藏 footer */
-.gsc-footer {
-    display: none !important;
+    /* 隐藏 footer */
+    .gsc-footer {
+        display: none !important;
+    }
 }
 
 /* 如果是浅色模式，确保文字是深色的 */
