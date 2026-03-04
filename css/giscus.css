@@ -1,5 +1,5 @@
 /* ==========================================
-   1. 公共部分：字体定义与基础应用
+   公共部分：字体定义与基础应用
    ========================================== */
 @font-face {
     font-family: "Aa漫语手写体";
@@ -7,41 +7,39 @@
     font-display: swap;
 }
 
-/* 基础字体应用（全模式通用） */
-main, 
-.gsc-main, 
-.gsc-comment-box-textarea, 
-.gsc-comment-content,
-.gsc-reply-content,
-.gsc-header,
-.gsc-reactions-count,
-.gsc-tabs button {
-    font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-    font-weight: bold !important;
-}
-
 /* 隐藏 Powered by giscus */
 .gsc-footer {
     display: none !important;
 }
 
-
 /* ==========================================
-   2. 浅色主题模式 (Light Mode)
-   使用你原先的代码逻辑
+   2. 白色主题模式 (Light Mode)
+   完全保留原代码逻辑
    ========================================== */
 @media (prefers-color-scheme: light) {
-    main {
-        color: #24292f !important;
+    /* 基础样式与字体应用 */
+    main, 
+    .gsc-main, 
+    .gsc-comment-box-textarea, 
+    .gsc-comment-content,
+    .gsc-reply-content,
+    .gsc-header,
+    .gsc-reactions-count,
+    .gsc-tabs button {
+        font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+        font-weight: bold !important;
+        color: #24292f !important; /* 确保浅色模式下文字为深色 */
     }
-    /* 浅色模式下，giscus 通常会自动处理背景和文字，
-       如果发现文字颜色不对，可以在这里补充具体类名的颜色设置 */
-}
 
+    /* 隐藏 Powered by giscus */
+    .gsc-footer {
+        display: none !important;
+    }
+}
 
 /* ==========================================
    3. 暗黑主题模式 (Dark Mode)
-   使用你修改后（带变量和强制着色）的代码逻辑
+   完全保留你修改后的代码逻辑（带变量和强制着色）
    ========================================== */
 @media (prefers-color-scheme: dark) {
     /* 覆盖 giscus 内部 CSS 变量 */
@@ -65,14 +63,19 @@ main,
         --color-fg-subtle: #6e7681 !important;
     }
 
-    /* 强制暗黑模式下所有文字可见 */
-    body, .gsc-main, .gsc-comment-content, 
-    .gsc-header, .gsc-tabs, .gsc-reactions,
-    p, span, div, button, textarea, a, .gsc-reply-content {
-        color: #f0f6fc !important;
+    /* 应用字体到暗黑模式所有元素 */
+    * {
+        font-family: "Aa漫语手写体", -apple-system, BlinkMacSystemFont, sans-serif !important;
     }
 
-    /* 暗黑模式输入框适配 */
+    /* 强制所有文字在暗黑模式下可见 (亮色) */
+    body, .gsc-main, .gsc-comment-content, .gsc-header, .gsc-tabs, .gsc-reactions, 
+    p, span, div, button, textarea, a, .gsc-reply-content, .gsc-reactions-count {
+        color: #f0f6fc !important;
+        font-weight: bold !important;
+    }
+
+    /* 输入框适配 */
     .gsc-comment-box-textarea {
         background-color: #0d1117 !important;
         color: #f0f6fc !important;
@@ -83,8 +86,8 @@ main,
         color: #8b949e !important;
     }
 
-    /* 底部边框等细节 */
-    .gsc-header {
-        border-bottom-color: #30363d !important;
+    /* 隐藏 footer */
+    .gsc-footer {
+        display: none !important;
     }
 }
