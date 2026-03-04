@@ -14,9 +14,10 @@
     display: none !important;
 }
 
+/* ========== CSS 变量 ========== */
 :root {
-    --color-canvas-default: #000000 !important;
-    --color-canvas-subtle: #111111 !important;
+    --color-canvas-default: #0d1117 !important;
+    --color-canvas-subtle: #161b22 !important;
     --color-border-default: #333333 !important;
     --color-border-muted: #222222 !important;
     --color-accent-fg: #58a6ff !important;
@@ -30,29 +31,73 @@
     --color-fg-subtle: #888888 !important;
 }
 
-body, .gsc-main, .gsc-comment-content,
-.gsc-reply-content, .gsc-header, .gsc-tabs,
-.gsc-reactions, p, span, div, button, textarea, a {
-    background-color: #000000 !important;
+/* ========== 评论列表区域：跟随暗黑底色 ========== */
+body,
+.gsc-main,
+.gsc-timeline,
+.gsc-comment,
+.gsc-comment-content,
+.gsc-reply-content,
+.gsc-header,
+.gsc-tabs,
+.gsc-reactions,
+p, span, div, button, textarea, a {
     color: #ffffff !important;
 }
 
-.gsc-comment-box-textarea, textarea {
+/* ========== 只有输入框区域：纯黑底色 ========== */
+.gsc-comment-box {
+    background-color: #000000 !important;
+    border: 1px solid #444444 !important;
+    border-radius: 6px !important;
+}
+
+/* Tab 栏（输入/预览）*/
+.gsc-comment-box-tabs {
+    background-color: #000000 !important;
+    border-bottom: 1px solid #333333 !important;
+}
+
+.gsc-comment-box-tabs button {
     background-color: #000000 !important;
     color: #ffffff !important;
-    border: 1px solid #444444 !important;
+    border-color: #444444 !important;
+}
+
+.gsc-comment-box-tabs button[aria-selected="true"] {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-bottom: 2px solid #58a6ff !important;
+}
+
+/* 输入框主体 */
+.gsc-comment-box-top,
+.gsc-comment-box-textarea,
+textarea {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
     caret-color: #ffffff !important;
 }
 
-.gsc-comment-box-textarea::placeholder {
+.gsc-comment-box-textarea::placeholder,
+textarea::placeholder {
     color: #aaaaaa !important;
 }
 
+/* 底部工具栏（退出登录 + 评论按钮）*/
 .gsc-comment-box-bottom {
-    background-color: #111111 !important;
+    background-color: #000000 !important;
     border-top: 1px solid #333333 !important;
 }
 
+.gsc-comment-box-bottom button,
+.gsc-comment-box-md-toolbar button {
+    background-color: #000000 !important;
+    color: #cccccc !important;
+}
+
+/* 提交按钮保持绿色 */
 .gsc-comment-box-bottom .btn-primary,
 button.btn-primary {
     background-color: #238636 !important;
@@ -60,6 +105,11 @@ button.btn-primary {
     border-color: #2ea043 !important;
 }
 
+button.btn-primary:hover {
+    background-color: #2ea043 !important;
+}
+
+/* 链接颜色 */
 a {
     color: #58a6ff !important;
 }
