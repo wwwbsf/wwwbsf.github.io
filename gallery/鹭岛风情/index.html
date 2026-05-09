@@ -792,7 +792,8 @@ class="themespring" -->
 </div>
 <!-- 春节主题模式样式结束 -->
 
-    <!-- 加密功能 -->
+    <!-- 9种样式：魔方旋转、纸飞机时间线、3D球体、心型、凌乱滑动、气泡、树状展开、悬浮展示、大树藤蔓照片墙 -->
+<!-- 加密功能 -->
 
 
 <div class="bg-cover pd-header about-cover">
@@ -856,188 +857,231 @@ class="themespring" -->
 
 
 
-<link rel="stylesheet" href="/libs/MyGallery/css/baguetteBox.css">
-<!-- 该主题自带的lightGallery.js在图片多的时候会很卡，所以弃用，使用了一个我在网上找的baguetteBox，很轻量级，就是功能少了点 -->
-<script src="/libs/MyGallery/js/baguetteBox.js"></script> 
-<style>    
-    /* #sma {
-        bottom: 150px;
-    } */
-    .my-gallery .photo img {
-        transition: all 0.6s ease-in-out; 
-    }     
-    .my-gallery .photo:hover img {
-        opacity: 0.6;
-        transform: scale(1.05);
-    }      
-    .my-gallery {
-        margin: 20px auto;
-    }   
-    .miaoshus .title {
-        font-family: MV Boli;
+<!-- 引入 Lightbox 库 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+<!-- 引入 Three.js 核心库和轨道控制器 -->
+<script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<!-- ========== 照片数据获取（通过 gallery_theme 指定） ========== -->
+
+
+<!-- ========== 公共样式 ========== -->
+<style>
+    /* ========== 基础样式 ========== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: 'Segoe UI', 'MV Boli', 'Microsoft YaHei', sans-serif;
+        background: #f5f3f0;
+        transition: background 0.3s, color 0.3s;
+        overflow-x: hidden;
     }
-    .miaoshus {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
+    body.dark {
+        background: #1a1e2a;
+        color: #ddd;
+    }
+    body { overflow: visible !important; }
+    .page-footer { display: none; }
+    canvas { opacity: 1 !important; }
+    
+    /* ========== 福袋样式 ========== */
+    .caishendeng {
         display: inline-block;
-        width: 75%;
+        margin-right: 8px;
+    }
+    .guguxian {
+        display: inline-block;
+    }
+    .caishenpic {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .caishenpic:hover {
+        transform: scale(1.1) rotate(5deg);
+    }
+    body.dark .caishenpic {
+        box-shadow: 0 4px 10px rgba(255,215,150,0.2);
+    }
+    
+    /* ========== 统一的相框容器 ========== */
+    .photo-frame-container {
+        max-width: 1300px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    .photo-frame {
+        padding: 90px 25px;
+        border: 1px dashed #e6e6e6;
         background: #fbfbfb50;
+        backdrop-filter: blur(8px);
+        border-radius: 30px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        position: relative;
+    }
+    body.dark .photo-frame {
+        background: #2a3040b0;
+        border-color: #5f6b7a;
+    }
+    
+    /* 框内标题区域 - 保留福袋 */
+    .frame-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #d4c5b0;
+        flex-wrap: wrap;
+    }
+    body.dark .frame-header {
+        border-bottom-color: #5f6b7a;
+    }
+    .frame-title-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .frame-title-text {
+        font-size: 1.8rem;
+        color: #7b5e3b;
+        text-align: center;
+    }
+    body.dark .frame-title-text {
+        color: #e2d9cd;
+    }
+    .frame-subtitle {
+        font-size: 1rem;
+        color: #969696;
+        margin-left: 12px;
+        font-style: italic;
+    }
+    body.dark .frame-subtitle {
+        color: #aaa;
+    }
+    
+    /* 福袋装饰容器 */
+    .caishendeng {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+    
+    /* 框内照片区域 */
+    .frame-gallery {
+        min-height: 300px;
+        overflow: visible;
+    }
+    
+    .gallery-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .gallery-img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 35px rgba(0,0,0,0.25);
+    }
+    
+    /* ========== 空状态 ========== */
+    .empty-message {
+        text-align: center;
+        padding: 50px 20px;
+        color: #999;
+        font-size: 1.1rem;
+    }
+    body.dark .empty-message { color: #888; }
+    
+    /* ========== Lightbox 自定义样式 ========== */
+    .lightbox .lb-image {
         border-radius: 10px;
-        font-size: 16px;
-        margin: 24px auto 12px;
-        
+        border: 4px solid #fff;
     }
-    body.dark .miaoshus {
-        background: 0 0;
-        border: 1px dashed #888;
+    .lightbox .lb-caption {
+        font-size: 1.1rem;
+        font-weight: bold;
     }
-    body {
-        overflow: visible!important;
+    .lightbox .lb-number {
+        font-size: 0.9rem;
     }
-    .box {
-            position: relative;
-            max-width: 1064px;
-        }
-    .box img {
-        width: 350px;
-        height: 350px;
-        vertical-align: top;
-        padding: 8px;
-        border-radius: 20px;
-        transition: all 0.5s;
-    }
-    .box img:hover {
-        transform: scale(1.05);
-    }
-    .page-footer {
-        display: none
-    }
-    body {
-        overflow-y: visible!important;
-    }
-    header {
-        background-color: #000;
-    }
-    .biaotiss {
-            font-family: MV Boli;
-        }   
-    canvas {
-        opacity: 0.3!important;
-    }
-    @media only screen and (max-width: 1058px) {
-        .box {
-            margin-left: 145px;
-        }
-    }
-    @media only screen and (max-width: 770px) {
-        .box {
-            margin-left: 15px;
-        }
-    }
-    @media only screen and (max-width: 500px) {
-        #previous-button, #next-button {
-            display: none;
-        }
-    }
-    @media only screen and (max-width: 380px) {
-        .box {
-            margin-left: -5px;
-        }
-    }
-    @media only screen and (max-width: 323px) {
-        .box img {
-            width: 296px;
-            left: 0;
-        }
+
+    /* ========== 响应式 ========== */
+    @media (max-width: 768px) {
+        .photo-frame { padding: 70px 15px; }
+        .frame-title-text { font-size: 1.4rem; }
+        .frame-subtitle { font-size: 0.85rem; }
+        .caishenpic { width: 32px; height: 32px; }
     }
 </style>
 
-<div class="tag-title center-align">
-        <div class="miaoshus">
-            <!-- 福袋按钮 -->
-        <div class="caishendeng">        
-            <div class="guguxian">
-                <img class="caishenpic gugus" src="/medias/spring-img/jiaozi.png" />
-            </div>              
+<!-- ========== 统一的相框容器 ========== -->
+<div class="photo-frame-container">
+    <div class="photo-frame">
+        <!-- 框内标题 - 保留福袋样式 -->
+        <div class="frame-header">
+            <div class="frame-title-wrapper">
+                <div class="caishendeng">
+                    <div class="guguxian">
+                        <img class="caishenpic gugus" src="/medias/spring-img/jiaozi.png" alt="福袋" onerror="this.style.opacity='0.3'">
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <span class="frame-title-text">
+                        鹭岛风情
+                    </span>
+                    <br />
+                    <span class="frame-subtitle">
+                        " 这里有光影流年，还有两朵穿衣裳的云。 "
+                    </span>
+                </div>
+            </div>
         </div>
-        <!-- <div class="title center-align">
-            “ 
-                鹭岛风情
-              ”
-        </div> -->
-        <!-- <h3>“ 光影流年 ”</h3> -->
-        “ 这里有光影流年，还有两朵穿衣裳的云。”
+        
+        <!-- 框内照片区域 -->
+        <div class="frame-gallery">
+            
+                <div class="empty-message">📷 未找到照片，请检查配置</div>
+            
+        </div>
     </div>
 </div>
 
-<!-- 相册 -->
-<section class="gallery">
-    <div id="myGallery" class="my-gallery">
-        <div class="row">
-            <div class="box">
-            
-                
-                
-                                       
-                        <a href="images/1.jpg" data-caption="鹭岛风情">
-                            <img class="mat" src="/medias/loading.svg" data-src="images/1.jpg" alt="img"+0 >
-                        </a>                   
-                
-                                       
-                        <a href="images/2.jpg" data-caption="鹭岛风情">
-                            <img class="mat" src="/medias/loading.svg" data-src="images/2.jpg" alt="img"+1 >
-                        </a>                   
-                
-                                       
-                        <a href="images/3.jpg" data-caption="鹭岛风情">
-                            <img class="mat" src="/medias/loading.svg" data-src="images/3.jpg" alt="img"+2 >
-                        </a>                   
-                
-            
-            </div>
-        </div>
-    </div>
-</section>
-
+<!-- ========== 公共脚本 ========== -->
 <script>
-    baguetteBox.run('.gallery', {
-        // 配置参数
-        buttons:Boolean,//是否显示导航按钮。
-        noScrollbars:true,//是否在显示时隐藏滚动条。
-        titleTag:true,//是否使用图片上的title属性作为图片标题
-        async:true,//是否异步加载文件。
-    });
-
-    start()
-        $(window).on('scroll', function(){
-         start();
-    })
-
-    function start(){
-          //.not('[data-isLoaded]')选中已加载的图片不需要重新加载
-        $('.gallery img').not('[data-isLoaded]').each(function(){
-            var $node = $(this)
-            if( isShow($node) ){
-                loadImg($node);
-            }
-        });
-     }
-
-    //判断一个元素是不是出现在窗口(视野)
-    function isShow($node){
-        return $node.offset().top <= $(window).height() + $(window).scrollTop();
-    }
-    //加载图片
-    function loadImg($img){
-    //.attr(值)
-    //.attr(属性名称,值)
-        $img.attr('src', $img.attr('data-src')); //把data-src的值 赋值给src
-        $img.attr('data-isLoaded', 1);//已加载的图片做标记
-    }
+    (function() {
+        var photos = [];
+        var galleryStyle = 1;
+        console.log('📷 照片墙:', photos.length, '张 | 样式:', galleryStyle);
+        
+        // 配置 Lightbox
+        if (typeof lightbox !== 'undefined') {
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'albumLabel': '第 %1 张，共 %2 张',
+                'fadeDuration': 300,
+                'imageFadeDuration': 300,
+                'positionFromTop': 50,
+                'showImageNumberLabel': true,
+                'alwaysShowNavOnTouchDevices': true
+            });
+        }
+        
+        // 暗色模式
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark');
+        }
+    })();
 </script>
-
 
     <style>
   footer {
